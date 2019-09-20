@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Feature Limits</title>
-  <meta name="description" content="Demo page to showcase markdown">
+  <meta name="description" content="Demo page to showcase markdown NOTE: None of the information on this page applies to Jupyter Books. It is taken from the Markdowndocumentation, and is meant ...">
 
   <link rel="canonical" href="https://jupyter.org/jupyter-book/features/limits.html">
   <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://jupyter.org/jupyter-book/feed.xml">
@@ -16,24 +16,21 @@
   <meta property="og:url"         content="https://jupyter.org/jupyter-book/features/limits.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Feature Limits" />
-<meta property="og:description" content="Demo page to showcase markdown" />
-<meta property="og:image"       content="" />
+<meta property="og:description" content="Demo page to showcase markdown NOTE: None of the information on this page applies to Jupyter Books. It is taken from the Markdowndocumentation, and is meant ..." />
+<meta property="og:image"       content="https://jupyter.org/jupyter-book/images/logo/logo.png" />
+
+<meta name="twitter:card" content="summary">
 
 
   <script type="application/ld+json">
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage":
-    "https://jupyter.org/jupyter-book/features/limits.html",
-  "headline":
-    "Feature Limits",
-  "datePublished":
-    "2019-06-04T21:25:48-07:00",
-  "dateModified":
-    "2019-06-04T21:25:48-07:00",
-  "description":
-    "Demo page to showcase markdown",
+  "mainEntityOfPage": "https://jupyter.org/jupyter-book/features/limits.html",
+  "headline": "Feature Limits",
+  "datePublished": "2019-09-17T14:23:56-07:00",
+  "dateModified": "2019-09-17T14:23:56-07:00",
+  "description": "Demo page to showcase markdown NOTE: None of the information on this page applies to Jupyter Books. It is taken from the Markdowndocumentation, and is meant ...",
   "author": {
     "@type": "Person",
     "name": "The Jupyter Book Community"
@@ -59,15 +56,6 @@
   </script>
   <link rel="stylesheet" href="/jupyter-book/assets/css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
 
   <!-- <link rel="manifest" href="/manifest.json"> -->
   <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
@@ -80,6 +68,8 @@
 
   <!-- MathJax Config -->
   <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -88,14 +78,16 @@ MathJax.Hub.Config({
         processEscapes: true,
         processEnvironments: true
     },
-    CommonHTML: {
-        linebreaks: {
-            automatic: true,
-        },
-    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
 });
 </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
 
   <!-- DOM updating function -->
   <script>
@@ -124,19 +116,63 @@ initFunction = function(myfunc) {
   </script>
 
   <!-- Add AnchorJS to let headers be linked -->
-  <script src="/jupyter-book/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
   <script>
+const initAnchors = () => {
+  if (window.anchors === undefined) {
+    setTimeout(initAnchors, 250)
+    return
+  }
+  anchors.add("main h1, main h2, main h3, main h4")
+}
 
-initFunction(function () {
-    anchors.add("main h1, main h2, main h3, main h4")
-});
-
+initFunction(initAnchors);
 </script>
+
 
   <!-- Include Turbolinks to make page loads fast -->
   <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="/jupyter-book/assets/js/turbolinks.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
   <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Selectors for elements on the page -->
+  <script>
+/**
+ * Select various elements on the page for later use
+ */
+
+// IDs we'll attach to cells
+const codeCellId = index => `codecell${index}`
+const inputCellId = index => `inputcell${index}`
+
+pageElements = {}
+
+// All code cells
+findCodeCells = function() {
+    var codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre, div.text_cell_render div.highlight pre')
+    pageElements['codeCells'] = codeCells;
+
+    codeCells.forEach((codeCell, index) => {
+      const id = codeCellId(index)
+      codeCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findCodeCells);
+
+// All cells in general
+findInputCells = function() {
+    var inputCells = document.querySelectorAll('div.jb_cell')
+    pageElements['inputCells'] = inputCells;
+
+    inputCells.forEach((inputCell, index) => {
+        const id = inputCellId(index)
+        inputCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findInputCells);
+</script>
 
   <!-- Load nbinteract for widgets -->
   
@@ -159,7 +195,7 @@ const thebelabCellButton = id =>
 
 const addThebelabButtonToCodeCells =  () => {
 
-  const codeCells = document.querySelectorAll('div.input_area > div.highlighter-rouge:not(.output) pre')
+  const codeCells = document.querySelectorAll('div.input_area > div.highlight:not(.output) pre')
   codeCells.forEach((codeCell, index) => {
     const id = codeCellId(index)
     codeCell.setAttribute('id', id)
@@ -189,7 +225,7 @@ initFunction(addThebelabButtonToCodeCells);
       }
     }
 </script>
-<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js"></script>
+<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js" async></script>
 <script>
     /**
      * Add attributes to Thebelab blocks
@@ -275,9 +311,22 @@ initFunction(addThebelabButtonToCodeCells);
 
 
   <!-- Load the auto-generating TOC -->
-  <script src="/jupyter-book/assets/js/tocbot.min.js"  type="text/javascript"></script>
-  <script>
-var initToc = function () {
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+<script>
+const initToc = () => {
+  if (window.tocbot === undefined) {
+    setTimeout(initToc, 250)
+    return
+  }
+
+  // Check whether we have any sidebar content. If not, then show the sidebar earlier.
+  var SIDEBAR_CONTENT_TAGS = ['.tag_full_width', '.tag_popout'];
+  var sidebar_content_query = SIDEBAR_CONTENT_TAGS.join(', ')
+  if (document.querySelectorAll(sidebar_content_query).length === 0) {
+    document.querySelector('nav.onthispage').classList.add('no_sidebar_content')
+  }
+
+  // Initialize the TOC bot
   tocbot.init({
     tocSelector: 'nav.onthispage',
     contentSelector: '.c-textbook__content',
@@ -288,163 +337,17 @@ var initToc = function () {
     activeListItemClass: "",  // Not using
     activeLinkClass: "", // Not using
   });
-  tocbot.refresh();
+
 }
 initFunction(initToc);
 </script>
+
 
   <!-- Google analytics -->
   <script src="/jupyter-book/assets/js/ga.js" async></script>
 
   <!-- Clipboard copy button -->
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
-
-  <!-- Load JS that depends on site variables -->
-  <script>
-/**
- * Set up copy/paste for code blocks
- */
-const codeCellId = index => `codecell${index}`
-
-const clipboardButton = id =>
-  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
-    <img src="/jupyter-book/assets/images/copy-button.svg" alt="Copy to clipboard">
-  </a>`
-
-// Clears selected text since ClipboardJS will select the text when copying
-const clearSelection = () => {
-  if (window.getSelection) {
-    window.getSelection().removeAllRanges()
-  } else if (document.selection) {
-    document.selection.empty()
-  }
-}
-
-// Changes tooltip text for two seconds, then changes it back
-const temporarilyChangeTooltip = (el, newText) => {
-  const oldText = el.getAttribute('data-tooltip')
-  el.setAttribute('data-tooltip', newText)
-  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
-}
-
-const addCopyButtonToCodeCells = () => {
-  // If ClipboardJS hasn't loaded, wait a bit and try again. This
-  // happens because we load ClipboardJS asynchronously.
-  if (window.ClipboardJS === undefined) {
-    setTimeout(addCopyButtonToCodeCells, 250)
-    return
-  }
-
-  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
-  codeCells.forEach((codeCell, index) => {
-    const id = codeCellId(index)
-    codeCell.setAttribute('id', id)
-    if (document.getElementById("copy-button" + id) == null) {
-      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
-    }
-  })
-
-  const clipboard = new ClipboardJS('.copybtn')
-  clipboard.on('success', event => {
-    clearSelection()
-    temporarilyChangeTooltip(event.trigger, 'Copied!')
-  })
-
-  clipboard.on('error', event => {
-    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
-  })
-
-  // Get rid of clipboard before the next page visit to avoid memory leak
-  document.addEventListener('turbolinks:before-visit', () =>
-    clipboard.destroy()
-  )
-}
-
-initFunction(addCopyButtonToCodeCells);
-</script>
-
-
-  <!-- Hide cell code -->
-  <script>
-    /**
-    Add buttons to hide code cells
-    */
-
-
-    var setCodeCellVisibility = function (inputField, kind) {
-        // Update the image and class for hidden
-        var id = inputField.getAttribute('data-id');
-        var codeCell = document.querySelector(`#${id} div.highlight`);
-
-        if (kind === "visible") {
-            codeCell.classList.remove('hidden');
-            inputField.checked = true;
-        } else {
-            codeCell.classList.add('hidden');
-            inputField.checked = false;
-        }
-    }
-
-    var toggleCodeCellVisibility = function (event) {
-        // The label is clicked, and now we decide what to do based on the input field's clicked status
-        if (event.target.tagName === "LABEL") {
-            var inputField = event.target.previousElementSibling;
-        } else {
-            // It is the span inside the target
-            var inputField = event.target.parentElement.previousElementSibling;
-        }
-
-        if (inputField.checked === true) {
-            setCodeCellVisibility(inputField, "visible");
-        } else {
-            setCodeCellVisibility(inputField, "hidden");
-        }
-    }
-
-
-    // Button constructor
-    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
-
-    var addHideButton = function () {
-        // If a hide button is already added, don't add another
-        if (document.querySelector('div.hidecode input') !== null) {
-            return;
-        }
-
-        // Find the input cells and add a hide button
-        document.querySelectorAll('div.input_area').forEach(function (item, index) {
-            if (!item.classList.contains("hidecode")) {
-                // Skip the cell if it doesn't have a hidecode class
-                return;
-            }
-
-            const id = codeCellId(index)
-            item.setAttribute('id', id);
-            // Insert the button just inside the end of the next div
-            item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
-
-            // Set up the visibility toggle
-            hideLink = document.querySelector(`#${id} div.highlight + input + label`);
-            hideLink.addEventListener('click', toggleCodeCellVisibility)
-        });
-    }
-
-
-    // Initialize the hide buttos
-    var initHiddenCells = function () {
-        // Add hide buttons to the cells
-        addHideButton();
-
-        // Toggle the code cells that should be hidden
-        document.querySelectorAll('div.hidecode input').forEach(function (item) {
-            setCodeCellVisibility(item, 'hidden');
-            item.checked = true;
-        })
-    }
-
-    initFunction(initHiddenCells);
-
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
 
   <!-- Load custom website scripts -->
   <script src="/jupyter-book/assets/js/scripts.js" async></script>
@@ -598,7 +501,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
   <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="/jupyter-book/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
   <script>var initQuery = function() {
   // See if we have a search box
   var searchInput = document.querySelector('input#lunr_search');
@@ -684,6 +587,182 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 initFunction(initQuery);
 </script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/jupyter-book/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  pageElements['codeCells'].forEach((codeCell) => {
+    const id = codeCell.getAttribute('id')
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
+
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.tag_hide_input input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        pageElements['inputCells'].forEach(function (inputCell) {
+            if (!inputCell.classList.contains("tag_hide_input")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = inputCell.getAttribute('id')
+
+            // Insert the button just inside the end of the next div
+            inputCell.querySelector('div.input').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.inner_cell + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.tag_hide_input input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/jupyter-book/assets/css/styles.css",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
 </head>
 
   <body>
@@ -719,10 +798,6 @@ initFunction(initQuery);
 
       
     
-      
-      
-        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/jupyter-book/search.html">Search</a></li>
-        
       
       
 
@@ -775,7 +850,7 @@ initFunction(initQuery);
                   href="/jupyter-book/guide/03_build.html"
                 >
                   
-                  Build and publish your book
+                  Build HTML for each page of your book
                 </a>
 
                 
@@ -789,10 +864,10 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/04_faq.html"
+                  href="/jupyter-book/guide/04_publish.html"
                 >
                   
-                  FAQ
+                  Build and publish your book online
                 </a>
 
                 
@@ -806,7 +881,24 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/05_advanced.html"
+                  href="/jupyter-book/guide/05_faq.html"
+                >
+                  
+                  Frequently Asked Questions (FAQ)
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/jupyter-book/guide/06_advanced.html"
                 >
                   
                   How-to and advanced topics
@@ -924,10 +1016,27 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
+                  href="/jupyter-book/features/executing.html"
+                >
+                  
+                  Running each page when building your book
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
                   href="/jupyter-book/features/interactive_cells.html"
                 >
                   
-                  Adding interactivity to your book pages
+                  BETA - Adding interactivity to your book pages
                 </a>
 
                 
@@ -944,7 +1053,7 @@ initFunction(initQuery);
                   href="/jupyter-book/features/citations.html"
                 >
                   
-                  Citations and bibliographies
+                  BETA - Citations and bibliographies
                 </a>
 
                 
@@ -958,10 +1067,27 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/search.html"
+                  href="/jupyter-book/features/jupytext.html"
                 >
                   
-                  Searching your book
+                  BETA - Using Jupytext for text-based Notebook content
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/jupyter-book/features/layout.html"
+                >
+                  
+                  BETA - Controlling page layout
                 </a>
 
                 
@@ -979,6 +1105,56 @@ initFunction(initQuery);
                 >
                   
                   Feature Limits
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/jupyter-book/advanced/advanced.html"
+        >
+          
+          Advanced Topics
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/jupyter-book/advanced/circleci.html"
+                >
+                  
+                  Previewing or building your book with CircleCI
                 </a>
 
                 
@@ -1480,58 +1656,72 @@ initFunction(initQuery);
 </nav>
 
       
-      <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
-      <aside class="sidebar__right">
-          <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
-          <nav class="onthispage">
-          </nav>
-      </aside>
-      
-      <main class="c-textbook__page" tabindex="-1">
-          <div class="o-wrapper">
-            <div class="c-sidebar-toggle">
+      <div class="c-topbar" id="top-navbar">
   <!-- We show the sidebar by default so we use .is-active -->
-  <button
-    id="js-sidebar-toggle"
-    class="hamburger hamburger--arrowalt is-active"
-  >
-    <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
-    </span>
-    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
-  </button>
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <div class="download-buttons">
+        <a href="/jupyter-book/content/features/limits.md" download>
+        <button id="interact-button-download" class="interact-button">ORIG</button>
+        </a>
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+    </div>
 </div>
 
-            
+  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
 
-            <div class="c-textbook__content">
-              <h1 id="demo-page-to-showcase-markdown">Demo page to showcase markdown</h1>
+  
+  
 
-<h1 id="note-none-of-the-information-on-this-page-applies-to-jupyter-books">NOTE: None of the information on this page applies to Jupyter Books.</h1>
 
-<p>It is taken from the Markdown
+
+
+
+
+<a href="https://mybinder.org/v2/gh/jupyter/jupyter-book/gh-pages?filepath=content%2Ffeatures%2Flimits.md"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/jupyter-book/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/jupyter-book/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Demo-page-to-showcase-markdown">Demo page to showcase markdown<a class="anchor-link" href="#Demo-page-to-showcase-markdown"> </a></h1><h1 id="NOTE:-None-of-the-information-on-this-page-applies-to-Jupyter-Books.">NOTE: None of the information on this page applies to Jupyter Books.<a class="anchor-link" href="#NOTE:-None-of-the-information-on-this-page-applies-to-Jupyter-Books."> </a></h1><p>It is taken from the Markdown
 documentation, and is meant to give an idea of how Jupyter Book renders really long pages of
 very diverse content!</p>
-
-<h2 id="amount-of-content">Amount of Content</h2>
-
-<p>You should be able to put as much content, and as many headings, within each chapter as you want.
+<h2 id="Amount-of-Content">Amount of Content<a class="anchor-link" href="#Amount-of-Content"> </a></h2><p>You should be able to put as much content, and as many headings, within each chapter as you want.
 In order to enable this we allow the table of contents on the right hand side to be scrollable.
-All of the sections on here allow us to test that. And they’ll give you a full guide too all of markdown’s awesome features.</p>
-
-<p>The following test is all thanks to @adam-p’s great <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">wiki</a>.</p>
-
-<h1 id="markdown-cheatsheet">Markdown Cheatsheet</h1>
-<p>This is intended as a quick reference and showcase. For more complete info, see <a href="http://daringfireball.net/projects/markdown/">John Gruber’s original spec</a> and the <a href="http://github.github.com/github-flavored-markdown/">Github-flavored Markdown info page</a>.</p>
-
-<p>This cheatsheet is specifically <em>Markdown Here’s</em> version of Github-flavored Markdown. This differs slightly in styling and syntax from what Github uses, so what you see below might vary a little from what you get in a <em>Markdown Here</em> email, but it should be pretty close.</p>
-
+All of the sections on here allow us to test that. And they'll give you a full guide too all of markdown's awesome features.</p>
+<p>The following test is all thanks to @adam-p's great <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">wiki</a>.</p>
+<h1 id="Markdown-Cheatsheet">Markdown Cheatsheet<a class="anchor-link" href="#Markdown-Cheatsheet"> </a></h1><p>This is intended as a quick reference and showcase. For more complete info, see <a href="http://daringfireball.net/projects/markdown/">John Gruber's original spec</a> and the <a href="http://github.github.com/github-flavored-markdown/">Github-flavored Markdown info page</a>.</p>
+<p>This cheatsheet is specifically <em>Markdown Here's</em> version of Github-flavored Markdown. This differs slightly in styling and syntax from what Github uses, so what you see below might vary a little from what you get in a <em>Markdown Here</em> email, but it should be pretty close.</p>
 <p>You can play around with Markdown on our <a href="http://www.markdown-here.com/livedemo.html">live demo page</a>.</p>
-
-<p>(If you’re not a Markdown Here user, check out the <a href="./Markdown-Cheatsheet">Markdown Cheatsheet</a> that is not specific to MDH. But, really, you should also use Markdown Here, because it’s awesome. http://markdown-here.com)</p>
-
-<h5 id="table-of-contents">Table of Contents</h5>
-<p><a href="#headers">Headers</a>
+<h5 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents"> </a></h5><p><a href="#headers">Headers</a>
 <a href="#emphasis">Emphasis</a>
 <a href="#lists">Lists</a>
 <a href="#links">Links</a>
@@ -1544,12 +1734,10 @@ All of the sections on here allow us to test that. And they’ll give you a full
 <a href="#lines">Line Breaks</a>
 <a href="#videos">YouTube Videos</a>
 <a href="#tex">TeX Mathematical Formulae</a></p>
-
-<p><a name="headers"></a></p>
-
-<h2 id="headers">Headers</h2>
-
-<pre><code class="language-no-highlight"># H1
+<p><a name="headers"/></p>
+<h2 id="Headers">Headers<a class="anchor-link" href="#Headers"> </a></h2>
+<pre><code>no-highlight
+# H1
 ## H2
 ### H3
 #### H4
@@ -1562,48 +1750,26 @@ Alt-H1
 ======
 
 Alt-H2
-------
-</code></pre>
-
-<h1 id="h1">H1</h1>
-<h2 id="h2">H2</h2>
-<h3 id="h3">H3</h3>
-<h4 id="h4">H4</h4>
-<h5 id="h5">H5</h5>
-<h6 id="h6">H6</h6>
-
-<p>Alternatively, for H1 and H2, an underline-ish style:</p>
-
-<h1 id="alt-h1">Alt-H1</h1>
-
-<h2 id="alt-h2">Alt-H2</h2>
-
-<p><a name="emphasis"></a></p>
-
-<h2 id="emphasis">Emphasis</h2>
-
-<pre><code class="language-no-highlight">Emphasis, aka italics, with *asterisks* or _underscores_.
+------</code></pre>
+<h1 id="H1">H1<a class="anchor-link" href="#H1"> </a></h1><h2 id="H2">H2<a class="anchor-link" href="#H2"> </a></h2><h3 id="H3">H3<a class="anchor-link" href="#H3"> </a></h3><h4 id="H4">H4<a class="anchor-link" href="#H4"> </a></h4><h5 id="H5">H5<a class="anchor-link" href="#H5"> </a></h5><h6 id="H6">H6<a class="anchor-link" href="#H6"> </a></h6><p>Alternatively, for H1 and H2, an underline-ish style:</p>
+<h1 id="Alt-H1">Alt-H1<a class="anchor-link" href="#Alt-H1"> </a></h1><h2 id="Alt-H2">Alt-H2<a class="anchor-link" href="#Alt-H2"> </a></h2><p><a name="emphasis"/></p>
+<h2 id="Emphasis">Emphasis<a class="anchor-link" href="#Emphasis"> </a></h2>
+<pre><code>no-highlight
+Emphasis, aka italics, with *asterisks* or _underscores_.
 
 Strong emphasis, aka bold, with **asterisks** or __underscores__.
 
 Combined emphasis with **asterisks and _underscores_**.
 
-Strikethrough uses two tildes. ~~Scratch this.~~
-</code></pre>
-
+Strikethrough uses two tildes. ~~Scratch this.~~</code></pre>
 <p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>
-
 <p>Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.</p>
-
 <p>Combined emphasis with <strong>asterisks and <em>underscores</em></strong>.</p>
-
 <p>Strikethrough uses two tildes. <del>Scratch this.</del></p>
-
-<p><a name="lists"></a></p>
-
-<h2 id="lists">Lists</h2>
-
-<pre><code class="language-no-highlight">1. First ordered list item
+<p><a name="lists"/></p>
+<h2 id="Lists">Lists<a class="anchor-link" href="#Lists"> </a></h2>
+<pre><code>no-highlight
+1. First ordered list item
 2. Another item
   * Unordered sub-list.
 1. Actual numbers don't matter, just that it's a number
@@ -1614,38 +1780,31 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
 * Unordered list can use asterisks
 - Or minuses
-+ Or pluses
-</code></pre>
-
++ Or pluses</code></pre>
 <ol>
-  <li>First ordered list item</li>
-  <li>Another item
-    <ul>
-      <li>Unordered sub-list.</li>
-    </ul>
-  </li>
-  <li>Actual numbers don’t matter, just that it’s a number</li>
-  <li>Ordered sub-list</li>
-  <li>
-    <p>And another item.</p>
-
-    <p>Some text that should be aligned with the above item.</p>
-  </li>
-</ol>
-
-<ul>
-  <li>Unordered list can use asterisks</li>
-  <li>Or minuses</li>
-  <li>Or pluses</li>
+<li>First ordered list item</li>
+<li>Another item<ul>
+<li>Unordered sub-list.</li>
 </ul>
+</li>
+<li>Actual numbers don't matter, just that it's a number<ol>
+<li>Ordered sub-list</li>
+</ol>
+</li>
+<li><p>And another item.</p>
+<p>Some text that should be aligned with the above item.</p>
+</li>
+</ol>
+<ul>
+<li>Unordered list can use asterisks</li>
+<li>Or minuses</li>
+<li>Or pluses</li>
+</ul>
+<p><a name="links"/></p>
+<h2 id="Links">Links<a class="anchor-link" href="#Links"> </a></h2><p>There are two ways to create links.</p>
 
-<p><a name="links"></a></p>
-
-<h2 id="links">Links</h2>
-
-<p>There are two ways to create links.</p>
-
-<pre><code class="language-no-highlight">[I'm an inline-style link](https://www.google.com)
+<pre><code>no-highlight
+[I'm an inline-style link](https://www.google.com)
 
 [I'm a reference-style link][Arbitrary case-insensitive reference text]
 
@@ -1661,28 +1820,19 @@ Some text to show that the reference links can follow later.
 
 [arbitrary case-insensitive reference text]: https://www.mozilla.org
 [1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
-</code></pre>
-
-<p><a href="https://www.google.com">I’m an inline-style link</a></p>
-
-<p><a href="https://www.mozilla.org">I’m a reference-style link</a></p>
-
+[link text itself]: http://www.reddit.com</code></pre>
+<p><a href="https://www.google.com">I'm an inline-style link</a></p>
+<p><a href="https://www.mozilla.org">I'm a reference-style link</a></p>
 <p><a href="http://slashdot.org">You can use numbers for reference-style link definitions</a></p>
-
 <p>Or leave it empty and use the <a href="http://www.reddit.com">link text itself</a></p>
-
 <p>URLs and URLs in angle brackets will automatically get turned into links.
-http://www.example.com or <a href="http://www.example.com">http://www.example.com</a> and sometimes
+<a href="http://www.example.com">http://www.example.com</a> or <a href="http://www.example.com">http://www.example.com</a> and sometimes
 example.com (but not on Github, for example).</p>
-
 <p>Some text to show that the reference links can follow later.</p>
-
-<p><a name="images"></a></p>
-
-<h2 id="images">Images</h2>
-
-<pre><code class="language-no-highlight">Here's our logo (hover to see the title text):
+<p><a name="images"/></p>
+<h2 id="Images">Images<a class="anchor-link" href="#Images"> </a></h2>
+<pre><code>no-highlight
+Here's our logo (hover to see the title text):
 
 Inline-style:
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
@@ -1690,30 +1840,19 @@ Inline-style:
 Reference-style:
 ![alt text][logo]
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
-</code></pre>
-
-<p>Here’s our logo (hover to see the title text):</p>
-
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"</code></pre>
+<p>Here's our logo (hover to see the title text):</p>
 <p>Inline-style:
-<img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="Logo Title Text 1" /></p>
-
+<img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="Logo Title Text 1"></p>
 <p>Reference-style:
-<img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="Logo Title Text 2" /></p>
+<img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="Logo Title Text 2"></p>
+<p><a name="code"/></p>
+<h2 id="Code-and-Syntax-Highlighting">Code and Syntax Highlighting<a class="anchor-link" href="#Code-and-Syntax-Highlighting"> </a></h2><p>Code blocks are part of the Markdown spec, but syntax highlighting isn't. However, many renderers -- like Github's and <em>Markdown Here</em> -- support syntax highlighting. <em>Markdown Here</em> supports highlighting for dozens of languages (and not-really-languages, like diffs and HTTP headers); to see the complete list, and how to write the language names, see the <a href="http://softwaremaniacs.org/media/soft/highlight/test.html">highlight.js demo page</a>.</p>
 
-<p><a name="code"></a></p>
-
-<h2 id="code-and-syntax-highlighting">Code and Syntax Highlighting</h2>
-
-<p>Code blocks are part of the Markdown spec, but syntax highlighting isn’t. However, many renderers – like Github’s and <em>Markdown Here</em> – support syntax highlighting. <em>Markdown Here</em> supports highlighting for dozens of languages (and not-really-languages, like diffs and HTTP headers); to see the complete list, and how to write the language names, see the <a href="http://softwaremaniacs.org/media/soft/highlight/test.html">highlight.js demo page</a>.</p>
-
-<pre><code class="language-no-highlight">Inline `code` has `back-ticks around` it.
-</code></pre>
-
-<p>Inline <code class="highlighter-rouge">code</code> has <code class="highlighter-rouge">back-ticks around</code> it.</p>
-
-<p>Blocks of code are either fenced by lines with three back-ticks <code>```</code>, or are indented with four spaces. I recommend only using the fenced code blocks – they’re easier and only they support syntax highlighting.</p>
-
+<pre><code>no-highlight
+Inline `code` has `back-ticks around` it.</code></pre>
+<p>Inline <code>code</code> has <code>back-ticks around</code> it.</p>
+<p>Blocks of code are either fenced by lines with three back-ticks <code>```</code>, or are indented with four spaces. I recommend only using the fenced code blocks -- they're easier and only they support syntax highlighting.</p>
 <pre lang="no-highlight"><code>```javascript
 var s = "JavaScript syntax highlighting";
 alert(s);
@@ -1728,29 +1867,21 @@ print s
 No language indicated, so no syntax highlighting.
 But let's throw in a &lt;b&gt;tag&lt;/b&gt;.
 ```
-</code></pre>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">"JavaScript syntax highlighting"</span><span class="p">;</span>
+</code></pre><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;JavaScript syntax highlighting&quot;</span><span class="p">;</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
-</code></pre></div></div>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s">"Python syntax highlighting"</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Python syntax highlighting&quot;</span>
 <span class="k">print</span> <span class="n">s</span>
-</code></pre></div></div>
+</pre></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>No language indicated, so no syntax highlighting in Markdown Here (varies on Github).
-But let's throw in a &lt;b&gt;tag&lt;/b&gt;.
-</code></pre></div></div>
-
+<pre><code>No language indicated, so no syntax highlighting in Markdown Here (varies on Github).
+But let's throw in a &lt;b&gt;tag&lt;/b&gt;.</code></pre>
 <p>Again, to see what languages are available for highlighting, and how to write those language names, see the <a href="http://softwaremaniacs.org/media/soft/highlight/test.html">highlight.js demo page</a>.</p>
+<p><a name="tables"/></p>
+<h2 id="Tables">Tables<a class="anchor-link" href="#Tables"> </a></h2><p>Tables aren't part of the core Markdown spec, but they are part of GFM and <em>Markdown Here</em> supports them. They are an easy way of adding tables to your email -- a task that would otherwise require copy-pasting from another application.</p>
 
-<p><a name="tables"></a></p>
-
-<h2 id="tables">Tables</h2>
-
-<p>Tables aren’t part of the core Markdown spec, but they are part of GFM and <em>Markdown Here</em> supports them. They are an easy way of adding tables to your email – a task that would otherwise require copy-pasting from another application.</p>
-
-<pre><code class="language-no-highlight">Colons can be used to align columns.
+<pre><code>no-highlight
+Colons can be used to align columns.
 
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
@@ -1763,120 +1894,89 @@ The outer pipes (|) are optional, and you don't need to make the raw Markdown li
 Markdown | Less | Pretty
 --- | --- | ---
 *Still* | `renders` | **nicely**
-1 | 2 | 3
-</code></pre>
-
+1 | 2 | 3</code></pre>
 <p>Colons can be used to align columns.</p>
-
 <table>
-  <thead>
-    <tr>
-      <th>Tables</th>
-      <th style="text-align: center">Are</th>
-      <th style="text-align: right">Cool</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>col 3 is</td>
-      <td style="text-align: center">right-aligned</td>
-      <td style="text-align: right">$1600</td>
-    </tr>
-    <tr>
-      <td>col 2 is</td>
-      <td style="text-align: center">centered</td>
-      <td style="text-align: right">$12</td>
-    </tr>
-    <tr>
-      <td>zebra stripes</td>
-      <td style="text-align: center">are neat</td>
-      <td style="text-align: right">$1</td>
-    </tr>
-  </tbody>
+<thead><tr>
+<th>Tables</th>
+<th style="text-align:center">Are</th>
+<th style="text-align:right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col 3 is</td>
+<td style="text-align:center">right-aligned</td>
+<td style="text-align:right">$1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td style="text-align:center">centered</td>
+<td style="text-align:right">$12</td>
+</tr>
+<tr>
+<td>zebra stripes</td>
+<td style="text-align:center">are neat</td>
+<td style="text-align:right">$1</td>
+</tr>
+</tbody>
 </table>
-
+<p>The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.</p>
 <table>
-  <tbody>
-    <tr>
-      <td>The outer pipes (</td>
-      <td>) are optional, and you don’t need to make the raw Markdown line up prettily. You can also use inline Markdown.</td>
-    </tr>
-  </tbody>
+<thead><tr>
+<th>Markdown</th>
+<th>Less</th>
+<th>Pretty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Still</em></td>
+<td><code>renders</code></td>
+<td><strong>nicely</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
 </table>
-
-<table>
-  <thead>
-    <tr>
-      <th>Markdown</th>
-      <th>Less</th>
-      <th>Pretty</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><em>Still</em></td>
-      <td><code class="highlighter-rouge">renders</code></td>
-      <td><strong>nicely</strong></td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><a name="blockquotes"></a></p>
-
-<h2 id="blockquotes">Blockquotes</h2>
-
-<pre><code class="language-no-highlight">&gt; Blockquotes are very handy in email to emulate reply text.
+<p><a name="blockquotes"/></p>
+<h2 id="Blockquotes">Blockquotes<a class="anchor-link" href="#Blockquotes"> </a></h2>
+<pre><code>no-highlight
+&gt; Blockquotes are very handy in email to emulate reply text.
 &gt; This line is part of the same quote.
 
 Quote break.
 
-&gt; This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
-</code></pre>
-
-<blockquote>
-  <p>Blockquotes are very handy in email to emulate reply text.
+&gt; This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.</code></pre>
+<blockquote><p>Blockquotes are very handy in email to emulate reply text.
 This line is part of the same quote.</p>
 </blockquote>
-
 <p>Quote break.</p>
-
-<blockquote>
-  <p>This is a very long line that will still be quoted properly when it wraps. Oh boy let’s keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can <em>put</em> <strong>Markdown</strong> into a blockquote.</p>
+<blockquote><p>This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can <em>put</em> <strong>Markdown</strong> into a blockquote.</p>
 </blockquote>
+<p><a name="html"/></p>
+<h2 id="Inline-HTML">Inline HTML<a class="anchor-link" href="#Inline-HTML"> </a></h2><p>You can also use raw HTML in your Markdown, and it'll mostly work pretty well.</p>
 
-<p><a name="html"></a></p>
-
-<h2 id="inline-html">Inline HTML</h2>
-
-<p>You can also use raw HTML in your Markdown, and it’ll mostly work pretty well.</p>
-
-<pre><code class="language-no-highlight">&lt;dl&gt;
+<pre><code>no-highlight
+&lt;dl&gt;
   &lt;dt&gt;Definition list&lt;/dt&gt;
   &lt;dd&gt;Is something people use sometimes.&lt;/dd&gt;
 
   &lt;dt&gt;Markdown in HTML&lt;/dt&gt;
   &lt;dd&gt;Does *not* work **very** well. Use HTML &lt;em&gt;tags&lt;/em&gt;.&lt;/dd&gt;
-&lt;/dl&gt;
-</code></pre>
-
+&lt;/dl&gt;</code></pre>
 <dl>
   <dt>Definition list</dt>
   <dd>Is something people use sometimes.</dd>
 
   <dt>Markdown in HTML</dt>
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-
-<p><a name="hr"></a></p>
-
-<h2 id="horizontal-rule">Horizontal Rule</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Three or more...
+</dl><p><a name="hr"/></p>
+<h2 id="Horizontal-Rule">Horizontal Rule<a class="anchor-link" href="#Horizontal-Rule"> </a></h2>
+<pre><code>Three or more...
 
 ---
 
@@ -1888,276 +1988,198 @@ Asterisks
 
 ___
 
-Underscores
-</code></pre></div></div>
-
-<p>Three or more…</p>
-
-<hr />
-
+Underscores</code></pre>
+<p>Three or more...</p>
+<hr>
 <p>Hyphens</p>
-
-<hr />
-
+<hr>
 <p>Asterisks</p>
-
-<hr />
-
+<hr>
 <p>Underscores</p>
-
-<p><a name="lines"></a></p>
-
-<h2 id="line-breaks">Line Breaks</h2>
-
-<p>My basic recommendation for learning how line breaks work is to experiment and discover – hit &lt;Enter&gt; once (i.e., insert one newline), then hit it twice (i.e., insert two newlines), see what happens. You’ll soon learn to get what you want. “Markdown Toggle” is your friend.</p>
-
+<p><a name="lines"/></p>
+<h2 id="Line-Breaks">Line Breaks<a class="anchor-link" href="#Line-Breaks"> </a></h2><p>My basic recommendation for learning how line breaks work is to experiment and discover -- hit &lt;Enter&gt; once (i.e., insert one newline), then hit it twice (i.e., insert two newlines), see what happens. You'll soon learn to get what you want. "Markdown Toggle" is your friend.</p>
 <p>Here are some things to try out:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Here's a line for us to start with.
+<pre><code>Here's a line for us to start with.
 
 This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
 
 This line is also a separate paragraph, but...
-This line is only separated by a single newline, so it's a separate line in the *same paragraph*.
-</code></pre></div></div>
-
-<p>Here’s a line for us to start with.</p>
-
+This line is only separated by a single newline, so it's a separate line in the *same paragraph*.</code></pre>
+<p>Here's a line for us to start with.</p>
 <p>This line is separated from the one above by two newlines, so it will be a <em>separate paragraph</em>.</p>
+<p>This line is also begins a separate paragraph, but...
+This line is only separated by a single newline, so it's a separate line in the <em>same paragraph</em>.</p>
+<p>(Technical note: <em>Markdown Here</em> uses GFM line breaks, so there's no need to use MD's two-space line breaks.)</p>
+<p><a name="videos"/></p>
+<h2 id="YouTube-Videos">YouTube Videos<a class="anchor-link" href="#YouTube-Videos"> </a></h2><p>They can't be added directly but you can add an image with a link to the video like this:</p>
 
-<p>This line is also begins a separate paragraph, but…
-This line is only separated by a single newline, so it’s a separate line in the <em>same paragraph</em>.</p>
-
-<p>(Technical note: <em>Markdown Here</em> uses GFM line breaks, so there’s no need to use MD’s two-space line breaks.)</p>
-
-<p><a name="videos"></a></p>
-
-<h2 id="youtube-videos">YouTube Videos</h2>
-
-<p>They can’t be added directly but you can add an image with a link to the video like this:</p>
-
-<pre><code class="language-no-highlight">&lt;a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=YOUTUBE_VIDEO_ID_HERE
+<pre><code>no-highlight
+&lt;a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=YOUTUBE_VIDEO_ID_HERE
 " target="_blank"&gt;&lt;img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg"
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /&gt;&lt;/a&gt;
-</code></pre>
-
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /&gt;&lt;/a&gt;</code></pre>
 <p>Or, in pure Markdown, but losing the image sizing and border:</p>
 
-<pre><code class="language-no-highlight">[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
-</code></pre>
-
-<p><a name="tex"></a></p>
-
-<h2 id="tex-mathematical-formulae">TeX Mathematical Formulae</h2>
-
-<p>A full description of TeX math symbols is beyond the scope of this cheatsheet. Here’s a <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">good reference</a>, and you can try stuff out on <a href="https://www.codecogs.com/latex/eqneditor.php">CodeCogs</a>. You can also play with formulae in the Markdown Here options page.</p>
-
+<pre><code>no-highlight
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)</code></pre>
+<p><a name="tex"/></p>
+<h2 id="TeX-Mathematical-Formulae">TeX Mathematical Formulae<a class="anchor-link" href="#TeX-Mathematical-Formulae"> </a></h2><p>A full description of TeX math symbols is beyond the scope of this cheatsheet. Here's a <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">good reference</a>, and you can try stuff out on <a href="https://www.codecogs.com/latex/eqneditor.php">CodeCogs</a>. You can also play with formulae in the Markdown Here options page.</p>
 <p>Here are some examples to try out:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$-b \pm \sqrt{b^2 - 4ac} \over 2a$
+<pre><code>$-b \pm \sqrt{b^2 - 4ac} \over 2a$
 $x = a_0 + \frac{1}{a_1 + \frac{1}{a_2 + \frac{1}{a_3 + a_4}}}$
-$\forall x \in X, \quad \exists y \leq \epsilon$
-</code></pre></div></div>
-
-<p>The beginning and ending dollar signs (<code class="highlighter-rouge">$</code>) are the delimiters for the TeX markup.</p>
-
-<h2 id="build-the-books-site-html-locally">Build the book’s site HTML locally</h2>
-
-<p>Once you’ve generated the markdown for your notebooks and installed the
-necessary dependencies. You are ready to build your site HTML.</p>
-
+$\forall x \in X, \quad \exists y \leq \epsilon$</code></pre>
+<p>The beginning and ending dollar signs (<code>$</code>) are the delimiters for the TeX markup.</p>
+<h2 id="Build-the-book's-HTML-locally">Build the book's HTML locally<a class="anchor-link" href="#Build-the-book's-HTML-locally"> </a></h2><p>Once you've generated the markdown for your notebooks and installed the
+necessary dependencies. You are ready to build your book HTML.</p>
 <p>Ensure that your notebooks have been converted to markdown, there should be a
-collection of them in <code class="highlighter-rouge">_build/</code>.</p>
-
-<p>In order to locally build your site’s HTML with Jekyll, you’ll need to either install
+collection of them in <code>_build/</code>.</p>
+<p>In order to locally build your book's HTML with Jekyll, you'll need to either install
 a container software (Docker or Singularity) or Ruby.</p>
-
-<p>In our experience, we’ve found that <a href="https://www.docker.com/resources/what-container">containers</a>
+<p>In our experience, we've found that <a href="https://www.docker.com/resources/what-container">containers</a>
 provide an easier installation for most systems.
 If you are developing on a system where you have administrator privileges
-(i.e., you have <code class="highlighter-rouge">root</code> permissions), we recommend you use <a href="https://docs.docker.com/get-started/">Docker</a>.</p>
-
+(i.e., you have <code>root</code> permissions), we recommend you use <a href="https://docs.docker.com/get-started/">Docker</a>.</p>
 <p>We also provide instructions for using <a href="https://www.sylabs.io/guides/2.6/user-guide/quick_start.html">Singularity</a>,
 an alternate containerization software for systems where you do not have administrator privileges.
 To learn more about using containers, please see the
 <a href="https://neurohackweek.github.io/docker-for-scientists/">Docker for scientists guide</a>.</p>
-
-<h3 id="building-your-site-locally-with-containers-docker">Building your site locally with Containers: Docker</h3>
-
-<p>First, you’ll need to make sure you have Docker installed.
+<h3 id="Building-your-site-locally-with-Containers:-Docker">Building your site locally with Containers: Docker<a class="anchor-link" href="#Building-your-site-locally-with-Containers:-Docker"> </a></h3><p>First, you'll need to make sure you have Docker installed.
 There are <a href="https://hub.docker.com/search/?type=edition&amp;offering=community">installation instructions for each operating system</a>
 to guide you through this process.</p>
-
 <p>Once Docker is available on your system, you can build the image locally with:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull emdupre/jupyter-book
-</code></pre></div></div>
-
+<div class="highlight"><pre><span></span>docker pull emdupre/jupyter-book
+</pre></div>
 <p>You can then access this image with:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> <span class="nt">--security-opt</span> label:disable  <span class="se">\</span>
-   <span class="nt">-v</span> /full/path/to/your/book:/srv/jekyll <span class="se">\</span>
-   <span class="nt">-p</span> 4000:4000 <span class="se">\</span>
-   <span class="nt">-it</span> <span class="nt">-u</span> 1000:1000 <span class="se">\</span>
-   emdupre/jupyter-book bundle <span class="nb">exec </span>jekyll serve <span class="nt">--host</span> 0.0.0.0
-</code></pre></div></div>
-
-<p>If you navigate to <code class="highlighter-rouge">http://0.0.0.0:4000/jupyter-book/</code> in your browser,
+<div class="highlight"><pre><span></span>docker run --rm --security-opt label:disable  <span class="se">\</span>
+   -v /full/path/to/your/book:/srv/jekyll <span class="se">\</span>
+   -p <span class="m">4000</span>:4000 <span class="se">\</span>
+   -it -u <span class="m">1000</span>:1000 <span class="se">\</span>
+   emdupre/jupyter-book bundle <span class="nb">exec</span> jekyll serve --host <span class="m">0</span>.0.0.0
+</pre></div>
+<p>If you navigate to <code>http://0.0.0.0:4000/jupyter-book/</code> in your browser,
 you should see a preview copy of your book.
 If you instead see an error, please try to update your local book;
 see <a href="https://jupyter.org/jupyter-book/guide/04_faq.html#how-can-i-update-my-book">the Jupyter Book FAQ section</a>
 for more details on how to do so.</p>
-
-<h3 id="building-your-site-locally-with-containers-singularity">Building your site locally with Containers: Singularity</h3>
-
-<p>If you are on a system where you do not have administrator privileges (such as a shared
+<h3 id="Building-your-site-locally-with-Containers:-Singularity">Building your site locally with Containers: Singularity<a class="anchor-link" href="#Building-your-site-locally-with-Containers:-Singularity"> </a></h3><p>If you are on a system where you do not have administrator privileges (such as a shared
 computing cluster), you will not be able to use Docker.
 Instead, you can use Singularity.
-First, you’ll need to check with your resource manager that Singularity is available
+First, you'll need to check with your resource manager that Singularity is available
 on your system.</p>
-
 <p>You can then create a Jupyter Book Singularity image using:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>singularity build jupyter-book.simg docker://emdupre/jupyter-book
-</code></pre></div></div>
-
+<div class="highlight"><pre><span></span>singularity build jupyter-book.simg docker://emdupre/jupyter-book
+</pre></div>
 <p>Next, you can access this image with:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>singularity run <span class="nt">-B</span> /full/path/to/your/book:/srv/jekyll <span class="se">\</span>
-    <span class="nt">--pwd</span> /srv/jekyll <span class="se">\</span>
-    jupyter-book.simg bundle <span class="nb">exec </span>jekyll serve
-</code></pre></div></div>
-
-<p>And that’s it! If you navigate to <code class="highlighter-rouge">http://127.0.0.1:4000/jupyter-book/</code> in your browser,
+<div class="highlight"><pre><span></span>singularity run -B /full/path/to/your/book:/srv/jekyll <span class="se">\</span>
+    --pwd /srv/jekyll <span class="se">\</span>
+    jupyter-book.simg bundle <span class="nb">exec</span> jekyll serve
+</pre></div>
+<p>And that's it! If you navigate to <code>http://127.0.0.1:4000/jupyter-book/</code> in your browser,
 you should see a preview copy of your book.</p>
-
-<h3 id="building-your-site-locally-with-ruby">Building your site locally with Ruby</h3>
-
-<p>You can also choose to build your site locally without a container.
-In this case, you’ll need Ruby, an open-source programming language, to build your site’s
+<h3 id="Building-your-site-locally-with-Ruby">Building your site locally with Ruby<a class="anchor-link" href="#Building-your-site-locally-with-Ruby"> </a></h3><p>You can also choose to build your site locally without a container.
+In this case, you'll need Ruby, an open-source programming language, to build your site's
 HTML with Jekyll. The easiest way to install Ruby on <em>nix systems is to use
-the *<code class="highlighter-rouge">conda</code></em> package manager:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda install <span class="nt">-c</span> conda-forge ruby
-</code></pre></div></div>
+the </em><code>conda</code>* package manager:</p>
+<div class="highlight"><pre><span></span>conda install -c conda-forge ruby
+</pre></div>
 <p>Once you have Ruby installed, run</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make install
-</code></pre></div></div>
-
+<div class="highlight"><pre><span></span>make install
+</pre></div>
 <p>which will install Bundler (a Ruby dependency management tool) and then install the plugins
 needed to build the site for your book.</p>
-
 <p>You can then build the site locally by running:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make site
-</code></pre></div></div>
+<pre><code>make site</code></pre>
+<p>Alternatively, you can preview your book's site locally by running this command:</p>
 
-<p>Alternatively, you can preview your book’s site locally by running this command:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make serve
-</code></pre></div></div>
-
+<pre><code>make serve</code></pre>
 <p>This should open up a port on your computer with a live version of the book.</p>
-
-<h3 id="when-should-you-build-the-html-locally">When should you build the HTML locally?</h3>
-
-<p>You might ask: if GitHub pages can build my site automatically from the markdown files, why
+<h3 id="When-should-you-build-the-HTML-locally?">When should you build the HTML locally?<a class="anchor-link" href="#When-should-you-build-the-HTML-locally?"> </a></h3><p>You might ask: if GitHub pages can build my site automatically from the markdown files, why
 build it locally? The main reason for this is that you get more flexibility by building locally
 and serving raw HTML, as opposed to auto-building the site with GitHub-pages.</p>
-
-<p>In particular, if you wish to use any <strong>extra Jekyll plugins</strong>, such as the <code class="highlighter-rouge">jekyll-scholar</code> plugin that
+<p>In particular, if you wish to use any <strong>extra Jekyll plugins</strong>, such as the <code>jekyll-scholar</code> plugin that
 enables you to add citations and bibliographies, then you need to build your site
-locally as HTML. GitHub-pages doesn’t let you enable any extra plugins if it auto-builds your site.</p>
-
-<h2 id="create-an-online-repository-for-your-book">Create an <em>online</em> repository for your book</h2>
-
-<p>You’ve created your book on your own computer, but you haven’t yet added it
+locally as HTML. GitHub-pages doesn't let you enable any extra plugins if it auto-builds your site.</p>
+<h2 id="Create-an-online-repository-for-your-book">Create an <em>online</em> repository for your book<a class="anchor-link" href="#Create-an-online-repository-for-your-book"> </a></h2><p>You've created your book on your own computer, but you haven't yet added it
 online. This section covers the steps to create your own GitHub repository,
-and to add your book’s content to it.</p>
-
+and to add your book's content to it.</p>
 <ol>
-  <li>First, log-in to GitHub, then go to the “create a new repository” page:</li>
+<li>First, log-in to GitHub, then go to the "create a new repository" page:</li>
 </ol>
-
-<p>https://github.com/new</p>
-
+<p><a href="https://github.com/new">https://github.com/new</a></p>
 <ol>
-  <li>
-    <p>Next, add a name and description for your book. You can choose whatever
-initialization you’d like.</p>
-  </li>
-  <li>
-    <p>Now, clone the empty repository to your computer:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/&lt;my-org&gt;/&lt;my-book-name&gt;
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>Copy all of your book files and folders (what was created when you ran <code class="highlighter-rouge">jupyter-book create mybook</code>)
-into the new repository. For example, if you created your book locally with <code class="highlighter-rouge">jupyter-book create mylocalbook</code>
-and your online repository is called <code class="highlighter-rouge">myonlinebook</code>, the command would be:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp <span class="nt">-r</span> mylocalbook/<span class="k">*</span> myonlinebook/
-</code></pre></div>    </div>
-
-    <p>This will copy over the local book files into the online book folder.</p>
-  </li>
-  <li>
-    <p>Commit the new files to the repository in <code class="highlighter-rouge">myonlinebook/</code>:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>myonlinebook
-git add ./<span class="k">*</span>
-git commit <span class="nt">-m</span> <span class="s2">"adding my first book!"</span>
+<li><p>Next, add a name and description for your book. You can choose whatever
+initialization you'd like.</p>
+</li>
+<li><p>Now, clone the empty repository to your computer:</p>
+<div class="highlight"><pre><span></span>git clone https://github.com/&lt;my-org&gt;/&lt;my-book-name&gt;
+</pre></div>
+</li>
+<li><p>Copy all of your book files and folders (what was created when you ran <code>jupyter-book create mybook</code>)
+into the new repository. For example, if you created your book locally with <code>jupyter-book create mylocalbook</code>
+and your online repository is called <code>myonlinebook</code>, the command would be:</p>
+<div class="highlight"><pre><span></span>cp -r mylocalbook/* myonlinebook/
+</pre></div>
+<p>This will copy over the local book files into the online book folder.</p>
+</li>
+<li><p>Commit the new files to the repository in <code>myonlinebook/</code>:</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> myonlinebook
+git add ./*
+git commit -m <span class="s2">&quot;adding my first book!&quot;</span>
 git push
-</code></pre></div>    </div>
-  </li>
+</pre></div>
+</li>
 </ol>
-
-<p>That’s it!</p>
-
-<h2 id="publish-your-book-online-with-github-pages">Publish your book online with GitHub Pages</h2>
-
-<p>Once you’ve built the markdown for your book (in <code class="highlighter-rouge">_build</code>) or built the HTML
-for your book (in <code class="highlighter-rouge">_site</code>), you can push your book contents to GitHub so that
+<p>That's it!</p>
+<h2 id="Publish-your-book-online-with-GitHub-Pages">Publish your book online with GitHub Pages<a class="anchor-link" href="#Publish-your-book-online-with-GitHub-Pages"> </a></h2><p>Once you've built the markdown for your book (in <code>_build</code>) or built the HTML
+for your book (in <code>_site</code>), you can push your book contents to GitHub so that
 others can access your book. To do so, follow these steps:</p>
-
 <ol>
-  <li>Confirm that your site files are built. You should see a
-collection of markdown files/folders in the <code class="highlighter-rouge">_build</code> folder,
-or a collection of HTML in your <code class="highlighter-rouge">_site/</code> folder.</li>
-  <li>Commit and push the changes to your repository.</li>
-  <li>
-    <p>Enable GitHub site building for your repository.</p>
-
-    <p>From your GitHub repository, click <code class="highlighter-rouge">Settings</code> then scroll down to the
-<code class="highlighter-rouge">GitHub Pages</code> section. You should see the message <code class="highlighter-rouge">Your site is published at &lt;YOUR-URL&gt;</code>.
-Ensure that you’re building from the correct folder.</p>
-  </li>
-  <li>Go to the URL listed at <code class="highlighter-rouge">&lt;YOUR-URL&gt;</code> and you should see your live site.</li>
+<li>Confirm that your site files are built. You should see a
+collection of markdown files/folders in the <code>_build</code> folder,
+or a collection of HTML in your <code>_site/</code> folder.</li>
+<li>Commit and push the changes to your repository.</li>
+<li><p>Enable GitHub site building for your repository.</p>
+<p>From your GitHub repository, click <code>Settings</code> then scroll down to the
+<code>GitHub Pages</code> section. You should see the message <code>Your site is published at &lt;YOUR-URL&gt;</code>.
+Ensure that you're building from the correct folder.</p>
+</li>
+<li><p>Go to the URL listed at <code>&lt;YOUR-URL&gt;</code> and you should see your live site.</p>
+</li>
 </ol>
 
-              <nav class="c-page__nav">
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+            </div>
+            <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/jupyter-book/features/search">
-      〈 <span class="u-margin-right-tiny"></span> Searching your book
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/jupyter-book/features/layout.html">
+      〈 <span class="u-margin-right-tiny"></span> BETA - Controlling page layout
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="https://github.com/jupyter/jupyter-book">
-      GitHub repository <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/jupyter-book/advanced/advanced.html">
+      Advanced Topics <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
 
-            </div>
-          </div>
+            <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
         </div>
       </main>
     </div>
-
   </body>
 </html>

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>FAQ</title>
-  <meta name="description" content="The following are some common issues and questions that have arisen whenbuilding your textbook with Jekyll.">
+  <meta name="description" content="The following are some common issues and questions that have arisen whenbuilding your textbook with Jekyll.How can I update my book? Sometimes Jupyter Book w...">
 
   <link rel="canonical" href="https://jupyter.org/jupyter-book/guide/04_faq.html">
   <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://jupyter.org/jupyter-book/feed.xml">
@@ -16,24 +16,21 @@
   <meta property="og:url"         content="https://jupyter.org/jupyter-book/guide/04_faq.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="FAQ" />
-<meta property="og:description" content="The following are some common issues and questions that have arisen whenbuilding your textbook with Jekyll." />
-<meta property="og:image"       content="" />
+<meta property="og:description" content="The following are some common issues and questions that have arisen whenbuilding your textbook with Jekyll.How can I update my book? Sometimes Jupyter Book w..." />
+<meta property="og:image"       content="https://jupyter.org/jupyter-book/images/logo/logo.png" />
+
+<meta name="twitter:card" content="summary">
 
 
   <script type="application/ld+json">
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage":
-    "https://jupyter.org/jupyter-book/guide/04_faq.html",
-  "headline":
-    "FAQ",
-  "datePublished":
-    "2019-06-04T21:25:48-07:00",
-  "dateModified":
-    "2019-06-04T21:25:48-07:00",
-  "description":
-    "The following are some common issues and questions that have arisen whenbuilding your textbook with Jekyll.",
+  "mainEntityOfPage": "https://jupyter.org/jupyter-book/guide/04_faq.html",
+  "headline": "FAQ",
+  "datePublished": "2019-09-17T14:23:56-07:00",
+  "dateModified": "2019-09-17T14:23:56-07:00",
+  "description": "The following are some common issues and questions that have arisen whenbuilding your textbook with Jekyll.How can I update my book? Sometimes Jupyter Book w...",
   "author": {
     "@type": "Person",
     "name": "The Jupyter Book Community"
@@ -59,15 +56,6 @@
   </script>
   <link rel="stylesheet" href="/jupyter-book/assets/css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
 
   <!-- <link rel="manifest" href="/manifest.json"> -->
   <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
@@ -80,6 +68,8 @@
 
   <!-- MathJax Config -->
   <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -88,14 +78,16 @@ MathJax.Hub.Config({
         processEscapes: true,
         processEnvironments: true
     },
-    CommonHTML: {
-        linebreaks: {
-            automatic: true,
-        },
-    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
 });
 </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
 
   <!-- DOM updating function -->
   <script>
@@ -124,19 +116,63 @@ initFunction = function(myfunc) {
   </script>
 
   <!-- Add AnchorJS to let headers be linked -->
-  <script src="/jupyter-book/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
   <script>
+const initAnchors = () => {
+  if (window.anchors === undefined) {
+    setTimeout(initAnchors, 250)
+    return
+  }
+  anchors.add("main h1, main h2, main h3, main h4")
+}
 
-initFunction(function () {
-    anchors.add("main h1, main h2, main h3, main h4")
-});
-
+initFunction(initAnchors);
 </script>
+
 
   <!-- Include Turbolinks to make page loads fast -->
   <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="/jupyter-book/assets/js/turbolinks.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
   <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Selectors for elements on the page -->
+  <script>
+/**
+ * Select various elements on the page for later use
+ */
+
+// IDs we'll attach to cells
+const codeCellId = index => `codecell${index}`
+const inputCellId = index => `inputcell${index}`
+
+pageElements = {}
+
+// All code cells
+findCodeCells = function() {
+    var codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre, div.text_cell_render div.highlight pre')
+    pageElements['codeCells'] = codeCells;
+
+    codeCells.forEach((codeCell, index) => {
+      const id = codeCellId(index)
+      codeCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findCodeCells);
+
+// All cells in general
+findInputCells = function() {
+    var inputCells = document.querySelectorAll('div.jb_cell')
+    pageElements['inputCells'] = inputCells;
+
+    inputCells.forEach((inputCell, index) => {
+        const id = inputCellId(index)
+        inputCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findInputCells);
+</script>
 
   <!-- Load nbinteract for widgets -->
   
@@ -159,7 +195,7 @@ const thebelabCellButton = id =>
 
 const addThebelabButtonToCodeCells =  () => {
 
-  const codeCells = document.querySelectorAll('div.input_area > div.highlighter-rouge:not(.output) pre')
+  const codeCells = document.querySelectorAll('div.input_area > div.highlight:not(.output) pre')
   codeCells.forEach((codeCell, index) => {
     const id = codeCellId(index)
     codeCell.setAttribute('id', id)
@@ -189,7 +225,7 @@ initFunction(addThebelabButtonToCodeCells);
       }
     }
 </script>
-<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js"></script>
+<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js" async></script>
 <script>
     /**
      * Add attributes to Thebelab blocks
@@ -275,9 +311,22 @@ initFunction(addThebelabButtonToCodeCells);
 
 
   <!-- Load the auto-generating TOC -->
-  <script src="/jupyter-book/assets/js/tocbot.min.js"  type="text/javascript"></script>
-  <script>
-var initToc = function () {
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+<script>
+const initToc = () => {
+  if (window.tocbot === undefined) {
+    setTimeout(initToc, 250)
+    return
+  }
+
+  // Check whether we have any sidebar content. If not, then show the sidebar earlier.
+  var SIDEBAR_CONTENT_TAGS = ['.tag_full_width', '.tag_popout'];
+  var sidebar_content_query = SIDEBAR_CONTENT_TAGS.join(', ')
+  if (document.querySelectorAll(sidebar_content_query).length === 0) {
+    document.querySelector('nav.onthispage').classList.add('no_sidebar_content')
+  }
+
+  // Initialize the TOC bot
   tocbot.init({
     tocSelector: 'nav.onthispage',
     contentSelector: '.c-textbook__content',
@@ -288,163 +337,17 @@ var initToc = function () {
     activeListItemClass: "",  // Not using
     activeLinkClass: "", // Not using
   });
-  tocbot.refresh();
+
 }
 initFunction(initToc);
 </script>
+
 
   <!-- Google analytics -->
   <script src="/jupyter-book/assets/js/ga.js" async></script>
 
   <!-- Clipboard copy button -->
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
-
-  <!-- Load JS that depends on site variables -->
-  <script>
-/**
- * Set up copy/paste for code blocks
- */
-const codeCellId = index => `codecell${index}`
-
-const clipboardButton = id =>
-  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
-    <img src="/jupyter-book/assets/images/copy-button.svg" alt="Copy to clipboard">
-  </a>`
-
-// Clears selected text since ClipboardJS will select the text when copying
-const clearSelection = () => {
-  if (window.getSelection) {
-    window.getSelection().removeAllRanges()
-  } else if (document.selection) {
-    document.selection.empty()
-  }
-}
-
-// Changes tooltip text for two seconds, then changes it back
-const temporarilyChangeTooltip = (el, newText) => {
-  const oldText = el.getAttribute('data-tooltip')
-  el.setAttribute('data-tooltip', newText)
-  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
-}
-
-const addCopyButtonToCodeCells = () => {
-  // If ClipboardJS hasn't loaded, wait a bit and try again. This
-  // happens because we load ClipboardJS asynchronously.
-  if (window.ClipboardJS === undefined) {
-    setTimeout(addCopyButtonToCodeCells, 250)
-    return
-  }
-
-  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
-  codeCells.forEach((codeCell, index) => {
-    const id = codeCellId(index)
-    codeCell.setAttribute('id', id)
-    if (document.getElementById("copy-button" + id) == null) {
-      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
-    }
-  })
-
-  const clipboard = new ClipboardJS('.copybtn')
-  clipboard.on('success', event => {
-    clearSelection()
-    temporarilyChangeTooltip(event.trigger, 'Copied!')
-  })
-
-  clipboard.on('error', event => {
-    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
-  })
-
-  // Get rid of clipboard before the next page visit to avoid memory leak
-  document.addEventListener('turbolinks:before-visit', () =>
-    clipboard.destroy()
-  )
-}
-
-initFunction(addCopyButtonToCodeCells);
-</script>
-
-
-  <!-- Hide cell code -->
-  <script>
-    /**
-    Add buttons to hide code cells
-    */
-
-
-    var setCodeCellVisibility = function (inputField, kind) {
-        // Update the image and class for hidden
-        var id = inputField.getAttribute('data-id');
-        var codeCell = document.querySelector(`#${id} div.highlight`);
-
-        if (kind === "visible") {
-            codeCell.classList.remove('hidden');
-            inputField.checked = true;
-        } else {
-            codeCell.classList.add('hidden');
-            inputField.checked = false;
-        }
-    }
-
-    var toggleCodeCellVisibility = function (event) {
-        // The label is clicked, and now we decide what to do based on the input field's clicked status
-        if (event.target.tagName === "LABEL") {
-            var inputField = event.target.previousElementSibling;
-        } else {
-            // It is the span inside the target
-            var inputField = event.target.parentElement.previousElementSibling;
-        }
-
-        if (inputField.checked === true) {
-            setCodeCellVisibility(inputField, "visible");
-        } else {
-            setCodeCellVisibility(inputField, "hidden");
-        }
-    }
-
-
-    // Button constructor
-    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
-
-    var addHideButton = function () {
-        // If a hide button is already added, don't add another
-        if (document.querySelector('div.hidecode input') !== null) {
-            return;
-        }
-
-        // Find the input cells and add a hide button
-        document.querySelectorAll('div.input_area').forEach(function (item, index) {
-            if (!item.classList.contains("hidecode")) {
-                // Skip the cell if it doesn't have a hidecode class
-                return;
-            }
-
-            const id = codeCellId(index)
-            item.setAttribute('id', id);
-            // Insert the button just inside the end of the next div
-            item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
-
-            // Set up the visibility toggle
-            hideLink = document.querySelector(`#${id} div.highlight + input + label`);
-            hideLink.addEventListener('click', toggleCodeCellVisibility)
-        });
-    }
-
-
-    // Initialize the hide buttos
-    var initHiddenCells = function () {
-        // Add hide buttons to the cells
-        addHideButton();
-
-        // Toggle the code cells that should be hidden
-        document.querySelectorAll('div.hidecode input').forEach(function (item) {
-            setCodeCellVisibility(item, 'hidden');
-            item.checked = true;
-        })
-    }
-
-    initFunction(initHiddenCells);
-
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
 
   <!-- Load custom website scripts -->
   <script src="/jupyter-book/assets/js/scripts.js" async></script>
@@ -598,7 +501,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
   <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="/jupyter-book/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
   <script>var initQuery = function() {
   // See if we have a search box
   var searchInput = document.querySelector('input#lunr_search');
@@ -684,6 +587,182 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 initFunction(initQuery);
 </script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/jupyter-book/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  pageElements['codeCells'].forEach((codeCell) => {
+    const id = codeCell.getAttribute('id')
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
+
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.tag_hide_input input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        pageElements['inputCells'].forEach(function (inputCell) {
+            if (!inputCell.classList.contains("tag_hide_input")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = inputCell.getAttribute('id')
+
+            // Insert the button just inside the end of the next div
+            inputCell.querySelector('div.input').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.inner_cell + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.tag_hide_input input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/jupyter-book/assets/css/styles.css",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
 </head>
 
   <body>
@@ -719,10 +798,6 @@ initFunction(initQuery);
 
       
     
-      
-      
-        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/jupyter-book/search.html">Search</a></li>
-        
       
       
 
@@ -775,24 +850,7 @@ initFunction(initQuery);
                   href="/jupyter-book/guide/03_build.html"
                 >
                   
-                  Build and publish your book
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
-                  href="/jupyter-book/guide/04_faq.html"
-                >
-                  
-                  FAQ
+                  Build HTML for each page of your book
                 </a>
 
                 
@@ -806,7 +864,41 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/05_advanced.html"
+                  href="/jupyter-book/guide/04_publish.html"
+                >
+                  
+                  Build and publish your book online
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/jupyter-book/guide/05_faq.html"
+                >
+                  
+                  Frequently Asked Questions (FAQ)
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/jupyter-book/guide/06_advanced.html"
                 >
                   
                   How-to and advanced topics
@@ -924,10 +1016,27 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
+                  href="/jupyter-book/features/executing.html"
+                >
+                  
+                  Running each page when building your book
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
                   href="/jupyter-book/features/interactive_cells.html"
                 >
                   
-                  Adding interactivity to your book pages
+                  BETA - Adding interactivity to your book pages
                 </a>
 
                 
@@ -944,7 +1053,7 @@ initFunction(initQuery);
                   href="/jupyter-book/features/citations.html"
                 >
                   
-                  Citations and bibliographies
+                  BETA - Citations and bibliographies
                 </a>
 
                 
@@ -958,10 +1067,27 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/search.html"
+                  href="/jupyter-book/features/jupytext.html"
                 >
                   
-                  Searching your book
+                  BETA - Using Jupytext for text-based Notebook content
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/jupyter-book/features/layout.html"
+                >
+                  
+                  BETA - Controlling page layout
                 </a>
 
                 
@@ -979,6 +1105,56 @@ initFunction(initQuery);
                 >
                   
                   Feature Limits
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/jupyter-book/advanced/advanced.html"
+        >
+          
+          Advanced Topics
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/jupyter-book/advanced/circleci.html"
+                >
+                  
+                  Previewing or building your book with CircleCI
                 </a>
 
                 
@@ -1480,171 +1656,178 @@ initFunction(initQuery);
 </nav>
 
       
-      <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
-      <aside class="sidebar__right">
-          <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
-          <nav class="onthispage">
-          </nav>
-      </aside>
-      
-      <main class="c-textbook__page" tabindex="-1">
-          <div class="o-wrapper">
-            <div class="c-sidebar-toggle">
+      <div class="c-topbar" id="top-navbar">
   <!-- We show the sidebar by default so we use .is-active -->
-  <button
-    id="js-sidebar-toggle"
-    class="hamburger hamburger--arrowalt is-active"
-  >
-    <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
-    </span>
-    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
-  </button>
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <div class="download-buttons">
+        <a href="/jupyter-book/content/guide/04_faq.md" download>
+        <button id="interact-button-download" class="interact-button">ORIG</button>
+        </a>
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+    </div>
 </div>
 
-            
+  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
 
-            <div class="c-textbook__content">
-              <p>The following are some common issues and questions that have arisen when
+  
+  
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/jupyter/jupyter-book/gh-pages?filepath=content%2Fguide%2F04_faq.md"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/jupyter-book/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/jupyter-book/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following are some common issues and questions that have arisen when
 building your textbook with Jekyll.</p>
-
-<h2 id="how-can-i-update-my-book">How can I update my book?</h2>
-
-<p>Sometimes Jupyter Book will get updates that you want to incorporate into
-a book you’ve already built. The easiest way to do this is to use the Command-Line Interface to
+<h2 id="How-can-I-update-my-book?">How can I update my book?<a class="anchor-link" href="#How-can-I-update-my-book?"> </a></h2><p>Sometimes Jupyter Book will get updates that you want to incorporate into
+a book you've already built. The easiest way to do this is to use the Command-Line Interface to
 upgrade your book.</p>
-
 <p>To upgrade a pre-existing Jupyter Book, run the following command:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jupyter-book upgrade path/to/mybook
-</code></pre></div></div>
-
+<div class="highlight"><pre><span></span>jupyter-book upgrade path/to/mybook
+</pre></div>
 <p>This will do the following:</p>
-
 <ol>
-  <li>Generate a fresh Jupyter Book in <code class="highlighter-rouge">mybook_UPGRADED</code> using the content files in your
+<li>Generate a fresh Jupyter Book in <code>mybook_UPGRADED</code> using the content files in your
 current book.</li>
-  <li>If this succeeds, copy over the contents of <code class="highlighter-rouge">mybook_UPGRADED</code> into your current book folder.</li>
-  <li>If this succeeds, delete the <code class="highlighter-rouge">mybook_UPGRADED</code> folder.</li>
+<li>If this succeeds, copy over the contents of <code>mybook_UPGRADED</code> into your current book folder.</li>
+<li>If this succeeds, delete the <code>mybook_UPGRADED</code> folder.</li>
 </ol>
-
-<p>Note that only the content that you can manually specify via the <code class="highlighter-rouge">jupyter-book create</code> command
+<p>Note that only the content that you can manually specify via the <code>jupyter-book create</code> command
 will be retained in your upgraded book. For a list of these options, see the help menu for this command:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jupyter-book create <span class="nt">-h</span>
-</code></pre></div></div>
-
+<div class="highlight"><pre><span></span>jupyter-book create -h
+</pre></div>
 <p>You should check out the content in your upgraded book to make sure it looks correct, then
 commit the changes to your repository.</p>
-
-<h2 id="does-the-book-behave-differently-depending-on-the-browser">Does the book behave differently depending on the browser?</h2>
-
-<p>Maybe - Jupyter Book does use some features that might have different behaviors in
+<h2 id="Does-the-book-behave-differently-depending-on-the-browser?">Does the book behave differently depending on the browser?<a class="anchor-link" href="#Does-the-book-behave-differently-depending-on-the-browser?"> </a></h2><p>Maybe - Jupyter Book does use some features that might have different behaviors in
 some browsers. For example, Safari <a href="https://github.com/jupyter/jupyter-book/pull/104#issuecomment-462461188">tends to treat downloadable objects</a>
 differently for some reason.</p>
-
 <p>The two browsers on which Jupyter Book should always behave as expected are
 <strong>Firefox</strong> and <strong>Chrome</strong>.</p>
-
-<h2 id="why-isnt-my-math-showing-up-properly">Why isn’t my math showing up properly?</h2>
-
-<p>This site uses MathJax to render all math, with <code class="highlighter-rouge">$</code> denoting inline math,
-and <code class="highlighter-rouge">$$</code> denoting multi-line math blocks. Make sure that all of your math
+<h2 id="Why-isn't-my-math-showing-up-properly?">Why isn't my math showing up properly?<a class="anchor-link" href="#Why-isn't-my-math-showing-up-properly?"> </a></h2><p>This site uses MathJax to render all math, with <code>$</code> denoting inline math,
+and <code>$$</code> denoting multi-line math blocks. Make sure that all of your math
 is wrapped in these characters.</p>
-
-<p>Another tip is to make sure that your math isn’t being escaped improperly.
+<p>Another tip is to make sure that your math isn't being escaped improperly.
 Jekyll strips escape characters, so you should make sure to add <strong>two</strong>
 escape characters when needed. This is done automatically for many escape
-characters in <code class="highlighter-rouge">generate_book.py</code>, and if you notice something that should
+characters in <code>generate_book.py</code>, and if you notice something that should
 be included in this script, please open an issue
 <a href="https://github.com/jupyter/jupyter-book/issues">at the textbook template issues page</a></p>
-
-<h2 id="how-can-i-include-interactive-plotly-figures">How can I include interactive Plotly figures?</h2>
-
-<p>To display interactive <a href="https://plot.ly/python/">Plotly</a> figures, they must
+<h2 id="How-can-I-include-interactive-Plotly-figures?">How can I include interactive Plotly figures?<a class="anchor-link" href="#How-can-I-include-interactive-Plotly-figures?"> </a></h2><p>To display interactive <a href="https://plot.ly/python/">Plotly</a> figures, they must
 first be generated in a Jupyter notebook using the <a href="https://plot.ly/python/offline/">offline mode</a>.
-You must then plot the figure with <code class="highlighter-rouge">plotly.offline.plot()</code>, which generates an HTML file (<code class="highlighter-rouge">plotly.offline.iplot()</code> does not),
-and then load the HTML into the notebook with <code class="highlighter-rouge">display(HTML('file.html'))</code> prior to saving your *.ipynb file.</p>
-
+You must then plot the figure with <code>plotly.offline.plot()</code>, which generates an HTML file (<code>plotly.offline.iplot()</code> does not),
+and then load the HTML into the notebook with <code>display(HTML('file.html'))</code> prior to saving your *.ipynb file.</p>
 <p>e.g.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from IPython.core.display import display, HTML
+<pre><code>from IPython.core.display import display, HTML
 from plotly.offline import init_notebook_mode, plot
 init_notebook_mode(connected=True)
 .
 .
 .
 plot(fig, filename = 'figure.html')
-display(HTML('figure.html')
-</code></pre></div></div>
-
-<p>Note that, if viewing the file on a Jupyter Notebook session, the figure will not be displayed there (<code class="highlighter-rouge">iplot</code> is needed for this). However, if working on a <a href="https://github.com/binder-examples/jupyterlab">JupyterLab</a> session, the figure can be displayed there using the <code class="highlighter-rouge">plot</code> code above by having the <a href="https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/plotly-extension">JupyterLab plotly extension</a> installed.</p>
-
-<h2 id="what-if-i-have-an-issue-or-question">What if I have an issue or question?</h2>
-
-<p>If you’ve got questions, concerns, or suggestions, please open an issue at
+display(HTML('figure.html')</code></pre>
+<p>Note that, if viewing the file on a Jupyter Notebook session, the figure will not be displayed there (<code>iplot</code> is needed for this). However, if working on a <a href="https://github.com/binder-examples/jupyterlab">JupyterLab</a> session, the figure can be displayed there using the <code>plot</code> code above by having the <a href="https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/plotly-extension">JupyterLab plotly extension</a> installed.</p>
+<h2 id="What-if-I-have-an-issue-or-question?">What if I have an issue or question?<a class="anchor-link" href="#What-if-I-have-an-issue-or-question?"> </a></h2><p>If you've got questions, concerns, or suggestions, please open an issue at
 <a href="https://github.com/jupyter/jupyter-book/issues">at the jupyter book issues page</a></p>
-
-<h2 id="how-should-i-add-cell-tags-to-my-notebooks">How should I add cell tags to my notebooks?</h2>
-
-<p>You can control the behavior of Jupyter Book by putting custom tags
+<h2 id="How-should-I-add-cell-tags-to-my-notebooks?">How should I add cell tags to my notebooks?<a class="anchor-link" href="#How-should-I-add-cell-tags-to-my-notebooks?"> </a></h2><p>You can control the behavior of Jupyter Book by putting custom tags
 in the metadata of your cells. This allows you to do things like
 <a href="../features/hiding">automatically hide code cells</a> as well as
 <a href="../features/interactive_cells">adding interactive widgets to cells</a>.</p>
-
 <p>There are two straightforward ways to add metadata to cells:</p>
-
 <ol>
-  <li>
-    <p><strong>Use the Jupyter Notebook cell tag editor</strong>. The Jupyter Notebook ships with a
+<li><p><strong>Use the Jupyter Notebook cell tag editor</strong>. The Jupyter Notebook ships with a
 cell tag editor by default. This lets you add cell tags to each cell quickly.</p>
-
-    <p>To enable the cell tag editor, go click <code class="highlighter-rouge">View -&gt; Cell Toolbar -&gt; Tags</code>. This
-will enable the tags UI. Here’s what the menu looks like.</p>
-
-    <p><img src="../images/tags_notebook.png" alt="" /></p>
-  </li>
-  <li>
-    <p><strong>Use the JupyterLab Cell Tags plugin</strong>. JupyterLab is an IDE-like Jupyter
+<p>To enable the cell tag editor, go click <code>View -&gt; Cell Toolbar -&gt; Tags</code>. This
+will enable the tags UI. Here's what the menu looks like.</p>
+<p><img src="../images/tags_notebook.png" alt=""></p>
+</li>
+<li><p><strong>Use the JupyterLab Cell Tags plugin</strong>. JupyterLab is an IDE-like Jupyter
 environment that runs in your browser. It has a rich extension ecosystem.
 A particularly useful extension
-<a href="https://github.com/jupyterlab/jupyterlab-celltags">is the “cell tags” plugin</a>,
+<a href="https://github.com/jupyterlab/jupyterlab-celltags">is the "cell tags" plugin</a>,
 which exposes a user interface that lets you quickly insert cell tags.</p>
-
-    <p>You can install the cell tags plugin with the following command (after installing
+<p>You can install the cell tags plugin with the following command (after installing
 JupyterLab).</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jupyter labextension install @jupyterlab/celltags
-</code></pre></div>    </div>
-
-    <p>Then, you’ll find tags under the “wrench” menu section.
-Here’s what the tags UI in JupyterLab looks like.</p>
-
-    <p><img src="../images/tags_jupyterlab.png" alt="" /></p>
-  </li>
+<pre><code>jupyter labextension install @jupyterlab/celltags</code></pre>
+<p>Then, you'll find tags under the "wrench" menu section.
+Here's what the tags UI in JupyterLab looks like.</p>
+<p><img src="../images/tags_jupyterlab.png" alt=""></p>
+</li>
 </ol>
+<h2 id="Why-doesn't-math-show-properly-when-printing?">Why doesn't math show properly when printing?<a class="anchor-link" href="#Why-doesn't-math-show-properly-when-printing?"> </a></h2><p>Currently, we use a library called <a href="https://printjs.crabbly.com/">PrintJS</a> to handle
+printing of <em>just</em> the notebook content (when you click the "print -&gt; PDF" buttons).</p>
+<p>However, a drawback of this approach is that MathJax mathematics cannot access the
+same fonts available when you're viewing a page live. This means that mathematics often
+look simplified and incorrectly-formatted.</p>
+<p>If you have an idea for how to improve this, please
+<a href="https://github.com/jupyter/jupyter-book/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc">open an issue</a>!</p>
 
-              <nav class="c-page__nav">
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+            </div>
+            <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/jupyter-book/guide/03_build">
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/jupyter-book/guide/03_build.html">
       〈 <span class="u-margin-right-tiny"></span> Build and publish your book
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/jupyter-book/guide/05_advanced">
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/jupyter-book/guide/05_advanced.html">
       How-to and advanced topics <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
 
-            </div>
-          </div>
+            <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
         </div>
       </main>
     </div>
-
   </body>
 </html>

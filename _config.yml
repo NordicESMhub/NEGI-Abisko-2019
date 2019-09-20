@@ -20,25 +20,27 @@ title: eScience for linking Arctic measurements and modeling
 author: Anne Fouilloux
 email: annefou@geo.uio.no
 description: >-
-  Course on climate science at high latitudes: Upcoming course in October 2019
-  The 3rd course “Climate science at high latitudes: eScience for linking Arctic measurements and modeling” will be held at Abisko Scientific Research Station from 15th until 24th of October 2019.
+  The 3rd course on Climate science at high latitudes - eScience for linking Arctic
+  measurements and modeling will be held at Abisko Scientific Research Station from
+  15th until 24th of October 2019. It is coordinated by Paul Zieger (SU), Michael
+  Schulz (UiO/MetNo), and Katja Lauri (UHEL).
 
-  Coordination: Paul Zieger (SU), Michael Schulz (UiO/MetNo), and Katja Lauri (UHEL)
-
-  The registration has ended August 15th, 2019 (if you are still interested to join, please contact Paul to check for available places). Notification of acceptance will be given at the beginning of September. For more details please contact Paul Zieger.
-
-baseurl: /NEGI-Abisko-2019               # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
-url: http://nordicesmhub.github.io              # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: /NEGI-Abisko-2019 # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
+url: http://nordicesmhub.github.io # the base hostname & protocol for your site, e.g. http://example.com
 
 
 #######################################################################################
 # Jupyter Book settings
 
+# Main page settings
+footer_text: This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The
+  Jupyter Book Community</a>
+
 # Sidebar settings
 show_sidebar: true                # Show the sidebar. Only set to false if your only wish to host a single page.
 collapse_inactive_chapters: true  # Whether to collapse the inactive chapters in the sidebar
-textbook_logo: https://www.aces.su.se/aces/wp-content/uploads/2019/05/Zeppelin-850x478.jpg               # A logo to be displayed at the top of your textbook sidebar
-textbook_logo_link: https://www.aces.su.se/research/projects/course-series-on-climate-science-at-high-latitudes/                    # A link for the logo.
+textbook_logo: https://www.aces.su.se/aces/wp-content/uploads/2019/05/Zeppelin-850x478.jpg # A logo to be displayed at the top of your textbook sidebar. Should be square
+textbook_logo_link: https://www.aces.su.se/research/projects/course-series-on-climate-science-at-high-latitudes/ # A link for the logo.
 sidebar_footer_text: Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter
   Book</a>
 number_toc_chapters: true         # Whether to add numbers to chapterse in your Table of Contents. If true, you can control this at the Chapter level in _data/toc.yml
@@ -50,12 +52,12 @@ search_max_words_in_content: 100   # In the search function, use at most this ma
 # Interact link settings
 
 # General interact settings
-use_jupyterlab: true                     # If 'true', interact links will use JupyterLab as the interface
+use_jupyterlab: true                      # If 'true', interact links will use JupyterLab as the interface
 
 # Jupyterhub link settings
-use_jupyterhub_button: true              # If 'true', display a button that will direct users to a JupyterHub (that you provide)
-jupyterhub_url: 'http://abisko.uiogeo-apps.sigma2.no'                     # The URL for your JupyterHub. If no URL, use ""
-jupyterhub_interact_text: JupyterHub             # The text that interact buttons will contain.
+use_jupyterhub_button: true               # If 'true', display a button that will direct users to a JupyterHub (that you provide)
+jupyterhub_url: http://abisko.uiogeo-apps.sigma2.no # The URL for your JupyterHub. If no URL, use ""
+jupyterhub_interact_text: JupyterHub           # The text that interact buttons will contain.
 
 # Binder link settings
 use_binder_button: false                 # If 'true', add a binder button for interactive links

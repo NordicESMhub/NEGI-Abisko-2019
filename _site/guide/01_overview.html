@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Getting started</title>
-  <meta name="description" content="The Jupyter Book Guide">
+  <meta name="description" content="The Jupyter Book Guide This is a guide for creating your own book usingJupyter Notebooks and Jekyll. Book content is written in markdown andJupyter Notebooks...">
 
   <link rel="canonical" href="https://jupyter.org/jupyter-book/guide/01_overview.html">
   <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://jupyter.org/jupyter-book/feed.xml">
@@ -16,24 +16,21 @@
   <meta property="og:url"         content="https://jupyter.org/jupyter-book/guide/01_overview.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Getting started" />
-<meta property="og:description" content="The Jupyter Book Guide" />
-<meta property="og:image"       content="" />
+<meta property="og:description" content="The Jupyter Book Guide This is a guide for creating your own book usingJupyter Notebooks and Jekyll. Book content is written in markdown andJupyter Notebooks..." />
+<meta property="og:image"       content="https://jupyter.org/jupyter-book/images/logo/logo.png" />
+
+<meta name="twitter:card" content="summary">
 
 
   <script type="application/ld+json">
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage":
-    "https://jupyter.org/jupyter-book/guide/01_overview.html",
-  "headline":
-    "Getting started",
-  "datePublished":
-    "2019-06-04T21:25:48-07:00",
-  "dateModified":
-    "2019-06-04T21:25:48-07:00",
-  "description":
-    "The Jupyter Book Guide",
+  "mainEntityOfPage": "https://jupyter.org/jupyter-book/guide/01_overview.html",
+  "headline": "Getting started",
+  "datePublished": "2019-09-17T14:23:56-07:00",
+  "dateModified": "2019-09-17T14:23:56-07:00",
+  "description": "The Jupyter Book Guide This is a guide for creating your own book usingJupyter Notebooks and Jekyll. Book content is written in markdown andJupyter Notebooks...",
   "author": {
     "@type": "Person",
     "name": "The Jupyter Book Community"
@@ -59,15 +56,6 @@
   </script>
   <link rel="stylesheet" href="/jupyter-book/assets/css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
 
   <!-- <link rel="manifest" href="/manifest.json"> -->
   <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
@@ -80,6 +68,8 @@
 
   <!-- MathJax Config -->
   <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -88,14 +78,16 @@ MathJax.Hub.Config({
         processEscapes: true,
         processEnvironments: true
     },
-    CommonHTML: {
-        linebreaks: {
-            automatic: true,
-        },
-    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
 });
 </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
 
   <!-- DOM updating function -->
   <script>
@@ -124,19 +116,63 @@ initFunction = function(myfunc) {
   </script>
 
   <!-- Add AnchorJS to let headers be linked -->
-  <script src="/jupyter-book/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
   <script>
+const initAnchors = () => {
+  if (window.anchors === undefined) {
+    setTimeout(initAnchors, 250)
+    return
+  }
+  anchors.add("main h1, main h2, main h3, main h4")
+}
 
-initFunction(function () {
-    anchors.add("main h1, main h2, main h3, main h4")
-});
-
+initFunction(initAnchors);
 </script>
+
 
   <!-- Include Turbolinks to make page loads fast -->
   <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="/jupyter-book/assets/js/turbolinks.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
   <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Selectors for elements on the page -->
+  <script>
+/**
+ * Select various elements on the page for later use
+ */
+
+// IDs we'll attach to cells
+const codeCellId = index => `codecell${index}`
+const inputCellId = index => `inputcell${index}`
+
+pageElements = {}
+
+// All code cells
+findCodeCells = function() {
+    var codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre, div.text_cell_render div.highlight pre')
+    pageElements['codeCells'] = codeCells;
+
+    codeCells.forEach((codeCell, index) => {
+      const id = codeCellId(index)
+      codeCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findCodeCells);
+
+// All cells in general
+findInputCells = function() {
+    var inputCells = document.querySelectorAll('div.jb_cell')
+    pageElements['inputCells'] = inputCells;
+
+    inputCells.forEach((inputCell, index) => {
+        const id = inputCellId(index)
+        inputCell.setAttribute('id', id)
+    })
+};
+
+initFunction(findInputCells);
+</script>
 
   <!-- Load nbinteract for widgets -->
   
@@ -159,7 +195,7 @@ const thebelabCellButton = id =>
 
 const addThebelabButtonToCodeCells =  () => {
 
-  const codeCells = document.querySelectorAll('div.input_area > div.highlighter-rouge:not(.output) pre')
+  const codeCells = document.querySelectorAll('div.input_area > div.highlight:not(.output) pre')
   codeCells.forEach((codeCell, index) => {
     const id = codeCellId(index)
     codeCell.setAttribute('id', id)
@@ -189,7 +225,7 @@ initFunction(addThebelabButtonToCodeCells);
       }
     }
 </script>
-<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js"></script>
+<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js" async></script>
 <script>
     /**
      * Add attributes to Thebelab blocks
@@ -275,9 +311,22 @@ initFunction(addThebelabButtonToCodeCells);
 
 
   <!-- Load the auto-generating TOC -->
-  <script src="/jupyter-book/assets/js/tocbot.min.js"  type="text/javascript"></script>
-  <script>
-var initToc = function () {
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+<script>
+const initToc = () => {
+  if (window.tocbot === undefined) {
+    setTimeout(initToc, 250)
+    return
+  }
+
+  // Check whether we have any sidebar content. If not, then show the sidebar earlier.
+  var SIDEBAR_CONTENT_TAGS = ['.tag_full_width', '.tag_popout'];
+  var sidebar_content_query = SIDEBAR_CONTENT_TAGS.join(', ')
+  if (document.querySelectorAll(sidebar_content_query).length === 0) {
+    document.querySelector('nav.onthispage').classList.add('no_sidebar_content')
+  }
+
+  // Initialize the TOC bot
   tocbot.init({
     tocSelector: 'nav.onthispage',
     contentSelector: '.c-textbook__content',
@@ -288,163 +337,17 @@ var initToc = function () {
     activeListItemClass: "",  // Not using
     activeLinkClass: "", // Not using
   });
-  tocbot.refresh();
+
 }
 initFunction(initToc);
 </script>
+
 
   <!-- Google analytics -->
   <script src="/jupyter-book/assets/js/ga.js" async></script>
 
   <!-- Clipboard copy button -->
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
-
-  <!-- Load JS that depends on site variables -->
-  <script>
-/**
- * Set up copy/paste for code blocks
- */
-const codeCellId = index => `codecell${index}`
-
-const clipboardButton = id =>
-  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
-    <img src="/jupyter-book/assets/images/copy-button.svg" alt="Copy to clipboard">
-  </a>`
-
-// Clears selected text since ClipboardJS will select the text when copying
-const clearSelection = () => {
-  if (window.getSelection) {
-    window.getSelection().removeAllRanges()
-  } else if (document.selection) {
-    document.selection.empty()
-  }
-}
-
-// Changes tooltip text for two seconds, then changes it back
-const temporarilyChangeTooltip = (el, newText) => {
-  const oldText = el.getAttribute('data-tooltip')
-  el.setAttribute('data-tooltip', newText)
-  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
-}
-
-const addCopyButtonToCodeCells = () => {
-  // If ClipboardJS hasn't loaded, wait a bit and try again. This
-  // happens because we load ClipboardJS asynchronously.
-  if (window.ClipboardJS === undefined) {
-    setTimeout(addCopyButtonToCodeCells, 250)
-    return
-  }
-
-  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
-  codeCells.forEach((codeCell, index) => {
-    const id = codeCellId(index)
-    codeCell.setAttribute('id', id)
-    if (document.getElementById("copy-button" + id) == null) {
-      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
-    }
-  })
-
-  const clipboard = new ClipboardJS('.copybtn')
-  clipboard.on('success', event => {
-    clearSelection()
-    temporarilyChangeTooltip(event.trigger, 'Copied!')
-  })
-
-  clipboard.on('error', event => {
-    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
-  })
-
-  // Get rid of clipboard before the next page visit to avoid memory leak
-  document.addEventListener('turbolinks:before-visit', () =>
-    clipboard.destroy()
-  )
-}
-
-initFunction(addCopyButtonToCodeCells);
-</script>
-
-
-  <!-- Hide cell code -->
-  <script>
-    /**
-    Add buttons to hide code cells
-    */
-
-
-    var setCodeCellVisibility = function (inputField, kind) {
-        // Update the image and class for hidden
-        var id = inputField.getAttribute('data-id');
-        var codeCell = document.querySelector(`#${id} div.highlight`);
-
-        if (kind === "visible") {
-            codeCell.classList.remove('hidden');
-            inputField.checked = true;
-        } else {
-            codeCell.classList.add('hidden');
-            inputField.checked = false;
-        }
-    }
-
-    var toggleCodeCellVisibility = function (event) {
-        // The label is clicked, and now we decide what to do based on the input field's clicked status
-        if (event.target.tagName === "LABEL") {
-            var inputField = event.target.previousElementSibling;
-        } else {
-            // It is the span inside the target
-            var inputField = event.target.parentElement.previousElementSibling;
-        }
-
-        if (inputField.checked === true) {
-            setCodeCellVisibility(inputField, "visible");
-        } else {
-            setCodeCellVisibility(inputField, "hidden");
-        }
-    }
-
-
-    // Button constructor
-    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
-
-    var addHideButton = function () {
-        // If a hide button is already added, don't add another
-        if (document.querySelector('div.hidecode input') !== null) {
-            return;
-        }
-
-        // Find the input cells and add a hide button
-        document.querySelectorAll('div.input_area').forEach(function (item, index) {
-            if (!item.classList.contains("hidecode")) {
-                // Skip the cell if it doesn't have a hidecode class
-                return;
-            }
-
-            const id = codeCellId(index)
-            item.setAttribute('id', id);
-            // Insert the button just inside the end of the next div
-            item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
-
-            // Set up the visibility toggle
-            hideLink = document.querySelector(`#${id} div.highlight + input + label`);
-            hideLink.addEventListener('click', toggleCodeCellVisibility)
-        });
-    }
-
-
-    // Initialize the hide buttos
-    var initHiddenCells = function () {
-        // Add hide buttons to the cells
-        addHideButton();
-
-        // Toggle the code cells that should be hidden
-        document.querySelectorAll('div.hidecode input').forEach(function (item) {
-            setCodeCellVisibility(item, 'hidden');
-            item.checked = true;
-        })
-    }
-
-    initFunction(initHiddenCells);
-
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
 
   <!-- Load custom website scripts -->
   <script src="/jupyter-book/assets/js/scripts.js" async></script>
@@ -598,7 +501,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
   <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="/jupyter-book/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
   <script>var initQuery = function() {
   // See if we have a search box
   var searchInput = document.querySelector('input#lunr_search');
@@ -684,6 +587,182 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 initFunction(initQuery);
 </script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/jupyter-book/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  pageElements['codeCells'].forEach((codeCell) => {
+    const id = codeCell.getAttribute('id')
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  <script>
+    /**
+    Add buttons to hide code cells
+    */
+
+
+    var setCodeCellVisibility = function (inputField, kind) {
+        // Update the image and class for hidden
+        var id = inputField.getAttribute('data-id');
+        var codeCell = document.querySelector(`#${id} div.highlight`);
+
+        if (kind === "visible") {
+            codeCell.classList.remove('hidden');
+            inputField.checked = true;
+        } else {
+            codeCell.classList.add('hidden');
+            inputField.checked = false;
+        }
+    }
+
+    var toggleCodeCellVisibility = function (event) {
+        // The label is clicked, and now we decide what to do based on the input field's clicked status
+        if (event.target.tagName === "LABEL") {
+            var inputField = event.target.previousElementSibling;
+        } else {
+            // It is the span inside the target
+            var inputField = event.target.parentElement.previousElementSibling;
+        }
+
+        if (inputField.checked === true) {
+            setCodeCellVisibility(inputField, "visible");
+        } else {
+            setCodeCellVisibility(inputField, "hidden");
+        }
+    }
+
+
+    // Button constructor
+    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+    var addHideButton = function () {
+        // If a hide button is already added, don't add another
+        if (document.querySelector('div.tag_hide_input input') !== null) {
+            return;
+        }
+
+        // Find the input cells and add a hide button
+        pageElements['inputCells'].forEach(function (inputCell) {
+            if (!inputCell.classList.contains("tag_hide_input")) {
+                // Skip the cell if it doesn't have a hidecode class
+                return;
+            }
+
+            const id = inputCell.getAttribute('id')
+
+            // Insert the button just inside the end of the next div
+            inputCell.querySelector('div.input').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+            // Set up the visibility toggle
+            hideLink = document.querySelector(`#${id} div.inner_cell + input + label`);
+            hideLink.addEventListener('click', toggleCodeCellVisibility)
+        });
+    }
+
+
+    // Initialize the hide buttos
+    var initHiddenCells = function () {
+        // Add hide buttons to the cells
+        addHideButton();
+
+        // Toggle the code cells that should be hidden
+        document.querySelectorAll('div.tag_hide_input input').forEach(function (item) {
+            setCodeCellVisibility(item, 'hidden');
+            item.checked = true;
+        })
+    }
+
+    initFunction(initHiddenCells);
+
+</script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/jupyter-book/assets/css/styles.css",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
 </head>
 
   <body>
@@ -719,10 +798,6 @@ initFunction(initQuery);
 
       
     
-      
-      
-        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/jupyter-book/search.html">Search</a></li>
-        
       
       
 
@@ -775,7 +850,7 @@ initFunction(initQuery);
                   href="/jupyter-book/guide/03_build.html"
                 >
                   
-                  Build and publish your book
+                  Build HTML for each page of your book
                 </a>
 
                 
@@ -789,10 +864,10 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/04_faq.html"
+                  href="/jupyter-book/guide/04_publish.html"
                 >
                   
-                  FAQ
+                  Build and publish your book online
                 </a>
 
                 
@@ -806,7 +881,24 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/guide/05_advanced.html"
+                  href="/jupyter-book/guide/05_faq.html"
+                >
+                  
+                  Frequently Asked Questions (FAQ)
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/jupyter-book/guide/06_advanced.html"
                 >
                   
                   How-to and advanced topics
@@ -924,10 +1016,27 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
+                  href="/jupyter-book/features/executing.html"
+                >
+                  
+                  Running each page when building your book
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
                   href="/jupyter-book/features/interactive_cells.html"
                 >
                   
-                  Adding interactivity to your book pages
+                  BETA - Adding interactivity to your book pages
                 </a>
 
                 
@@ -944,7 +1053,7 @@ initFunction(initQuery);
                   href="/jupyter-book/features/citations.html"
                 >
                   
-                  Citations and bibliographies
+                  BETA - Citations and bibliographies
                 </a>
 
                 
@@ -958,10 +1067,27 @@ initFunction(initQuery);
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/jupyter-book/features/search.html"
+                  href="/jupyter-book/features/jupytext.html"
                 >
                   
-                  Searching your book
+                  BETA - Using Jupytext for text-based Notebook content
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/jupyter-book/features/layout.html"
+                >
+                  
+                  BETA - Controlling page layout
                 </a>
 
                 
@@ -979,6 +1105,56 @@ initFunction(initQuery);
                 >
                   
                   Feature Limits
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/jupyter-book/advanced/advanced.html"
+        >
+          
+          Advanced Topics
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/jupyter-book/advanced/circleci.html"
+                >
+                  
+                  Previewing or building your book with CircleCI
                 </a>
 
                 
@@ -1480,63 +1656,80 @@ initFunction(initQuery);
 </nav>
 
       
-      <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
-      <aside class="sidebar__right">
-          <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
-          <nav class="onthispage">
-          </nav>
-      </aside>
-      
-      <main class="c-textbook__page" tabindex="-1">
-          <div class="o-wrapper">
-            <div class="c-sidebar-toggle">
+      <div class="c-topbar" id="top-navbar">
   <!-- We show the sidebar by default so we use .is-active -->
-  <button
-    id="js-sidebar-toggle"
-    class="hamburger hamburger--arrowalt is-active"
-  >
-    <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
-    </span>
-    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
-  </button>
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <div class="download-buttons">
+        <a href="/jupyter-book/content/guide/01_overview.md" download>
+        <button id="interact-button-download" class="interact-button">ORIG</button>
+        </a>
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+    </div>
 </div>
 
-            
+  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
 
-            <div class="c-textbook__content">
-              <h1 id="the-jupyter-book-guide">The Jupyter Book Guide</h1>
+  
+  
 
-<p>This is a guide for creating your own book using
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/jupyter/jupyter-book/gh-pages?filepath=content%2Fguide%2F01_overview.md"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/jupyter-book/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/jupyter-book/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="The-Jupyter-Book-Guide">The Jupyter Book Guide<a class="anchor-link" href="#The-Jupyter-Book-Guide"> </a></h1><p>This is a guide for creating your own book using
 Jupyter Notebooks and Jekyll. Book content is written in markdown and
-Jupyter Notebooks, and <code class="highlighter-rouge">jupyter-book</code> converts these into
+Jupyter Notebooks, and <code>jupyter-book</code> converts these into
 a book fit for hosting on the web.</p>
-
-<h2 id="install-the-command-line-interface">Install the command-line interface</h2>
-
-<p>First off, make sure you have the CLI installed so that you can work with Jupyter Book.
+<h2 id="Install-the-command-line-interface">Install the command-line interface<a class="anchor-link" href="#Install-the-command-line-interface"> </a></h2><p>First off, make sure you have the CLI installed so that you can work with Jupyter Book.
 The Jupyter-Book CLI allows you to create, build, upgrade, and otherwise control your
 Jupyter Book. You can install it via pip with the following command:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install jupyter-book
-</code></pre></div></div>
-
-<h2 id="a-quick-tour-of-a-jupyter-book">A quick tour of a Jupyter Book</h2>
-
-<p>Jupyter-Book comes with a demo book so that you can see how the content files
-are used in the book. We’ll begin with a quick tour of these files, as they are
-the pieces that you’ll modify for your own book.</p>
-
+<pre><code>pip install jupyter-book</code></pre>
+<h2 id="A-quick-tour-of-a-Jupyter-Book">A quick tour of a Jupyter Book<a class="anchor-link" href="#A-quick-tour-of-a-Jupyter-Book"> </a></h2><p>Jupyter-Book comes with a demo book so that you can see how the content files
+are used in the book. We'll begin with a quick tour of these files, as they are
+the pieces that you'll modify for your own book.</p>
 <p>To create a <strong>demo Jupyter Book</strong> to use as a template, run the following command:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jupyter-book create mybookname --demo
-</code></pre></div></div>
+<pre><code>jupyter-book create mybookname --demo</code></pre>
+<p>A new book will be created at the path that you've given (in this case, <code>mybookname/</code>).</p>
+<p>Let's take a quick look at some important files in the demo book you created:</p>
 
-<p>A new book will be created at the path that you’ve given (in this case, <code class="highlighter-rouge">mybookname/</code>).</p>
-
-<p>Let’s take a quick look at some important files in the demo book you created:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mybookname/
+<pre><code>mybookname/
 ├── assets
 │   └── custom
 │       ├── custom.css
@@ -1549,176 +1742,137 @@ the pieces that you’ll modify for your own book.</p>
 │   └── LICENSE.md
 ├── _data
 │   └── toc.yml
-└── requirements.txt
-</code></pre></div></div>
-
-<p>Here’s a quick rundown of the files you can modify for yourself, and that
+└── requirements.txt</code></pre>
+<p>Here's a quick rundown of the files you can modify for yourself, and that
 ultimately make up your book.</p>
+<h3 id="Book-configuration">Book configuration<a class="anchor-link" href="#Book-configuration"> </a></h3><p>All of the configuration for your book is in the following file:</p>
 
-<h3 id="book-configuration">Book configuration</h3>
-
-<p>All of the configuration for your book is in the following file:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mybookname/
-├── _config.yml
-</code></pre></div></div>
-
+<pre><code>mybookname/
+├── _config.yml</code></pre>
 <p>You can define metadata for your book (such as its title), add
-a book logo, turn on different “interactive” buttons (such as a
+a book logo, turn on different "interactive" buttons (such as a
 Binder button for pages built from a Jupyter Notebook), and more.</p>
-
-<h3 id="book-content">Book content</h3>
-
-<p>Your book’s content can be found in the <code class="highlighter-rouge">content/</code> folder. Some content
+<h3 id="Book-content">Book content<a class="anchor-link" href="#Book-content"> </a></h3><p>Your book's content can be found in the <code>content/</code> folder. Some content
 files for the demo book are shown below:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mybookname/
+<pre><code>mybookname/
 ├── content
     └── features
        ├── features.md
-       └── notebooks.ipynb
-</code></pre></div></div>
-
+       └── notebooks.ipynb</code></pre>
 <p>Note that the content files are either <strong>Jupyter Notebooks</strong> or <strong>Markdown</strong>
-files. These are the files that define “pages” in your book.</p>
-
-<p>You can store these files in whatever collection of folders you’d like, note that
+files. These are the files that define "pages" in your book.</p>
+<p>You can store these files in whatever collection of folders you'd like, note that
 the <em>structure</em> of your book when it is built will depend solely on the order of
-items in your <code class="highlighter-rouge">_data/toc.yml</code> file (see below section)</p>
-
-<h3 id="table-of-contents">Table of Contents</h3>
-
-<p>Jupyter Book uses your Table of Contents to define the structure of your book.
+items in your <code>_data/toc.yml</code> file (see below section)</p>
+<h3 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents"> </a></h3><p>Jupyter Book uses your Table of Contents to define the structure of your book.
 For example, your chapters, sub-chapters, etc.</p>
-
 <p>The Table of Contents lives at this location:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mybookname/
+<pre><code>mybookname/
 ├── _data
-    └── toc.yml
-</code></pre></div></div>
-
+    └── toc.yml</code></pre>
 <p>This is a YAML file with a collection of pages, each one linking to a
-file in your <code class="highlighter-rouge">content/</code> folder. Here’s an example of a few pages defined in <code class="highlighter-rouge">toc.yml</code>.</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Features and customization</span>
-  <span class="na">url</span><span class="pi">:</span> <span class="s">/features/features</span>
-  <span class="na">not_numbered</span><span class="pi">:</span> <span class="no">true</span>
-  <span class="na">expand_sections</span><span class="pi">:</span> <span class="no">true</span>
-  <span class="na">sections</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Markdown files</span>
-    <span class="na">url</span><span class="pi">:</span> <span class="s">/features/markdown</span>
-    <span class="na">not_numbered</span><span class="pi">:</span> <span class="no">true</span>
-  <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Jupyter notebooks</span>
-    <span class="na">url</span><span class="pi">:</span> <span class="s">/features/notebooks</span>
-    <span class="na">not_numbered</span><span class="pi">:</span> <span class="no">true</span>
-</code></pre></div></div>
-
+file in your <code>content/</code> folder. Here's an example of a few pages defined in <code>toc.yml</code>.</p>
+<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Features and customization</span>
+  <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/features/features</span>
+  <span class="nt">not_numbered</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">expand_sections</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">sections</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Markdown files</span>
+    <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/features/markdown</span>
+    <span class="nt">not_numbered</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jupyter notebooks</span>
+    <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/features/notebooks</span>
+    <span class="nt">not_numbered</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
 <p>The top-most level of your TOC file are <strong>book chapters</strong>. Above, this is the
-“Features and customization” page. Each chapter can have
-several sections (defined in <code class="highlighter-rouge">sections:</code>) and each section can have several sub-sections
-(which would be define with a deeper level of <code class="highlighter-rouge">sections:</code>). In addition, you can
+"Features and customization" page. Each chapter can have
+several sections (defined in <code>sections:</code>) and each section can have several sub-sections
+(which would be define with a deeper level of <code>sections:</code>). In addition, you can
 use a few extra YAML values to control the behavior of Jupyter-Book (for example,
-<code class="highlighter-rouge">not_numbered: true</code> will prevent Jupyter Book from numbering the pages in that chapter).</p>
-
+<code>not_numbered: true</code> will prevent Jupyter Book from numbering the pages in that chapter).</p>
 <p>Each item in the YAML file points to a single content file. The links
-should be <strong>relative to the <code class="highlighter-rouge">/content/</code> folder and with no extension.</strong></p>
-
+should be <strong>relative to the <code>/content/</code> folder and with no extension.</strong></p>
 <p>For example, in the example above there is a file in
-<code class="highlighter-rouge">mybookname/content/features/notebooks.ipynb</code>. The TOC entry that points to
+<code>mybookname/content/features/notebooks.ipynb</code>. The TOC entry that points to
 this file is here:</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s">Jupyter notebooks</span>
-        <span class="s">url</span><span class="pi">:</span> <span class="s">/features/notebooks</span>
-</code></pre></div></div>
-
-<h3 id="a-license-for-your-content">A license for your content</h3>
-
-<p>When you share content online, it’s a good idea to add a license so that others know
+<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Jupyter notebooks</span>
+        <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/features/notebooks</span>
+</pre></div>
+<h3 id="A-license-for-your-content">A license for your content<a class="anchor-link" href="#A-license-for-your-content"> </a></h3><p>When you share content online, it's a good idea to add a license so that others know
 what rights you retain to the work. This can make your book more sharable and (re)usable.</p>
-
 <p>The license for a Jupyter Book lives in this location:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mybookname/
+<pre><code>mybookname/
 ├── content
-    └── LICENSE.md
-</code></pre></div></div>
-
-<p>When you create a new book, if you don’t specify a license, then <code class="highlighter-rouge">jupyter-book</code> will by default
+    └── LICENSE.md</code></pre>
+<p>When you create a new book, if you don't specify a license, then <code>jupyter-book</code> will by default
 add a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>
 (CC BY-SA 4.0) license to your book. CC BY-SA requires attribution of
 your work, and also requires that any derivations someone creates are released
 under a license <em>at least as permissive</em> as CC BY-SA.</p>
-
-<p>If you’d like to choose a different license, you can add whatever text you like to the file
-in <code class="highlighter-rouge">/content/LICENSE.md</code>. We commend checking out the <a href="https://creativecommons.org/licenses">Creative Commons licenses page</a>
+<p>If you'd like to choose a different license, you can add whatever text you like to the file
+in <code>/content/LICENSE.md</code>. We commend checking out the <a href="https://creativecommons.org/licenses">Creative Commons licenses page</a>
 for several options for licenses that may suit your needs.</p>
-
-<h3 id="book-code-requirements-files">Book code requirements files</h3>
-
-<p>Since your Jupyter Book likely has computational material specified in Jupyter
+<h3 id="Book-code-requirements-files">Book code requirements files<a class="anchor-link" href="#Book-code-requirements-files"> </a></h3><p>Since your Jupyter Book likely has computational material specified in Jupyter
 Notebooks, you should specify the packages needed to run your Jupyter Book.
-In this case, we use a <code class="highlighter-rouge">requirements.txt</code> file:</p>
+In this case, we use a <code>requirements.txt</code> file:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mybookname/
-└── requirements.txt
-</code></pre></div></div>
-
-<p>The demo book uses <code class="highlighter-rouge">requirements.txt</code> because it has Python code, but you can
-include any other files that you’d like to.</p>
-
-<h3 id="book-bibliography-for-citations">Book bibliography for citations</h3>
-
-<p>If you’d like to build a bibliography for your book, you can do so by including
+<pre><code>mybookname/
+└── requirements.txt</code></pre>
+<p>The demo book uses <code>requirements.txt</code> because it has Python code, but you can
+include any other files that you'd like to.</p>
+<h3 id="Book-bibliography-for-citations">Book bibliography for citations<a class="anchor-link" href="#Book-bibliography-for-citations"> </a></h3><p>If you'd like to build a bibliography for your book, you can do so by including
 the following file:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mybookname/
+<pre><code>mybookname/
 ├── _bibliography
-    └── references.bib
-</code></pre></div></div>
-
-<p>This BiBTex file can be used along with the <code class="highlighter-rouge">jekyll-scholar</code> extension. For more information
+    └── references.bib</code></pre>
+<p>This BiBTex file can be used along with the <code>jekyll-scholar</code> extension. For more information
 on how to use citations in Jupyter Book, see <a href="../features/citations">Citations with Jupyter Book</a></p>
+<h3 id="Custom-Javascript-and-CSS">Custom Javascript and CSS<a class="anchor-link" href="#Custom-Javascript-and-CSS"> </a></h3><p>These are the files in this location:</p>
 
-<h3 id="custom-javascript-and-css">Custom Javascript and CSS</h3>
-
-<p>These are the files in this location:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── assets
+<pre><code>├── assets
     └── custom
         ├── custom.css
-        └── custom.js
-</code></pre></div></div>
-
+        └── custom.js</code></pre>
 <p>Jupyter Book lets you supply your own CSS and Javascript that will be
 built into your book. Feel free to edit these files with whatever you like.</p>
-
-<h2 id="next-section">Next section</h2>
-
-<p>Now that you’re familiar with the Jupyter Book structure, head to the next section
+<h2 id="Next-section">Next section<a class="anchor-link" href="#Next-section"> </a></h2><p>Now that you're familiar with the Jupyter Book structure, head to the next section
 to learn how to create your own!</p>
 
-              <nav class="c-page__nav">
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+            </div>
+            <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/jupyter-book/intro">
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/jupyter-book/intro.html">
       〈 <span class="u-margin-right-tiny"></span> Home
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/jupyter-book/guide/02_create">
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/jupyter-book/guide/02_create.html">
       Create your book <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
 
-            </div>
-          </div>
+            <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
         </div>
       </main>
     </div>
-
   </body>
 </html>
