@@ -120,7 +120,7 @@ commands:
       # upgrade bundle
       - run:
           name: Upgrade bundle
-          command: bundle update --bundler
+          command: gem install bundler:2.0.2
 
       # Build the book's HTML w/ the base_url for CircleCI artifacts
       - run:
