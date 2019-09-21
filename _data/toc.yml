@@ -26,21 +26,8 @@
   url: /intro
   not_numbered: true
 
-# External link
-- title: GitHub repository
-  url: https://github.com/jupyter/jupyter-book
-  external: true
-  not_numbered: true
-
-# Adds a searchbar link
-- title: Search
-  search: true
-
-# Divider for meta-pages and content page
-- divider: true
-
 # Add a header and sample content section
-- header: Demo textbook
+- header: Course program
 
 # A chapter w/ a collection of sections beneath it
 - title: Themes and group topics
@@ -53,3 +40,18 @@
   url: /tools/tools
   not_numbered: true
   expand_sections: true
+
+# Divider for meta-pages and content page
+- divider: true
+
+# External link
+- title: GitHub repository
+  url: https://github.com/NordicESMHub/NEGI-Abisko-2019
+  external: true
+  not_numbered: true
+
+# Adds a searchbar link
+- title: Search
+  search: true
+  not_numbered: true
+
