@@ -1,0 +1,10 @@
+# Tell CircleCI which version of its API you wish to use
+version: 2.1
+jobs:
+    # Jobs define the different parts of your CircleCI workflow
+    # They can depend on one another, use pieces from one another, etc.
+    # We'll fill them in later
+workflows:
+    # Workflows tell CircleCI the order in which to run your jobs
+commands:
+    # Commands are re-usable chunks of steps that can be shared across jobs
