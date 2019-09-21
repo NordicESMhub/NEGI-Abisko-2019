@@ -41,11 +41,6 @@ If you want to learn more about ncview:
 
 Python is a general purpose programming and scripting language which includes powerful visualisation and data analysis tools. Matplotlib is a general purpose plotting library gioving Python the power of MatLab. NetCDF files can be read using the NetCDF4 library and/or Xarray. The most common distribution of Python for scientific use is the [Anaconda distribution](https://conda.io/docs/user-guide/install/download.html).
 
-- Examples (python, Fortran, C++, etc.) to read and write netCDF files can be found [here](http://www.unidata.ucar.edu/software/netcdf/examples/programs/). 
-- [Data processing and plotting using python](python.md)
-
-
-
 ### <span style="color:red">Useful Shell command (loops, etc.)</span>
 
 For more information see the [Software Carpentry shell lesson](http://swcarpentry.github.io/shell-novice/).
