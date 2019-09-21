@@ -48,3 +48,8 @@
   not_numbered: true
   expand_sections: true
 
+# A chapter w/ a collection of sections beneath it
+- title: Tools
+  url: /tools/tools
+  not_numbered: true
+  expand_sections: true
