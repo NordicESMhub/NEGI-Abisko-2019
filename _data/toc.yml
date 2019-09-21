@@ -44,14 +44,15 @@
 # Divider for meta-pages and content page
 - divider: true
 
+# Adds a searchbar link
+- title: Search
+  search: true
+  not_numbered: true
+
 # External link
 - title: GitHub repository
   url: https://github.com/NordicESMHub/NEGI-Abisko-2019
   external: true
   not_numbered: true
 
-# Adds a searchbar link
-- title: Search
-  search: true
-  not_numbered: true
 

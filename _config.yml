@@ -39,7 +39,7 @@ footer_text: This page was created by <a href="https://github.com/jupyter/jupyte
 # Sidebar settings
 show_sidebar: true                # Show the sidebar. Only set to false if your only wish to host a single page.
 collapse_inactive_chapters: true  # Whether to collapse the inactive chapters in the sidebar
-textbook_logo: https://www.aces.su.se/aces/wp-content/uploads/2019/05/Zeppelin-850x478.jpg # A logo to be displayed at the top of your textbook sidebar. Should be square
+textbook_logo: images/logo/zeppelin.png # A logo to be displayed at the top of your textbook sidebar. Should be square
 textbook_logo_link: https://www.aces.su.se/research/projects/course-series-on-climate-science-at-high-latitudes/ # A link for the logo.
 sidebar_footer_text: Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter
   Book</a>
@@ -63,13 +63,13 @@ jupyterhub_interact_text: JupyterHub           # The text that interact buttons 
 use_binder_button: false                 # If 'true', add a binder button for interactive links
 binderhub_url: https://mybinder.org                        # The URL for your BinderHub. If no URL, use ""
 binder_repo_base: https://github.com/                     # The site on which the textbook repository is hosted
-binder_repo_org: YOUR-ORG                     # The username or organization that owns this repository
-binder_repo_name: YOUR-REPO                        # The name of the repository on the web
+binder_repo_org: NordicESMHub                     # The username or organization that owns this repository
+binder_repo_name: NEGI-Andoya-2019                        # The name of the repository on the web
 binder_repo_branch: gh-pages                   # The branch on which your textbook is hosted.
 binderhub_interact_text: Interact              # The text that interact buttons will contain.
 
 # Thebelab settings
-use_thebelab_button: true                # If 'true', display a button to allow in-page running code cells with Thebelab
+use_thebelab_button: false                # If 'true', display a button to allow in-page running code cells with Thebelab
 thebelab_button_text: Thebelab                 # The text to display inside the Thebelab initialization button
 codemirror_theme: abcdef                     # Theme for codemirror cells, for options see https://codemirror.net/doc/manual.html#config
 

@@ -1,6 +1,7 @@
-### Climate science at high latitudes: eScience for linking Arctic measurements and modeling
 
 [![CircleCI](https://circleci.com/gh/NordicESMhub/NEGI-Abisko-2019.svg?style=svg&circle-token=708328c3d6428a29f49027f0a5e316fc32850dac)](https://circleci.com/gh/NordicESMhub/NEGI-Abisko-2019)
+
+### Climate science at high latitudes: eScience for linking Arctic measurements and modeling
 
 The 3rd course “Climate science at high latitudes: eScience for linking Arctic measurements and modeling” will be held at Abisko Scientific Research Station from 15th until 24th of October 2019.
 
