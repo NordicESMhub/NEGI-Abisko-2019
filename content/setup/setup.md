@@ -26,7 +26,7 @@ Teachers, assistants and students should do the following:
   <a href = "https://github.com/swcarpentry/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.
 </p>
 
-<div id="shell"> {% comment %} Start of 'shell' section. {% endcomment %}
+<div id="shell">
   <h3>The Bash Shell</h3>
   <p>
     Bash is a commonly-used shell that gives you the power to do simple
@@ -128,8 +128,7 @@ Teachers, assistants and students should do the following:
   </div>
 </div> {% comment %} End of 'shell' section. {% endcomment %}
 
-<div id="git"> {% comment %} Start of 'Git' section. GitHub browser compatibility
-  is given at https://help.github.com/articles/supported-browsers/{% endcomment %}
+<div id="git"> 
   <h3>Git</h3>
   <p>
     Git is a version control system that lets you track who made changes
@@ -191,7 +190,7 @@ Teachers, assistants and students should do the following:
   </div>
 </div> {% comment %} End of 'Git' section. {% endcomment %}
 
-<div id="editor"> {% comment %} Start of 'editor' section. {% endcomment %}
+<div id="editor"> 
   <h3>Text Editor</h3>
 
   <p>
