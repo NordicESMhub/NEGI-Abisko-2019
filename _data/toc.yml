@@ -44,10 +44,12 @@
 # Divider for meta-pages and content page
 - divider: true
 
-# Adds a searchbar link
-- title: Search
-  search: true
+# Setup
+
+- title: Setup
+  url: /setup/setup
   not_numbered: true
+  expand_sections: true
 
 # External link
 - title: GitHub repository
