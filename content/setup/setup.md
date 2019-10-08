@@ -59,7 +59,9 @@ dependencies:
 
 The sample dataset for Abisko course is freely available [here](https://doi.org/10.5281/zenodo.3475894)
 
-([![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3475894.svg)](https://doi.org/10.5281/zenodo.3475894).
+**To cite this dataset**:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3475894.svg)](https://doi.org/10.5281/zenodo.3475894).
 
 # Jupyterhub setup
 

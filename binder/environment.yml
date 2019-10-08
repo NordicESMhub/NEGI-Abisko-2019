@@ -2,16 +2,26 @@ name: negi-abisko
 channels:
   - conda-forge
 dependencies:
+  - python=3.7
   - numpy
+  - jupytext>=1.2.0rc0
+  - scikit-image
+  - nbdime
+  - ipypublish
+  - nbconvert
   - matplotlib
   - xarray
   - pandas
   - seaborn 
   - cartopy
   - netcdf4
+  - scipy
   - cdo
   - nco
   - ruby
   - pip:
-    - -r ../requirements.txt
-    - ../
+	- jupyterlab_latex
+	- jupyterlab-git
+	- nbinteract
+	- jupyter-book
+	- datascience
