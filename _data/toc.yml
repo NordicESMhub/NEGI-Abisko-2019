@@ -51,6 +51,11 @@
   not_numbered: true
   expand_sections: true
 
+- title: Course preparation
+  url: /setup/Abisko_prep
+  not_numbered: true
+  expand_sections: true
+
 # External link
 - title: GitHub repository
   url: https://github.com/NordicESMHub/NEGI-Abisko-2019
