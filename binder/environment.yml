@@ -1,7 +1,16 @@
-name: jupyter-book
+name: negi-abisko
 channels:
   - conda-forge
 dependencies:
+  - numpy
+  - matplotlib
+  - xarray
+  - pandas
+  - seaborn 
+  - cartopy
+  - netcdf4
+  - cdo
+  - nco
   - ruby
   - pip:
     - -r ../requirements.txt
