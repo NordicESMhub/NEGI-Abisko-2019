@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/content/setup/setup.html",
   "headline": "Before the course",
-  "datePublished": "2019-10-07T20:30:04+00:00",
-  "dateModified": "2019-10-07T20:30:04+00:00",
+  "datePublished": "2019-10-08T06:57:01+00:00",
+  "dateModified": "2019-10-08T06:57:01+00:00",
   "description": "# Before the courseTeachers, assistants and students should do the following:- [Sign up on Github](https://github.com/join?source=header-home)- [Please fill ...",
   "author": {
     "@type": "Person",
@@ -808,348 +808,24 @@ initFunction(initPrint)
 <ul>
   <li><a href="https://github.com/join?source=header-home">Sign up on Github</a></li>
   <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdivH004R2zfsD2f2h5CY34gueAsjf8_KsE8Q9xZIcHtxNzWQ/viewform">Please fill this form so we can get your github username</a></li>
+  <li><a href="#laptop-setup">Setup your laptop</a></li>
   <li><a href="#jupyterhub-setup">Setup on Abisko Jupyterhub</a></li>
 </ul>
 
 <h1 id="laptop-setup">Laptop setup</h1>
 
-<ul>
-  <li><a href="#install-packages">Install packages</a></li>
-  <li><a href="#set-up-your-ssh-keys">Set-up your SSH keys</a></li>
-</ul>
-
 <h2 id="install-packages">Install packages</h2>
 
-<h2 id="setup">Setup</h2>
+<p>To participate to Abisko course, you will need access to the software described below.
+  In addition, you will need an up-to-date web browser.</p>
 
-<p>
-  To participate to Abisko course, you will need access to the software described below.
-  In addition, you will need an up-to-date web browser.
-</p>
-<p>
-  We maintain a list of common issues that occur during installation as a reference for instructors
+<p>We maintain a list of common issues that occur during installation as a reference for instructors
   that may be useful on the
-  <a href="https://github.com/swcarpentry/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.
-</p>
+  <a href="https://github.com/swcarpentry/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.</p>
 
-<div id="shell">
-  <h3>The Bash Shell</h3>
-  <p>
-    Bash is a commonly-used shell that gives you the power to do simple
-    tasks more quickly.
-  </p>
+<p>Follow setup instruction <a href="https://uio-carpentry.github.io/2019-09-16_python/">here</a>.</p>
 
-  <div>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="windows" href="#shell-windows" aria-controls="Windows" role="tab" data-toggle="tab">Windows</a></li>
-      <li role="presentation"><a data-os="macos" href="#shell-macos" aria-controls="MacOS" role="tab" data-toggle="tab">MacOS</a></li>
-      <li role="presentation"><a data-os="linux" href="#shell-linux" aria-controls="Linux" role="tab" data-toggle="tab">Linux</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="shell-windows">
-        <a href="https://www.youtube.com/watch?v=339AEqk9c-8">Video Tutorial</a>
-        <ol>
-          <li>Download the Git for Windows <a href="https://git-for-windows.github.io/">installer</a>.</li>
-          <li>Run the installer and follow the steps below:
-            <ol>
-              
-              <li>
-                Click on "Next" four times (two times if you've previously
-                installed Git).  You don't need to change anything
-                in the Information, location, components, and start menu screens.
-              </li>
-              <li>
-                <strong>
-                  Select "Use the nano editor by default" and click on "Next".
-                </strong>
-              </li>
-              
-              <li>
-                Keep "Git from the command line and also from 3rd-party software" selected and click on "Next".
-                If you forgot to do this programs that you need for the workshop will not work properly.
-                If this happens rerun the installer and select the appropriate option.
-              </li>
-              
-              <li>Click on "Next".</li>
-              
-              <li>Select "Use the native Windows Secure Channel library", and click "Next".</li>
-              
-              
-              <li>
-                Keep "Checkout Windows-style, commit Unix-style line endings" selected and click on "Next".
-              </li>
-              
-              <li>
-                <strong>
-                  Select "Use Windows' default console window" and click on "Next".
-                </strong>
-              </li>
-              
-              <li>Leave all three items selected, and click on "Next".</li>
-              
-              <li>Do not select the experimental option. Click "Install".</li>
-              
-              
-              <li>Click on "Finish".</li>
-            </ol>
-          </li>
-          <li>
-            If your "HOME" environment variable is not set (or you don't know what this is):
-            <ol>
-              <li>Open command prompt (Open Start Menu then type <code>cmd</code> and press <kbd>Enter</kbd>)</li>
-              <li>
-                Type the following line into the command prompt window exactly as shown:
-                <p><code>setx HOME "%USERPROFILE%"</code></p>
-              </li>
-              <li>Press <kbd>Enter</kbd>, you should see <code>SUCCESS: Specified value was saved.</code></li>
-              <li>Quit command prompt by typing <code>exit</code> then pressing <kbd>Enter</kbd></li>
-            </ol>
-          </li>
-        </ol>
-        <p>This will provide you with both Git and Bash in the Git Bash program.</p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="shell-macos">
-        <p>
-          The default shell in all versions of macOS is Bash, so no
-          need to install anything.  You access Bash from the Terminal
-          (found in
-          <code>/Applications/Utilities</code>).
-          See the Git installation <a href="https://www.youtube.com/watch?v=9LQhwETCdwY ">video tutorial</a>
-          for an example on how to open the Terminal.
-          You may want to keep
-          Terminal in your dock for this workshop.
-        </p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="shell-linux">
-        <p>
-          The default shell is usually Bash, but if your
-          machine is set up differently you can run it by opening a
-          terminal and typing <code>bash</code>.  There is no need to
-          install anything.
-        </p>
-      </article>
-    </div>
-  </div>
-</div>
-
-<div id="git"> 
-  <h3>Git</h3>
-  <p>
-    Git is a version control system that lets you track who made changes
-    to what when and has options for easily updating a shared or public
-    version of your code
-    on <a href="https://github.com/">github.com</a>. You will need a
-    <a href="https://help.github.com/articles/supported-browsers/">supported
-    web browser</a>.
-  </p>
-  <p>
-    You will need an account at <a href="https://github.com/">github.com</a>
-    for parts of the Git lesson. Basic GitHub accounts are free. We encourage
-    you to create a GitHub account if you don't have one already.
-    Please consider what personal information you'd like to reveal. For
-    example, you may want to review these
-    <a href="https://help.github.com/articles/keeping-your-email-address-private/">instructions
-      for keeping your email address private</a> provided at GitHub.
-  </p>
-
-  <div>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="windows" href="#git-windows" aria-controls="Windows" role="tab" data-toggle="tab">Windows</a></li>
-      <li role="presentation"><a data-os="macos" href="#git-macos" aria-controls="MacOS" role="tab" data-toggle="tab">MacOS</a></li>
-      <li role="presentation"><a data-os="linux" href="#git-linux" aria-controls="Linux" role="tab" data-toggle="tab">Linux</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="git-windows">
-        <p>
-          Git should be installed on your computer as part of your Bash
-          install (described above).
-        </p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="git-macos">
-        <a href="https://www.youtube.com/watch?v=9LQhwETCdwY ">Video Tutorial</a>
-        <p>
-          <strong>For OS X 10.9 and higher</strong>, install Git for Mac
-          by downloading and running the most recent "mavericks" installer from
-          <a href="http://sourceforge.net/projects/git-osx-installer/files/">this list</a>.
-          Because this installer is not signed by the developer, you may have to
-          right click (control click) on the .pkg file, click Open, and click
-          Open on the pop up window. 
-          After installing Git, there will not be anything in your <code>/Applications</code> folder,
-          as Git is a command line program.
-          <strong>For older versions of OS X (10.5-10.8)</strong> use the
-          most recent available installer labelled "snow-leopard"
-          <a href="http://sourceforge.net/projects/git-osx-installer/files/">available here</a>.
-        </p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="git-linux">
-        <p>
-          If Git is not already available on your machine you can try to
-          install it via your distro's package manager. For Debian/Ubuntu run
-          <code>sudo apt-get install git</code> and for Fedora run
-          <code>sudo dnf install git</code>.
-        </p>
-      </article>
-    </div>
-  </div>
-</div>
-
-<div id="editor"> 
-  <h3>Text Editor</h3>
-
-  <p>
-    When you're writing code, it's nice to have a text editor that is
-    optimized for writing code, with features like automatic
-    color-coding of key words. The default text editor on macOS and
-    Linux is usually set to Vim, which is not famous for being
-    intuitive. If you accidentally find yourself stuck in it, hit
-    the <kbd>Esc</kbd> key, followed by <kbd>:</kbd>+<kbd>Q</kbd>+<kbd>!</kbd> 
-    (colon, lower-case 'q', exclamation mark), then hitting <kbd>Return</kbd> to 
-    return to the shell.
-  </p>
-
-  <div>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="windows" href="#editor-windows" aria-controls="Windows" role="tab" data-toggle="tab">Windows</a></li>
-      <li role="presentation"><a data-os="macos" href="#editor-macos" aria-controls="MacOS" role="tab" data-toggle="tab">MacOS</a></li>
-      <li role="presentation"><a data-os="linux" href="#editor-linux" aria-controls="Linux" role="tab" data-toggle="tab">Linux</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="editor-windows">
-        <p>
-          nano is a basic editor and the default that instructors use in the workshop.
-          It is installed along with Git.
-        </p>
-        <p>
-          Others editors that you can use are
-          <a href="https://notepad-plus-plus.org/">Notepad++</a> or
-          <a href="https://www.sublimetext.com/">Sublime Text</a>.
-          <strong>Be aware that you must
-            add its installation directory to your system path.</strong>
-          Please ask your instructor to help you do this.
-        </p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="editor-macos">
-        <p>
-          nano is a basic editor and the default that instructors use in the workshop.
-          See the Git installation <a href="https://www.youtube.com/watch?v=9LQhwETCdwY ">video tutorial</a>
-          for an example on how to open nano.
-          It should be pre-installed.
-        </p>
-        <p>
-          Others editors that you can use are
-          <a href="https://www.barebones.com/products/bbedit/">BBEdit</a> or
-          <a href="https://www.sublimetext.com/">Sublime Text</a>.
-        </p>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="editor-linux">
-        <p>
-          nano is a basic editor and the default that instructors use in the workshop.
-          It should be pre-installed.
-        </p>
-        <p>
-          Others editors that you can use are
-          <a href="https://wiki.gnome.org/Apps/Gedit">Gedit</a>,
-          <a href="https://kate-editor.org/">Kate</a> or
-          <a href="https://www.sublimetext.com/">Sublime Text</a>.
-        </p>
-      </article>
-    </div>
-  </div>
-</div>
-
-<div id="python"> 
-  <h3>Python</h3>
-
-  <p>
-    <a href="https://python.org">Python</a> is a popular language for
-    research computing, and great for general-purpose programming as
-    well.  Installing all of its research packages individually can be
-    a bit difficult, so we recommend
-    <a href="https://www.anaconda.com/distribution/">Anaconda</a>,
-    an all-in-one installer.
-  </p>
-
-  <p>
-    Regardless of how you choose to install it,
-    <strong>please make sure you install Python version 3.x</strong>
-    (e.g., 3.6 is fine).
-  </p>
-
-  <p>
-    We will teach Python using the <a href="https://jupyter.org/">Jupyter notebook</a>,
-    a programming environment that runs in a web browser. For this to work you will need a reasonably
-    up-to-date browser. The current versions of the Chrome, Safari and
-    Firefox browsers are all
-    <a href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html#browser-compatibility">supported</a>
-    (some older browsers, including Internet Explorer version 9
-    and below, are not).
-  </p>
-
-  <div>
-    <ul class="nav nav-tabs nav-justified" role="tablist">
-      <li role="presentation" class="active"><a data-os="windows" href="#python-windows" aria-controls="Windows" role="tab" data-toggle="tab">Windows</a></li>
-      <li role="presentation"><a data-os="macos" href="#python-macos" aria-controls="MacOS" role="tab" data-toggle="tab">MacOS</a></li>
-      <li role="presentation"><a data-os="linux" href="#python-linux" aria-controls="Linux" role="tab" data-toggle="tab">Linux</a></li>
-    </ul>
-
-    <div class="tab-content">
-      <article role="tabpanel" class="tab-pane active" id="python-windows">
-        <a href="https://www.youtube.com/watch?v=xxQ0mzZ8UvA">Video Tutorial</a>
-        <ol>
-          <li>Open <a href="https://www.anaconda.com/download/#windows">https://www.anaconda.com/download/#windows</a> with your web browser.</li>
-          <li>Download the Python 3 installer for Windows.</li>
-          <li>Install Python 3 using all of the defaults for installation <em>except</em> make sure to check <strong>Add Anaconda to my PATH environment variable</strong>.</li>
-        </ol>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="python-macos">
-        <a href="https://www.youtube.com/watch?v=TcSAln46u9U">Video Tutorial</a>
-        <ol>
-          <li>Open <a href="https://www.anaconda.com/download/#macos">https://www.anaconda.com/download/#macos</a> with your web browser.</li>
-          <li>Download the Python 3 installer for OS X.</li>
-          <li>Install Python 3 using all of the defaults for installation.</li>
-        </ol>
-      </article>
-      <article role="tabpanel" class="tab-pane active" id="python-linux">
-        <ol>
-          <li>Open <a href="https://www.anaconda.com/download/#linux">https://www.anaconda.com/download/#linux</a> with your web browser.</li>
-          <li>Download the Python 3 installer for Linux.<br />
-            (The installation requires using the shell. If you aren't
-            comfortable doing the installation yourself
-            stop here and request help at the workshop.)
-          </li>
-          <li>
-            Open a terminal window.
-          </li>
-          <li>
-            Type <pre>bash Anaconda3-</pre> and then press
-            <kbd>Tab</kbd>. The name of the file you just downloaded should
-            appear. If it does not, navigate to the folder where you
-            downloaded the file, for example with:
-            <pre>cd Downloads</pre>
-            Then, try again.
-          </li>
-          <li>
-            Press <kbd>Return</kbd>. You will follow the text-only prompts. To move through
-            the text, press <kbd>Spacebar</kbd>. Type <code>yes</code> and
-            press enter to approve the license. Press enter to approve the
-            default location for the files. Type <code>yes</code> and
-            press enter to prepend Anaconda to your <code>PATH</code>
-            (this makes the Anaconda distribution the default Python).
-          </li>
-          <li>
-            Close the terminal window.
-          </li>
-        </ol>
-      </article>
-    </div>
-  </div>
-  
-</div>
-
-<h3>Create a new Anaconda environment</h3>
+<p>### Create a new Anaconda environment</p>
 
 <p>To install additional Python packages/libraries, you need to open a Terminal, and then follow the instructions below.</p>
 
@@ -1180,7 +856,7 @@ dependencies:
   - netcdf4
 </code></pre></div></div>
 
-<h2 id="jupyterhub">Jupyterhub</h2>
+<h1 id="jupyterhub-setup">Jupyterhub setup</h1>
 
 <p>Instructions for accessing Jupyter notebooks at Sigma2 server:</p>
 
