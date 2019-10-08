@@ -20,8 +20,8 @@ dependencies:
   - nco
   - ruby
   - pip:
-	- jupyterlab_latex
-	- jupyterlab-git
-	- nbinteract
-	- jupyter-book
-	- datascience
+      - jupyterlab_latex
+      - jupyterlab-git
+      - nbinteract
+      - jupyter-book
+      - datascience
