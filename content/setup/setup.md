@@ -55,6 +55,12 @@ dependencies:
   - netcdf4
 ```
 
+### Download dataset for local installation
+
+The sample dataset for Abisko course is freely available [here](https://doi.org/10.5281/zenodo.3475894)
+
+([![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3475894.svg)](https://doi.org/10.5281/zenodo.3475894).
+
 # Jupyterhub setup
 
 Instructions for accessing Jupyter notebooks at Sigma2 server:
