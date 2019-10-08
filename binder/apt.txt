@@ -1,0 +1,7 @@
+texlive-fonts-recommended
+texlive-generic-recommended
+latexmk
+texlive-xetex
+nano
+vim
+ruby
