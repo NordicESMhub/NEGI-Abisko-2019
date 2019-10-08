@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Course preparation</title>
-  <meta name="description" content="            #import important packagesimport numpy as npimport matplotlib.pyplot as pltfrom netCDF4 import Datasetimport xarray as xrimport pandas as pdimpor...">
+  <meta name="description" content="        import important packages     import numpy as npimport matplotlib.pyplot as pltfrom netCDF4 import Datasetimport xarray as xrimport pandas as pdimpor...">
 
   <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/Abisko_prep.html">
   <link rel="alternate" type="application/rss+xml" title="eScience for linking Arctic measurements and modeling" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/feed.xml">
@@ -16,7 +16,7 @@
   <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/Abisko_prep.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Course preparation" />
-<meta property="og:description" content="            #import important packagesimport numpy as npimport matplotlib.pyplot as pltfrom netCDF4 import Datasetimport xarray as xrimport pandas as pdimpor..." />
+<meta property="og:description" content="        import important packages     import numpy as npimport matplotlib.pyplot as pltfrom netCDF4 import Datasetimport xarray as xrimport pandas as pdimpor..." />
 <meta property="og:image"       content="http://nordicesmhub.github.io/NEGI-Abisko-2019/images/logo/zeppelin.png" />
 
 <meta name="twitter:card" content="summary">
@@ -28,9 +28,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/Abisko_prep.html",
   "headline": "Course preparation",
-  "datePublished": "2019-10-08T13:27:45+00:00",
-  "dateModified": "2019-10-08T13:27:45+00:00",
-  "description": "            #import important packagesimport numpy as npimport matplotlib.pyplot as pltfrom netCDF4 import Datasetimport xarray as xrimport pandas as pdimpor...",
+  "datePublished": "2019-10-08T20:52:51+00:00",
+  "dateModified": "2019-10-08T20:52:51+00:00",
+  "description": "        import important packages     import numpy as npimport matplotlib.pyplot as pltfrom netCDF4 import Datasetimport xarray as xrimport pandas as pdimpor...",
   "author": {
     "@type": "Person",
     "name": "Anne Fouilloux"
@@ -978,14 +978,22 @@ initFunction(initPrint)
                   <main class="jupyter-page">
     <div class="jb_cell">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="import-important-packages">import important packages<a class="anchor-link" href="#import-important-packages"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#import important packages</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">netCDF4</span> <span class="k">import</span> <span class="n">Dataset</span>
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
@@ -1003,16 +1011,125 @@ initFunction(initPrint)
 
 <div class="jb_cell">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Get-sample-dataset-from-Zenodo">Get sample dataset from Zenodo<a class="anchor-link" href="#Get-sample-dataset-from-Zenodo"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#load dataset</span>
-<span class="c1">#ds = xr.open_dataset(&#39;&#39;)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wget https://zenodo.org/record/3475894/files/Abisko-prep.tar.gz
+</pre></div>
 
-<span class="c1">#observations</span>
-<span class="n">Stoffel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;T_recon_NTREND_NH1_EURO.csv&#39;</span><span class="p">)</span>
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>--2019-10-08 14:56:52--  https://zenodo.org/record/3475894/files/Abisko-prep.tar.gz
+Resolving zenodo.org (zenodo.org)... 188.184.65.20
+Connecting to zenodo.org (zenodo.org)|188.184.65.20|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 833281373 (795M) [application/octet-stream]
+Saving to: ‘Abisko-prep.tar.gz’
+
+Abisko-prep.tar.gz  100%[===================&gt;] 794.68M  13.3MB/s    in 58s     
+
+2019-10-08 14:57:51 (13.7 MB/s) - ‘Abisko-prep.tar.gz’ saved [833281373/833281373]
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tar zxvf Abisko-prep.tar.gz
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Abisko-prep/
+Abisko-prep/T_recon_NTREND_NH1_EURO.csv
+Abisko-prep/ensmean_temp2_pre_seas_trees_fldmean_a_yrmean.nc
+Abisko-prep/Theta_OPT-0015.nc
+Abisko-prep/piControl_BOT_1850-2849_temp2_fldmean.nc
+Abisko-prep/ue536a02_temp2_pre_seas_trees_fldmean_a_yrmean.nc
+Abisko-prep/ue536a04_temp2_pre_seas_trees_fldmean_a_yrmean.nc
+Abisko-prep/ensmean_1536_1550_geopoth_seas_a.nc
+Abisko-prep/ensmean_PE_seas.nc
+Abisko-prep/ue536a01_temp2_pre_seas_trees_fldmean_a_yrmean.nc
+Abisko-prep/ue536a06_temp2_pre_seas_trees_fldmean_a_yrmean.nc
+Abisko-prep/ue536a05_temp2_pre_seas_trees_fldmean_a_yrmean.nc
+Abisko-prep/ue536a03_temp2_pre.nc
+Abisko-prep/ue536a03_temp2_pre_seas_trees_fldmean_a_yrmean.nc
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Load-a-csv-file-(comma-separated-values)">Load a csv file (comma separated values)<a class="anchor-link" href="#Load-a-csv-file-(comma-separated-values)"> </a></h2><ul>
+<li>Pandas python package can be used analyze csv </li>
+<li>index_col parameter allows to tell which column in the input file should be 
+used for indexing the dataset</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#observations</span>
+<span class="n">Stoffel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/T_recon_NTREND_NH1_EURO.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1063,7 +1180,6 @@ initFunction(initPrint)
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Year</th>
       <th>EURO_Mean</th>
       <th>Lower2sigma</th>
       <th>Upper2sigma</th>
@@ -1073,6 +1189,7 @@ initFunction(initPrint)
       <th>NTREND2015</th>
       <th>upper2sigma</th>
       <th>lower2sigma</th>
+      <th>Wilson 2016</th>
       <th>...</th>
       <th>Unnamed: 24</th>
       <th>Unnamed: 25</th>
@@ -1085,10 +1202,33 @@ initFunction(initPrint)
       <th>Unnamed: 32</th>
       <th>SSW (Mean=3)</th>
     </tr>
+    <tr>
+      <th>Year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
       <td>2014</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1099,6 +1239,7 @@ initFunction(initPrint)
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>QSR</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1112,7 +1253,6 @@ initFunction(initPrint)
       <td>NaN</td>
     </tr>
     <tr>
-      <th>1</th>
       <td>2013</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1123,6 +1263,7 @@ initFunction(initPrint)
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1136,7 +1277,6 @@ initFunction(initPrint)
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2</th>
       <td>2012</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1147,6 +1287,7 @@ initFunction(initPrint)
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1160,7 +1301,6 @@ initFunction(initPrint)
       <td>NaN</td>
     </tr>
     <tr>
-      <th>3</th>
       <td>2011</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1171,6 +1311,7 @@ initFunction(initPrint)
       <td>1.259</td>
       <td>3.045</td>
       <td>-0.527</td>
+      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1184,7 +1325,6 @@ initFunction(initPrint)
       <td>NaN</td>
     </tr>
     <tr>
-      <th>4</th>
       <td>2010</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1195,6 +1335,7 @@ initFunction(initPrint)
       <td>0.911</td>
       <td>2.223</td>
       <td>-0.402</td>
+      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1208,607 +1349,7 @@ initFunction(initPrint)
       <td>NaN</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>2009</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2009.0</td>
-      <td>0.543</td>
-      <td>1.856</td>
-      <td>-0.769</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>2008</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2008.0</td>
-      <td>0.452</td>
-      <td>1.764</td>
-      <td>-0.861</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2007</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2007.0</td>
-      <td>0.495</td>
-      <td>1.772</td>
-      <td>-0.781</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2006</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2006.0</td>
-      <td>0.460</td>
-      <td>1.687</td>
-      <td>-0.768</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2005</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2005.0</td>
-      <td>0.720</td>
-      <td>1.830</td>
-      <td>-0.390</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>2004</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2004.0</td>
-      <td>0.587</td>
-      <td>1.629</td>
-      <td>-0.455</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>2003</td>
-      <td>2.262</td>
-      <td>1.546</td>
-      <td>2.938</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2003.0</td>
-      <td>0.892</td>
-      <td>1.903</td>
-      <td>-0.118</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>2002</td>
-      <td>1.388</td>
-      <td>0.731</td>
-      <td>2.086</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2002.0</td>
-      <td>0.362</td>
-      <td>1.321</td>
-      <td>-0.597</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.309</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>2001</td>
-      <td>0.948</td>
-      <td>0.272</td>
-      <td>1.818</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2001.0</td>
-      <td>0.102</td>
-      <td>1.054</td>
-      <td>-0.850</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.110</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>2000</td>
-      <td>0.853</td>
-      <td>0.210</td>
-      <td>1.603</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2000.0</td>
-      <td>0.487</td>
-      <td>1.426</td>
-      <td>-0.452</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.403</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>1999</td>
-      <td>0.790</td>
-      <td>0.132</td>
-      <td>1.579</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1999.0</td>
-      <td>0.262</td>
-      <td>1.201</td>
-      <td>-0.677</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.187</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>1998</td>
-      <td>0.715</td>
-      <td>0.082</td>
-      <td>1.482</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1998.0</td>
-      <td>0.454</td>
-      <td>1.393</td>
-      <td>-0.485</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.327</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>1997</td>
-      <td>0.873</td>
-      <td>0.199</td>
-      <td>1.552</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1997.0</td>
-      <td>0.241</td>
-      <td>1.180</td>
-      <td>-0.698</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>EURO_Mean</td>
-      <td>NTREND2015</td>
-      <td>NH1</td>
-      <td>TAnom</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.216</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>1996</td>
-      <td>0.185</td>
-      <td>-0.441</td>
-      <td>0.825</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1996.0</td>
-      <td>-0.030</td>
-      <td>0.909</td>
-      <td>-0.969</td>
-      <td>...</td>
-      <td>1961-1990</td>
-      <td>-0.02</td>
-      <td>0.03</td>
-      <td>-0.06</td>
-      <td>0.00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-0.064</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>1995</td>
-      <td>0.488</td>
-      <td>-0.172</td>
-      <td>1.142</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1995.0</td>
-      <td>0.062</td>
-      <td>0.975</td>
-      <td>-0.851</td>
-      <td>...</td>
-      <td>1901-2000</td>
-      <td>0.09</td>
-      <td>-0.01</td>
-      <td>-0.01</td>
-      <td>0.08</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-0.113</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>1994</td>
-      <td>1.322</td>
-      <td>0.677</td>
-      <td>1.983</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1994.0</td>
-      <td>0.590</td>
-      <td>1.479</td>
-      <td>-0.299</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.391</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>1993</td>
-      <td>0.322</td>
-      <td>-0.350</td>
-      <td>0.953</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1993.0</td>
-      <td>0.165</td>
-      <td>1.040</td>
-      <td>-0.711</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.153</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>1992</td>
-      <td>0.539</td>
-      <td>-0.131</td>
-      <td>1.205</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1992.0</td>
-      <td>-0.084</td>
-      <td>0.780</td>
-      <td>-0.949</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-0.030</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>1991</td>
-      <td>0.691</td>
-      <td>0.050</td>
-      <td>1.326</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1991.0</td>
-      <td>0.057</td>
-      <td>0.922</td>
-      <td>-0.807</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.217</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>1990</td>
-      <td>0.553</td>
-      <td>-0.049</td>
-      <td>1.162</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1990.0</td>
-      <td>0.255</td>
-      <td>1.110</td>
-      <td>-0.601</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.188</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>1989</td>
-      <td>0.429</td>
-      <td>-0.201</td>
-      <td>1.038</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1989.0</td>
-      <td>0.501</td>
-      <td>1.261</td>
-      <td>-0.259</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.310</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>1988</td>
-      <td>0.500</td>
-      <td>-0.125</td>
-      <td>1.133</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1988.0</td>
-      <td>0.355</td>
-      <td>1.102</td>
-      <td>-0.392</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.173</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>1987</td>
-      <td>-0.260</td>
-      <td>-0.907</td>
-      <td>0.381</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1987.0</td>
-      <td>-0.099</td>
-      <td>0.648</td>
-      <td>-0.845</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-0.114</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>1986</td>
-      <td>0.418</td>
-      <td>-0.322</td>
-      <td>1.085</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1986.0</td>
-      <td>0.230</td>
-      <td>0.977</td>
-      <td>-0.517</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.034</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>1985</td>
-      <td>0.032</td>
-      <td>-0.628</td>
-      <td>0.665</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1985.0</td>
-      <td>0.245</td>
-      <td>0.992</td>
-      <td>-0.502</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.063</td>
-    </tr>
-    <tr>
-      <th>...</th>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1832,607 +1373,6 @@ initFunction(initPrint)
       <td>...</td>
     </tr>
     <tr>
-      <th>2122</th>
-      <td>-109</td>
-      <td>0.032</td>
-      <td>-0.734</td>
-      <td>0.813</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2123</th>
-      <td>-110</td>
-      <td>0.025</td>
-      <td>-0.765</td>
-      <td>0.814</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2124</th>
-      <td>-111</td>
-      <td>-0.163</td>
-      <td>-0.931</td>
-      <td>0.606</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2125</th>
-      <td>-112</td>
-      <td>-0.042</td>
-      <td>-0.820</td>
-      <td>0.739</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2126</th>
-      <td>-113</td>
-      <td>-0.270</td>
-      <td>-1.033</td>
-      <td>0.489</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2127</th>
-      <td>-114</td>
-      <td>0.475</td>
-      <td>-0.351</td>
-      <td>1.294</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2128</th>
-      <td>-115</td>
-      <td>0.462</td>
-      <td>-0.299</td>
-      <td>1.263</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2129</th>
-      <td>-116</td>
-      <td>-0.111</td>
-      <td>-0.872</td>
-      <td>0.654</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2130</th>
-      <td>-117</td>
-      <td>0.453</td>
-      <td>-0.336</td>
-      <td>1.247</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2131</th>
-      <td>-118</td>
-      <td>-0.249</td>
-      <td>-1.062</td>
-      <td>0.573</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2132</th>
-      <td>-119</td>
-      <td>0.206</td>
-      <td>-0.551</td>
-      <td>0.995</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2133</th>
-      <td>-120</td>
-      <td>-0.349</td>
-      <td>-1.128</td>
-      <td>0.417</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2134</th>
-      <td>-121</td>
-      <td>-0.437</td>
-      <td>-1.253</td>
-      <td>0.340</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2135</th>
-      <td>-122</td>
-      <td>-0.228</td>
-      <td>-0.996</td>
-      <td>0.538</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2136</th>
-      <td>-123</td>
-      <td>0.051</td>
-      <td>-0.837</td>
-      <td>0.893</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2137</th>
-      <td>-124</td>
-      <td>-0.343</td>
-      <td>-1.171</td>
-      <td>0.444</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2138</th>
-      <td>-125</td>
-      <td>0.450</td>
-      <td>-0.476</td>
-      <td>1.328</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2139</th>
-      <td>-126</td>
-      <td>0.433</td>
-      <td>-0.416</td>
-      <td>1.266</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2140</th>
-      <td>-127</td>
-      <td>-0.032</td>
-      <td>-0.940</td>
-      <td>0.821</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2141</th>
-      <td>-128</td>
-      <td>0.333</td>
-      <td>-0.533</td>
-      <td>1.169</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2142</th>
-      <td>-129</td>
-      <td>-0.662</td>
-      <td>-1.571</td>
-      <td>0.150</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2143</th>
-      <td>-130</td>
-      <td>0.580</td>
-      <td>-0.222</td>
-      <td>1.379</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2144</th>
-      <td>-131</td>
-      <td>0.866</td>
-      <td>0.098</td>
-      <td>1.685</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2145</th>
-      <td>-132</td>
-      <td>-0.090</td>
-      <td>-0.945</td>
-      <td>0.727</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2146</th>
-      <td>-133</td>
-      <td>0.394</td>
-      <td>-0.455</td>
-      <td>1.226</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2147</th>
       <td>-134</td>
       <td>-0.503</td>
       <td>-1.325</td>
@@ -2443,6 +1383,7 @@ initFunction(initPrint)
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2456,7 +1397,6 @@ initFunction(initPrint)
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2148</th>
       <td>-135</td>
       <td>-0.436</td>
       <td>-1.278</td>
@@ -2467,6 +1407,7 @@ initFunction(initPrint)
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2480,7 +1421,6 @@ initFunction(initPrint)
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2149</th>
       <td>-136</td>
       <td>-0.067</td>
       <td>-0.916</td>
@@ -2491,6 +1431,7 @@ initFunction(initPrint)
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2504,7 +1445,6 @@ initFunction(initPrint)
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2150</th>
       <td>-137</td>
       <td>-0.029</td>
       <td>-0.922</td>
@@ -2515,6 +1455,7 @@ initFunction(initPrint)
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2528,11 +1469,11 @@ initFunction(initPrint)
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2151</th>
       <td>-138</td>
       <td>-0.037</td>
       <td>-0.855</td>
       <td>0.764</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2553,7 +1494,7 @@ initFunction(initPrint)
     </tr>
   </tbody>
 </table>
-<p>2152 rows × 34 columns</p>
+<p>2152 rows × 33 columns</p>
 </div>
 </div>
 
@@ -2572,9 +1513,8 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#check shap</span>
-<span class="n">starty</span><span class="o">=</span><span class="mi">1464</span><span class="p">;</span> <span class="n">endy</span><span class="o">=</span><span class="mi">1500</span>
-<span class="n">Stoffel</span><span class="p">[</span><span class="n">Stoffel</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="n">starty</span><span class="p">,</span><span class="n">endy</span><span class="p">))]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;NH1&#39;</span><span class="p">)</span><span class="c1">#.shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#check shape</span>
+<span class="n">Stoffel</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -2590,7 +1530,51 @@ initFunction(initPrint)
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fe8184cd278&gt;</pre>
+<pre>(2152, 33)</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Plot-NH1-column">Plot NH1 column<a class="anchor-link" href="#Plot-NH1-column"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Stoffel</span><span class="p">[</span><span class="s1">&#39;NH1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f1dfba1c828&gt;</pre>
 </div>
 
 </div>
@@ -2601,7 +1585,7 @@ initFunction(initPrint)
 
 
 <div class="output_png output_subarea ">
-<img src="../images/setup/Abisko_prep_3_1.png"
+<img src="../images/setup/Abisko_prep_10_1.png"
 >
 </div>
 
@@ -2615,14 +1599,24 @@ initFunction(initPrint)
 
 <div class="jb_cell">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Plot-data-from-year-1464-to-year-1500">Plot data from year 1464 to year 1500<a class="anchor-link" href="#Plot-data-from-year-1464-to-year-1500"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#simpel plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Stoffel</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">][</span><span class="mi">1464</span><span class="p">:</span><span class="mi">1484</span><span class="p">],</span> <span class="n">Stoffel</span><span class="p">[</span><span class="s1">&#39;NH1&#39;</span><span class="p">][</span><span class="mi">1464</span><span class="p">:</span><span class="mi">1484</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Stoffel</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">][</span><span class="mi">1464</span><span class="p">:</span><span class="mi">1484</span><span class="p">],</span> <span class="n">Stoffel</span><span class="p">[</span><span class="s1">&#39;NH2&#39;</span><span class="p">][</span><span class="mi">1464</span><span class="p">:</span><span class="mi">1484</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">starty</span><span class="o">=</span><span class="mi">1464</span><span class="p">;</span> <span class="n">endy</span><span class="o">=</span><span class="mi">1500</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Stoffel</span><span class="p">[</span><span class="s1">&#39;NH1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">starty</span><span class="p">,</span><span class="n">endy</span><span class="p">)]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;plotting NH1&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y label&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -2638,7 +1632,7 @@ initFunction(initPrint)
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7fe826c50be0&gt;]</pre>
+<pre>Text(0, 0.5, &#39;y label&#39;)</pre>
 </div>
 
 </div>
@@ -2649,7 +1643,7 @@ initFunction(initPrint)
 
 
 <div class="output_png output_subarea ">
-<img src="../images/setup/Abisko_prep_4_1.png"
+<img src="../images/setup/Abisko_prep_12_1.png"
 >
 </div>
 
@@ -2663,14 +1657,24 @@ initFunction(initPrint)
 
 <div class="jb_cell">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Select-several-columns-to-plot">Select several columns to plot<a class="anchor-link" href="#Select-several-columns-to-plot"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create timeseries</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="s1">&#39;0525-01-31&#39;</span><span class="p">,</span> <span class="s1">&#39;0551-01-28&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;datetime64[M]&#39;</span><span class="p">)</span>
-<span class="n">time</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">starty</span><span class="o">=</span><span class="mi">1464</span><span class="p">;</span> <span class="n">endy</span><span class="o">=</span><span class="mi">1500</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Stoffel</span><span class="p">[[</span><span class="s1">&#39;NH1&#39;</span><span class="p">,</span><span class="s1">&#39;NH2&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">starty</span><span class="p">,</span><span class="n">endy</span><span class="p">)]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;plotting NH1 &amp; NH2&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y label&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -2686,7 +1690,19 @@ initFunction(initPrint)
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(312,)</pre>
+<pre>Text(0, 0.5, &#39;y label&#39;)</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/setup/Abisko_prep_14_1.png"
+>
 </div>
 
 </div>
@@ -2699,13 +1715,28 @@ initFunction(initPrint)
 
 <div class="jb_cell">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Analyze-netCDF-file-(Network-Common-Data-Form)">Analyze netCDF file (Network Common Data Form)<a class="anchor-link" href="#Analyze-netCDF-file-(Network-Common-Data-Form)"> </a></h1><ul>
+<li>Self-describing (metadata is contained in the data)</li>
+<li>Machine independent
+See <a href="https://en.wikipedia.org/wiki/NetCDF">https://en.wikipedia.org/wiki/NetCDF</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#manipulate data</span>
-<span class="c1">#mean --&gt; CDO</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#open control run</span>
+<span class="n">cntrl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/piControl_BOT_1850-2849_temp2_fldmean.nc&#39;</span><span class="p">,</span> <span class="n">decode_times</span>  <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">use_cftime</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -2722,53 +1753,232 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#std</span>
-<span class="c1">#open control run</span>
-<span class="n">cntrl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/piControl/temp2/piControl_BOT_1850-2849_temp2_fldmean.nc&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># set reference time so it makes it easier to use with xarray</span>
+<span class="o">!</span>cdo setreftime,1850-01-31,00:00:00 Abisko-prep/piControl_BOT_1850-2849_temp2_fldmean.nc Abisko-prep/po.nc
+</pre></div>
 
-<span class="c1">#Go from Kelvin to Celsius</span>
-<span class="n">cntrl</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="s1">&#39;var167&#39;</span><span class="p">]</span><span class="o">-</span><span class="mf">273.15</span>
+    </div>
+</div>
+</div>
 
-<span class="c1">#divide by month --&gt; calculate std per month, then take average</span>
-<span class="n">cntrl_jan</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">cntrl_feb</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">cntrl_mar</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">cntrl_apr</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="mi">3</span><span class="p">::</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">cntrl_may</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="mi">4</span><span class="p">::</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">cntrl_jun</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="mi">5</span><span class="p">::</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">cntrl_jul</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="mi">6</span><span class="p">::</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">cntrl_aug</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="mi">7</span><span class="p">::</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">cntrl_sep</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="mi">8</span><span class="p">::</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">cntrl_oct</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="mi">9</span><span class="p">::</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">cntrl_nov</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="mi">10</span><span class="p">::</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">cntrl_dec</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="mi">11</span><span class="p">::</span><span class="mi">12</span><span class="p">]</span>
+<div class="output_wrapper">
+<div class="output">
 
-<span class="n">std_cntrl_jan</span> <span class="o">=</span> <span class="n">cntrl_jan</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">std_cntrl_feb</span> <span class="o">=</span> <span class="n">cntrl_feb</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">std_cntrl_mar</span> <span class="o">=</span> <span class="n">cntrl_mar</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">std_cntrl_apr</span> <span class="o">=</span> <span class="n">cntrl_apr</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">std_cntrl_may</span> <span class="o">=</span> <span class="n">cntrl_may</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">std_cntrl_jun</span> <span class="o">=</span> <span class="n">cntrl_jun</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">std_cntrl_jul</span> <span class="o">=</span> <span class="n">cntrl_jul</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">std_cntrl_aug</span> <span class="o">=</span> <span class="n">cntrl_aug</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">std_cntrl_sep</span> <span class="o">=</span> <span class="n">cntrl_sep</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">std_cntrl_oct</span> <span class="o">=</span> <span class="n">cntrl_oct</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">std_cntrl_nov</span> <span class="o">=</span> <span class="n">cntrl_nov</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">std_cntrl_dec</span> <span class="o">=</span> <span class="n">cntrl_dec</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
 
-<span class="n">std_cntrl</span> <span class="o">=</span> <span class="p">(</span><span class="n">std_cntrl_jan</span><span class="o">+</span>
-                <span class="n">std_cntrl_feb</span><span class="o">+</span>
-                <span class="n">std_cntrl_mar</span><span class="o">+</span>
-                <span class="n">std_cntrl_apr</span><span class="o">+</span>
-                <span class="n">std_cntrl_may</span><span class="o">+</span>
-                <span class="n">std_cntrl_jun</span><span class="o">+</span>
-                <span class="n">std_cntrl_jul</span><span class="o">+</span>
-                <span class="n">std_cntrl_aug</span><span class="o">+</span>
-                <span class="n">std_cntrl_sep</span><span class="o">+</span>
-                <span class="n">std_cntrl_oct</span><span class="o">+</span>
-                <span class="n">std_cntrl_nov</span><span class="o">+</span>
-                <span class="n">std_cntrl_dec</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-fg">cdo    setreftime: </span><span class="ansi-black-fg">Changing absolute to relative time axis!</span>
+<span class="ansi-green-fg">cdo    setreftime: </span>Processed 1 variable over 10200 timesteps [0.08s 28MB].
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cntrl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/po.nc&#39;</span><span class="p">,</span> <span class="n">decode_times</span>  <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">use_cftime</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cntrl</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([cftime.DatetimeProlepticGregorian(1850, 1, 31, 18, 0, 0, 0, 3, 31),
+       cftime.DatetimeProlepticGregorian(1850, 2, 28, 18, 0, 0, 0, 3, 59),
+       cftime.DatetimeProlepticGregorian(1850, 3, 31, 18, 0, 0, 0, 6, 90),
+       ...,
+       cftime.DatetimeProlepticGregorian(2699, 10, 31, 18, 0, 0, 0, 1, 304),
+       cftime.DatetimeProlepticGregorian(2699, 11, 30, 18, 0, 0, 0, 3, 334),
+       cftime.DatetimeProlepticGregorian(2699, 12, 31, 18, 0, 0, 0, 6, 365)],
+      dtype=object)</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cntrl</span><span class="o">.</span><span class="n">var167</span>
+<span class="c1"># Same as specifying cntrl[&#39;var167&#39;]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;xarray.DataArray &#39;var167&#39; (time: 10200, lat: 1, lon: 1)&gt;
+array([[[284.6464 ]],
+
+       [[284.82816]],
+
+       ...,
+
+       [[285.46655]],
+
+       [[284.6732 ]]], dtype=float32)
+Coordinates:
+  * time     (time) object 1850-01-31 18:00:00 ... 2699-12-31 18:00:00
+  * lon      (lon) float64 0.0
+  * lat      (lat) float64 0.0
+Attributes:
+    code:     167
+    table:    128</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Go from Kelvin to Celsius</span>
+<span class="n">cntrl</span><span class="p">[</span><span class="s1">&#39;var167&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="s1">&#39;var167&#39;</span><span class="p">]</span><span class="o">-</span><span class="mf">273.15</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cntrl</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;xarray.Dataset&gt;
+Dimensions:  (lat: 1, lon: 1, time: 10200)
+Coordinates:
+  * time     (time) object 1850-01-31 18:00:00 ... 2699-12-31 18:00:00
+  * lon      (lon) float64 0.0
+  * lat      (lat) float64 0.0
+Data variables:
+    var167   (time, lat, lon) float32 11.496399 11.678162 ... 11.523193
+Attributes:
+    CDI:          Climate Data Interface version 1.9.7.1 (http://mpimet.mpg.d...
+    Conventions:  CF-1.6
+    history:      Tue Oct 08 20:02:11 2019: cdo setreftime,1850-01-31,00:00:0...
+    institution:  Max Planck Institute for Meteorology
+    CDO:          Climate Data Operators version 1.9.7.1 (http://mpimet.mpg.d...</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cntrl</span><span class="p">[</span><span class="s1">&#39;var167&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">std_cntrl</span> <span class="o">=</span> <span class="n">cntrl</span><span class="p">[</span><span class="s1">&#39;var167&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="c1">#For a 2 sigma std</span>
 <span class="n">sig2</span> <span class="o">=</span> <span class="n">std_cntrl</span><span class="o">*</span><span class="mi">2</span>
 <span class="n">sig2</span>
@@ -2788,7 +1998,7 @@ initFunction(initPrint)
 
 <div class="output_text output_subarea output_execute_result">
 <pre>&lt;xarray.DataArray &#39;var167&#39; ()&gt;
-array(0.296598)</pre>
+array(0.29659799)</pre>
 </div>
 
 </div>
@@ -2806,7 +2016,7 @@ array(0.296598)</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ds_ens</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/P+E/ensmean_PE_seas.nc&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ds_ens</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/ensmean_PE_seas.nc&#39;</span><span class="p">)</span>
 <span class="n">ds_ens</span>
 </pre></div>
 
@@ -2872,8 +2082,60 @@ Attributes:
 
 
 
+<div class="output_png output_subarea ">
+<img src="../images/setup/Abisko_prep_26_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#plot maps</span>
+<span class="c1">#For maps you take the ensemble mean</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">13</span><span class="p">])</span>
+
+<span class="c1">#range</span>
+<span class="n">vc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># We&#39;re using cartopy and are plotting in PlateCarree projection </span>
+<span class="c1"># (see documentation on cartopy)</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="n">ds_ens</span><span class="p">[</span><span class="s1">&#39;aprc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax1</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;BrBG&#39;</span><span class="p">))</span>
+<span class="c1">#Title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;P-E&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="c1">#If you want you can zoom in to a specific area</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span><span class="mi">180</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">90</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.QuadMesh at 0x7fe818461f98&gt;</pre>
+<pre>(0, 90)</pre>
 </div>
 
 </div>
@@ -2884,7 +2146,7 @@ Attributes:
 
 
 <div class="output_png output_subarea ">
-<img src="../images/setup/Abisko_prep_9_1.png"
+<img src="../images/setup/Abisko_prep_27_1.png"
 >
 </div>
 
@@ -2912,12 +2174,14 @@ Attributes:
 <span class="c1">#range</span>
 <span class="n">vc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="c1">#We&#39;re using cartopy and are plotting in PlateCarree projection (see documentation on cartopy)</span>
+<span class="c1"># We&#39;re using cartopy and are plotting in PlateCarree projection </span>
+<span class="c1"># (see documentation on cartopy)</span>
 <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
-<span class="nb">map</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ds_ens</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">][:],</span> <span class="n">ds_ens</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">][:],</span> <span class="n">ds_ens</span><span class="p">[</span><span class="s1">&#39;aprc&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">,:,:],</span><span class="n">vc</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;BrBG&#39;</span><span class="p">))</span>
+<span class="nb">map</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ds_ens</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">][:],</span> <span class="n">ds_ens</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">][:],</span> <span class="n">ds_ens</span><span class="p">[</span><span class="s1">&#39;aprc&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">,:,:],</span><span class="n">vc</span><span class="p">,</span> 
+                 <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;BrBG&#39;</span><span class="p">))</span>
 
-<span class="c1">#Titel</span>
+<span class="c1">#Title</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;P-E&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
 <span class="c1">#If you want you can zoom in to a specific area</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span><span class="mi">180</span><span class="p">])</span>
@@ -2953,7 +2217,7 @@ Attributes:
 
 
 <div class="output_png output_subarea ">
-<img src="../images/setup/Abisko_prep_10_1.png"
+<img src="../images/setup/Abisko_prep_28_1.png"
 >
 </div>
 
@@ -3061,8 +2325,6 @@ Attributes:
 <span class="nb">map</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">ds_ens</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">][:],</span> <span class="n">ds_ens</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">][:],</span> <span class="n">ds_ens</span><span class="p">[</span><span class="s1">&#39;aprc&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">,:,:],</span><span class="n">vc</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;BrBG&#39;</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;P-E&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
-<span class="c1">#ax1.set_xlim([-180,180])</span>
-<span class="c1">#ax1.set_ylim([0,89])</span>
 
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
 <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
@@ -3093,7 +2355,7 @@ Attributes:
 
 
 <div class="output_png output_subarea ">
-<img src="../images/setup/Abisko_prep_12_1.png"
+<img src="../images/setup/Abisko_prep_30_1.png"
 >
 </div>
 
@@ -3112,7 +2374,7 @@ Attributes:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ds_ens_a</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/ATM/pre/geopoth/ensmean_1536_1550_geopoth_seas_a.nc&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ds_ens_a</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/ensmean_1536_1550_geopoth_seas_a.nc&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -3173,7 +2435,7 @@ Attributes:
 
 
 <div class="output_png output_subarea ">
-<img src="../images/setup/Abisko_prep_14_0.png"
+<img src="../images/setup/Abisko_prep_32_0.png"
 >
 </div>
 
@@ -3194,19 +2456,13 @@ Attributes:
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#plot timeseries --&gt; open climate model data ensemble runs + ensemble mean</span>
 <span class="c1">#for a timeseries we need to have global average data --&gt; CDO fldmean (area weighted)</span>
-<span class="n">ds_tas_01_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ue536a01_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_tas_02_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ue536a02_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_tas_03_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ue536a03_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_tas_04_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ue536a04_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_tas_05_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ue536a05_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_tas_06_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ue536a06_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_tas_07_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ue536a07_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_tas_08_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ue536a08_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_tas_09_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ue536a09_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_tas_10_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ue536a10_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_tas_11_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ue536a11_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_tas_12_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ue536a12_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_tas_ens_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Mistral-work/temperature/+pre/trees/ensmean_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
+<span class="n">ds_tas_01_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/ue536a01_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
+<span class="n">ds_tas_02_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/ue536a02_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
+<span class="n">ds_tas_03_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/ue536a03_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
+<span class="n">ds_tas_04_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/ue536a04_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
+<span class="n">ds_tas_05_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/ue536a05_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
+<span class="n">ds_tas_06_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/ue536a06_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
+<span class="n">ds_tas_ens_a_trees_yr</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/ensmean_temp2_pre_seas_trees_fldmean_a_yrmean.nc&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -3253,12 +2509,6 @@ Attributes:
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_yr</span><span class="p">[</span><span class="mi">6</span><span class="p">:],</span> <span class="n">ds_tas_04_a_trees_yr</span><span class="p">[</span><span class="s1">&#39;temp2&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;run04&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#1ca9b7&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_yr</span><span class="p">[</span><span class="mi">6</span><span class="p">:],</span> <span class="n">ds_tas_05_a_trees_yr</span><span class="p">[</span><span class="s1">&#39;temp2&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;run05&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#1ca9b7&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_yr</span><span class="p">[</span><span class="mi">6</span><span class="p">:],</span> <span class="n">ds_tas_06_a_trees_yr</span><span class="p">[</span><span class="s1">&#39;temp2&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;run06&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#1ca9b7&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_yr</span><span class="p">[</span><span class="mi">6</span><span class="p">:],</span> <span class="n">ds_tas_07_a_trees_yr</span><span class="p">[</span><span class="s1">&#39;temp2&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;run07&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#1ca9b7&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_yr</span><span class="p">[</span><span class="mi">6</span><span class="p">:],</span> <span class="n">ds_tas_08_a_trees_yr</span><span class="p">[</span><span class="s1">&#39;temp2&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;run08&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#1ca9b7&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_yr</span><span class="p">[</span><span class="mi">6</span><span class="p">:],</span> <span class="n">ds_tas_09_a_trees_yr</span><span class="p">[</span><span class="s1">&#39;temp2&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;run09&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#1ca9b7&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_yr</span><span class="p">[</span><span class="mi">6</span><span class="p">:],</span> <span class="n">ds_tas_10_a_trees_yr</span><span class="p">[</span><span class="s1">&#39;temp2&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;run10&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#1ca9b7&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_yr</span><span class="p">[</span><span class="mi">6</span><span class="p">:],</span> <span class="n">ds_tas_11_a_trees_yr</span><span class="p">[</span><span class="s1">&#39;temp2&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;run11&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#1ca9b7&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_yr</span><span class="p">[</span><span class="mi">6</span><span class="p">:],</span> <span class="n">ds_tas_12_a_trees_yr</span><span class="p">[</span><span class="s1">&#39;temp2&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;run12&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#1ca9b7&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_yr</span><span class="p">[</span><span class="mi">6</span><span class="p">:],</span> <span class="n">ds_tas_ens_a_trees_yr</span><span class="p">[</span><span class="s1">&#39;temp2&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;ensmean&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
 
@@ -3307,7 +2557,7 @@ Attributes:
 
 
 <div class="output_png output_subarea ">
-<img src="../images/setup/Abisko_prep_17_0.png"
+<img src="../images/setup/Abisko_prep_35_0.png"
 >
 </div>
 
@@ -3326,7 +2576,7 @@ Attributes:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;~/Documents/PhD/ACDC2019/ACDC_project/Theta_OPT-0015.nc&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Abisko-prep/Theta_OPT-0015.nc&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -3343,8 +2593,7 @@ Attributes:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">ds_timeseries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;theta&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ds_timeseries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;theta&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -3412,7 +2661,7 @@ Attributes:
 
 
 <div class="output_png output_subarea ">
-<img src="../images/setup/Abisko_prep_20_1.png"
+<img src="../images/setup/Abisko_prep_38_1.png"
 >
 </div>
 

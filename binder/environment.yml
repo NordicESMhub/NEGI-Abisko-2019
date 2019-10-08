@@ -19,6 +19,7 @@ dependencies:
   - cdo
   - nco
   - ruby
+  - nc-time-axis
   - pip:
       - jupyterlab_latex
       - jupyterlab-git
