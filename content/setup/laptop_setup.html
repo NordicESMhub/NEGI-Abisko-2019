@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Themes and group topics</title>
-  <meta name="description" content="        Themes and group topics To be defined.         ">
+  <title>Getting your laptop ready</title>
+  <meta name="description" content="# Getting your laptop ready## Installing an editor, git and python  To be able to follow [Plotting and Programming in Python](https://swcarpentry.github.io/p...">
 
-  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/topics.html">
+  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/setup/laptop_setup.html">
   <link rel="alternate" type="application/rss+xml" title="eScience for linking Arctic measurements and modeling" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/feed.xml">
 
-  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/topics.html" />
+  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/setup/laptop_setup.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Themes and group topics" />
-<meta property="og:description" content="        Themes and group topics To be defined.         " />
+<meta property="og:title"       content="Getting your laptop ready" />
+<meta property="og:description" content="# Getting your laptop ready## Installing an editor, git and python  To be able to follow [Plotting and Programming in Python](https://swcarpentry.github.io/p..." />
 <meta property="og:image"       content="http://nordicesmhub.github.io/NEGI-Abisko-2019/images/logo/zeppelin.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/topics.html",
-  "headline": "Themes and group topics",
+  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/content/setup/laptop_setup.html",
+  "headline": "Getting your laptop ready",
   "datePublished": "2019-10-09T09:50:23+00:00",
   "dateModified": "2019-10-09T09:50:23+00:00",
-  "description": "        Themes and group topics To be defined.         ",
+  "description": "# Getting your laptop ready## Installing an editor, git and python  To be able to follow [Plotting and Programming in Python](https://swcarpentry.github.io/p...",
   "author": {
     "@type": "Person",
     "name": "Anne Fouilloux"
@@ -811,7 +811,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/NEGI-Abisko-2019/topics/topics.html"
         >
           
@@ -892,7 +892,7 @@ initFunction(initPrint)
                   
 
                   <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
+                    <a class="c-sidebar__entry c-sidebar__entry--active"
                       href="/NEGI-Abisko-2019/setup/laptop_setup.html"
                     >
                       
@@ -1001,37 +1001,53 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-                  <main class="jupyter-page">
-    <div class="jb_cell">
+              <h1 id="getting-your-laptop-ready">Getting your laptop ready</h1>
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Themes-and-group-topics">Themes and group topics<a class="anchor-link" href="#Themes-and-group-topics"> </a></h1><p>To be defined.</p>
+<h2 id="installing-an-editor-git-and-python">Installing an editor, git and python</h2>
 
-</div>
-</div>
-</div>
-</div>
+<p>To be able to follow <a href="https://swcarpentry.github.io/python-novice-gapminder">Plotting and Programming in Python</a> online lesson, you would need to install an editor, git and python. Follow the <a href="https://uio-carpentry.github.io/2019-09-16_python/#setup">setup</a> instructions and contact any instructors/assistants if you encounter any problems.</p>
 
- 
+<p>We maintain a list of common issues that occur during installation as a reference for instructors
+  that may be useful on the
+  <a href="https://github.com/swcarpentry/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.</p>
 
+<h2 id="create-a-new-anaconda-environment">Create a new Anaconda environment</h2>
 
-    </main>
-    
+<p>During the abisko course we will be using additional packages that are not part of the main (base) python anaconda environment.</p>
+
+<p>To install additional Python packages/libraries, you need to open a Terminal, and then follow the instructions below.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda env create -f environment.yml
+</code></pre></div></div>
+
+<p>where environment.yml is a text file containing the list of packages required for running your analysis.</p>
+
+<p>We provide you with a non exhaustive list of useful packages. Feel free to add new packages:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name: esm-python-analysis
+
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - python=3.7
+  - numpy &gt;=1.14
+  - xarray &gt;=0.10.8
+  - pandas &gt;=0.22.0
+  - cartopy &gt;=0.16.0
+  - matplotlib 
+  - seaborn &gt;=0.8.1
+  - geopy &gt;=1.17.0
+  - basemap
+  - netcdf4
+</code></pre></div></div>
+
             </div>
             <nav class="c-page__nav">
   
-    
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/NEGI-Abisko-2019/intro.html">
-      〈 <span class="u-margin-right-tiny"></span> Home
-    </a>
-  
 
-  
-    
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/NEGI-Abisko-2019/tools/tools.html">
-      Tools <span class="u-margin-right-tiny"></span> 〉
-    </a>
   
 </nav>
 

@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-08T20:52:51+00:00",
-  "dateModified": "2019-10-08T20:52:51+00:00",
+  "datePublished": "2019-10-09T09:50:23+00:00",
+  "dateModified": "2019-10-09T09:50:23+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -858,38 +858,89 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/NEGI-Abisko-2019/setup/setup.html"
-        >
-          
-          Setup
-        </a>
-
-        
-      </li>
-
-      
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/NEGI-Abisko-2019/setup/Abisko_prep.html"
+          href="/NEGI-Abisko-2019/setup/preparation.html"
         >
           
           Course preparation
         </a>
 
         
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/NEGI-Abisko-2019/setup/setup.html"
+                >
+                  
+                  Setup
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/setup/laptop_setup.html"
+                    >
+                      
+                      Laptop setup
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/setup/jupyterhub_setup.html"
+                    >
+                      
+                      Jupyterhub setup
+                    </a>
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/NEGI-Abisko-2019/setup/Abisko_prep.html"
+                >
+                  
+                  Notebook example
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
       </li>
 
       
     
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
       
       
 
@@ -966,7 +1017,7 @@ initFunction(initPrint)
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/intro.html",
         "teaser":null},{
-        "title": "Course preparation",
+        "title": "Notebook example",
         
         "excerpt":
             "import important packages import numpy as np import matplotlib.pyplot as plt from netCDF4 import Dataset import xarray as xr import pandas as pd import cartopy.crs as ccrs import datetime Get sample dataset from Zenodo !wget https://zenodo.org/record/3475894/files/Abisko-prep.tar.gz --2019-10-08 14:56:52-- https://zenodo.org/record/3475894/files/Abisko-prep.tar.gz Resolving zenodo.org (zenodo.org)... 188.184.65.20 Connecting to zenodo.org (zenodo.org)|188.184.65.20|:443... connected. HTTP request sent, awaiting response... 200 OK Length: 833281373 (795M) [application/octet-stream] Saving to: ‘Abisko-prep.tar.gz’ Abisko-prep.tar.gz 100%[===================&gt;] 794.68M 13.3MB/s in 58s 2019-10-08 14:57:51 (13.7 MB/s) - ‘Abisko-prep.tar.gz’ saved [833281373/833281373] !tar zxvf Abisko-prep.tar.gz Abisko-prep/ Abisko-prep/T_recon_NTREND_NH1_EURO.csv Abisko-prep/ensmean_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/Theta_OPT-0015.nc Abisko-prep/piControl_BOT_1850-2849_temp2_fldmean.nc Abisko-prep/ue536a02_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ue536a04_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ensmean_1536_1550_geopoth_seas_a.nc Abisko-prep/ensmean_PE_seas.nc Abisko-prep/ue536a01_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ue536a06_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ue536a05_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ue536a03_temp2_pre.nc Abisko-prep/ue536a03_temp2_pre_seas_trees_fldmean_a_yrmean.nc Load a csv file (comma separated values)...",
@@ -974,10 +1025,34 @@ initFunction(initPrint)
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/Abisko_prep.html",
         "teaser":null},{
+        "title": "Jupyterhub setup",
+        
+        "excerpt":
+            "Getting access to Jupyterhub Instructions for accessing Jupyter notebooks at Sigma2 server: you should have received an email message titled \"JupyterHub links for NeGi-Abisko-2019\" if not please request it to the course organizers follow \"invitation link\" in the email message If you don't already have a Feide guest user account (otherwise skip this step), click \"Feide guest users\". register a new account for the sake of simplicity try to use the same email that you are using for the course also try to use the same (or similar) user ID that you have for github finish the registration process click...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/jupyterhub_setup.html",
+        "teaser":null},{
+        "title": "Laptop setup",
+        
+        "excerpt":
+            "Getting your laptop ready Installing an editor, git and python To be able to follow Plotting and Programming in Python online lesson, you would need to install an editor, git and python. Follow the setup instructions and contact any instructors/assistants if you encounter any problems. We maintain a list of common issues that occur during installation as a reference for instructors that may be useful on the Configuration Problems and Solutions wiki page. Create a new Anaconda environment During the abisko course we will be using additional packages that are not part of the main (base) python anaconda environment. To...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/laptop_setup.html",
+        "teaser":null},{
+        "title": "Course preparation",
+        
+        "excerpt":
+            "             Before the course  Teachers, assistants and students should do the following:   Sign up on Github Please fill this form so we can get your github username  To participate to Abisko course, you will need an up-to-date web browser. In addition you will need to install packages on your laptop (see sections below).    A sample dataset has been prepared by Evelien Jacoba Cornelia Van Dijk and is available on Zenodo.  To cite this dataset:  .                     ",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/preparation.html",
+        "teaser":null},{
         "title": "Setup",
         
         "excerpt":
-            "Before the course Teachers, assistants and students should do the following: Sign up on Github Please fill this form so we can get your github username Setup your laptop Setup on Abisko Jupyterhub Laptop setup Install packages To participate to Abisko course, you will need access to the software described below. In addition, you will need an up-to-date web browser. We maintain a list of common issues that occur during installation as a reference for instructors that may be useful on the Configuration Problems and Solutions wiki page. Follow setup instruction here. Create a new Anaconda environment To install additional...",
+            "Get your laptop ready To participate to Abisko course, you will need access to the software described below. In addition, you will need an up-to-date web browser. We maintain a list of common issues that occur during installation as a reference for instructors that may be useful on the Configuration Problems and Solutions wiki page. Follow setup instruction here. Create a new Anaconda environment To install additional Python packages/libraries, you need to open a Terminal, and then follow the instructions below. $ conda env create -f environment.yml where environment.yml is a text file containing the list of packages required for...",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/setup.html",
