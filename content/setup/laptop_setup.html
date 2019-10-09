@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/content/setup/laptop_setup.html",
   "headline": "Getting your laptop ready",
-  "datePublished": "2019-10-09T12:26:31+00:00",
-  "dateModified": "2019-10-09T12:26:31+00:00",
+  "datePublished": "2019-10-09T13:12:30+00:00",
+  "dateModified": "2019-10-09T13:12:30+00:00",
   "description": "# Getting your laptop ready## Installing an editor, git and python  To be able to follow [Plotting and Programming in Python](https://swcarpentry.github.io/p...",
   "author": {
     "@type": "Person",
@@ -1176,7 +1176,111 @@ dependencies:
   - geopy &gt;=1.17.0
   - basemap
   - netcdf4
+  - scipy
+  - jupyter
+  - ipykernel
+  - notebook &gt;=5.6.0
+  - jupyterlab
+  - nc-time-axis
 </code></pre></div></div>
+
+<h2 id="test-your-local-installation">Test your local installation</h2>
+
+<h3 id="starting-jupyterlab">Starting JupyterLab</h3>
+
+<h3 id="mac-os-x">Mac OS X</h3>
+
+<p>To start the JupyterLab server you will need to access the command line through the Terminal. 
+There are two ways to open Terminal on Mac.</p>
+
+<ol>
+  <li>In your Applications folder, open Utilities and double-click on Terminal</li>
+  <li>Press <code class="highlighter-rouge">Command</code> + <code class="highlighter-rouge">spacebar</code> to launch Spotlight. Type <code class="highlighter-rouge">Terminal</code> and then 
+double-click the search result or hit <code class="highlighter-rouge">Enter</code></li>
+</ol>
+
+<p>After you have launched Terminal, type the command to activate our new conda environment:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda activate esm-python-analysis
+</code></pre></div></div>
+
+<p>Then type the command to launch the JupyterLab server.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jupyter lab
+</code></pre></div></div>
+
+<h3 id="windows-users">Windows Users</h3>
+
+<p>To start the JupyterLab server you will need to access the open Anaconda Prompt.</p>
+
+<p>Press <code class="highlighter-rouge">Windows Logo Key</code> and search for <code class="highlighter-rouge">Anaconda Prompt</code>, click the result or press enter.</p>
+
+<p>After you have launched the Anaconda Prompt, type the command to activate our new conda environment:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda activate esm-python-analysis
+</code></pre></div></div>
+
+<p>Then type the command to launch the JupyterLab server.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jupyter lab
+</code></pre></div></div>
+
+<p>Below is a screenshot of a similar JupyterLab landing page to the one that should open in your 
+default web browser after starting the JupyterLab server on wither Mac OS X or Windows.</p>
+
+<p align="center">
+  <img alt="JupyterLab landing page" src="https://swcarpentry.github.io/python-novice-gapminder/fig/0_jupyterlab_landing_page.png" width="750" />
+</p>
+
+<h3 id="menu-bar">Menu Bar</h3>
+
+<p>The menu bar at the top of JupyterLab has top-level menus that expose actions available in JupyterLab with 
+their keyboard shortcuts. The default menus are:</p>
+
+<ul>
+  <li><strong>File</strong>: actions related to files and directories</li>
+  <li><strong>Edit</strong>: actions related to editing documents and other activities</li>
+  <li><strong>View</strong>: actions that alter the appearance of JupyterLab</li>
+  <li><strong>Run</strong>: actions for running code in different activities such as notebooks and code consoles</li>
+  <li><strong>Kernel</strong>: actions for managing kernels, which are separate processes for running code</li>
+  <li><strong>Tabs</strong>: a list of the open documents and activities in the dock panel</li>
+  <li><strong>Settings</strong>: common settings and an advanced settings editor</li>
+  <li><strong>Help</strong>: a list of JupyterLab and kernel help links</li>
+</ul>
+
+<h3 id="left-sidebar">Left Sidebar</h3>
+<p>The left sidebar contains a number of commonly-used tabs, such as a file browser, a list of running 
+kernels and terminals, the command palette, and a list of tabs in the main work area:</p>
+
+<p><img src="https://nordicesmhub.github.io/GEO4962/fig/jupyterlab_file_browser.png" width="600" /></p>
+
+<p>If you move your mouse on the other icon of this left sidebar, a short information is given on its functionality.</p>
+
+<p>If you click on the “running man” or “play” icon, you can see what is currently running on your server and you can click on 
+“SHUTDOWN” to stop a running Python notebook or Terminal.</p>
+
+<p><img src="https://nordicesmhub.github.io/GEO4962/fig/jupyterlab_running.png" width="600" /></p>
+
+<h3 id="create-a-new-python-3-notebook">Create a new python 3 notebook</h3>
+
+<p>Go back to the <strong>File Browser</strong> left sidebar tab and in the launcher select <strong>Python 3</strong> under the Notebook 
+section:</p>
+
+<p><img src="https://nordicesmhub.github.io/GEO4962/fig/jupyterlab_start_notebook.png" width="500" /></p>
+
+<p>By default, your new notebook is named as “<strong>Untitled.ipynb</strong>”:</p>
+
+<ul>
+  <li><strong>ipynb</strong> is the extension for any Jupyter notebook and you should make sure all your notebook gets this extension (otherwise it is not recognized as a Jupyter notebook)</li>
+  <li>you can rename your jupyter notebook with the tab “File –&gt; Rename Notebook…”.</li>
+</ul>
+
+<h3 id="start-a-new-terminal">Start a new Terminal</h3>
+
+<p>Similarly, you can start a new Terminal by clicking on “Terminal” in the Launcher.</p>
+
+<p><img src="https://nordicesmhub.github.io/GEO4962/fig/jupyterlab_start_terminal.png" width="500" /></p>
+
 
             </div>
             <nav class="c-page__nav">
