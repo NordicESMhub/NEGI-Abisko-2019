@@ -62,6 +62,10 @@
     url: https://swcarpentry.github.io/python-novice-gapminder/index
     external: true
     not_numbered: true
+  - title: Get ready with Jupyter 
+    url: https://jupyter.org/try
+    external: true
+    not_numbered: true
 
 # During the course 
 
