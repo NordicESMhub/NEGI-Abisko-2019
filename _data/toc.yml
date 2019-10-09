@@ -65,6 +65,12 @@
   - title: Notebook example
     url: /setup/Abisko_prep
 
+# During the course 
+
+- title: Course Contribution
+  url: /contributing
+  not_numbered: true
+
 # Divider for meta-pages and content page
 - divider: true
 
