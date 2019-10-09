@@ -58,6 +58,10 @@
       url: /setup/laptop_setup
     - title: Jupyterhub setup
       url: /setup/jupyterhub_setup
+  - title: Get ready with Python
+    url: https://swcarpentry.github.io/python-novice-gapminder/
+    external: true
+    not_numbered: true
   - title: Notebook example
     url: /setup/Abisko_prep
 
