@@ -72,6 +72,19 @@
   - title: Notebook example
     url: /setup/Abisko_prep
 
+# Learning resources
+- title: Learning resources
+  url: /training/intro
+  sections:
+  - title: Programming
+    url: https://nordicesmhub.github.io/tutorials/programming/index
+    external: true
+    not_numbered: true
+  - title: E-Science
+    url: https://nordicesmhub.github.io/tutorials/science/index
+    external: true
+    not_numbered: true
+
 # Divider for meta-pages and content page
 - divider: true
 
