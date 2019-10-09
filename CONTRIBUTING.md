@@ -1,10 +1,7 @@
 # Contributing to `NEGI-Abisko-2019`
 
-:earth_africa: :mortar_board: :notebook: :books: :bookmark:
 
 Welcome to the `NEGI-Abisko-2019` repository! We're excited you're here and want to contribute.
-
-:rocket: :balloon:
 
 These guidelines are designed to make it as easy as possible to get involved.
 If you have any questions that aren't discussed below, please let us know by opening an [issue][link_issues]!
@@ -147,7 +144,7 @@ You can see a list of current contributors in the [contributors tab][link_contri
 
 ## Thank you!
 
-Thank you for sharing your codes, documentation, jupyter notebooks, etc. :wave::smiley:
+Thank you for sharing your codes, documentation, jupyter notebooks, etc.
 
 <br>
 
