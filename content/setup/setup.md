@@ -1,16 +1,4 @@
-
-# Before the course
-Teachers, assistants and students should do the following:
-
-- [Sign up on Github](https://github.com/join?source=header-home)
-- [Please fill this form so we can get your github username](https://docs.google.com/forms/d/e/1FAIpQLSdivH004R2zfsD2f2h5CY34gueAsjf8_KsE8Q9xZIcHtxNzWQ/viewform)
-- [Setup your laptop](#laptop-setup)
-- [Setup on Abisko Jupyterhub](#jupyterhub-setup)
-
-
-# Laptop setup
-
-## Install packages
+# Get your laptop ready
 
   To participate to Abisko course, you will need access to the software described below.
   In addition, you will need an up-to-date web browser.
