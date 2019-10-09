@@ -75,6 +75,7 @@
 # Learning resources
 - title: Learning resources
   url: /training/intro
+  not_numbered: true
   sections:
   - title: Programming
     url: https://nordicesmhub.github.io/tutorials/programming/index
