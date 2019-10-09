@@ -1,4 +1,4 @@
-# Contributing to `NEGI-Abisko-2019`
+# Contributing to NEGI-Abisko-2019
 
 
 Welcome to the `NEGI-Abisko-2019` repository! We're excited you're here and want to contribute.
