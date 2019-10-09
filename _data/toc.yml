@@ -59,7 +59,7 @@
     - title: Jupyterhub setup
       url: /setup/jupyterhub_setup
   - title: Get ready with Python
-    url: https://swcarpentry.github.io/python-novice-gapminder
+    url: https://swcarpentry.github.io/python-novice-gapminder/index
     external: true
     not_numbered: true
   - title: Notebook example
