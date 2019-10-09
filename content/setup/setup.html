@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Get your laptop ready</title>
-  <meta name="description" content="# Get your laptop ready  To participate to Abisko course, you will need access to the software described below.  In addition, you will need an up-to-date web...">
+  <title>Getting ready for Abisko!</title>
+  <meta name="description" content="# Getting ready for Abisko!We will be using a wide range of computing and storage facilities ranging from your local laptop to Norwegian National Storage and...">
 
   <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/setup/setup.html">
   <link rel="alternate" type="application/rss+xml" title="eScience for linking Arctic measurements and modeling" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/feed.xml">
 
   <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/setup/setup.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Get your laptop ready" />
-<meta property="og:description" content="# Get your laptop ready  To participate to Abisko course, you will need access to the software described below.  In addition, you will need an up-to-date web..." />
+<meta property="og:title"       content="Getting ready for Abisko!" />
+<meta property="og:description" content="# Getting ready for Abisko!We will be using a wide range of computing and storage facilities ranging from your local laptop to Norwegian National Storage and..." />
 <meta property="og:image"       content="http://nordicesmhub.github.io/NEGI-Abisko-2019/images/logo/zeppelin.png" />
 
 <meta name="twitter:card" content="summary">
@@ -27,10 +27,10 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/content/setup/setup.html",
-  "headline": "Get your laptop ready",
-  "datePublished": "2019-10-09T09:50:23+00:00",
-  "dateModified": "2019-10-09T09:50:23+00:00",
-  "description": "# Get your laptop ready  To participate to Abisko course, you will need access to the software described below.  In addition, you will need an up-to-date web...",
+  "headline": "Getting ready for Abisko!",
+  "datePublished": "2019-10-09T10:09:14+00:00",
+  "dateModified": "2019-10-09T10:09:14+00:00",
+  "description": "# Getting ready for Abisko!We will be using a wide range of computing and storage facilities ranging from your local laptop to Norwegian National Storage and...",
   "author": {
     "@type": "Person",
     "name": "Anne Fouilloux"
@@ -1001,99 +1001,18 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h1 id="get-your-laptop-ready">Get your laptop ready</h1>
+              <h1 id="getting-ready-for-abisko">Getting ready for Abisko!</h1>
 
-<p>To participate to Abisko course, you will need access to the software described below.
-  In addition, you will need an up-to-date web browser.</p>
-
-<p>We maintain a list of common issues that occur during installation as a reference for instructors
-  that may be useful on the
-  <a href="https://github.com/swcarpentry/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.</p>
-
-<p>Follow setup instruction <a href="https://uio-carpentry.github.io/2019-09-16_python/">here</a>.</p>
-
-<p>### Create a new Anaconda environment</p>
-
-<p>To install additional Python packages/libraries, you need to open a Terminal, and then follow the instructions below.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda env create -f environment.yml
-</code></pre></div></div>
-
-<p>where environment.yml is a text file containing the list of packages required for running your analysis.</p>
-
-<p>We provide you with a non exhaustive list of useful packages. Feel free to add new packages:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name: esm-python-analysis
-
-channels:
-  - conda-forge
-  - bioconda
-  - defaults
-
-dependencies:
-  - python=3.7
-  - numpy &gt;=1.14
-  - xarray &gt;=0.10.8
-  - pandas &gt;=0.22.0
-  - cartopy &gt;=0.16.0
-  - matplotlib 
-  - seaborn &gt;=0.8.1
-  - geopy &gt;=1.17.0
-  - basemap
-  - netcdf4
-</code></pre></div></div>
-
-<h3 id="download-dataset-for-local-installation">Download dataset for local installation</h3>
-
-<p>The sample dataset for Abisko course is freely available <a href="https://doi.org/10.5281/zenodo.3475894">here</a></p>
-
-<p><strong>To cite this dataset</strong>:</p>
-
-<p><a href="https://doi.org/10.5281/zenodo.3475894"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3475894.svg" alt="DOI" /></a>.</p>
-
-<h1 id="jupyterhub-setup">Jupyterhub setup</h1>
-
-<p>Instructions for accessing Jupyter notebooks at Sigma2 server:</p>
+<p>We will be using a wide range of computing and storage facilities ranging from your local laptop to Norwegian National Storage and cloud computing.</p>
 
 <ul>
-  <li>you should have received an email message titled “JupyterHub links for NeGi-Abisko-2019”
-    <ul>
-      <li>if not please request it to the course organizers</li>
-    </ul>
-  </li>
-  <li>follow “invitation link” in the email message
-    <ul>
-      <li>If you don’t already have a <strong>Feide guest</strong> user account (otherwise skip this step), click “Feide guest users”.</li>
-      <li>register a new account
-        <ul>
-          <li>for the sake of simplicity try to use the same email that you are using for the course</li>
-          <li>also try to use the same (or similar) user ID that you have for github</li>
-          <li>finish the registration process</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>click again on the “invitation link” in the email
-    <ul>
-      <li>login with “Feide guest users”
-        <ul>
-          <li>accept the different policies</li>
-          <li>agree to become a member of the EScience-Abisko</li>
-        </ul>
-      </li>
-      <li>the browser should display the message “Loading group details”</li>
-    </ul>
-  </li>
-  <li>now go to <a href="http://abisko.uiogeo-apps.sigma2.no">Abisko Jupyterhub</a>
-    <ul>
-      <li>click “Sign in with Dataporten”</li>
-      <li>login with Feide Guest User</li>
-    </ul>
-  </li>
-  <li>finally the web browser should display a page with “jupyterlab” on the upper left side</li>
-  <li>for later usage of the notebooks just use the <a href="http://abisko.uiogeo-apps.sigma2.no/hub/user-redirect/git-pull?repo=https://github.com//NordicESMHub/NEGI-Abisko-2019&amp;branch=gh-pages&amp;subPath=content%2Fintro.md&amp;app=lab">Abisko Jupyterhub link</a></li>
+  <li>Use your laptop for prototyping your code on sample dataset: this will allow you to work anywhere even without any available WIFI connection.</li>
+  <li>Use <a href="http://abisko.uiogeo-apps.sigma2.no/">Abisko Jupyterhub</a> for processing large amount of data and running your code in <em>production</em> mode.</li>
 </ul>
 
+<p>We may also use additional cloud computing, not directly connected to the Norwegian Infrastructure for Research Data (NIRD) if needed. The setup for these resources is very much the same than for the Abisko Jupyterhub (the same packages are available) and NIRD storage can be accessed via <a href="https://fr.wikipedia.org/wiki/Secure_shell_file_system">sshfs</a>.</p>
+
+<p>These Virtual Machines are available on demand. Ask your assistant for additional information.</p>
 
             </div>
             <nav class="c-page__nav">
