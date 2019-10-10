@@ -13,7 +13,7 @@ Coupled Model Intercomparison project Phase 6
 - Same experiments
 
 ## Experiments (DECK)
-![](figs/CMIP6_DECK.png)
+![](CMIP6_DECK.png)
 
 ## Links:
 - Overview: https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6
