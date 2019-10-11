@@ -89,6 +89,9 @@
     url: https://nordicesmhub.github.io/tutorials/science/index
     external: true
     not_numbered: true
+  - title: CMIP6 data
+    url: /training/CMIP6_data
+    not_numbered: true
 
 # Divider for meta-pages and content page
 - divider: true
