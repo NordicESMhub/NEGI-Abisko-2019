@@ -5,7 +5,7 @@ Here is a non exhaustive list of tools/software you can use to post-process and 
 
 ### <span style="color:red">CDO (Climate Data Operators)</span>
 
-CDO is a collection of command-line operators to manipulate and analyze climate and numerical weather prediction data and can manipulate CAM model outputs (netCDF). 
+CDO is a collection of command-line operators to manipulate and analyze climate and numerical weather prediction data and can manipulate model outputs (netCDF). 
 CDO provides more than 350 operators!
 
 - [CDO (Climate Data operators) Documentation](https://code.zmaw.de/projects/cdo)
@@ -19,16 +19,6 @@ NCO is a suite of programs designed to perform certain "operations" on netCDF fi
 - [NCO (netCDF Operator website)](http://nco.sourceforge.net/)
 - [NCO CMIP5 examples](http://nco.sourceforge.net/nco.html#CMIP5-Example)
 
-### <span style="color:red">NCL (Ncar Command Language)</span>
-
-NCL is an interpreted language (no need to compile your program) designed specifically for scientific data analysis and visualization. 
-
-- [NCL (Ncar Command Language)](https://www.ncl.ucar.edu/index.shtml)
-- [NCL Reference Card](https://www.ncl.ucar.edu/Document/Reference_Cards/NCL_scripting_language_reference_card_A4.pdf)
-- [Introduction to NCL](https://annefou.github.io/ncl-novice/)
-- [NCL Tutorial - DKRZ](https://www.dkrz.de/mms/pdf/vis/NCL_Tutorial_V1.1.pdf)
-- [Getting started with NCL](http://www.ncl.ucar.edu/Document/Manuals/Getting_Started/)
-- [Create ensemble average of CMIP5 data](http://www.trondkristiansen.com/?page_id=1257)
 
 ### <span style="color:red">Ncview: a netCDF visual browser</span>
 
