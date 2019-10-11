@@ -92,6 +92,9 @@
   - title: CMIP6 data
     url: /training/CMIP6_data
     not_numbered: true
+    subsections:
+    - title: Plotting CMIP6 data
+      url: /training/CMIP6_example
 
 # Divider for meta-pages and content page
 - divider: true
