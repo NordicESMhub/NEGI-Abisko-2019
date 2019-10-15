@@ -56,7 +56,7 @@ use_jupyterlab: true                      # If 'true', interact links will use J
 
 # Jupyterhub link settings
 use_jupyterhub_button: true               # If 'true', display a button that will direct users to a JupyterHub (that you provide)
-jupyterhub_url: http://abisko.uiogeo-apps.sigma2.no # The URL for your JupyterHub. If no URL, use ""
+jupyterhub_url: http://abisko3.uiogeo-apps.sigma2.no # The URL for your JupyterHub. If no URL, use ""
 jupyterhub_interact_text: JupyterHub           # The text that interact buttons will contain.
 
 # Binder link settings
