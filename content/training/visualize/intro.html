@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Search the site</title>
-  <meta name="description" content="        ">
+  <title>Visualize and analyze in python</title>
+  <meta name="description" content="# Visualize and analyze in pythonExamples for analyzing and visualizing data in python are available [here](https://github.com/daliagachc/negi-stuff).To get ...">
 
-  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/search">
+  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/visualize/intro.html">
   <link rel="alternate" type="application/rss+xml" title="eScience for linking Arctic measurements and modeling" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/feed.xml">
 
-  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/search" />
+  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/visualize/intro.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Search the site" />
-<meta property="og:description" content="        " />
+<meta property="og:title"       content="Visualize and analyze in python" />
+<meta property="og:description" content="# Visualize and analyze in pythonExamples for analyzing and visualizing data in python are available [here](https://github.com/daliagachc/negi-stuff).To get ..." />
 <meta property="og:image"       content="http://nordicesmhub.github.io/NEGI-Abisko-2019/images/logo/zeppelin.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
-  "headline": "Search the site",
+  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/visualize/intro.html",
+  "headline": "Visualize and analyze in python",
   "datePublished": "2019-10-16T14:32:13+00:00",
   "dateModified": "2019-10-16T14:32:13+00:00",
-  "description": "        ",
+  "description": "# Visualize and analyze in pythonExamples for analyzing and visualizing data in python are available [here](https://github.com/daliagachc/negi-stuff).To get ...",
   "author": {
     "@type": "Person",
     "name": "Anne Fouilloux"
@@ -786,7 +786,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+        <a class="c-sidebar__entry c-sidebar__entry--active"
           href="/NEGI-Abisko-2019/intro.html"
         >
           
@@ -1086,7 +1086,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/NEGI-Abisko-2019/training/visualize/intro.html"
                 >
                   
@@ -1236,143 +1236,18 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <div class="search-content__inner-wrap">
-    <input type="text" id="lunr_search" class="search-input" tabindex="-1" placeholder="'Enter your search term...''" />
-    <div id="results" class="results"></div>
-</div>
+              <h1 id="visualize-and-analyze-in-python">Visualize and analyze in python</h1>
 
-<script>
-    // Add the lunr store since we will now search it
-    var store = [{
-        "title": "Course Contribution",
-        
-        "excerpt":
-            "Contributing to NEGI-Abisko-2019 Welcome to the NEGI-Abisko-2019 repository! We're excited you're here and want to contribute. These guidelines are designed to make it as easy as possible to get involved. If you have any questions that aren't discussed below, please let us know by opening an issue! Before you start you'll need to set up a free GitHub account and sign in. Here are some instructions. Already know what you're looking for in this guide? Jump to the following sections: Joining the conversation Contributing through Github Understanding issues, milestones, and project boards Making a change Structuring contributions Recognizing contributors Joining...",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/CONTRIBUTING.html",
-        "teaser":null},{
-        "title": "Home",
-        
-        "excerpt":
-            "Climate science at high latitudes: eScience for linking Arctic measurements and modeling The 3rd course “Climate science at high latitudes: eScience for linking Arctic measurements and modeling” will be held at Abisko Scientific Research Station from 15th until 24th of October 2019. Coordination: Paul Zieger (SU), Michael Schulz (UiO/MetNo), and Katja Lauri (UHEL) The registration has ended August 15th, 2019 (if you are still interested to join, please contact Paul to check for available places). Notification of acceptance will be given at the beginning of September. For more details please contact Paul Zieger. The Abisko Research Station (photo: Lars Lehnert,...",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/intro.html",
-        "teaser":null},{
-        "title": "Notebook example",
-        
-        "excerpt":
-            "import important packages import numpy as np import matplotlib.pyplot as plt from netCDF4 import Dataset import xarray as xr import pandas as pd import cartopy.crs as ccrs import datetime Get sample dataset from Zenodo !wget https://zenodo.org/record/3475894/files/Abisko-prep.tar.gz --2019-10-08 14:56:52-- https://zenodo.org/record/3475894/files/Abisko-prep.tar.gz Resolving zenodo.org (zenodo.org)... 188.184.65.20 Connecting to zenodo.org (zenodo.org)|188.184.65.20|:443... connected. HTTP request sent, awaiting response... 200 OK Length: 833281373 (795M) [application/octet-stream] Saving to: ‘Abisko-prep.tar.gz’ Abisko-prep.tar.gz 100%[===================&gt;] 794.68M 13.3MB/s in 58s 2019-10-08 14:57:51 (13.7 MB/s) - ‘Abisko-prep.tar.gz’ saved [833281373/833281373] !tar zxvf Abisko-prep.tar.gz Abisko-prep/ Abisko-prep/T_recon_NTREND_NH1_EURO.csv Abisko-prep/ensmean_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/Theta_OPT-0015.nc Abisko-prep/piControl_BOT_1850-2849_temp2_fldmean.nc Abisko-prep/ue536a02_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ue536a04_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ensmean_1536_1550_geopoth_seas_a.nc Abisko-prep/ensmean_PE_seas.nc Abisko-prep/ue536a01_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ue536a06_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ue536a05_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ue536a03_temp2_pre.nc Abisko-prep/ue536a03_temp2_pre_seas_trees_fldmean_a_yrmean.nc Load a csv file (comma separated values)...",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/Abisko_prep.html",
-        "teaser":null},{
-        "title": "Jupyterhub setup",
-        
-        "excerpt":
-            "Getting access to Jupyterhub Instructions for accessing Jupyter notebooks at Sigma2 server: you should have received an email message titled \"JupyterHub links for NeGi-Abisko-2019\" if not please request it to the course organizers follow \"invitation link\" in the email message If you don't already have a Feide guest user account (otherwise skip this step), click \"Feide guest users\". register a new account for the sake of simplicity try to use the same email that you are using for the course also try to use the same (or similar) user ID that you have for github finish the registration process click...",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/jupyterhub_setup.html",
-        "teaser":null},{
-        "title": "Laptop setup",
-        
-        "excerpt":
-            "Getting your laptop ready Installing an editor, git and python To be able to follow Plotting and Programming in Python online lesson, you would need to install an editor, git and python. Follow the setup instructions and contact any instructors/assistants if you encounter any problems. We maintain a list of common issues that occur during installation as a reference for instructors that may be useful on the Configuration Problems and Solutions wiki page. Create a new Anaconda environment During the abisko course we will be using additional packages that are not part of the main (base) python anaconda environment. To...",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/laptop_setup.html",
-        "teaser":null},{
-        "title": "Course preparation",
-        
-        "excerpt":
-            "             Before the course  Teachers, assistants and students should do the following:   Sign up on Github Please fill this form so we can get your github username  To participate to Abisko course, you will need an up-to-date web browser. In addition you will need to install packages on your laptop (see sections below).    A sample dataset has been prepared by Evelien Jacoba Cornelia Van Dijk and is available on Zenodo.  To cite this dataset:                       ",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/preparation.html",
-        "teaser":null},{
-        "title": "Setup",
-        
-        "excerpt":
-            "Getting ready for Abisko! We will be using a wide range of computing and storage facilities ranging from your local laptop to Norwegian National Storage and cloud computing. Use your laptop for prototyping your code on sample dataset: this will allow you to work anywhere even without any available WIFI connection. Use Abisko Jupyterhub for processing large amount of data and running your code in production mode. We may also use additional cloud computing, not directly connected to the Norwegian Infrastructure for Research Data (NIRD) if needed. The setup for these resources is very much the same than for the...",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/setup.html",
-        "teaser":null},{
-        "title": "Tools",
-        
-        "excerpt":
-            "Tools to explore netCDF files Here is a non exhaustive list of tools/software you can use to post-process and visualize netCDF files: CDO (Climate Data Operators) CDO is a collection of command-line operators to manipulate and analyze climate and numerical weather prediction data and can manipulate model outputs (netCDF). CDO provides more than 350 operators! CDO (Climate Data operators) Documentation CDO Reference Card CDO Tutorial NCO (netCDF Operators) NCO is a suite of programs designed to perform certain \"operations\" on netCDF files, i.e., things like averaging, concatenating, subsetting, or metadata manipulation. NCO (netCDF Operator website) NCO CMIP5 examples Ncview: a...",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/tools/tools.html",
-        "teaser":null},{
-        "title": "Themes and group topics",
-        
-        "excerpt":
-            "             Themes and group topics  To be defined.                     ",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/topics.html",
-        "teaser":null},{
-        "title": "CMIP6 data",
-        
-        "excerpt":
-            "CMIP6 data Coupled Model Intercomparison project Phase 6 Project under World Climate Research Programme (WCRP) Since 1995 CMIP has coordinated climate model experiments Defines common experiment protocols, forcings and output. 33 model groups participate GMD special issue with articles explaining all MIPs : https://www.geosci-model-dev.net/special_issue590.html Advantages: Homogenized and standardized outputs Same variable name Same experiments Experiments (DECK) Links: Overview: https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6 ES-DOCs: https://search.es-doc.org/ Database for data request: http://clipc-services.ceda.ac.uk/dreq/index.html Search for variables: http://clipc-services.ceda.ac.uk/dreq/mipVars.html Search for experiments: http://clipc-services.ceda.ac.uk/dreq/experiments.html Tool to download from ESGF archive: Easiest: https://esgf-node.llnl.gov/search/cmip6/ Sugestion: Choose a MIP (model intercomparison project) under \"Activity\" (e.g. CMIP) Choose e.g. \"Experiment ID\" historical Choose \"Realm\"...",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/CMIP6_data.html",
-        "teaser":null},{
-        "title": "Plotting CMIP6 data",
-        
-        "excerpt":
-            "Manipulation of netCDF data with Python for climate change research: CMIP6 model data !wget http://esgf-data.ucar.edu/thredds/fileServer/esg_dataroot/CMIP6/CMIP/NCAR/CESM2/historical/r1i1p1f1/Amon/tas/gn/v20190308/tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412.nc --2019-10-11 10:26:47-- http://esgf-data.ucar.edu/thredds/fileServer/esg_dataroot/CMIP6/CMIP/NCAR/CESM2/historical/r1i1p1f1/Amon/tas/gn/v20190308/tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412.nc Resolving esgf-data.ucar.edu (esgf-data.ucar.edu)... 128.117.181.74 Connecting to esgf-data.ucar.edu (esgf-data.ucar.edu)|128.117.181.74|:80... connected. HTTP request sent, awaiting response... 200 200 Length: 243034487 (232M) [application/x-netcdf] Saving to: ‘tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412.nc’ tas_Amon_CESM2_hist 100%[===================&gt;] 231.78M 21.6MB/s in 12s 2019-10-11 10:27:00 (19.3 MB/s) - ‘tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412.nc’ saved [243034487/243034487] filename = &#39;tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412.nc&#39; Import python packages import xarray as xr import cartopy.crs as ccrs import matplotlib.pyplot as plt import numpy as np import cftime Open dataset Use xarray python package to analyze netCDF dataset open_dataset allows to get all the metadata without loading data into...",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/CMIP6_example.html",
-        "teaser":null},{
-        "title": "Learning resources",
-        
-        "excerpt":
-            "             We have compiled a list of training materials that can be useful for Abisko.  Don't hesitate to add additional links if you would like to share information.                     ",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/intro.html",
-        "teaser":null},{
-        "title": "Getting started with Git/Github",
-        
-        "excerpt":
-            "What is Version Control? from CodeRefinery training material. The management of changes to documents, computer programs, large web sites, and other collections of information. Records snapshots of a project Implements branching: you can work on several feature branches and switch between them different people can work on the same code/project without interfering you can experiment with an idea and discard it if it turns out to be a bad idea Implements merging: tool to merge development branches for you Why is Version Control Essential? Easy Modification of your codes Reverting Errors Collaboration Backup Reproducibility Roll-back functionality Mistakes happen - without...",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/intro_github.html",
-        "teaser":null},{
-        "title": "pyaerocom jupyter notebook",
-        
-        "excerpt":
-            "Model evaluation using pyaerocom After this introduction, you will know how to: search for model and observation data in the provided database read model and observation data what GriddedData and UngriddedData are and how to use them for your analysis how to colocate data and assess model performance (ColocatedData) how to convert to other common libraries such as pandas or xarray Pyaerocom API Get started import pyaerocom as pya Change basic data directory to location of pyaerocom-testdata DATA_BASEDIR = &#39;/home/jonasg/MyPyaerocom/pyaerocom-testdata&#39; pya.const.BASEDIR = DATA_BASEDIR Initiating directories for pyaerocom test dataset Searching for available data in pyaerocom-testdata (method browse_database) pya.browse_database(&#39;*TM5*&#39;) Pyaerocom ReadGridded...",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom.html",
-        "teaser":null},{
-        "title": "Install pyaerocom dev",
-        
-        "excerpt":
-            "Managing pyaerocom version Pyaerocom python package is open source project and is licensed under GNU General Public License v3.0. Pyaerocom stable version The latest release of pyaerocom is available via conda-forge and PyPi and has been installed in Abisko JupyterHub. If you need to install pyaerocom on your local laptop, follow the documentation. Pyaerocom development version Pyaerocom is open source and it is fast evolving so during the NEGI Abisko course, you may need to install a development version. A development version is not a release yet but you can install it in your jupyterLab environment on Abisko JupyterHub. Pyaerocom...",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/local_pyaerocom.html",
-        "teaser":null},{
-        "title": "Visualize in Python",
-        
-        "excerpt":
-            "             Visualize and analyze in python  Examples for analyzing and visualizing data in python are available here.  To get it on the Jupyterhub, open a terminal and clone the repository:  git clone https://github.com/daliagachc/negi-stuff.git  Then browse into the folders. The notebooks presented during the NEGI-Abisko lecture are in negi-stuff/negi_stuff/presentations/intro_jlab/.                     ",
-        "categories": [],
-        "tags": [],
-        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/visualize/intro.html",
-        "teaser":null},]
-</script>
+<p>Examples for analyzing and visualizing data in python are available <a href="https://github.com/daliagachc/negi-stuff">here</a>.</p>
+
+<p>To get it on the <a href="https://abisko.uiogeo-apps.sigma2.no">Jupyterhub</a>, open a <a href="https://jupyterlab.readthedocs.io/en/stable/user/terminal.html">terminal</a> and clone the repository:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/daliagachc/negi-stuff.git
+</code></pre></div></div>
+
+<p>Then browse into the folders. The notebooks presented during the NEGI-Abisko lecture are in <code class="highlighter-rouge">negi-stuff/negi_stuff/presentations/intro_jlab/</code>.</p>
+
+
             </div>
             <nav class="c-page__nav">
   
