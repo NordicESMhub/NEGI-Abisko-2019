@@ -92,6 +92,9 @@
   - title: Getting started with Git/Github
     url: /training/intro_github
     not_numbered: true
+  - title: pyaerocom
+    url: /training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom
+    not_numbered: true
   - title: CMIP6 data
     url: /training/CMIP6_data
     not_numbered: true
