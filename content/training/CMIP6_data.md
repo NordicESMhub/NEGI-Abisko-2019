@@ -18,6 +18,9 @@ Coupled Model Intercomparison project Phase 6
 ## Links:
 - Overview: https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6
 - ES-DOCs: https://search.es-doc.org/
+- Database for data request: http://clipc-services.ceda.ac.uk/dreq/index.html
+    - Search for variables: http://clipc-services.ceda.ac.uk/dreq/mipVars.html
+    - Search for experiments: http://clipc-services.ceda.ac.uk/dreq/experiments.html
 
 ## Tool to download from ESGF archive:
 - Easiest: https://esgf-node.llnl.gov/search/cmip6/
