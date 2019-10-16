@@ -6,6 +6,8 @@ Coupled Model Intercomparison project Phase 6
 - Defines common experiment protocols, forcings and output. 
 - 33 model groups participate
 
+GMD special issue with articles explaining all MIPs :
+https://www.geosci-model-dev.net/special_issue590.html
 
 ## Advantages:
 - Homogenized and standardized outputs
