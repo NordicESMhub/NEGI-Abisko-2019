@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-17T14:47:35+00:00",
-  "dateModified": "2019-10-17T14:47:35+00:00",
+  "datePublished": "2019-10-17T15:30:53+00:00",
+  "dateModified": "2019-10-17T15:30:53+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -1253,6 +1253,17 @@ initFunction(initPrint)
 
                   <li class="c-sidebar__subsection">
                     <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/pyaerocom/example_ebas_read.html"
+                    >
+                      
+                      pyaerocom EBAS example
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
                       href="/NEGI-Abisko-2019/training/pyaerocom/local_pyaerocom.html"
                     >
                       
@@ -1520,6 +1531,14 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/intro_github.html",
+        "teaser":null},{
+        "title": "pyaerocom EBAS example",
+        
+        "excerpt":
+            "import pyaerocom as pya pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Initiating directories for pyaerocom test dataset read_factory = pya.io.ReadUngridded(&#39;EBASMC&#39;) reader = read_factory.get_reader() reader &lt;pyaerocom.io.read_ebas.ReadEbas at 0x7f2abe0a40b8&gt; print(reader.PROVIDES_VARIABLES) [&#39;DEFAULT&#39;, &#39;scatc550aer&#39;, &#39;scatc440aer&#39;, &#39;scatc700aer&#39;, &#39;scatc550dryaer&#39;, &#39;scatc440dryaer&#39;, &#39;scatc700dryaer&#39;, &#39;ang4470dryaer&#39;, &#39;scatc550lt1aer&#39;, &#39;bscatc550aer&#39;, &#39;absc550aer&#39;, &#39;absc550dryaer&#39;, &#39;absc550lt1aer&#39;, &#39;bscatc550dryaer&#39;, &#39;scatcrh&#39;, &#39;abscrh&#39;, &#39;concso4&#39;, &#39;concso2&#39;, &#39;concpm10&#39;, &#39;concpm25&#39;, &#39;concso4t&#39;, &#39;concso4c&#39;, &#39;concbc&#39;, &#39;conceqbc&#39;, &#39;conctc&#39;, &#39;concoa&#39;, &#39;concoc&#39;, &#39;concss&#39;, &#39;concnh3&#39;, &#39;concno3&#39;, &#39;concnh4&#39;, &#39;conchno3&#39;, &#39;conctno3&#39;, &#39;concno2&#39;, &#39;conco3&#39;, &#39;concco&#39;, &#39;concprcpso4&#39;, &#39;concprcpso4t&#39;, &#39;concprcpso4c&#39;, &#39;concprcpno3&#39;, &#39;concprcpso4scavenging&#39;, &#39;concprcpnh4&#39;, &#39;wetso4&#39;, &#39;wetconcso4&#39;, &#39;wetso4t&#39;, &#39;wetso4c&#39;, &#39;wetoxn&#39;, &#39;wetrdn&#39;, &#39;wetnh4&#39;, &#39;precip&#39;, &#39;wetconcph&#39;, &#39;wetno3&#39;, &#39;scavratioso4&#39;, &#39;test&#39;] data = reader.read(vars_to_retrieve=&#39;scatc550dryaer&#39;, station_name=&#39;B*&#39;) Retrieving EBAS files for variables [&#39;scatc550dryaer&#39;] Unknown request key station_name (value B*) Reading files 1-132 of 1310 (ReadEbas)...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/example_ebas_read.html",
         "teaser":null},{
         "title": "Pyaerocom",
         
