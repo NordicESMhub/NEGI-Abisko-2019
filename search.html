@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-17T18:36:58+00:00",
-  "dateModified": "2019-10-17T18:36:58+00:00",
+  "datePublished": "2019-10-17T18:43:58+00:00",
+  "dateModified": "2019-10-17T18:43:58+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -1226,6 +1226,23 @@ initFunction(initPrint)
 
                 
                 
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/NEGI-Abisko-2019/training/python_examples.html"
+                >
+                  
+                  Python examples
+                </a>
+
+                
+                
                   
                   
 
@@ -1235,6 +1252,28 @@ initFunction(initPrint)
                     >
                       
                       Aerosol distribution plotting
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/example_NorthPolarStereo_projection.html"
+                    >
+                      
+                      Example NorthPolarStereo_projection
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/Example_model_global_arctic_average.html"
+                    >
+                      
+                      Example Weighted/masked average
                     </a>
                 
                   
@@ -1544,6 +1583,22 @@ initFunction(initPrint)
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/CMIP6_example.html",
         "teaser":null},{
+        "title": "Example Weighted/masked average",
+        
+        "excerpt":
+            "Example: Masked and weighted average: This example focuses on area weights (weighting by the area of the grid cell), but is generalizable. import xarray as xr import numpy as np import matplotlib.pyplot as plt # or # from imports import (plt, np, xr) path = &#39;/home/ab9880f9-2d7bc8-2d48c2-2d9223-2d693c1d3cf3c1/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/tas_Amon_NorESM2-LM_historical_r1i1p1f1_gn_200001-200912.nc&#39; tas_ds = xr.open_dataset(path) Get the area weigts: For the CMIP data, each model has a file for the area of each grid cell. The variable name of this is 'areacella'. We load the NorESM one. path_area_weight =&#39;~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/areacella_fx_NorESM2-LM_historical_r1i1p1f1_gn.nc&#39; areacella = xr.open_dataset(path) A useful functions to do a weighted and masked average def masked_average(xa, dim=None, weights=None,...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/Example_model_global_arctic_average.html",
+        "teaser":null},{
+        "title": "Example NorthPolarStereo_projection",
+        
+        "excerpt":
+            "Example: Plot on NorthPolarStereo and set the latitude limit import xarray as xr import numpy as np import matplotlib.pyplot as plt # or # from imports import (plt, np, xr) path = &#39;~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/abs550aer_AERmon_NorESM2-LM_historical_r1i1p1f1_gn_185001-185912.nc&#39; ds = xr.open_dataset(path) import cartopy.crs as ccrs import cartopy as cy def sp_map(*nrs, projection = ccrs.PlateCarree(), **kwargs): return plt.subplots(*nrs, subplot_kw={&#39;projection&#39;:projection}, **kwargs) def add_map_features(ax): ax.coastlines() gl = ax.gridlines() ax.add_feature(cy.feature.BORDERS); gl = ax.gridlines()#draw_labels=True) gl.xlabels_top = False gl.ylabels_right = False import matplotlib.path as mpath def polarCentral_set_latlim(lat_lims, ax): ax.set_extent([-180, 180, lat_lims[0], lat_lims[1]], ccrs.PlateCarree()) # Compute a circle in axes coordinates, which we can use as a boundary # for the map....",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_NorthPolarStereo_projection.html",
+        "teaser":null},{
         "title": "Gridded model data dask rolling mean",
         
         "excerpt":
@@ -1607,6 +1662,14 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/local_pyaerocom.html",
+        "teaser":null},{
+        "title": "Python examples",
+        
+        "excerpt":
+            "             Python examples                     ",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/python_examples.html",
         "teaser":null},{
         "title": "Visualize in Python",
         
