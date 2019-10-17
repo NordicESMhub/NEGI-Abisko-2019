@@ -74,7 +74,7 @@
   not_numbered: true
   sections:
   - title: New contributors
-    url: /contribution/newcomers
+    url: /contributing/newcomers
   - title: Contribute to Open Science projects
     url: /contribution/CONTRIBUTING
   - title: Notebook example
