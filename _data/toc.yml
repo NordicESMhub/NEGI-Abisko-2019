@@ -79,9 +79,13 @@
 # During the course 
 
 - title: Course Contribution
-  url: /CONTRIBUTING
+  url: /contributing/os_contribution
   not_numbered: true
   sections:
+  - title: New contributors
+    url: /contributing/newcomers
+  - title: Contribute to Open Science projects
+    url: /contributing/CONTRIBUTING
   - title: Notebook example
     url: /setup/Abisko_prep
 
@@ -105,6 +109,10 @@
   - title: Visualize in Python
     url: /training/visualize/intro
     not_numbered: true
+    subsections:
+    - title: Aerosol distribution plotting
+      url: /training/visualize/zeppelin_size_dist
+      not_numbered: true
   - title: Pyaerocom
     url: https://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom.slides.html#/index
     external: true
