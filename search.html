@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-17T16:03:50+00:00",
-  "dateModified": "2019-10-17T16:03:50+00:00",
+  "datePublished": "2019-10-17T17:43:56+00:00",
+  "dateModified": "2019-10-17T17:43:56+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -1220,6 +1220,17 @@ initFunction(initPrint)
                       Aerosol distribution plotting
                     </a>
                 
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/gridded_model_data_dask_rolling_mean.html"
+                    >
+                      
+                      Gridded model data dask rolling mean
+                    </a>
+                
 
               </li>
               
@@ -1515,6 +1526,14 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/CMIP6_example.html",
+        "teaser":null},{
+        "title": "Gridded model data dask rolling mean",
+        
+        "excerpt":
+            "# Modules import xarray as xr import matplotlib.pyplot as plt import cartopy.crs as ccrs from cartopy.util import add_cyclic_point import numpy as np import psyplot import psyplot.project as psy import os import psutil import pandas as pd T_CHUNK = 200 chunks={ &#39;time&#39; : T_CHUNK, # &#39;lat&#39; : 10, # &#39;lon&#39; : 10, # &#39;lev&#39; : 10 } # data path1 = &#39;~/shared-cmip6-for-ns1000k/historical/CESM2-WACCM/r1i1p1f1/&#39; filename1 = path1 + &#39;so2_AERmon_CESM2-WACCM_historical_r1i1p1f1_gn_185001-201412.nc&#39; DS1 = xr.open_dataset(filename1,chunks=chunks) /opt/conda/lib/python3.7/site-packages/xarray/conventions.py:494: SerializationWarning: variable &#39;so2&#39; has multiple fill values {1e+20, 1e+20}, decoding all values to NaN. use_cftime=use_cftime, # _time = [t.strftime() for t in DS1[&#39;time&#39;].values] # _time = pd.to_datetime(_time) # DS1[&#39;time&#39;].values =...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/gridded_model_data_dask_rolling_mean.html",
         "teaser":null},{
         "title": "Learning resources",
         
