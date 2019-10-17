@@ -113,6 +113,9 @@
     - title: Aerosol distribution plotting
       url: /training/visualize/zeppelin_size_dist
       not_numbered: true
+    - title: Gridded model data dask rolling mean
+      url: /training/gridded_model_data_dask_rolling_mean
+      not_numbered: true
   - title: Pyaerocom
     url: /training/pyaerocom/intro
     not_numbered: true
