@@ -114,7 +114,7 @@
       url: /training/visualize/zeppelin_size_dist
       not_numbered: true
 - title: Python examples
-    #url: /training/python_examples
+    url: /training/python_examples
     not_numbered: true
     subsections: 
     - title: Example NorthPolarStereo_projection
