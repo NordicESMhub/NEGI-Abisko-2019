@@ -34,6 +34,15 @@
   url: /topics/topics
   not_numbered: true
   expand_sections: true
+  sections:
+  - title: Group-1
+    url: /topics/group-1/intro
+  - title: Group-2
+    url: /topics/group-2/intro
+  - title: Group-3
+    url: /topics/group-3/intro
+  - title: Group-4
+    url: /topics/group-4/intro
 
 # A chapter w/ a collection of sections beneath it
 - title: Tools
@@ -70,9 +79,13 @@
 # During the course 
 
 - title: Course Contribution
-  url: /CONTRIBUTING
+  url: /contributing/os_contribution
   not_numbered: true
   sections:
+  - title: New contributors
+    url: /contributing/newcomers
+  - title: Contribute to Open Science projects
+    url: /contributing/CONTRIBUTING
   - title: Notebook example
     url: /setup/Abisko_prep
 
@@ -80,6 +93,7 @@
 - title: Learning resources
   url: /training/intro
   not_numbered: true
+  expand_sections: true
   sections:
   - title: Programming
     url: https://nordicesmhub.github.io/tutorials/programming/index
@@ -89,6 +103,27 @@
     url: https://nordicesmhub.github.io/tutorials/science/index
     external: true
     not_numbered: true
+  - title: Getting started with Git/Github
+    url: /training/intro_github
+    not_numbered: true
+  - title: Visualize in Python
+    url: /training/visualize/intro
+    not_numbered: true
+  - title: Pyaerocom
+    url: https://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom.slides.html#/index
+    external: true
+    subsections:
+    - title: pyaerocom jupyter notebook
+      url: /training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom
+      not_numbered: true
+    - title: Install pyaerocom dev
+      url: /training/pyaerocom/local_pyaerocom
+  - title: CMIP6 data
+    url: /training/CMIP6_data
+    not_numbered: true
+    subsections:
+    - title: Plotting CMIP6 data
+      url: /training/CMIP6_example
 
 # Divider for meta-pages and content page
 - divider: true
