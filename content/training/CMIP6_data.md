@@ -6,6 +6,8 @@ Coupled Model Intercomparison project Phase 6
 - Defines common experiment protocols, forcings and output. 
 - 33 model groups participate
 
+GMD special issue with articles explaining all MIPs :
+https://www.geosci-model-dev.net/special_issue590.html
 
 ## Advantages:
 - Homogenized and standardized outputs
@@ -17,7 +19,10 @@ Coupled Model Intercomparison project Phase 6
 
 ## Links:
 - Overview: https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6
-
+- ES-DOCs: https://search.es-doc.org/
+- Database for data request: http://clipc-services.ceda.ac.uk/dreq/index.html
+    - Search for variables: http://clipc-services.ceda.ac.uk/dreq/mipVars.html
+    - Search for experiments: http://clipc-services.ceda.ac.uk/dreq/experiments.html
 
 ## Tool to download from ESGF archive:
 - Easiest: https://esgf-node.llnl.gov/search/cmip6/
