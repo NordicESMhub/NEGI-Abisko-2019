@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-17T09:38:20+00:00",
-  "dateModified": "2019-10-17T09:38:20+00:00",
+  "datePublished": "2019-10-17T10:32:51+00:00",
+  "dateModified": "2019-10-17T10:32:51+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -1209,6 +1209,17 @@ initFunction(initPrint)
 
                 
                 
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/visualize/zeppelin_size_dist.html"
+                    >
+                      
+                      Aerosol distribution plotting
+                    </a>
+                
 
               </li>
               
@@ -1533,6 +1544,14 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/visualize/intro.html",
+        "teaser":null},{
+        "title": "Aerosol distribution plotting",
+        
+        "excerpt":
+            "Aerosol size distribution observations import pandas as pd import numpy as np import seaborn as sns import matplotlib.pyplot as plt from matplotlib.colors import LogNorm #import matplotlib.dates as mdates %matplotlib inline Zeppelin Station 2010 hourly data filename = &quot;shared-ns1000k/inputs/Aerosol_sizedist_obs/Zeppelin_2010_hourly.csv&quot; mydateparser = lambda x: pd.datetime.strptime(x, &quot;%Y %m %d %H %M&quot;) data = pd.read_csv(filename, parse_dates=[[&#39;0&#39;, &#39;0.1&#39;, &#39;0.2&#39;, &#39;0.3&#39;, &#39;0.4&#39;]], date_parser = mydateparser) data.rename(columns={&#39;0_0.1_0.2_0.3_0.4&#39;:&#39;date&#39;}, inplace = True) data.head() date 0.5 20 22.44 25.179 28.251 31.698 35.566 39.905 44.774 ... 200 224.4 251.79 282.51 316.98 355.66 399.05 447.74 502.38 0.6 0 2010-01-01 00:00:00 127.010 9.2141 13.324 18.261 23.245 30.351 39.469 47.835 47.834 ... 115.400 168.74...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/visualize/zeppelin_size_dist.html",
         "teaser":null},]
 </script>
             </div>

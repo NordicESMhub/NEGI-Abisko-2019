@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Make your very first contributions</title>
-  <meta name="description" content="# Make your very first contributionsWelcome to the `NEGI-Abisko-2019` repository! We're excited you're here and want to contribute.Before you start you'll ne...">
+  <title>Aerosol distribution plotting</title>
+  <meta name="description" content="        Aerosol size distribution observations     import pandas as pdimport numpy as npimport seaborn as snsimport matplotlib.pyplot as pltfrom matplotlib.c...">
 
-  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/contributing/newcomers.html">
+  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/training/visualize/zeppelin_size_dist.html">
   <link rel="alternate" type="application/rss+xml" title="eScience for linking Arctic measurements and modeling" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/feed.xml">
 
-  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/contributing/newcomers.html" />
+  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/training/visualize/zeppelin_size_dist.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Make your very first contributions" />
-<meta property="og:description" content="# Make your very first contributionsWelcome to the `NEGI-Abisko-2019` repository! We're excited you're here and want to contribute.Before you start you'll ne..." />
+<meta property="og:title"       content="Aerosol distribution plotting" />
+<meta property="og:description" content="        Aerosol size distribution observations     import pandas as pdimport numpy as npimport seaborn as snsimport matplotlib.pyplot as pltfrom matplotlib.c..." />
 <meta property="og:image"       content="http://nordicesmhub.github.io/NEGI-Abisko-2019/images/logo/zeppelin.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/content/contributing/newcomers.html",
-  "headline": "Make your very first contributions",
+  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/visualize/zeppelin_size_dist.html",
+  "headline": "Aerosol distribution plotting",
   "datePublished": "2019-10-17T10:32:51+00:00",
   "dateModified": "2019-10-17T10:32:51+00:00",
-  "description": "# Make your very first contributionsWelcome to the `NEGI-Abisko-2019` repository! We're excited you're here and want to contribute.Before you start you'll ne...",
+  "description": "        Aerosol size distribution observations     import pandas as pdimport numpy as npimport seaborn as snsimport matplotlib.pyplot as pltfrom matplotlib.c...",
   "author": {
     "@type": "Person",
     "name": "Anne Fouilloux"
@@ -1059,13 +1059,13 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections ">
+          <ul class="c-sidebar__sections u-hidden-visually">
             
               
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/NEGI-Abisko-2019/contributing/newcomers.html"
                 >
                   
@@ -1213,7 +1213,7 @@ initFunction(initPrint)
                   
 
                   <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
+                    <a class="c-sidebar__entry c-sidebar__entry--active"
                       href="/NEGI-Abisko-2019/training/visualize/zeppelin_size_dist.html"
                     >
                       
@@ -1342,10 +1342,35 @@ initFunction(initPrint)
 <div class="download-buttons-dropdown">
     <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
     <div class="download-buttons">
+        <a href="/NEGI-Abisko-2019/content/training/visualize/zeppelin_size_dist.ipynb" download>
+        <button id="interact-button-download" class="interact-button">ORIG</button>
+        </a>
         
         <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
     </div>
 </div>
+
+  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+  
+  
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/NordicESMHub/NEGI-Abisko-2019/master?urlpath=lab/tree/content%2Ftraining%2Fvisualize%2Fzeppelin_size_dist.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/NEGI-Abisko-2019/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
+
+
+
+<a href="http://abisko.uiogeo-apps.sigma2.no/hub/user-redirect/git-pull?repo=https://github.com//NordicESMHub/NEGI-Abisko-2019&amp;branch=master&amp;subPath=content%2Ftraining%2Fvisualize%2Fzeppelin_size_dist.ipynb&amp;app=lab"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/NEGI-Abisko-2019/assets/images/logo_jupyterhub.svg" alt="Interact" />JupyterHub</button></a>
+
+
+
 
 </div>
 
@@ -1361,87 +1386,671 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h1 id="make-your-very-first-contributions">Make your very first contributions</h1>
+                  <main class="jupyter-page">
+    <div class="jb_cell">
 
-<p>Welcome to the <code class="highlighter-rouge">NEGI-Abisko-2019</code> repository! We’re excited you’re here and want to contribute.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Aerosol-size-distribution-observations">Aerosol size distribution observations<a class="anchor-link" href="#Aerosol-size-distribution-observations"> </a></h1>
+</div>
+</div>
+</div>
+</div>
 
-<p>Before you start you’ll need to set up a free [GitHub][link_github] account and sign in.
-Here are some [instructions][link_signupinstructions].</p>
+<div class="jb_cell">
 
-<h1 id="give-us-feedback">Give us feedback</h1>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-<p>One overy valuable contribution you can make is to give us feedback so we can improve <code class="highlighter-rouge">NEGI-Abisko-2019</code>!</p>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="k">import</span> <span class="n">LogNorm</span>
+<span class="c1">#import matplotlib.dates as mdates</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
 
-<p>Let us know what you think about <code class="highlighter-rouge">NEGI-Abisko-2019</code> <a href="https://github.com/NordicESMHub/NEGI-Abisko-2019/issues">here</a>!</p>
+    </div>
+</div>
+</div>
 
-<h1 id="upload-a-jupyter-notebook">Upload a jupyter notebook</h1>
+</div>
+</div>
 
-<p>Let’s say you have written a Jupyter notebook and would like to share it.</p>
+<div class="jb_cell">
 
-<p>There are several ways to do it and in this section we will show you how to add it manually. Later, we will teach you on how to streamline your work and add your notebooks with <code class="highlighter-rouge">git</code>.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Zeppelin-Station-2010-hourly-data">Zeppelin Station 2010 hourly data<a class="anchor-link" href="#Zeppelin-Station-2010-hourly-data"> </a></h1>
+</div>
+</div>
+</div>
+</div>
 
-<h3 id="step-1-download-your-jupyter-notebook-on-your-local-computer">Step-1: download your jupyter notebook on your local computer</h3>
+<div class="jb_cell">
 
-<p>In the file browser of <a href="https://abisko.uiogeo-apps.sigma2.no">NEGI Abisko Jupyerthub</a>, right click on the jupyter notebook you wish to share and download it shown on the figure below:</p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-<p><img src="/NEGI-Abisko-2019/content/images/upload_manual.png" alt="download jupyter notebook" /></p>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;shared-ns1000k/inputs/Aerosol_sizedist_obs/Zeppelin_2010_hourly.csv&quot;</span>
+<span class="n">mydateparser</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;%Y %m </span><span class="si">%d</span><span class="s2"> %H %M&quot;</span><span class="p">)</span>
 
-<p>The downloaded jupyter notebook is located in your <em>Downloads</em> folder.</p>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span>  <span class="n">parse_dates</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;0.1&#39;</span><span class="p">,</span> <span class="s1">&#39;0.2&#39;</span><span class="p">,</span> <span class="s1">&#39;0.3&#39;</span><span class="p">,</span> <span class="s1">&#39;0.4&#39;</span><span class="p">]],</span> <span class="n">date_parser</span> <span class="o">=</span> <span class="n">mydateparser</span><span class="p">)</span>
+</pre></div>
 
-<h3 id="step-2-upload-your-jupyter-notebook-to-github">Step-2: upload your jupyter notebook to Github</h3>
+    </div>
+</div>
+</div>
 
-<p>In your web browser:</p>
+</div>
+</div>
 
-<ul>
-  <li>Go to <a href="https://github.com/NordicESMhub/NEGI-Abisko-2019">https://github.com/NordicESMhub/NEGI-Abisko-2019</a></li>
-  <li>
-    <p>Click on <em>fork</em> as shown on the image below
-<img src="https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png" alt="" /></p>
-  </li>
-  <li>Then go to your fork in your browser. The web address of your fork should be something like <strong>https://github.com/USERNAME/NEGI-Abisko-2019</strong> where <strong>USERNAME</strong> needs to be replaced by your github username.</li>
-  <li><strong>In your fork</strong>, make sure the <code class="highlighter-rouge">master</code> branch is selected</li>
-  <li>Browse to <em>content</em> –&gt; <em>topics</em> and select your group folder</li>
-</ul>
+<div class="jb_cell">
 
-<p><img src="/NEGI-Abisko-2019/content/images/upload_github.png" alt="Upload in github" /></p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-<p>In the figure above, parts in red highlight what you need to check before uploading your jupyter notebook.</p>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;0_0.1_0.2_0.3_0.4&#39;</span><span class="p">:</span><span class="s1">&#39;date&#39;</span><span class="p">},</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
 
-<ul>
-  <li>
-    <p>Then click on <code class="highlighter-rouge">upload files</code> and <code class="highlighter-rouge">choose your files</code> to select the jupyter notebook you wish to share (see image below)</p>
-  </li>
-  <li>
-    <p>Write a short message (in the Commit changes section) and click on the green <strong>Commit changes</strong> button.</p>
-  </li>
-  <li>
-    <p>Finally in your fork repository, find the <strong>New pull request</strong> button and click on it to create a new pull request.</p>
-  </li>
-</ul>
+    </div>
+</div>
+</div>
 
-<p><img src="/NEGI-Abisko-2019/content/images/new_pull_request.png" alt="New pull request" /></p>
+<div class="output_wrapper">
+<div class="output">
 
-<ul>
-  <li>Create a pull request</li>
-</ul>
-
-<p><img src="/NEGI-Abisko-2019/content/images/create_pull_request.png" alt="Create pull request" /></p>
-
-<p>And then:</p>
-
-<p><img src="/NEGI-Abisko-2019/content/images/PR.png" alt="Pull request" /></p>
-
-<p><strong>You are done!</strong></p>
-
-<p>Now your pull request will be reviewed and your contribution included in NEGI-Abisko-2019.</p>
-
-<p>Well done!!!</p>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>0.5</th>
+      <th>20</th>
+      <th>22.44</th>
+      <th>25.179</th>
+      <th>28.251</th>
+      <th>31.698</th>
+      <th>35.566</th>
+      <th>39.905</th>
+      <th>44.774</th>
+      <th>...</th>
+      <th>200</th>
+      <th>224.4</th>
+      <th>251.79</th>
+      <th>282.51</th>
+      <th>316.98</th>
+      <th>355.66</th>
+      <th>399.05</th>
+      <th>447.74</th>
+      <th>502.38</th>
+      <th>0.6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>2010-01-01 00:00:00</td>
+      <td>127.010</td>
+      <td>9.2141</td>
+      <td>13.324</td>
+      <td>18.261</td>
+      <td>23.245</td>
+      <td>30.351</td>
+      <td>39.469</td>
+      <td>47.835</td>
+      <td>47.834</td>
+      <td>...</td>
+      <td>115.400</td>
+      <td>168.74</td>
+      <td>298.22</td>
+      <td>358.39</td>
+      <td>247.52</td>
+      <td>125.57</td>
+      <td>54.136</td>
+      <td>22.321</td>
+      <td>9.6607</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2010-01-01 01:00:00</td>
+      <td>110.150</td>
+      <td>7.4015</td>
+      <td>12.835</td>
+      <td>18.326</td>
+      <td>23.133</td>
+      <td>26.412</td>
+      <td>31.988</td>
+      <td>38.002</td>
+      <td>38.111</td>
+      <td>...</td>
+      <td>101.910</td>
+      <td>140.92</td>
+      <td>244.34</td>
+      <td>294.45</td>
+      <td>218.56</td>
+      <td>115.03</td>
+      <td>49.696</td>
+      <td>20.944</td>
+      <td>9.4524</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2010-01-01 02:00:00</td>
+      <td>98.864</td>
+      <td>8.2293</td>
+      <td>10.186</td>
+      <td>14.526</td>
+      <td>19.346</td>
+      <td>23.288</td>
+      <td>30.828</td>
+      <td>32.256</td>
+      <td>33.385</td>
+      <td>...</td>
+      <td>88.761</td>
+      <td>121.91</td>
+      <td>207.21</td>
+      <td>267.87</td>
+      <td>196.08</td>
+      <td>101.87</td>
+      <td>45.479</td>
+      <td>20.855</td>
+      <td>9.9242</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2010-01-01 03:00:00</td>
+      <td>103.960</td>
+      <td>6.0217</td>
+      <td>10.014</td>
+      <td>14.795</td>
+      <td>21.470</td>
+      <td>26.444</td>
+      <td>28.621</td>
+      <td>31.333</td>
+      <td>31.407</td>
+      <td>...</td>
+      <td>93.949</td>
+      <td>133.17</td>
+      <td>231.84</td>
+      <td>290.35</td>
+      <td>209.66</td>
+      <td>110.80</td>
+      <td>50.558</td>
+      <td>23.200</td>
+      <td>11.1620</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2010-01-01 04:00:00</td>
+      <td>109.060</td>
+      <td>9.8351</td>
+      <td>12.526</td>
+      <td>15.748</td>
+      <td>19.991</td>
+      <td>24.453</td>
+      <td>30.328</td>
+      <td>33.429</td>
+      <td>36.533</td>
+      <td>...</td>
+      <td>106.060</td>
+      <td>142.54</td>
+      <td>243.29</td>
+      <td>307.78</td>
+      <td>215.96</td>
+      <td>115.79</td>
+      <td>54.965</td>
+      <td>24.622</td>
+      <td>12.0210</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 32 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=-</span><span class="mi">999</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove last column</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="s1">&#39;0.6&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Transpose data, remove missing values and invert Y axis (to get increasing values)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>date</th>
+      <th>2010-01-01 00:00:00</th>
+      <th>2010-01-01 01:00:00</th>
+      <th>2010-01-01 02:00:00</th>
+      <th>2010-01-01 03:00:00</th>
+      <th>2010-01-01 04:00:00</th>
+      <th>2010-01-01 05:00:00</th>
+      <th>2010-01-01 06:00:00</th>
+      <th>2010-01-01 07:00:00</th>
+      <th>2010-01-01 08:00:00</th>
+      <th>2010-01-01 09:00:00</th>
+      <th>...</th>
+      <th>2010-11-11 15:00:00</th>
+      <th>2010-11-11 16:00:00</th>
+      <th>2010-11-11 17:00:00</th>
+      <th>2010-11-11 18:00:00</th>
+      <th>2010-11-11 19:00:00</th>
+      <th>2010-11-11 20:00:00</th>
+      <th>2010-11-11 21:00:00</th>
+      <th>2010-11-11 22:00:00</th>
+      <th>2010-11-11 23:00:00</th>
+      <th>2010-12-31 23:00:00</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>502.38</td>
+      <td>9.6607</td>
+      <td>9.4524</td>
+      <td>9.9242</td>
+      <td>11.162</td>
+      <td>12.021</td>
+      <td>9.3495</td>
+      <td>12.388</td>
+      <td>12.919</td>
+      <td>14.007</td>
+      <td>18.316</td>
+      <td>...</td>
+      <td>0.52357</td>
+      <td>0.58579</td>
+      <td>0.56616</td>
+      <td>0.65425</td>
+      <td>0.68104</td>
+      <td>0.6944</td>
+      <td>0.68916</td>
+      <td>0.69631</td>
+      <td>0.91661</td>
+      <td>10.942</td>
+    </tr>
+    <tr>
+      <td>447.74</td>
+      <td>22.3210</td>
+      <td>20.9440</td>
+      <td>20.8550</td>
+      <td>23.200</td>
+      <td>24.622</td>
+      <td>22.9040</td>
+      <td>25.120</td>
+      <td>29.511</td>
+      <td>31.854</td>
+      <td>45.473</td>
+      <td>...</td>
+      <td>1.16750</td>
+      <td>1.19520</td>
+      <td>1.17160</td>
+      <td>1.25830</td>
+      <td>1.32100</td>
+      <td>1.3670</td>
+      <td>1.39310</td>
+      <td>1.35720</td>
+      <td>1.37450</td>
+      <td>24.243</td>
+    </tr>
+    <tr>
+      <td>399.05</td>
+      <td>54.1360</td>
+      <td>49.6960</td>
+      <td>45.4790</td>
+      <td>50.558</td>
+      <td>54.965</td>
+      <td>52.1210</td>
+      <td>52.426</td>
+      <td>67.742</td>
+      <td>72.495</td>
+      <td>109.400</td>
+      <td>...</td>
+      <td>2.41200</td>
+      <td>2.43870</td>
+      <td>2.43170</td>
+      <td>2.47260</td>
+      <td>2.55230</td>
+      <td>2.7754</td>
+      <td>2.65180</td>
+      <td>2.56280</td>
+      <td>2.34410</td>
+      <td>54.696</td>
+    </tr>
+    <tr>
+      <td>355.66</td>
+      <td>125.5700</td>
+      <td>115.0300</td>
+      <td>101.8700</td>
+      <td>110.800</td>
+      <td>115.790</td>
+      <td>113.4400</td>
+      <td>108.550</td>
+      <td>142.830</td>
+      <td>148.160</td>
+      <td>210.980</td>
+      <td>...</td>
+      <td>4.60300</td>
+      <td>4.72110</td>
+      <td>4.73730</td>
+      <td>4.48980</td>
+      <td>4.84750</td>
+      <td>5.1592</td>
+      <td>4.82660</td>
+      <td>4.62230</td>
+      <td>4.10160</td>
+      <td>134.400</td>
+    </tr>
+    <tr>
+      <td>316.98</td>
+      <td>247.5200</td>
+      <td>218.5600</td>
+      <td>196.0800</td>
+      <td>209.660</td>
+      <td>215.960</td>
+      <td>215.5900</td>
+      <td>200.790</td>
+      <td>257.340</td>
+      <td>242.750</td>
+      <td>296.610</td>
+      <td>...</td>
+      <td>7.59920</td>
+      <td>8.00990</td>
+      <td>7.83710</td>
+      <td>7.21800</td>
+      <td>7.99940</td>
+      <td>8.3029</td>
+      <td>7.96630</td>
+      <td>7.88700</td>
+      <td>6.86390</td>
+      <td>278.080</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 7200 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">LOGMIN</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># a priori chosen appropriate for log-scaled data display</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span>  <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">LogNorm</span><span class="p">(),</span> 
+                  <span class="n">vmin</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">LOGMIN</span><span class="p">),</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+                  <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ticks&quot;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">1e2</span><span class="p">,</span><span class="mf">1e3</span><span class="p">,</span><span class="mf">1e4</span><span class="p">,</span><span class="mf">1e5</span><span class="p">],</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;colorbar title&#39;</span><span class="p">})</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get_text</span><span class="p">(),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">000&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%b %H:%M&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">cax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()]</span> 
+<span class="n">cax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;year &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;???&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Date (month HH:SS)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Text(0.5,6,&#39;Date (month HH:SS)&#39;)</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/training/visualize/zeppelin_size_dist_10_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># robust: If True and vmin or vmax are absent, the colormap range is computed with robust quantiles instead of the extreme values.</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> 
+                  <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;colorbar title&#39;</span><span class="p">},</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get_text</span><span class="p">(),</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">000&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%b %H:%M&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">cax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()]</span> 
+<span class="n">cax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;year &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;???&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">cax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Date (month HH:SS)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Text(0.5,6,&#39;Date (month HH:SS)&#39;)</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/training/visualize/zeppelin_size_dist_11_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    
             </div>
             <nav class="c-page__nav">
   
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/NEGI-Abisko-2019/training/visualize/intro.html">
+      〈 <span class="u-margin-right-tiny"></span> Visualize in Python
+    </a>
+  
 
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/NEGI-Abisko-2019/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom.html">
+      pyaerocom jupyter notebook <span class="u-margin-right-tiny"></span> 〉
+    </a>
   
 </nav>
 
