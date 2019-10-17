@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>pyaerocom jupyter notebook</title>
-  <meta name="description" content="        Model evaluation using pyaerocom After this introduction, you will know how to:search for model and observation data in the provided databaseread mod...">
+  <meta name="description" content="        Model evaluation using pyaerocom After this introduction, you will know how to:Search for model and observation data in the provided databaseRead mod...">
 
   <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom.html">
   <link rel="alternate" type="application/rss+xml" title="eScience for linking Arctic measurements and modeling" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/feed.xml">
@@ -16,7 +16,7 @@
   <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="pyaerocom jupyter notebook" />
-<meta property="og:description" content="        Model evaluation using pyaerocom After this introduction, you will know how to:search for model and observation data in the provided databaseread mod..." />
+<meta property="og:description" content="        Model evaluation using pyaerocom After this introduction, you will know how to:Search for model and observation data in the provided databaseRead mod..." />
 <meta property="og:image"       content="http://nordicesmhub.github.io/NEGI-Abisko-2019/images/logo/zeppelin.png" />
 
 <meta name="twitter:card" content="summary">
@@ -28,9 +28,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom.html",
   "headline": "pyaerocom jupyter notebook",
-  "datePublished": "2019-10-17T07:53:58+00:00",
-  "dateModified": "2019-10-17T07:53:58+00:00",
-  "description": "        Model evaluation using pyaerocom After this introduction, you will know how to:search for model and observation data in the provided databaseread mod...",
+  "datePublished": "2019-10-17T08:41:12+00:00",
+  "dateModified": "2019-10-17T08:41:12+00:00",
+  "description": "        Model evaluation using pyaerocom After this introduction, you will know how to:Search for model and observation data in the provided databaseRead mod...",
   "author": {
     "@type": "Person",
     "name": "Anne Fouilloux"
@@ -1348,11 +1348,12 @@ initFunction(initPrint)
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Model-evaluation-using-pyaerocom">Model evaluation using pyaerocom<a class="anchor-link" href="#Model-evaluation-using-pyaerocom"> </a></h2><p>After this introduction, you will know how to:</p>
 <ul>
-<li>search for model and observation data in the provided database</li>
-<li>read model and observation data </li>
-<li>what <code>GriddedData</code> and <code>UngriddedData</code> are and how to use them for your analysis</li>
-<li>how to <em>colocate</em> data and assess model performance (<code>ColocatedData</code>)</li>
-<li>how to convert to other common libraries such as <code>pandas</code> or <code>xarray</code></li>
+<li><strong>Search</strong> for model and observation data in the provided database</li>
+<li><strong>Read</strong> model and observation data </li>
+<li><strong>Explore</strong> the data (<code>GriddedData</code> and <code>UngriddedData</code>)</li>
+<li><strong>Colocate</strong> data and assess model performance (<code>ColocatedData</code>)</li>
+<li><strong>Convert</strong> from pyaerocom to other common libraries such as <code>pandas</code> or <code>xarray</code></li>
+<li><strong>Store</strong> intermediate results as NetCDF that may be used for further analysis.</li>
 </ul>
 
 </div>
@@ -1399,12 +1400,43 @@ initFunction(initPrint)
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyaerocom</span> <span class="k">as</span> <span class="nn">pya</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">pya</span><span class="o">.</span><span class="n">change_verbosity</span><span class="p">(</span><span class="s1">&#39;critical&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="n">pya</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">print_log</span><span class="p">)</span> <span class="c1"># don&#39;t output warnings</span>
+<span class="n">pya</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;0.8.1.dev1&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Please make sure to use version <strong>0.8.1.dev1</strong>. If you have an earlier version, follow <a href="https://github.com/NordicESMhub/NEGI-Abisko-2019/blob/master/content/training/pyaerocom/local_pyaerocom.md">these instructions</a> in order to update your installation.</p>
+
+</div>
+</div>
 </div>
 </div>
 
@@ -1425,10 +1457,31 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DATA_BASEDIR</span> <span class="o">=</span> <span class="s1">&#39;/home/jonasg/MyPyaerocom/pyaerocom-testdata&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
+<span class="k">if</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;pc4971&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I am on Jonas PC&#39;</span><span class="p">)</span>
+    <span class="n">DATA_BASEDIR</span> <span class="o">=</span> <span class="s1">&#39;/home/jonasg/MyPyaerocom/pyaerocom-testdata&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I assume I am on the Abisko Jupyter hub&#39;</span><span class="p">)</span>
+    <span class="n">DATA_BASEDIR</span> <span class="o">=</span> <span class="s1">&#39;/home/jonasg/MyPyaerocom/pyaerocom-testdata&#39;</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>I am on Jonas PC
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -1446,21 +1499,6 @@ initFunction(initPrint)
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Initiating directories for pyaerocom test dataset
-</pre>
-</div>
-</div>
-</div>
 </div>
 </div>
 
@@ -1753,7 +1791,7 @@ standard_name: atmosphere_optical_thickness_due_to_ambient_aerosol_particles; Un
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_20_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_21_0.png"
 >
 </div>
 
@@ -1897,7 +1935,7 @@ standard_name: atmosphere_optical_thickness_due_to_ambient_aerosol_particles; Un
       margin-top: 7px;
   }
 </style>
-<table class="iris" id="139833424447304">
+<table class="iris" id="140005780123264">
     <tr class="iris">
 <th class="iris iris-word-cell">Atmosphere Optical Thickness Due To Ambient Aerosol (1)</th>
 <th class="iris iris-word-cell">time</th>
@@ -2053,7 +2091,12 @@ standard_name: atmosphere_optical_thickness_due_to_ambient_aerosol_particles; Un
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_arr</span> <span class="o">=</span> <span class="n">model_data</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span> <span class="c1"># pyaerocom &gt;= 0.8.1</span>
+    <span class="n">data_arr</span> <span class="o">=</span> <span class="n">model_data</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span> <span class="c1"># pyaerocom &lt; 0.8.1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coming soon in pyaerocom v0.8.1&#39;</span><span class="p">)</span>
+    <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xarr</span>
+    <span class="n">data_arr</span> <span class="o">=</span> <span class="n">xarr</span><span class="o">.</span><span class="n">DataArray</span><span class="o">.</span><span class="n">from_iris</span><span class="p">(</span><span class="n">model_data</span><span class="o">.</span><span class="n">cube</span><span class="p">)</span>
 <span class="n">data_arr</span>
 </pre></div>
 
@@ -2155,7 +2198,12 @@ Attributes:
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">LON_ABISKO</span> <span class="o">=</span> <span class="mf">18.8312</span> <span class="c1">#° E</span>
 <span class="n">LAT_ABISKO</span> <span class="o">=</span> <span class="mf">68.3495</span> <span class="c1">#° N </span>
 <span class="n">subset_abisko</span> <span class="o">=</span> <span class="n">model_data</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">longitude</span><span class="o">=</span><span class="n">LON_ABISKO</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="n">LAT_ABISKO</span><span class="p">)</span>
-<span class="n">subset_abisko</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<span class="k">try</span><span class="p">:</span> <span class="c1"># pyaerocom &gt;= 0.8.1</span>
+    <span class="n">subset_abisko</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<span class="k">except</span><span class="p">:</span> <span class="c1"># pyaerocom &lt; 0.8.1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coming soon in pyaerocom v0.8.1&#39;</span><span class="p">)</span>
+    <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xarr</span>
+    <span class="n">data_arr</span> <span class="o">=</span> <span class="n">xarr</span><span class="o">.</span><span class="n">DataArray</span><span class="o">.</span><span class="n">from_iris</span><span class="p">(</span><span class="n">subset_abisko</span><span class="o">.</span><span class="n">cube</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -2171,7 +2219,7 @@ Attributes:
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_29_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_30_0.png"
 >
 </div>
 
@@ -2258,7 +2306,7 @@ Reading failed for AeronetSunV3Lev2.AP. Error: OSError(&#39;Data directory /home
 Reading failed for AeronetSDAV3Lev2.daily. Error: OSError(&#39;Data directory /home/jonasg/MyPyaerocom/pyaerocom-testdata/obsdata/Aeronet.SDA.V3L2.0.daily/renamed of observation network AeronetSDAV3Lev2.daily does not exists&#39;)
 Reading failed for AeronetSDAV3Lev2.AP. Error: NetworkNotImplemented(&#39;No reading class available yet for dataset AeronetSDAV3Lev2.AP&#39;)
 Reading failed for AeronetInvV3Lev2.daily. Error: OSError(&#39;Data directory /home/jonasg/MyPyaerocom/pyaerocom-testdata/obsdata/Aeronet.Inv.V3L2.0.daily/renamed of observation network AeronetInvV3Lev2.daily does not exists&#39;)
-Reading failed for AeronetSunV3Lev2.0.daily. Error: OSError(&#39;Failed to identify file naming convention from files in model directory for model AeronetSunV3Lev2.0.daily\ndata_dir: /home/jonasg/MyPyaerocom/pyaerocom-testdata/obsdata/AeronetSunV3Lev2.0.daily/renamed&#39;)
+Reading failed for AeronetSunV3Lev2.0.daily. Error: AttributeError(&#34;&#39;NoneType&#39; object has no attribute &#39;experiment&#39;&#34;)
 </pre>
 </div>
 </div>
@@ -2414,7 +2462,7 @@ Last revision: 20190920
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_41_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_42_0.png"
 >
 </div>
 
@@ -2560,7 +2608,7 @@ Last revision: 20190920
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_47_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_48_0.png"
 >
 </div>
 
@@ -2813,7 +2861,7 @@ Length: 3399, dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_56_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_57_0.png"
 >
 </div>
 
@@ -2856,18 +2904,6 @@ Length: 3399, dtype: float64</pre>
 <div class="output_wrapper">
 <div class="output">
 
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Setting od550aer outlier lower lim: -1.00
-Setting od550aer outlier upper lim: 10.00
-Interpolating data of shape (12, 90, 120). This may take a while.
-Successfully interpolated cube
-</pre>
-</div>
-</div>
-</div>
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
@@ -2914,6 +2950,7 @@ Attributes:
     colocate_time:      False
     apply_constraints:  True
     min_num_obs:        {&#39;yearly&#39;: {&#39;monthly&#39;: 3}, &#39;monthly&#39;: {&#39;daily&#39;: 7}, &#39;...
+    outliers_removed:   True
     region:             WORLD
     lon_range:          [-180, 180]
     lat_range:          [-90, 90]
@@ -2951,7 +2988,7 @@ Attributes:
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_59_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_60_0.png"
 >
 </div>
 
@@ -3036,6 +3073,7 @@ Attributes:
     colocate_time:      False
     apply_constraints:  True
     min_num_obs:        {&#39;yearly&#39;: {&#39;monthly&#39;: 3}, &#39;monthly&#39;: {&#39;daily&#39;: 7}, &#39;...
+    outliers_removed:   True
     region:             WORLD
     lon_range:          [-180, 180]
     lat_range:          [-90, 90]
@@ -3183,29 +3221,6 @@ Attributes:
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Running TM5_AP3-CTRL2919 / AeronetSunV3Lev2.daily (ang4487aer, ang4487aer)
-Deleting and recomputing existing colocated data file ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
-REMOVE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
-
-Setting ang4487aer outlier lower lim: -0.50
-Setting ang4487aer outlier upper lim: 4.00
-Interpolating data of shape (12, 90, 120). This may take a while.
-Successfully interpolated cube
-Writing file ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -3282,6 +3297,7 @@ Writing file ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101
       stations_ignored:   None
       colocate_time:      0
       apply_constraints:  1
+      outliers_removed:   1
       region:             WORLD
       lon_range:          [-180, 180]
       lat_range:          [-90, 90]
@@ -3320,7 +3336,7 @@ Writing file ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_72_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_73_0.png"
 >
 </div>
 
@@ -3420,23 +3436,6 @@ Available variables: [&#39;abs550aer&#39;, &#39;abs550aercs&#39;, &#39;ang4487ae
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Running CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED / AeronetSunV3Lev2.daily (ang4487aer, ang4487aer)
-Deleting and recomputing existing colocated data file ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
-REMOVE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
-
-Setting ang4487aer outlier lower lim: -0.50
-Setting ang4487aer outlier upper lim: 4.00
-Interpolating data of shape (12, 192, 288). This may take a while.
-Successfully interpolated cube
-Writing file ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -3474,7 +3473,103 @@ Writing file ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-CAM53-Oslo_7310_MG15CLM45
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_77_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_78_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Usage-example:-Compute-AOD-bias-and-plot-bias-map">Usage example: Compute AOD bias and plot bias map<a class="anchor-link" href="#Usage-example:-Compute-AOD-bias-and-plot-bias-map"> </a></h4>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_arr</span> <span class="o">=</span> <span class="n">col_data</span><span class="o">.</span><span class="n">data</span>
+<span class="n">mean_bias</span> <span class="o">=</span> <span class="p">((</span><span class="n">_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="n">_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1">#%</span>
+<span class="n">mean_bias</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;xarray.DataArray &#39;od550aer&#39; (station_name: 290)&gt;
+array([ 32.791464,  44.197759, -23.840775, ...,  19.99503 ,  36.219445,
+        14.187602])
+Coordinates:
+    var_name      &lt;U8 &#39;od550aer&#39;
+    var_units     &lt;U1 &#39;1&#39;
+  * station_name  (station_name) &lt;U19 &#39;ARM_Darwin&#39; ... &#39;Zinder_Airport&#39;
+    latitude      (station_name) float64 -12.43 37.97 15.35 ... 62.45 13.78
+    longitude     (station_name) float64 130.9 23.72 -1.479 ... -114.4 8.99
+    altitude      (station_name) float64 29.9 130.0 305.0 ... 300.0 220.8 456.0
+    data_source   &lt;U22 &#39;AeronetSunV3Lev2.daily&#39;
+    ts_type_src   &lt;U7 &#39;daily&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">init_map</span><span class="p">()</span>
+<span class="n">_sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">mean_bias</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">mean_bias</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">mean_bias</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> 
+                 <span class="n">vmin</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">_sc</span><span class="p">)</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Normalised mean bias [%]&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_81_0.png"
 >
 </div>
 
