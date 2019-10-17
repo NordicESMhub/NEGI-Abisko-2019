@@ -6,6 +6,17 @@ Welcome to the `NEGI-Abisko-2019` repository! We're excited you're here and want
 These guidelines are designed to make it as easy as possible to get involved.
 If you have any questions that aren't discussed below, please let us know by opening an [issue][link_issues]!
 
+## Contributor Agreement
+
+By contributing, you agree that we may redistribute your work under [our license](https://github.com/NordicESMhub/NEGI-Abisko-2019/blob/master/LICENSE.md).
+In exchange, we will address your issues and/or assess your change proposal as promptly as we can, acknowledge
+your contributions and help you become a member of our community.
+Everyone involved in [Nordic Earth System Modeling hub][nordicesmhub-site]
+agrees to abide by our [code of conduct](https://nordicesmhub.github.io/CODE_OF_CONDUCT).
+
+
+## How to contribute?
+
 Before you start you'll need to set up a free [GitHub][link_github] account and sign in.
 Here are some [instructions][link_signupinstructions].
 
@@ -101,6 +112,8 @@ Changes here won't effect anyone else's work, so it's a safe space to explore ed
 Make sure to [keep your fork up to date][link_updateupstreamwiki] with the master repository.
 
 **3. Make the changes you've discussed.**
+
+Make sure you only update the **master** branch.
 
 Try to keep the changes focused.
 We've found that working on a [new branch][link_branches] makes it easier to keep your changes targeted.

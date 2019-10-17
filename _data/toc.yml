@@ -79,9 +79,13 @@
 # During the course 
 
 - title: Course Contribution
-  url: /CONTRIBUTING
+  url: /contributing/os_contribution
   not_numbered: true
   sections:
+  - title: New contributors
+    url: /contributing/newcomers
+  - title: Contribute to Open Science projects
+    url: /contributing/CONTRIBUTING
   - title: Notebook example
     url: /setup/Abisko_prep
 
