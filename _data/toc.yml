@@ -113,6 +113,15 @@
     - title: Aerosol distribution plotting
       url: /training/visualize/zeppelin_size_dist
       not_numbered: true
+- title: Python examples
+    #url: /training/python_examples
+    not_numbered: true
+    subsections: 
+    - title: Example NorthPolarStereo_projection
+      url: /training/example_NorthPolarStereo_projection
+    subsections: 
+    - title: Example Weighted/masked average 
+      url: /training/Example_model_global_arctic_average
   - title: Pyaerocom
     url: /training/pyaerocom/intro
     not_numbered: true
