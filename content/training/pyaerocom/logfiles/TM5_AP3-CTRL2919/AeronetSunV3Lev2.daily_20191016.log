@@ -186,6 +186,7 @@ file_status: {}
 
 Model: TM5_AP3-CTRL2919
 WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
+<<<<<<< HEAD
 
 ------------------ NEW ----------------
 Timestamp: 16-10-2019 14:48
@@ -374,3 +375,5 @@ file_status: {}
 
 Model: TM5_AP3-CTRL2919
 WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
+=======
+>>>>>>> master
