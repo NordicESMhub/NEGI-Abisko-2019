@@ -1,0 +1,147 @@
+
+------------------ NEW ----------------
+Timestamp: 17-10-2019 09:16
+
+Analysis configuration
+save_coldata: True
+obs_vars: ['ang4487aer']
+obs_vars_rename: {}
+obs_vert_type: None
+model_vert_type_alt: None
+read_opts_ungridded: None
+obs_ts_type_read: None
+model_use_vars: None
+model_add_vars: None
+model_keep_outliers: True
+model_id: TM5_AP3-CTRL2919
+model_name: None
+obs_id: AeronetSunV3Lev2.daily
+obs_name: None
+obs_keep_outliers: False
+start: 2010
+stop: None
+ts_type: monthly
+filter_name: WORLD-noMOUNTAINS
+remove_outliers: True
+apply_time_resampling_constraints: True
+min_num_obs: {'yearly': {'monthly': 3}, 'monthly': {'daily': 7}, 'daily': {'hourly': 6}, 'hourly': {'minutely': 15}}
+var_outlier_ranges: None
+var_ref_outlier_ranges: None
+harmonise_units: False
+vert_scheme: None
+regrid_res_deg: None
+ignore_station_names: None
+basedir_coldata: .
+model_ts_type_read: None
+model_read_aux: None
+model_use_climatology: False
+colocate_time: False
+flex_ts_type_gridded: True
+reanalyse_existing: True
+raise_exceptions: False
+_log: <_io.TextIOWrapper name='./logfiles/TM5_AP3-CTRL2919/AeronetSunV3Lev2.daily_20191017.log' mode='a+' encoding='UTF-8'>
+logging: True
+data: {}
+file_status: {}
+
+
+Model: TM5_AP3-CTRL2919
+WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
+
+------------------ NEW ----------------
+Timestamp: 17-10-2019 09:20
+
+Analysis configuration
+save_coldata: True
+obs_vars: ['ang4487aer']
+obs_vars_rename: {}
+obs_vert_type: None
+model_vert_type_alt: None
+read_opts_ungridded: None
+obs_ts_type_read: None
+model_use_vars: None
+model_add_vars: None
+model_keep_outliers: True
+model_id: TM5_AP3-CTRL2919
+model_name: None
+obs_id: AeronetSunV3Lev2.daily
+obs_name: None
+obs_keep_outliers: False
+start: 2010
+stop: None
+ts_type: monthly
+filter_name: WORLD-noMOUNTAINS
+remove_outliers: True
+apply_time_resampling_constraints: True
+min_num_obs: {'yearly': {'monthly': 3}, 'monthly': {'daily': 7}, 'daily': {'hourly': 6}, 'hourly': {'minutely': 15}}
+var_outlier_ranges: None
+var_ref_outlier_ranges: None
+harmonise_units: False
+vert_scheme: None
+regrid_res_deg: None
+ignore_station_names: None
+basedir_coldata: .
+model_ts_type_read: None
+model_read_aux: None
+model_use_climatology: False
+colocate_time: False
+flex_ts_type_gridded: True
+reanalyse_existing: True
+raise_exceptions: False
+_log: <_io.TextIOWrapper name='./logfiles/TM5_AP3-CTRL2919/AeronetSunV3Lev2.daily_20191017.log' mode='a+' encoding='UTF-8'>
+logging: True
+data: {}
+file_status: {}
+
+
+Model: TM5_AP3-CTRL2919
+WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
+
+------------------ NEW ----------------
+Timestamp: 17-10-2019 10:04
+
+Analysis configuration
+save_coldata: True
+obs_vars: ['ang4487aer']
+obs_vars_rename: {}
+obs_vert_type: None
+model_vert_type_alt: None
+read_opts_ungridded: None
+obs_ts_type_read: None
+model_use_vars: None
+model_add_vars: None
+model_keep_outliers: True
+model_id: TM5_AP3-CTRL2919
+model_name: None
+obs_id: AeronetSunV3Lev2.daily
+obs_name: None
+obs_keep_outliers: False
+start: 2010
+stop: None
+ts_type: monthly
+filter_name: WORLD-noMOUNTAINS
+remove_outliers: True
+apply_time_resampling_constraints: True
+min_num_obs: {'yearly': {'monthly': 3}, 'monthly': {'daily': 7}, 'daily': {'hourly': 6}, 'hourly': {'minutely': 15}}
+var_outlier_ranges: None
+var_ref_outlier_ranges: None
+harmonise_units: False
+vert_scheme: None
+regrid_res_deg: None
+ignore_station_names: None
+basedir_coldata: .
+model_ts_type_read: None
+model_read_aux: None
+model_use_climatology: False
+colocate_time: False
+flex_ts_type_gridded: True
+reanalyse_existing: True
+raise_exceptions: False
+_log: <_io.TextIOWrapper name='./logfiles/TM5_AP3-CTRL2919/AeronetSunV3Lev2.daily_20191017.log' mode='a+' encoding='UTF-8'>
+logging: True
+data: {}
+file_status: {}
+
+
+Model: TM5_AP3-CTRL2919
+WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
