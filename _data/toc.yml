@@ -119,7 +119,9 @@
     subsections:
     - title: pyaerocom jupyter notebook
       url: /training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom
-      not_numbered: true
+      not_numbered: true   
+    - title: pyaerocom EBAS example
+      url: /training/pyaerocom/example_ebas_read
     - title: Install pyaerocom dev
       url: /training/pyaerocom/local_pyaerocom
   - title: CMIP6 data
