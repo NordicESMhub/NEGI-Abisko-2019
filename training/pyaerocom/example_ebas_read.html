@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/example_ebas_read.html",
   "headline": "pyaerocom EBAS example",
-  "datePublished": "2019-10-17T18:43:58+00:00",
-  "dateModified": "2019-10-17T18:43:58+00:00",
+  "datePublished": "2019-10-18T07:11:07+00:00",
+  "dateModified": "2019-10-18T07:11:07+00:00",
   "description": "            import pyaerocom as pya        pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39;    Initiating directories f...",
   "author": {
     "@type": "Person",
@@ -1555,7 +1555,7 @@ initFunction(initPrint)
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;pyaerocom.io.read_ebas.ReadEbas at 0x7f2abe0a40b8&gt;</pre>
+<pre>&lt;pyaerocom.io.read_ebas.ReadEbas at 0x7fbb0312b860&gt;</pre>
 </div>
 
 </div>
@@ -1605,7 +1605,42 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">vars_to_retrieve</span><span class="o">=</span><span class="s1">&#39;scatc550dryaer&#39;</span><span class="p">,</span> <span class="n">station_name</span><span class="o">=</span><span class="s1">&#39;B*&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pya</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s1">&#39;scatc550dryaer&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>scatc550dryaer
+standard_name: None; Unit: 1/Mm</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">vars_to_retrieve</span><span class="o">=</span><span class="s1">&#39;scatc550dryaer&#39;</span><span class="p">,</span> <span class="n">station_names</span><span class="o">=</span><span class="s1">&#39;B*&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1621,24 +1656,133 @@ initFunction(initPrint)
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>Retrieving EBAS files for variables
 [&#39;scatc550dryaer&#39;]
+Reading files 1-13 of 129 (ReadEbas) | 00:01:10 (delta = 0 s&#39;)
+Reading files 13-25 of 129 (ReadEbas) | 00:01:12 (delta = 1 s&#39;)
+Reading files 25-37 of 129 (ReadEbas) | 00:01:14 (delta = 1 s&#39;)
+Reading files 37-49 of 129 (ReadEbas) | 00:01:16 (delta = 2 s&#39;)
+Reading files 49-61 of 129 (ReadEbas) | 00:01:18 (delta = 1 s&#39;)
+Reading files 61-73 of 129 (ReadEbas) | 00:01:19 (delta = 1 s&#39;)
+Reading files 73-85 of 129 (ReadEbas) | 00:01:21 (delta = 1 s&#39;)
+Reading files 85-97 of 129 (ReadEbas) | 00:01:22 (delta = 1 s&#39;)
+Reading files 97-109 of 129 (ReadEbas) | 00:01:23 (delta = 1 s&#39;)
+Reading files 109-121 of 129 (ReadEbas) | 00:01:25 (delta = 1 s&#39;)
+Reading files 121-133 of 129 (ReadEbas) | 00:01:29 (delta = 4 s&#39;)
 </pre>
 </div>
 </div>
 </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">unique_station_names</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Unknown request key station_name (value B*)
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;BEO Moussala&#39;,
+ &#39;Barrow&#39;,
+ &#39;Big Bend National Park-K-Bar (TX04)&#39;,
+ &#39;Birkenes II&#39;,
+ &#39;Bliss SP (TRPA)&#39;,
+ &#39;Bondville&#39;,
+ &#39;Boundary Waters Canoe Area&#39;,
+ &#39;Brigantine NWR&#39;]</pre>
+</div>
+
 </div>
 </div>
 </div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">plot_station_coordinates</span><span class="p">();</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/training/pyaerocom/example_ebas_read_8_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_station_data</span><span class="p">(</span><span class="s1">&#39;Birkenes II&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">plot_timeseries</span><span class="p">(</span><span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;scatc550dryaer&#39;</span><span class="p">)</span>
+<span class="n">stat</span><span class="o">.</span><span class="n">remove_outliers</span><span class="p">(</span><span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;scatc550dryaer&#39;</span><span class="p">)</span>
+<span class="n">stat</span><span class="o">.</span><span class="n">plot_timeseries</span><span class="p">(</span><span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;scatc550dryaer&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;outliers removed&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>Reading files 1-132 of 1310 (ReadEbas) | 14:23:39 (delta = 0 s&#39;)
+<pre>/opt/conda/lib/python3.7/site-packages/pandas/plotting/_matplotlib/converter.py:103: FutureWarning: Using an implicitly registered datetime converter for a matplotlib plotting method. The converter was registered by pandas on import. Future versions of pandas will require you to explicitly register matplotlib converters.
+
+To register the converters:
+	&gt;&gt;&gt; from pandas.plotting import register_matplotlib_converters
+	&gt;&gt;&gt; register_matplotlib_converters()
+  warnings.warn(msg, FutureWarning)
 </pre>
 </div>
 </div>
@@ -1646,55 +1790,101 @@ initFunction(initPrint)
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-10-d5c07b79cb3c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>data <span class="ansi-blue-fg">=</span> reader<span class="ansi-blue-fg">.</span>read<span class="ansi-blue-fg">(</span>vars_to_retrieve<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;scatc550dryaer&#39;</span><span class="ansi-blue-fg">,</span> station_name<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;B*&#39;</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/io/read_ebas.py</span> in <span class="ansi-cyan-fg">read</span><span class="ansi-blue-fg">(self, vars_to_retrieve, first_file, last_file, multiproc, files, **constraints)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1058</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> multiproc<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   1059</span>             data = self._read_files(files, vars_to_retrieve,
-<span class="ansi-green-fg">-&gt; 1060</span><span class="ansi-red-fg">                                     files_contain, constraints)
-</span><span class="ansi-green-intense-fg ansi-bold">   1061</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   1062</span>             <span class="ansi-green-fg">raise</span> NotImplementedError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Coming soon...&#39;</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/io/read_ebas.py</span> in <span class="ansi-cyan-fg">_read_files</span><span class="ansi-blue-fg">(self, files, vars_to_retrieve, files_contain, constraints)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1121</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   1122</span>                 station_data = self.read_file(_file, 
-<span class="ansi-green-fg">-&gt; 1123</span><span class="ansi-red-fg">                                               vars_to_retrieve=files_contain[i])
-</span><span class="ansi-green-intense-fg ansi-bold">   1124</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1125</span>             <span class="ansi-green-fg">except</span> <span class="ansi-blue-fg">(</span>NotInFileError<span class="ansi-blue-fg">,</span> EbasFileError<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/io/read_ebas.py</span> in <span class="ansi-cyan-fg">read_file</span><span class="ansi-blue-fg">(self, filename, vars_to_retrieve, _vars_to_read, _vars_to_compute)</span>
-<span class="ansi-green-intense-fg ansi-bold">    865</span> 
-<span class="ansi-green-intense-fg ansi-bold">    866</span>             <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>eval_flags<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 867</span><span class="ansi-red-fg">                 </span>invalid <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">~</span>file<span class="ansi-blue-fg">.</span>flag_col_info<span class="ansi-blue-fg">[</span>_col<span class="ansi-blue-fg">.</span>flag_col<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>valid
-<span class="ansi-green-intense-fg ansi-bold">    868</span>                 data_out<span class="ansi-blue-fg">.</span>data_flagged<span class="ansi-blue-fg">[</span>var<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> invalid
-<span class="ansi-green-intense-fg ansi-bold">    869</span>             sf <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>loaded_ebas_vars<span class="ansi-blue-fg">[</span>var<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>scale_factor
-
-<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/io/ebas_nasa_ames.py</span> in <span class="ansi-cyan-fg">valid</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    300</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;Boolean array specifying valid and invalid measurements&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">    301</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_valid <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 302</span><span class="ansi-red-fg">             </span>self<span class="ansi-blue-fg">.</span>decode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    303</span>         <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_valid
-<span class="ansi-green-intense-fg ansi-bold">    304</span> 
-
-<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/io/ebas_nasa_ames.py</span> in <span class="ansi-cyan-fg">decode</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    320</span>                         _invalid <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">False</span>
-<span class="ansi-green-intense-fg ansi-bold">    321</span>                         <span class="ansi-green-fg">break</span> <span class="ansi-red-fg"># since all other flags are irrelevant if 100 is flagged</span>
-<span class="ansi-green-fg">--&gt; 322</span><span class="ansi-red-fg">                     </span><span class="ansi-green-fg">elif</span> val <span class="ansi-green-fg">in</span> self<span class="ansi-blue-fg">.</span>FLAG_INFO<span class="ansi-blue-fg">.</span>valid <span class="ansi-green-fg">and</span> <span class="ansi-green-fg">not</span> self<span class="ansi-blue-fg">.</span>FLAG_INFO<span class="ansi-blue-fg">.</span>valid<span class="ansi-blue-fg">[</span>val<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">:</span> <span class="ansi-red-fg">#is invalid</span>
-<span class="ansi-green-intense-fg ansi-bold">    323</span>                         _invalid <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">True</span>
-<span class="ansi-green-intense-fg ansi-bold">    324</span> 
-
-<span class="ansi-red-fg">KeyboardInterrupt</span>: </pre>
+<div class="output_png output_subarea ">
+<img src="../../images/training/pyaerocom/example_ebas_read_9_1.png"
+>
 </div>
+
 </div>
 </div>
 </div>
 </div>
 
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="o">.</span><span class="n">revision_date</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[numpy.datetime64(&#39;2019-06-12T00:00:00&#39;),
+ numpy.datetime64(&#39;2019-05-27T00:00:00&#39;),
+ numpy.datetime64(&#39;2015-03-09T00:00:00&#39;)]</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="o">.</span><span class="n">compute_trend</span><span class="p">(</span><span class="s1">&#39;scatc550dryaer&#39;</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="mi">2020</span><span class="p">)</span>
+<span class="n">stat</span><span class="o">.</span><span class="n">trends</span><span class="p">[</span><span class="s1">&#39;scatc550dryaer&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="s1">&#39;2010-2020&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/training/pyaerocom/example_ebas_read_11_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>NOTE</strong>: the plotted trend line appears white since the trend is close to 0 (cf. notebook <code>example_aas_etal_read</code> for a case with a strong positive trend)</p>
+
+</div>
+</div>
 </div>
 </div>
 

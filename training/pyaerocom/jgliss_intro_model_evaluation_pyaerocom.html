@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom.html",
   "headline": "pyaerocom jupyter notebook",
-  "datePublished": "2019-10-17T18:43:58+00:00",
-  "dateModified": "2019-10-17T18:43:58+00:00",
+  "datePublished": "2019-10-18T07:11:07+00:00",
+  "dateModified": "2019-10-18T07:11:07+00:00",
   "description": "        Model evaluation using pyaerocom After this introduction, you will know how to:Search for model and observation data in the provided databaseRead mod...",
   "author": {
     "@type": "Person",
@@ -1524,6 +1524,8 @@ initFunction(initPrint)
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyaerocom</span> <span class="k">as</span> <span class="nn">pya</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">filterwarnings</span>
+<span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 <span class="n">pya</span><span class="o">.</span><span class="n">change_verbosity</span><span class="p">(</span><span class="s1">&#39;critical&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="n">pya</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">print_log</span><span class="p">)</span> <span class="c1"># don&#39;t output warnings</span>
 <span class="n">pya</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
@@ -1541,7 +1543,7 @@ initFunction(initPrint)
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;0.8.1.dev2&#39;</pre>
+<pre>&#39;0.8.1.dev3&#39;</pre>
 </div>
 
 </div>
@@ -1556,7 +1558,7 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Please make sure to use version <strong>0.8.1.dev2</strong>. If you have an earlier version, follow <a href="https://github.com/NordicESMhub/NEGI-Abisko-2019/blob/master/content/training/pyaerocom/local_pyaerocom.md">these instructions</a> in order to update your installation.</p>
+<p>Please make sure to use version <strong>0.8.1.dev2</strong> (or later). If you have an earlier version, follow <a href="https://github.com/NordicESMhub/NEGI-Abisko-2019/blob/master/content/training/pyaerocom/local_pyaerocom.md">these instructions</a> in order to update your installation.</p>
 
 </div>
 </div>
@@ -1681,7 +1683,7 @@ initFunction(initPrint)
 Pyaerocom ReadGridded
 ---------------------
 Data ID: TM5_AP3-CTRL2019
-Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//modeldata/TM5_AP3-CTRL2019/renamed
+Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/TM5_AP3-CTRL2019/renamed
 Available experiments: [&#39;AP3-CTRL2019&#39;]
 Available years: [2010]
 Available frequencies [&#39;monthly&#39;]
@@ -1760,7 +1762,7 @@ Available variables: [&#39;abs350aer&#39;, &#39;abs440aer&#39;, &#39;abs440dryae
 Pyaerocom ReadGridded
 ---------------------
 Data ID: TM5_AP3-CTRL2019
-Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//modeldata/TM5_AP3-CTRL2019/renamed
+Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/TM5_AP3-CTRL2019/renamed
 Available experiments: [&#39;AP3-CTRL2019&#39;]
 Available years: [2010]
 Available frequencies [&#39;monthly&#39;]
@@ -1827,6 +1829,110 @@ standard_name: atmosphere_optical_thickness_due_to_ambient_aerosol_particles; Un
 <h4 id="Read-2010-Aerosol-optical-depth-(at-550-nm)-from-TM5-model">Read 2010 Aerosol optical depth (at 550 nm) from TM5 model<a class="anchor-link" href="#Read-2010-Aerosol-optical-depth-(at-550-nm)-from-TM5-model"> </a></h4>
 </div>
 </div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">read_var</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Help on method read_var in module pyaerocom.io.readgridded:
+
+read_var(var_name, start=None, stop=None, ts_type=None, experiment=None, vert_which=None, flex_ts_type=True, prefer_longer=False, aux_vars=None, aux_fun=None, **kwargs) method of pyaerocom.io.readgridded.ReadGridded instance
+    Read model data for a specific variable
+    
+    This method searches all valid files for a given variable and for a 
+    provided temporal resolution (e.g. *daily, monthly*), optionally
+    within a certain time window, that may be specified on class 
+    instantiation or using the corresponding input parameters provided in 
+    this method.
+    
+    The individual NetCDF files for a given temporal period are loaded as
+    instances of the :class:`iris.Cube` object and appended to an instance
+    of the :class:`iris.cube.CubeList` object. The latter is then used to 
+    concatenate the individual cubes in time into a single instance of the
+    :class:`pyaerocom.GriddedData` class. In order to ensure that this
+    works, several things need to be ensured, which are listed in the 
+    following and which may be controlled within the global settings for 
+    NetCDF import using the attribute :attr:`GRID_IO` (instance of
+    :class:`OnLoad`) in the default instance of the 
+    :class:`pyaerocom.config.Config` object accessible via 
+    ``pyaerocom.const``.
+    
+    
+    Parameters
+    ----------
+    var_name : str
+        variable that are supposed to be read
+    start : Timestamp or str, optional
+        start time of data import 
+    stop : Timestamp or str, optional
+        stop time of data import
+    ts_type : str
+        string specifying temporal resolution (choose from 
+        &#34;hourly&#34;, &#34;3hourly&#34;, &#34;daily&#34;, &#34;monthly&#34;). If None, prioritised 
+        of the available resolutions is used
+    experiment : str
+        name of experiment (only relevant if this dataset contains more 
+        than one experiment)
+    vert_which : str or dict, optional
+        valid AeroCom vertical info string encoded in name (e.g. Column,
+        ModelLevel) or dictionary containing var_name as key and vertical
+        coded string as value, accordingly
+    flex_ts_type : bool
+        if True and if applicable, then another ts_type is used in case 
+        the input ts_type is not available for this variable
+    prefer_longer : bool
+        if True and applicable, the ts_type resulting in the longer time
+        coverage will be preferred over other possible frequencies that 
+        match the query.
+    aux_vars : list
+        only relevant if `var_name` is not available for reading but needs
+        to be computed: list of variables that are required to compute 
+        `var_name`
+    aux_fun : callable
+        only relevant if `var_name` is not available for reading but needs
+        to be computed: custom method for computation (cf. 
+        :func:`add_aux_compute` for details)
+    **kwargs
+        additional keyword args parsed to :func:`_load_var`
+        
+    Returns
+    -------
+    GriddedData
+        loaded data object
+        
+    Raises
+    ------
+    AttributeError
+        if none of the ts_types identified from file names is valid
+    VarNotAvailableError
+        if specified ts_type is not supported
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1916,7 +2022,7 @@ standard_name: atmosphere_optical_thickness_due_to_ambient_aerosol_particles; Un
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_data</span><span class="o">.</span><span class="n">quickplot_map</span><span class="p">(</span><span class="s1">&#39;June 2010&#39;</span><span class="p">);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_data</span><span class="o">.</span><span class="n">quickplot_map</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -1929,20 +2035,10 @@ standard_name: atmosphere_optical_thickness_due_to_ambient_aerosol_particles; Un
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/lib/python3.7/site-packages/iris/analysis/cartography.py:394: UserWarning: Using DEFAULT_SPHERICAL_EARTH_RADIUS.
-  warnings.warn(&#34;Using DEFAULT_SPHERICAL_EARTH_RADIUS.&#34;)
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_21_1.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_22_0.png"
 >
 </div>
 
@@ -2086,7 +2182,7 @@ standard_name: atmosphere_optical_thickness_due_to_ambient_aerosol_particles; Un
       margin-top: 7px;
   }
 </style>
-<table class="iris" id="140222973992688">
+<table class="iris" id="140196429334512">
     <tr class="iris">
 <th class="iris iris-word-cell">Atmosphere Optical Thickness Due To Ambient Aerosol (1)</th>
 <th class="iris iris-word-cell">time</th>
@@ -2155,7 +2251,7 @@ standard_name: atmosphere_optical_thickness_due_to_ambient_aerosol_particles; Un
 </tr>
 <tr class="iris">
     <td class="iris-word-cell iris-subheading-cell">	from_files</td>
-    <td class="iris-word-cell" colspan="3">['/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//modeldata/T...</td>
+    <td class="iris-word-cell" colspan="3">['/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/TM...</td>
 </tr>
 <tr class="iris">
     <td class="iris-word-cell iris-subheading-cell">	institute_id</td>
@@ -2349,7 +2445,42 @@ Attributes:
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">LON_ABISKO</span> <span class="o">=</span> <span class="mf">18.8312</span> <span class="c1">#° E</span>
 <span class="n">LAT_ABISKO</span> <span class="o">=</span> <span class="mf">68.3495</span> <span class="c1">#° N </span>
 <span class="n">subset_abisko</span> <span class="o">=</span> <span class="n">model_data</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">longitude</span><span class="o">=</span><span class="n">LON_ABISKO</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="n">LAT_ABISKO</span><span class="p">)</span>
-<span class="k">try</span><span class="p">:</span> <span class="c1"># pyaerocom &gt;= 0.8.1</span>
+<span class="n">subset_abisko</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pyaerocom.GriddedData
+Grid data: &lt;iris &#39;Cube&#39; of atmosphere_optical_thickness_due_to_ambient_aerosol / (1) (time: 12)&gt;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span> <span class="c1"># pyaerocom &gt;= 0.8.1</span>
     <span class="n">subset_abisko</span><span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 <span class="k">except</span><span class="p">:</span> <span class="c1"># pyaerocom &lt; 0.8.1</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coming soon in pyaerocom v0.8.1&#39;</span><span class="p">)</span>
@@ -2370,7 +2501,7 @@ Attributes:
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_30_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_32_0.png"
 >
 </div>
 
@@ -2453,15 +2584,12 @@ Dataset name: AeronetSunV3Lev2.daily
 Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//obsdata/AeronetSunV3Lev2.0.daily/renamed
 Supported variables: [&#39;od340aer&#39;, &#39;od440aer&#39;, &#39;od500aer&#39;, &#39;od870aer&#39;, &#39;ang4487aer&#39;, &#39;ang4487aer_calc&#39;, &#39;od550aer&#39;]
 Last revision: 20190920
-Reading failed for AeronetSunV3Lev2.AP. Error: OSError(&#39;Data directory /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//obsdata/AeronetSunV3Lev2.0.AP/renamed of observation network AeronetSunV3Lev2.AP does not exists&#39;)
 
 Dataset name: AeronetSDAV3Lev2.daily
 Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//obsdata/Aeronet.SDA.V3L2.0.daily/renamed
 Supported variables: [&#39;od500gt1aer&#39;, &#39;od500lt1aer&#39;, &#39;od500aer&#39;, &#39;ang4487aer&#39;, &#39;od550aer&#39;, &#39;od550gt1aer&#39;, &#39;od550lt1aer&#39;]
 Last revision: 20190920
 Reading failed for AeronetSDAV3Lev2.AP. Error: NetworkNotImplemented(&#39;No reading class available yet for dataset AeronetSDAV3Lev2.AP&#39;)
-Reading failed for AeronetInvV3Lev2.daily. Error: OSError(&#39;Data directory /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//obsdata/Aeronet.Inv.V3L2.0.daily/renamed of observation network AeronetInvV3Lev2.daily does not exists&#39;)
-Reading failed for AeronetSunV3Lev2.0.daily. Error: AttributeError(&#34;&#39;NoneType&#39; object has no attribute &#39;experiment&#39;&#34;)
 </pre>
 </div>
 </div>
@@ -2543,7 +2671,7 @@ Last revision: 20190920
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">obs_data</span> <span class="o">=</span> <span class="n">obs_reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">vars_to_retrieve</span><span class="o">=</span><span class="s1">&#39;od550aer&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">obs_data</span> <span class="o">=</span> <span class="n">obs_reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">vars_to_retrieve</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;od550aer&#39;</span><span class="p">])</span>
 <span class="n">obs_data</span>
 </pre></div>
 
@@ -2554,16 +2682,6 @@ Last revision: 20190920
 <div class="output_wrapper">
 <div class="output">
 
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/065403d4-2d5a02-2d46ec-2da0dd-2db878e4b7c040/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/ungriddeddata.py:123: RuntimeWarning: invalid value encountered in multiply
-  self._data = np.empty([num_points, self._COLNO]) * np.nan
-</pre>
-</div>
-</div>
-</div>
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
@@ -2627,7 +2745,7 @@ Last revision: 20190920
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_42_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_44_0.png"
 >
 </div>
 
@@ -2701,7 +2819,7 @@ Last revision: 20190920
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">obs_data</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">obs_data</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="mi">420</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -2719,10 +2837,10 @@ Last revision: 20190920
 <div class="output_text output_subarea output_execute_result">
 <pre>OrderedDict([(&#39;var_info&#39;,
               OrderedDict([(&#39;od550aer&#39;, OrderedDict([(&#39;units&#39;, &#39;1&#39;)]))])),
-             (&#39;latitude&#39;, 45.3139),
-             (&#39;longitude&#39;, 12.508299999999998),
-             (&#39;altitude&#39;, 10.0),
-             (&#39;station_name&#39;, &#39;AAOT&#39;),
+             (&#39;latitude&#39;, 19.932449999999996),
+             (&#39;longitude&#39;, 99.04539999999999),
+             (&#39;altitude&#39;, 1536.0),
+             (&#39;station_name&#39;, &#39;Doi_Ang_Khang&#39;),
              (&#39;PI&#39;, &#39;Brent_Holben&#39;),
              (&#39;ts_type&#39;, &#39;daily&#39;),
              (&#39;data_id&#39;, &#39;AeronetSunV3Lev2.daily&#39;),
@@ -2773,7 +2891,7 @@ Last revision: 20190920
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_48_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_50_0.png"
 >
 </div>
 
@@ -2920,7 +3038,7 @@ Last revision: 20190920
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lille_data</span><span class="o">.</span><span class="n">latitude</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lille_data</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -3023,29 +3141,10 @@ Length: 3399, dtype: float64</pre>
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/lib/python3.7/site-packages/pandas/plotting/_matplotlib/converter.py:103: FutureWarning: Using an implicitly registered datetime converter for a matplotlib plotting method. The converter was registered by pandas on import. Future versions of pandas will require you to explicitly register matplotlib converters.
-
-To register the converters:
-	&gt;&gt;&gt; from pandas.plotting import register_matplotlib_converters
-	&gt;&gt;&gt; register_matplotlib_converters()
-  warnings.warn(msg, FutureWarning)
-/home/065403d4-2d5a02-2d46ec-2da0dd-2db878e4b7c040/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/helpers.py:493: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  df[how][invalid] = np.nan
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_57_1.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_59_0.png"
 >
 </div>
 
@@ -3078,7 +3177,23 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
                                                      <span class="n">obs_data</span><span class="p">,</span> 
                                                      <span class="n">ts_type</span><span class="o">=</span><span class="s1">&#39;monthly&#39;</span><span class="p">,</span>
                                                      <span class="n">start</span><span class="o">=</span><span class="mi">2010</span><span class="p">)</span>
-<span class="n">col_data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pya</span><span class="o">.</span><span class="n">colocation</span><span class="o">.</span><span class="n">colocate_gridded_gridded</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -3091,89 +3206,131 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/065403d4-2d5a02-2d46ec-2da0dd-2db878e4b7c040/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/helpers.py:493: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Help on function colocate_gridded_gridded in module pyaerocom.colocation:
 
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  df[how][invalid] = np.nan
-/opt/conda/lib/python3.7/site-packages/numpy/ma/core.py:3172: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
-  dout = self.data[indx]
-/opt/conda/lib/python3.7/site-packages/iris/analysis/_scipy_interpolate.py:290: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
-  return self.values[idx_res]
-/home/065403d4-2d5a02-2d46ec-2da0dd-2db878e4b7c040/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/colocation.py:559: FutureWarning: Creating a DatetimeIndex by passing range endpoints is deprecated.  Use `pandas.date_range` instead.
-  time_idx = pd.DatetimeIndex(start=start, end=stop, freq=col_freq)
+colocate_gridded_gridded(gridded_data, gridded_data_ref, ts_type=None, start=None, stop=None, filter_name=None, regrid_res_deg=None, remove_outliers=True, vert_scheme=None, harmonise_units=True, regrid_scheme=&#39;areaweighted&#39;, var_outlier_ranges=None, var_ref_outlier_ranges=None, update_baseyear_gridded=None, apply_time_resampling_constraints=None, min_num_obs=None, colocate_time=False, var_keep_outliers=True, var_ref_keep_outliers=False, **kwargs)
+    Colocate 2 gridded data objects
+    
+    Todo
+    ----
+    - think about vertical dimension (vert_scheme input not used at the moment)
+    
+    Parameters
+    ----------
+    gridded_data : GriddedData
+        gridded data (e.g. model results)
+    gridded_data_ref : GriddedData
+        reference dataset that is used to evaluate 
+        :attr:`gridded_data` (e.g. gridded observation data)
+    ts_type : str
+        desired temporal resolution of colocated data (must be valid AeroCom
+        ts_type str such as daily, monthly, yearly..)
+    start : :obj:`str` or :obj:`datetime64` or similar, optional
+        start time for colocation, if None, the start time of the input
+        :class:`GriddedData` object is used
+    stop : :obj:`str` or :obj:`datetime64` or similar, optional
+        stop time for colocation, if None, the stop time of the input
+        :class:`GriddedData` object is used
+    filter_name : str
+        string specifying filter used (cf. :class:`pyaerocom.filter.Filter` for
+        details). If None, then it is set to &#39;WORLD-wMOUNTAINS&#39;, which 
+        corresponds to no filtering (world with mountains). 
+        Use WORLD-noMOUNTAINS to exclude mountain sites.
+    regrid_res_deg : :obj:`int`, optional
+        regrid resolution in degrees. If specified, the input gridded data 
+        objects will be regridded in lon / lat dimension to the input 
+        resolution. (BETA feature)
+    remove_outliers : bool
+        if True, outliers are removed from model and obs data before colocation, 
+        else not.
+    vert_scheme : str
+        string specifying scheme used to reduce the dimensionality in case 
+        input grid data contains vertical dimension. Example schemes are 
+        `mean, surface, altitude`, for details see 
+        :func:`GriddedData.to_time_series`.
+    harmonise_units : bool
+        if True, units are attempted to be harmonised (note: raises Exception
+        if True and units cannot be harmonised).
+    regrid_scheme : str
+        iris scheme used for regridding (defaults to area weighted regridding)
+    var_outlier_ranges : :obj:`dict`, optional
+        dictionary specifying outlier ranges for dataset to be analysed
+        (e.g. dict(od550aer = [-0.05, 10], ang4487aer=[0,4])). If None, then
+        the pyaerocom default outlier ranges are used for the input variable.
+        Defaults to None.
+    var_ref_outlier_ranges : dict, optional
+        like `var_outlier_ranges` but for reference dataset.
+    update_baseyear_gridded : int, optional
+        optional input that can be set in order to redefine the time dimension
+        in the gridded data object to be analysed. E.g., if the data object 
+        is a climatology (one year of data) that has set the base year of the
+        time dimension to a value other than the specified input start / stop 
+        time this may be used to update the time in order to make colocation 
+        possible.
+    apply_time_resampling_constraints : bool, optional
+        if True, then time resampling constraints are applied as provided via 
+        :attr:`min_num_obs` or if that one is unspecified, as defined in
+        :attr:`pyaerocom.const.OBS_MIN_NUM_RESAMPLE`. If None, than 
+        :attr:`pyaerocom.const.OBS_APPLY_TIME_RESAMPLE_CONSTRAINTS` is used
+        (which defaults to True !!).
+    min_num_obs : int or dict, optional
+        minimum number of observations for resampling of time
+    colocate_time : bool
+        if True and if original time resolution of data is higher than desired
+        time resolution (`ts_type`), then both datasets are colocated in time 
+        *before* resampling to lower resolution. 
+    var_keep_outliers : bool
+        if True, then no outliers will be removed from dataset to be analysed, 
+        even if `remove_outliers` is True. That is because for model evaluation
+        often only outliers are supposed to be removed in the observations but
+        not in the model.
+    var_ref_keep_outliers : bool
+        if True, then no outliers will be removed from the reference dataset, 
+        even if `remove_outliers` is True.
+    **kwargs
+        additional keyword args (not used here, but included such that factory 
+        class can handle different methods with different inputs)
+    
+    Returns
+    -------
+    ColocatedData
+        instance of colocated data
+
 </pre>
 </div>
 </div>
 </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">col_data</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;xarray.DataArray &#39;od550aer&#39; (data_source: 2, time: 12, station_name: 290)&gt;
-array([[[       nan, 0.11758773,        nan, ...,        nan,
-                nan, 0.22213848],
-        [       nan, 0.13212825,        nan, ..., 0.12098059,
-                nan, 0.4297616 ],
-        [       nan, 0.14685542,        nan, ..., 0.12334401,
-                nan, 0.91985307],
-        ...,
-        [0.11797653, 0.11601176,        nan, ..., 0.05336442,
-         0.03394842, 0.37093354],
-        [0.13223569, 0.19505731,        nan, ...,        nan,
-                nan, 0.26176478],
-        [       nan,        nan,        nan, ...,        nan,
-                nan, 0.37904951]],
-
-       [[0.14947775, 0.14656237, 0.16371733, ..., 0.08020622,
-         0.03766838, 0.23015726],
-        [0.14588432, 0.2863543 , 0.20080711, ..., 0.11745247,
-         0.06611011, 0.46402201],
-        [0.19967574, 0.28439081, 0.91542172, ..., 0.13032669,
-         0.05874216, 1.46623838],
-        ...,
-        [0.21575473, 0.23416109, 0.34703311, ..., 0.09446716,
-         0.05008808, 0.51150841],
-        [0.16433115, 0.19931237, 0.38158169, ..., 0.10818329,
-         0.03546635, 0.40573141],
-        [0.10476176, 0.13849808, 0.30405122, ..., 0.14951633,
-         0.04037524, 0.45553884]]])
-Coordinates:
-  * data_source   (data_source) &lt;U22 &#39;AeronetSunV3Lev2.daily&#39; &#39;TM5_AP3-CTRL2019&#39;
-    var_name      (data_source) &lt;U8 &#39;od550aer&#39; &#39;od550aer&#39;
-    var_units     (data_source) &lt;U1 &#39;1&#39; &#39;1&#39;
-    ts_type_src   (data_source) &lt;U7 &#39;daily&#39; &#39;monthly&#39;
-  * time          (time) datetime64[ns] 2010-01-01 2010-02-01 ... 2010-12-01
-  * station_name  (station_name) &lt;U19 &#39;ARM_Darwin&#39; ... &#39;Zinder_Airport&#39;
-    latitude      (station_name) float64 -12.43 37.97 15.35 ... 62.45 13.78
-    longitude     (station_name) float64 130.9 23.72 -1.479 ... -114.4 8.99
-    altitude      (station_name) float64 29.9 130.0 305.0 ... 300.0 220.8 456.0
-Attributes:
-    data_source:        [&#39;AeronetSunV3Lev2.daily&#39;, &#39;TM5_AP3-CTRL2019&#39;]
-    var_name:           [&#39;od550aer&#39;, &#39;od550aer&#39;]
-    ts_type:            monthly
-    filter_name:        WORLD-wMOUNTAINS
-    ts_type_src:        [&#39;daily&#39;, &#39;monthly&#39;]
-    start_str:          20100101
-    stop_str:           20101231
-    var_units:          [&#39;1&#39;, &#39;1&#39;]
-    vert_scheme:        None
-    data_level:         3
-    revision_ref:       20190920
-    from_files:         [&#39;aerocom3_TM5_AP3-CTRL2019_od550aer_Column_2010_mont...
-    from_files_ref:     None
-    stations_ignored:   None
-    colocate_time:      False
-    apply_constraints:  True
-    min_num_obs:        {&#39;yearly&#39;: {&#39;monthly&#39;: 3}, &#39;monthly&#39;: {&#39;daily&#39;: 7}, &#39;...
-    outliers_removed:   True
-    region:             WORLD
-    lon_range:          [-180, 180]
-    lat_range:          [-90, 90]
-    alt_range:          None</pre>
+<pre>pyaerocom.colocateddata.ColocatedData</pre>
 </div>
 
 </div>
@@ -3207,7 +3364,7 @@ Attributes:
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_60_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_64_0.png"
 >
 </div>
 
@@ -3463,37 +3620,26 @@ Attributes:
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>Reading files 1-124 of 1230 (ReadAeronetSunV3) | 14:03:36 (delta = 0 s&#39;)
+<pre>Reading files 1-124 of 1230 (ReadAeronetSunV3) | 00:05:30 (delta = 0 s&#39;)
 Reading file 0 of 1230 (ReadAeronetSunV3)
-Reading files 124-247 of 1230 (ReadAeronetSunV3) | 14:03:38 (delta = 1 s&#39;)
+Reading files 124-247 of 1230 (ReadAeronetSunV3) | 00:05:33 (delta = 3 s&#39;)
 Reading file 123 of 1230 (ReadAeronetSunV3)
-Reading files 247-370 of 1230 (ReadAeronetSunV3) | 14:03:40 (delta = 2 s&#39;)
+Reading files 247-370 of 1230 (ReadAeronetSunV3) | 00:05:36 (delta = 2 s&#39;)
 Reading file 246 of 1230 (ReadAeronetSunV3)
-Reading files 370-493 of 1230 (ReadAeronetSunV3) | 14:03:41 (delta = 0 s&#39;)
+Reading files 370-493 of 1230 (ReadAeronetSunV3) | 00:05:38 (delta = 2 s&#39;)
 Reading file 369 of 1230 (ReadAeronetSunV3)
-Reading files 493-616 of 1230 (ReadAeronetSunV3) | 14:03:43 (delta = 2 s&#39;)
+Reading files 493-616 of 1230 (ReadAeronetSunV3) | 00:05:42 (delta = 3 s&#39;)
 Reading file 492 of 1230 (ReadAeronetSunV3)
-Reading files 616-739 of 1230 (ReadAeronetSunV3) | 14:03:47 (delta = 3 s&#39;)
+Reading files 616-739 of 1230 (ReadAeronetSunV3) | 00:05:46 (delta = 4 s&#39;)
 Reading file 615 of 1230 (ReadAeronetSunV3)
-Reading files 739-862 of 1230 (ReadAeronetSunV3) | 14:03:51 (delta = 3 s&#39;)
+Reading files 739-862 of 1230 (ReadAeronetSunV3) | 00:05:51 (delta = 4 s&#39;)
 Reading file 738 of 1230 (ReadAeronetSunV3)
-Reading files 862-985 of 1230 (ReadAeronetSunV3) | 14:03:54 (delta = 3 s&#39;)
+Reading files 862-985 of 1230 (ReadAeronetSunV3) | 00:05:55 (delta = 4 s&#39;)
 Reading file 861 of 1230 (ReadAeronetSunV3)
-Reading files 985-1108 of 1230 (ReadAeronetSunV3) | 14:03:58 (delta = 3 s&#39;)
+Reading files 985-1108 of 1230 (ReadAeronetSunV3) | 00:05:59 (delta = 4 s&#39;)
 Reading file 984 of 1230 (ReadAeronetSunV3)
-Reading files 1108-1231 of 1230 (ReadAeronetSunV3) | 14:04:03 (delta = 4 s&#39;)
+Reading files 1108-1231 of 1230 (ReadAeronetSunV3) | 00:06:05 (delta = 5 s&#39;)
 Reading file 1107 of 1230 (ReadAeronetSunV3)
-/home/065403d4-2d5a02-2d46ec-2da0dd-2db878e4b7c040/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/helpers.py:493: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  df[how][invalid] = np.nan
-/opt/conda/lib/python3.7/site-packages/numpy/ma/core.py:3172: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
-  dout = self.data[indx]
-/opt/conda/lib/python3.7/site-packages/iris/analysis/_scipy_interpolate.py:290: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
-  return self.values[idx_res]
-/home/065403d4-2d5a02-2d46ec-2da0dd-2db878e4b7c040/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/colocation.py:559: FutureWarning: Creating a DatetimeIndex by passing range endpoints is deprecated.  Use `pandas.date_range` instead.
-  time_idx = pd.DatetimeIndex(start=start, end=stop, freq=col_freq)
 </pre>
 </div>
 </div>
@@ -3522,7 +3668,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">colocator</span><span class="o">.</span><span class="n">data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">colocator</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TM5_AP3-CTRL2019&#39;</span><span class="p">][</span><span class="s1">&#39;ang4487aer&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -3538,67 +3684,67 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;TM5_AP3-CTRL2019&#39;: {&#39;ang4487aer&#39;: &lt;xarray.DataArray &#39;ang4487aer&#39; (data_source: 2, time: 12, station_name: 264)&gt;
-  array([[[       nan, 1.128966  ,        nan, ...,        nan,
-                  nan, 0.25999457],
-          [       nan, 0.89081575,        nan, ..., 1.12947156,
-                  nan, 0.30509289],
-          [       nan, 1.12122509,        nan, ..., 1.14267986,
-                  nan, 0.13727079],
-          ...,
-          [0.97128121, 1.2908889 ,        nan, ..., 1.56412958,
-           1.0926709 , 0.39523561],
-          [1.34621412, 0.934353  ,        nan, ...,        nan,
-                  nan, 0.49452866],
-          [       nan,        nan,        nan, ...,        nan,
-                  nan, 0.4892751 ]],
-  
-         [[0.86711586, 0.73773724, 0.52013141, ..., 1.39102662,
-           1.35547209, 0.62231678],
-          [0.98289979, 0.30570188, 0.58608049, ..., 1.23340809,
-           1.23590493, 0.44316554],
-          [0.57381302, 0.59244061, 0.15318914, ..., 1.31365597,
-           1.16984105, 0.19862083],
-          ...,
-          [0.8841635 , 0.85821074, 1.01289105, ..., 1.36450207,
-           1.38448656, 0.95568919],
-          [1.28473127, 0.65777272, 0.54912972, ..., 1.26303518,
-           1.3864181 , 0.62829041],
-          [1.14279449, 0.75016189, 0.47216135, ..., 1.05199301,
-           1.37411582, 0.41307265]]])
-  Coordinates:
-    * data_source   (data_source) &lt;U22 &#39;AeronetSunV3Lev2.daily&#39; &#39;TM5_AP3-CTRL2019&#39;
-      var_name      (data_source) &lt;U10 &#39;ang4487aer&#39; &#39;ang4487aer&#39;
-      var_units     (data_source) &lt;U1 &#39;1&#39; &#39;1&#39;
-      ts_type_src   (data_source) &lt;U7 &#39;daily&#39; &#39;monthly&#39;
-    * time          (time) datetime64[ns] 2010-01-01 2010-02-01 ... 2010-12-01
-    * station_name  (station_name) &lt;U19 &#39;ARM_Darwin&#39; ... &#39;Zinder_Airport&#39;
-      latitude      (station_name) float64 -12.43 37.97 15.35 ... 62.45 13.78
-      longitude     (station_name) float64 130.9 23.72 -1.479 ... -114.4 8.99
-      altitude      (station_name) float64 29.9 130.0 305.0 ... 300.0 220.8 456.0
-  Attributes:
-      data_source:        [&#39;AeronetSunV3Lev2.daily&#39;, &#39;TM5_AP3-CTRL2019&#39;]
-      var_name:           [&#39;ang4487aer&#39;, &#39;ang4487aer&#39;]
-      ts_type:            monthly
-      filter_name:        WORLD-noMOUNTAINS
-      ts_type_src:        [&#39;daily&#39;, &#39;monthly&#39;]
-      start_str:          20100101
-      stop_str:           20101231
-      var_units:          [&#39;1&#39;, &#39;1&#39;]
-      vert_scheme:        None
-      data_level:         3
-      revision_ref:       20190920
-      from_files:         [&#39;aerocom3_TM5_AP3-CTRL2019_od440aer_Column_2010_mont...
-      from_files_ref:     None
-      stations_ignored:   None
-      colocate_time:      0
-      apply_constraints:  1
-      outliers_removed:   1
-      region:             WORLD
-      lon_range:          [-180, 180]
-      lat_range:          [-90, 90]
-      alt_range:          [-1000000.0, 1000.0]
-      _min_num_obs:       yearly,monthly,3;monthly,daily,7;daily,hourly,6;hourl...}}</pre>
+<pre>&lt;xarray.DataArray &#39;ang4487aer&#39; (data_source: 2, time: 12, station_name: 264)&gt;
+array([[[       nan, 1.128966  ,        nan, ...,        nan,
+                nan, 0.25999457],
+        [       nan, 0.89081575,        nan, ..., 1.12947156,
+                nan, 0.30509289],
+        [       nan, 1.12122509,        nan, ..., 1.14267986,
+                nan, 0.13727079],
+        ...,
+        [0.97128121, 1.2908889 ,        nan, ..., 1.56412958,
+         1.0926709 , 0.39523561],
+        [1.34621412, 0.934353  ,        nan, ...,        nan,
+                nan, 0.49452866],
+        [       nan,        nan,        nan, ...,        nan,
+                nan, 0.4892751 ]],
+
+       [[0.86711586, 0.73773724, 0.52013141, ..., 1.39102662,
+         1.35547209, 0.62231678],
+        [0.98289979, 0.30570188, 0.58608049, ..., 1.23340809,
+         1.23590493, 0.44316554],
+        [0.57381302, 0.59244061, 0.15318914, ..., 1.31365597,
+         1.16984105, 0.19862083],
+        ...,
+        [0.8841635 , 0.85821074, 1.01289105, ..., 1.36450207,
+         1.38448656, 0.95568919],
+        [1.28473127, 0.65777272, 0.54912972, ..., 1.26303518,
+         1.3864181 , 0.62829041],
+        [1.14279449, 0.75016189, 0.47216135, ..., 1.05199301,
+         1.37411582, 0.41307265]]])
+Coordinates:
+  * data_source   (data_source) &lt;U22 &#39;AeronetSunV3Lev2.daily&#39; &#39;TM5_AP3-CTRL2019&#39;
+    var_name      (data_source) &lt;U10 &#39;ang4487aer&#39; &#39;ang4487aer&#39;
+    var_units     (data_source) &lt;U1 &#39;1&#39; &#39;1&#39;
+    ts_type_src   (data_source) &lt;U7 &#39;daily&#39; &#39;monthly&#39;
+  * time          (time) datetime64[ns] 2010-01-01 2010-02-01 ... 2010-12-01
+  * station_name  (station_name) &lt;U19 &#39;ARM_Darwin&#39; ... &#39;Zinder_Airport&#39;
+    latitude      (station_name) float64 -12.43 37.97 15.35 ... 62.45 13.78
+    longitude     (station_name) float64 130.9 23.72 -1.479 ... -114.4 8.99
+    altitude      (station_name) float64 29.9 130.0 305.0 ... 300.0 220.8 456.0
+Attributes:
+    data_source:        [&#39;AeronetSunV3Lev2.daily&#39;, &#39;TM5_AP3-CTRL2019&#39;]
+    var_name:           [&#39;ang4487aer&#39;, &#39;ang4487aer&#39;]
+    ts_type:            monthly
+    filter_name:        WORLD-noMOUNTAINS
+    ts_type_src:        [&#39;daily&#39;, &#39;monthly&#39;]
+    start_str:          20100101
+    stop_str:           20101231
+    var_units:          [&#39;1&#39;, &#39;1&#39;]
+    vert_scheme:        None
+    data_level:         3
+    revision_ref:       20190920
+    from_files:         [&#39;aerocom3_TM5_AP3-CTRL2019_od440aer_Column_2010_mont...
+    from_files_ref:     None
+    stations_ignored:   None
+    colocate_time:      0
+    apply_constraints:  1
+    outliers_removed:   1
+    region:             WORLD
+    lon_range:          [-180, 180]
+    lat_range:          [-90, 90]
+    alt_range:          [-1000000.0, 1000.0]
+    _min_num_obs:       yearly,monthly,3;monthly,daily,7;daily,hourly,6;hourl...</pre>
 </div>
 
 </div>
@@ -3632,7 +3778,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_73_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_77_0.png"
 >
 </div>
 
@@ -3679,7 +3825,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 Pyaerocom ReadGridded
 ---------------------
 Data ID: ECMWF-IFS-CY45R1-CAMS-CTRL-met2010_AP3-CTRL
-Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//modeldata/ECMWF-IFS-CY45R1-CAMS-CTRL-met2010_AP3-CTRL/renamed
+Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/ECMWF-IFS-CY45R1-CAMS-CTRL-met2010_AP3-CTRL/renamed
 Available experiments: [&#39;AP3-CTRL&#39;]
 Available years: [1850, 2010]
 Available frequencies [&#39;3hourly&#39; &#39;daily&#39; &#39;monthly&#39;]
@@ -3688,7 +3834,7 @@ Available variables: [&#39;abs550aer&#39;, &#39;clh&#39;, &#39;cll&#39;, &#39;cl
 Pyaerocom ReadGridded
 ---------------------
 Data ID: CAM5-ATRAS_AP3-CTRL
-Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//modeldata/CAM5-ATRAS_AP3-CTRL/renamed
+Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/CAM5-ATRAS_AP3-CTRL/renamed
 Available experiments: [&#39;AP3-CTRL&#39;]
 Available years: [1750, 1850, 2010]
 Available frequencies [&#39;daily&#39; &#39;monthly&#39;]
@@ -3697,7 +3843,7 @@ Available variables: [&#39;abs440aer&#39;, &#39;abs440bc&#39;, &#39;abs440dryaer
 Pyaerocom ReadGridded
 ---------------------
 Data ID: ECMWF_CAMS_REAN
-Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//modeldata/ECMWF_CAMS_REAN/renamed
+Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/ECMWF_CAMS_REAN/renamed
 Available experiments: [&#39;REAN&#39;]
 Available years: [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
 Available frequencies [&#39;daily&#39;]
@@ -3706,7 +3852,7 @@ Available variables: [&#39;ang4487aer&#39;, &#39;od550aer&#39;, &#39;od550oa&#39
 Pyaerocom ReadGridded
 ---------------------
 Data ID: CAM5-ATRAS_AP3-HIST
-Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//modeldata/CAM5-ATRAS_AP3-HIST/renamed
+Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/CAM5-ATRAS_AP3-HIST/renamed
 Available experiments: [&#39;AP3-HIST&#39;]
 Available years: [1750, 1850, 1860, 1870, 1880, 1890, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015]
 Available frequencies [&#39;monthly&#39; &#39;daily&#39;]
@@ -3715,7 +3861,7 @@ Available variables: [&#39;abs550aer&#39;, &#39;abs550dryaer&#39;, &#39;airmass&
 Pyaerocom ReadGridded
 ---------------------
 Data ID: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
-Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//modeldata/CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED/renamed
+Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED/renamed
 Available experiments: [&#39;UNTUNED&#39;]
 Available years: [2008, 2009, 2010]
 Available frequencies [&#39;monthly&#39;]
@@ -3724,7 +3870,7 @@ Available variables: [&#39;abs550aer&#39;, &#39;abs550aercs&#39;, &#39;ang4487ae
 Pyaerocom ReadGridded
 ---------------------
 Data ID: CAM6-Oslo_NHIST_f19_tn14_20190710_2010
-Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata//modeldata/CAM6-Oslo_NHIST_f19_tn14_20190710_2010/renamed
+Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/CAM6-Oslo_NHIST_f19_tn14_20190710_2010/renamed
 Available experiments: [&#39;20190710&#39;]
 Available years: [2010]
 Available frequencies [&#39;monthly&#39;]
@@ -3777,27 +3923,6 @@ Available variables: [&#39;abs440aer&#39;, &#39;abs500aer&#39;, &#39;abs550aer&#
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/065403d4-2d5a02-2d46ec-2da0dd-2db878e4b7c040/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/ungriddeddata.py:123: RuntimeWarning: invalid value encountered in multiply
-  self._data = np.empty([num_points, self._COLNO]) * np.nan
-/home/065403d4-2d5a02-2d46ec-2da0dd-2db878e4b7c040/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/helpers.py:493: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  df[how][invalid] = np.nan
-/opt/conda/lib/python3.7/site-packages/numpy/ma/core.py:3172: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
-  dout = self.data[indx]
-/opt/conda/lib/python3.7/site-packages/iris/analysis/_scipy_interpolate.py:290: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
-  return self.values[idx_res]
-/home/065403d4-2d5a02-2d46ec-2da0dd-2db878e4b7c040/.local/lib/python3.7/site-packages/pyaerocom-0.8.1.dev2-py3.7.egg/pyaerocom/colocation.py:559: FutureWarning: Creating a DatetimeIndex by passing range endpoints is deprecated.  Use `pandas.date_range` instead.
-  time_idx = pd.DatetimeIndex(start=start, end=stop, freq=col_freq)
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -3835,7 +3960,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_78_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_82_0.png"
 >
 </div>
 
@@ -3983,7 +4108,43 @@ Coordinates:
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">init_map</span><span class="p">()</span>
-<span class="n">_sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">mean_bias</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">mean_bias</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">mean_bias</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_85_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">init_map</span><span class="p">()</span>
+<span class="n">_sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">mean_bias</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">mean_bias</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">mean_bias</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> 
+                 <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> 
                  <span class="n">vmin</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
 <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">_sc</span><span class="p">)</span>
 <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Normalised mean bias [%]&#39;</span><span class="p">);</span>
@@ -4002,7 +4163,7 @@ Coordinates:
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_81_0.png"
+<img src="../../images/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom_86_0.png"
 >
 </div>
 
