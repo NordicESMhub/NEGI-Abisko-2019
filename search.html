@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-18T15:38:03+00:00",
-  "dateModified": "2019-10-18T15:38:03+00:00",
+  "datePublished": "2019-10-18T15:49:18+00:00",
+  "dateModified": "2019-10-18T15:49:18+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -1141,6 +1141,62 @@ initFunction(initPrint)
                       Sigridjb topic presentation
                     </a>
                 
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Alert_sizedist.html"
+                    >
+                      
+                        1.4.5
+                        
+                      
+                      Alert Size distribution
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Tiksi_sizedist.html"
+                    >
+                      
+                        1.4.6
+                        
+                      
+                      Tiksi Size distribution
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Nord_sizedist.html"
+                    >
+                      
+                        1.4.7
+                        
+                      
+                      Nord Size distribution
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Zeppelin_sizedist.html"
+                    >
+                      
+                        1.4.8
+                        
+                      
+                      Zeppelin Size distribution
+                    </a>
+                
 
               </li>
               
@@ -1946,6 +2002,38 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-3/stinsage_temperature.html",
+        "teaser":null},{
+        "title": "Alert Size distribution",
+        
+        "excerpt":
+            "import pandas as pd import glob import numpy as np import matplotlib.pyplot as plt import xarray as xr import matplotlib as mpl my_dateparser = lambda x: pd.datetime.strptime(x, &quot;%Y %m %d %H %M&quot;) path = &#39;shared-ns1000k/inputs/Aerosol_sizedist_obs/&#39; all_files = glob.glob(path + &quot;/ALERT_201*_hourly.csv&quot;) myorder = [2, 1, 0] mylist = [all_files[i] for i in myorder] li = [] for filename in mylist: df = pd.read_csv(filename, parse_dates=[[&#39;0&#39;, &#39;0.1&#39;, &#39;0.2&#39;, &#39;0.3&#39;, &#39;0.4&#39;]], date_parser = my_dateparser) li.append(df) df = pd.concat(li, axis=0, ignore_index=True) df.rename(columns={&#39;0_0.1_0.2_0.3_0.4&#39;:&#39;Time&#39;},inplace = True) df.replace(-999, np.nan, inplace=True) df.drop(labels=[&#39;0.5&#39;,&#39;0.6&#39;], axis=1, inplace=True) df = df.set_index(&#39;Time&#39;) df 20 22.44 25.179 28.251 31.698 35.566 39.905 44.774 50.238 56.368 ......",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Alert_sizedist.html",
+        "teaser":null},{
+        "title": "Nord Size distribution",
+        
+        "excerpt":
+            "import pandas as pd import glob import numpy as np import matplotlib.pyplot as plt import xarray as xr import matplotlib as mpl my_dateparser = lambda x: pd.datetime.strptime(x, &quot;%Y %m %d %H %M&quot;) path = &#39;shared-ns1000k/inputs/Aerosol_sizedist_obs/&#39; all_files = glob.glob(path + &quot;/Station_Nord_201*_hourly.csv&quot;) myorder = [3, 2, 0, 1] mylist = [all_files[i] for i in myorder] li = [] for filename in mylist: df = pd.read_csv(filename, parse_dates=[[&#39;0&#39;, &#39;0.1&#39;, &#39;0.2&#39;, &#39;0.3&#39;, &#39;0.4&#39;]], date_parser = my_dateparser) li.append(df) df = pd.concat(li, axis=0, ignore_index=True) df.rename(columns={&#39;0_0.1_0.2_0.3_0.4&#39;:&#39;Time&#39;},inplace = True) df.replace(-999, np.nan, inplace=True) df.drop(labels=[&#39;0.5&#39;,&#39;0.6&#39;], axis=1, inplace=True) df = df.set_index(&#39;Time&#39;) df 20 22.44 25.179 28.251 31.698 35.566 39.905 44.774 50.238 56.368...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Nord_sizedist.html",
+        "teaser":null},{
+        "title": "Tiksi Size distribution",
+        
+        "excerpt":
+            "from datetime import datetime, timedelta def daterange(start_date, end_date): delta = timedelta(hours=1) while start_date &lt; end_date: yield start_date start_date += delta start_date = datetime(2013, 1, 1, 00, 00) end_date = datetime(2016, 1, 1, 00, 00) time = [] for single_date in daterange(start_date, end_date): time.append(single_date.strftime(&quot;%Y-%m-%d %H:%M&quot;)) time = pd.to_datetime(time) len(time) 26280 import pandas as pd import glob import numpy as np import matplotlib.pyplot as plt import xarray as xr import matplotlib as mpl my_dateparser = lambda x: pd.datetime.strptime(x, &quot;%Y %m %d %H %M&quot;) path = &#39;shared-ns1000k/inputs/Aerosol_sizedist_obs/&#39; all_files = glob.glob(path + &quot;/Tiksi_201*_hourly.csv&quot;) myorder = [2, 0, 1] mylist = [all_files[i] for i in...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Tiksi_sizedist.html",
+        "teaser":null},{
+        "title": "Zeppelin Size distribution",
+        
+        "excerpt":
+            "import pandas as pd import glob import numpy as np import matplotlib.pyplot as plt import xarray as xr import matplotlib as mpl my_dateparser = lambda x: pd.datetime.strptime(x, &quot;%Y %m %d %H %M&quot;) path = &#39;shared-ns1000k/inputs/Aerosol_sizedist_obs/&#39; all_files = glob.glob(path + &quot;/Zeppelin_201*_hourly.csv&quot;) myorder = [4, 0, 3, 2, 1] mylist = [all_files[i] for i in myorder] li = [] for filename in mylist: df = pd.read_csv(filename, parse_dates=[[&#39;0&#39;, &#39;0.1&#39;, &#39;0.2&#39;, &#39;0.3&#39;, &#39;0.4&#39;]], date_parser = my_dateparser) li.append(df) df = pd.concat(li, axis=0, ignore_index=True) df.rename(columns={&#39;0_0.1_0.2_0.3_0.4&#39;:&#39;Time&#39;},inplace = True) df.replace(-999, np.nan, inplace=True) df.drop(labels=[&#39;0.5&#39;,&#39;0.6&#39;], axis=1, inplace=True) df = df.set_index(&#39;Time&#39;) diam = df.columns diam = ([float(ii) for ii in diam])...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Zeppelin_sizedist.html",
         "teaser":null},{
         "title": "Dinastabell DMP",
         
