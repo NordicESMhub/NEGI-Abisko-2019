@@ -31,9 +31,19 @@ https://www.geosci-model-dev.net/special_issue590.html
     - Choose e.g. "Experiment ID" _historical_ 
     - Choose "Realm" e.g. _aerosol_
         - Press search (this will narrow your further options)
-    - If you want a particular model, you can choose this under "Source ID"
+    - If you want a particular madGEM3-GC31-LL.amip.r2i1p1f3.Eday.zmla.gn
+Data Node: esgf-data3.ceda.ac.ukodel, you can choose this under "Source ID"
     - Now you can use either use "Variable" or "CF Standard Name" to pick out the variable you want.
-    
+    ## Download to Jupyter hub:
+    - Click on the "WGET Script" under the variable file you want. 
+    - The file will get downloaded to your computer. 
+    - Upload it to the Jupyter Hub (you can click and drag the file into your folder)
+    - Use a terminal in Jupyter hub and run
+        ```bash
+        bash wget***.sh -H
+        ```
+      (Replace wget***.sh by the actual name of your file)
+    - When it askes for openid and password, just press "enter". 
     
 
 There are some tools for downloading and manipulating data, but I don't have experience with them.
