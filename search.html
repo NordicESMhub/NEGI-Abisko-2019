@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-18T15:10:41+00:00",
-  "dateModified": "2019-10-18T15:10:41+00:00",
+  "datePublished": "2019-10-18T15:33:07+00:00",
+  "dateModified": "2019-10-18T15:33:07+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -1646,6 +1646,17 @@ initFunction(initPrint)
                       CMIP6 data with dask cluster
                     </a>
                 
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/example_search_cmip6_historical.html"
+                    >
+                      
+                      Search CMIP6 historical data
+                    </a>
+                
 
               </li>
               
@@ -2023,6 +2034,14 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_NorthPolarStereo_projection.html",
+        "teaser":null},{
+        "title": "Search CMIP6 historical data",
+        
+        "excerpt":
+            "import xarray as xr import os,glob import pandas as pd from pathlib import Path FILES = &#39;FILE_PATH&#39; MODEL = &#39;MODEL&#39; VAR = &#39;VAR_NAME&#39; NAME = &#39;filename&#39; FRQ = &#39;FREQUENCY&#39; RIPF = &#39;RIPF&#39; RR = &#39;REALIZATION&#39; II = &#39;INDEX&#39; PP = &#39;PHYSICS&#39; FF = &#39;FORCING&#39; LABEL = &#39;LABEL&#39; ID = &#39;ID&#39; TS = &#39;TIME START&#39; TE = &#39;TIME END&#39; from os.path import expanduser def search_cmip6_hist( wildcard:str = &#39;*&#39;, model:str = &#39;*&#39;, label:str = &#39;*&#39;, ) -&gt; pd.DataFrame: &#39;&#39;&#39; searchs the historical cmip6 folder at nird and returns a dataframe with the results Parameters ---------- wildcard pattern for the file name model...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_search_cmip6_historical.html",
         "teaser":null},{
         "title": "Gridded model data dask rolling mean",
         
