@@ -189,6 +189,8 @@
       url: /training/CMIP6_example
     - title: CMIP6 data with dask cluster
       url: /training/CMIP6_dask
+    - title: Search CMIP6 historical data 
+      url: /training/example_search_cmip6_historical
 
 # Divider for meta-pages and content page
 - divider: true
