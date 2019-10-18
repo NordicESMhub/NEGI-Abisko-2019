@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-18T13:04:09+00:00",
-  "dateModified": "2019-10-18T13:04:09+00:00",
+  "datePublished": "2019-10-18T13:59:02+00:00",
+  "dateModified": "2019-10-18T13:59:02+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -1579,6 +1579,28 @@ initFunction(initPrint)
 
                   <li class="c-sidebar__subsection">
                     <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/pyaerocom/HOWTO_find_EBAS_files.html"
+                    >
+                      
+                      How to find EBAS files
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/pyaerocom/HOWTO_read_EBAS_files.html"
+                    >
+                      
+                      How to read EBAS files
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
                       href="/NEGI-Abisko-2019/training/pyaerocom/local_pyaerocom.html"
                     >
                       
@@ -2014,6 +2036,22 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/presentations.html",
+        "teaser":null},{
+        "title": "How to find EBAS files",
+        
+        "excerpt":
+            "How to find EBAS NASA Ames files for a certain request NOTE: the EBAS data provided under pyaerocom-testdata/obsdata/EBASMultiColumn is only a subset of the data that is available in the EBAS database. So you may not find some data files that are available online (e.g. matrix met is not available here). If you do not find the file in the provided data, you have to download the files yourself from the EBAS database and follow the instructions provided in HOWTO_read_EBAS_files. import pyaerocom as pya pya.__version__ &#39;0.8.1.dev3&#39; pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Initiating directories for pyaerocom test dataset With the EbasSQLRequest class you...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/HOWTO_find_EBAS_files.html",
+        "teaser":null},{
+        "title": "How to read EBAS files",
+        
+        "excerpt":
+            "How to read EBAS NASA Ames file with pyaerocom Either, find files that are available in the provided database, as explained in HOWTO_find_EBAS_files, OR: Download (and unzip) the NASA Ames files (.nas) you need from EBAS database (shown below) import pyaerocom as pya ls EBAS_FILES/ NO0042G.20050101000000.20120101000000.aws.wind_speed.met.1y.1h.NO01L_NO42_aws_10m.NO01L_cup_anemometer..nas Pick the file and put parse it into the EbasNasaAmesFile object to read it fpath = &#39;EBAS_FILES/&#39; + &#39;NO0042G.20050101000000.20120101000000.aws.wind_speed.met.1y.1h.NO01L_NO42_aws_10m.NO01L_cup_anemometer..nas&#39; filedata = pya.io.EbasNasaAmesFile(fpath) print(filedata) Pyaerocom EbasNasaAmesFile -------------------------- num_head_lines: 52 num_head_fmt: 1001 data_originator: Aas, Wenche sponsor_organisation: NO01L, Norwegian Institute for Air Research, NILU, Atmosphere and Climate Department, Instituttveien 18, , 2007, Kjeller, Norway submitter: Hjellbrekke, Anne...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/HOWTO_read_EBAS_files.html",
         "teaser":null},{
         "title": "pyaerocom EBAS example",
         
