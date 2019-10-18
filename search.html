@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-18T13:59:02+00:00",
-  "dateModified": "2019-10-18T13:59:02+00:00",
+  "datePublished": "2019-10-18T14:03:20+00:00",
+  "dateModified": "2019-10-18T14:03:20+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -1635,6 +1635,17 @@ initFunction(initPrint)
                       Plotting CMIP6 data
                     </a>
                 
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/CMIP6_dask.html"
+                    >
+                      
+                      CMIP6 data with dask cluster
+                    </a>
+                
 
               </li>
               
@@ -1972,6 +1983,14 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/topics.html",
+        "teaser":null},{
+        "title": "CMIP6 data with dask cluster",
+        
+        "excerpt":
+            "                    from dask.distributed import Client import xarray as xr                         client = Client(n_workers=2, threads_per_worker=2, memory_limit=&#39;1GB&#39;) client                  /opt/conda/lib/python3.7/site-packages/distributed/dashboard/core.py:72: UserWarning:  Port 8787 is already in use.  Perhaps you already have a cluster running? Hosting the diagnostics dashboard on a random port instead.   warnings.warn(&#34;\\n&#34; + msg)             Client     Scheduler: tcp://127.0.0.1:33214   Dashboard: http://127.0.0.1:33662/status    Cluster     Workers: 2   Cores: 4   Memory: 2.00 GB                          path1 = &#39;~/shared-cmip6-for-ns1000k/historical/CESM2-WACCM/r1i1p1f1/&#39; +\\ &#39;so2_AERmon_CESM2-WACCM_historical_r1i1p1f1_gn_185001-201412.nc&#39;                         chunks={     &#39;time&#39; : 10,   }                         dataset = xr.open_dataset(path1, chunks=chunks, use_cftime = True)                         da = dataset[&#39;so2&#39;].isel(lev=69).mean([&#39;lat&#39;,&#39;lon&#39;])                         da.to_netcdf(&#39;./test.nc&#39;)                         %matplotlib inline da.plot()                    [&lt;matplotlib.lines.Line2D at 0x7f4212201240&gt;]                                   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/CMIP6_dask.html",
         "teaser":null},{
         "title": "CMIP6 data",
         

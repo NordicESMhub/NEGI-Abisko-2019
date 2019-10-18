@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Home</title>
-  <meta name="description" content="        Climate science at high latitudes: eScience for linking Arctic measurements and modeling The 3rd course “Climate science at high latitudes: eScience ...">
+  <title>CMIP6 data with dask cluster</title>
+  <meta name="description" content="            from dask.distributed import Clientimport xarray as xr        client = Client(n_workers=2, threads_per_worker=2, memory_limit=&#39;1GB&#39;)clien...">
 
-  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/intro.html">
+  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/training/CMIP6_dask.html">
   <link rel="alternate" type="application/rss+xml" title="eScience for linking Arctic measurements and modeling" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/feed.xml">
 
-  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/intro.html" />
+  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/training/CMIP6_dask.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Home" />
-<meta property="og:description" content="        Climate science at high latitudes: eScience for linking Arctic measurements and modeling The 3rd course “Climate science at high latitudes: eScience ..." />
+<meta property="og:title"       content="CMIP6 data with dask cluster" />
+<meta property="og:description" content="            from dask.distributed import Clientimport xarray as xr        client = Client(n_workers=2, threads_per_worker=2, memory_limit=&#39;1GB&#39;)clien..." />
 <meta property="og:image"       content="http://nordicesmhub.github.io/NEGI-Abisko-2019/images/logo/zeppelin.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/intro.html",
-  "headline": "Home",
+  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/CMIP6_dask.html",
+  "headline": "CMIP6 data with dask cluster",
   "datePublished": "2019-10-18T14:03:20+00:00",
   "dateModified": "2019-10-18T14:03:20+00:00",
-  "description": "        Climate science at high latitudes: eScience for linking Arctic measurements and modeling The 3rd course “Climate science at high latitudes: eScience ...",
+  "description": "            from dask.distributed import Clientimport xarray as xr        client = Client(n_workers=2, threads_per_worker=2, memory_limit=&#39;1GB&#39;)clien...",
   "author": {
     "@type": "Person",
     "name": "Anne Fouilloux"
@@ -786,7 +786,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/NEGI-Abisko-2019/intro.html"
         >
           
@@ -1639,7 +1639,7 @@ initFunction(initPrint)
                   
 
                   <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
+                    <a class="c-sidebar__entry c-sidebar__entry--active"
                       href="/NEGI-Abisko-2019/training/CMIP6_dask.html"
                     >
                       
@@ -1701,10 +1701,35 @@ initFunction(initPrint)
 <div class="download-buttons-dropdown">
     <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
     <div class="download-buttons">
+        <a href="/NEGI-Abisko-2019/content/training/CMIP6_dask.ipynb" download>
+        <button id="interact-button-download" class="interact-button">ORIG</button>
+        </a>
         
         <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
     </div>
 </div>
+
+  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+  
+  
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/NordicESMHub/NEGI-Abisko-2019/master?urlpath=lab/tree/content%2Ftraining%2FCMIP6_dask.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/NEGI-Abisko-2019/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
+
+
+
+<a href="http://abisko.uiogeo-apps.sigma2.no/hub/user-redirect/git-pull?repo=https://github.com//NordicESMHub/NEGI-Abisko-2019&amp;branch=master&amp;subPath=content%2Ftraining%2FCMIP6_dask.ipynb&amp;app=lab"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/NEGI-Abisko-2019/assets/images/logo_jupyterhub.svg" alt="Interact" />JupyterHub</button></a>
+
+
+
 
 </div>
 
@@ -1723,72 +1748,219 @@ initFunction(initPrint)
                   <main class="jupyter-page">
     <div class="jb_cell">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://circleci.com/gh/NordicESMhub/NEGI-Abisko-2019"><img src="https://circleci.com/gh/NordicESMhub/NEGI-Abisko-2019.svg?style=svg&amp;circle-token=708328c3d6428a29f49027f0a5e316fc32850dac" alt="CircleCI"></a></p>
-<h3 id="Climate-science-at-high-latitudes:-eScience-for-linking-Arctic-measurements-and-modeling">Climate science at high latitudes: eScience for linking Arctic measurements and modeling<a class="anchor-link" href="#Climate-science-at-high-latitudes:-eScience-for-linking-Arctic-measurements-and-modeling"> </a></h3><p>The 3rd course “Climate science at high latitudes: eScience for linking Arctic measurements and modeling” will be held at Abisko Scientific Research Station from 15th until 24th of October 2019.</p>
-<p><strong>Coordination</strong>: Paul Zieger (SU), Michael Schulz (UiO/MetNo), and Katja Lauri (UHEL)</p>
-<p>The registration has ended August 15th, 2019 (if you are still interested to join, please contact Paul to check for available places). Notification of acceptance will be given at the beginning of September. For more details please contact Paul Zieger.</p>
-<p><img src="https://www.aces.su.se/aces/wp-content/uploads/2019/05/abisko-naturvetenskapliga-station-lars-lehnert.jpg" alt="The Abisko Research Station (photo: Lars Lehnert, SPRS)">
-<em>The Abisko Research Station (photo: Lars Lehnert, SPRS)</em></p>
-<h2 id="Course-Content">Course Content<a class="anchor-link" href="#Course-Content"> </a></h2><p>The course in 2019 will introduce earth system analysis as well as data analysis with practical exercises. The course will make use of existing eSTICC related infrastructures, such as climate models (e.g., NorESM, EC-EARTH), model databases (e.g. AeroCom, CMIP5), model data evaluation portals (AeroCom, CMEMS), and atmospheric and oceanic databases (for example EBAS, ORA-IP). Practical work is initiated and accompanied to apply modern visualization, data analysis and statistical tools (e.g., Jupyter notebooks, AeroCom tools, ESMValTool, cis tool, barakuda tool). Subjects for practical work will be suggested depending on student’s background. Introductions will be given on the Arctic climate, the role of aerosols and clouds, observational techniques, climate forcing and climate model evaluation. The course involves a set of relevant lectures and tutorials, with the main emphasis placed on intensive group work and a final report that will be written during and after the course by each student. Before the course, the selected students will be asked to practice the tools to be used on the course by solving a pre-exercise. The course is primarily aimed at PhD students in atmospheric and biospheric sciences in Nordic universities (also advanced MSc students are welcome to apply). During the course the students can either use their own data or utilize provided model data together with long-term aerosol, air, ion, trace gas, meteorological data measured at field stations.</p>
-<h2 id="Detailed-course-content">Detailed course content<a class="anchor-link" href="#Detailed-course-content"> </a></h2><h3 id="Introductory-lectures-on:">Introductory lectures on:<a class="anchor-link" href="#Introductory-lectures-on:"> </a></h3><ul>
-<li>Arctic climate</li>
-<li>Aerosols and Clouds</li>
-<li>Climate forcing</li>
-<li>Climate model evaluation</li>
-<li>Climate model diagnostics</li>
-<li>Observational methods (in-situ and remote sensing techniques)</li>
-<li>Model analysis tool introductions AeroCom, ESMvalTool</li>
-<li>Model data base structures AeroCom and CMIP5</li>
-<li>Python and Jupyter notebooks</li>
-</ul>
-<h3 id="Practical-work:">Practical work:<a class="anchor-link" href="#Practical-work:"> </a></h3><p>Students are asked to cooperate in small groups (3-4) with an assistant on individual subjects of interest in the realm of climate model evaluation and analysis. Jupyter notebooks shall be compiled to document the work and results. Two Presentations are expected during the course to report on progress.</p>
-<p>The learning outcomes:</p>
-<p>In the end of the course the student will have</p>
-<ul>
-<li>skills to set up small python based data analysis projects;</li>
-<li>knowledge about existing online databases containing atmospheric and ecosystem data;</li>
-<li>the ability to understand and evaluate model output;</li>
-<li>increased skills to visualize data;</li>
-</ul>
-<p>Some of the transferable skills the course strives to improve:</p>
-<ul>
-<li>statistical analysis of model and field measurements;</li>
-<li>multidisciplinary approach;</li>
-<li>project management; and</li>
-<li>collaborative learning.</li>
-</ul>
-<h3 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites"> </a></h3><p>The participants are expected to be able to write scripts using a structural programming language (e.g. Python, R or MATLAB). Basic data analysis skills are also expected. The main programming language to be used on the course will be Python. The main tool for visualization and online publishing will be Jupyter Notebook.</p>
-<h3 id="Course-Fees">Course Fees<a class="anchor-link" href="#Course-Fees"> </a></h3><p>The course fee is 1000 EUR. 
-For doctoral students enrolled in any university in Nordic countries (Denmark, Finland, Iceland, Norway, Sweden), the fee is covered by the NeGI project Applied methodologies for improved exchange between atmospheric eScience Infrastructures at high latitudes. UiO students participating in the course on the Earth System GEO4990 will be covered by the University of Oslo.</p>
-<p>This fee covers:</p>
-<p>all academic and social program during the course
-access to the electronically provided course material
-accommodation (shared rooms) and logis during the course
-The fee does not cover:</p>
-<ul>
-<li>travel expenses to and from Abisko</li>
-<li>personal health and civil liability insurance</li>
-<li>personal expenses such as drinks, telephone, photocopies, laundry etc. during the course</li>
-</ul>
-<p>We encourage all participants to take the train to Abisko.</p>
-<p><strong>Maximum number of participants</strong>: 25</p>
-<p><strong>Application deadline</strong>: 15th August 2019</p>
-<p>Successful applicants will be notified by the beginning of September.</p>
-<h4 id="Previous-courses">Previous courses<a class="anchor-link" href="#Previous-courses"> </a></h4><p>2017 at Hyytiälä, Finland. (Course title:  “Climate science at high latitudes: Online data storage and visualization tool”). A short report and some impressions can be found <a href="https://www.aces.su.se/report-from-the-first-nordic-workshop-on-e-science-tools-for-climate-research/">here</a>.
-2018 at Andoya Space Center, Norway (“Climate science at high latitudes: Modeling and model evaluation”). A short report and some impressions can be found <a href="https://www.aces.su.se/learning-new-e-science-tools-for-climate-research-in-norwegian-andoya/?highlight=NeGI">here</a>.</p>
-<h4 id="Sponsors">Sponsors<a class="anchor-link" href="#Sponsors"> </a></h4><p>The course series is part of Nordic eScience Globalisation Initiative (NeGI) partially funded by Nordforsk and has been designed and launched in a collaboration between Stockholm University (SU), University of Helsinki (UHEL), Norwegian Meteorological Institute (MetNo) and the Finish IT center for Science (CSC).</p>
-<p>Funding for these have been acquired from various sources. The main funding is provided by Nordforsk within the project “Applied methodologies for improved exchange between atmospheric e-science Infrastructures at high latitudes” (grant no. 79774, see <a href="https://www.nordforsk.org/en/programmes-and-projects/projects/applied-methodologies-for-improved-exchange-between-atmospheric-e-science-infrastructures-at-high-latitudes">here</a>). Additional funding has been provided by</p>
-<ul>
-<li><a href="https://bolin.su.se/index.php/education">Bolin Centre for Climate Research</a></li>
-<li><a href="https://bolin.su.se/arcticavenue">Arctic Avenue – A strategic collaboration grant between the universities of Stockholm and Helsinki</a></li>
-<li><a href="https://chess.w.uib.no/">CHESS – Research school on changing climates in the coupled earth system</a></li>
-<li>FORCeS – Constrained aerosol forcing for improved climate projections (Horizon 2020 project)</li>
-</ul>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="k">import</span> <span class="n">Client</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
 
 </div>
 </div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">n_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">threads_per_worker</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">memory_limit</span><span class="o">=</span><span class="s1">&#39;1GB&#39;</span><span class="p">)</span>
+<span class="n">client</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/opt/conda/lib/python3.7/site-packages/distributed/dashboard/core.py:72: UserWarning: 
+Port 8787 is already in use. 
+Perhaps you already have a cluster running?
+Hosting the diagnostics dashboard on a random port instead.
+  warnings.warn(&#34;\n&#34; + msg)
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table style="border: 2px solid white;">
+<tr>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Client</h3>
+<ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
+  <li><b>Scheduler: </b>tcp://127.0.0.1:33214</li>
+  <li><b>Dashboard: </b><a href='http://127.0.0.1:33662/status' target='_blank'>http://127.0.0.1:33662/status</a>
+</ul>
+</td>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Cluster</h3>
+<ul style="text-align: left; list-style:none; margin: 0; padding: 0;">
+  <li><b>Workers: </b>2</li>
+  <li><b>Cores: </b>4</li>
+  <li><b>Memory: </b>2.00 GB</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">path1</span> <span class="o">=</span> <span class="s1">&#39;~/shared-cmip6-for-ns1000k/historical/CESM2-WACCM/r1i1p1f1/&#39;</span> <span class="o">+</span>\
+<span class="s1">&#39;so2_AERmon_CESM2-WACCM_historical_r1i1p1f1_gn_185001-201412.nc&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chunks</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;time&#39;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>  
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path1</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="n">chunks</span><span class="p">,</span> <span class="n">use_cftime</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">da</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;so2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">lev</span><span class="o">=</span><span class="mi">69</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">da</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="s1">&#39;./test.nc&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">da</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;matplotlib.lines.Line2D at 0x7f4212201240&gt;]</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/training/CMIP6_dask_7_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1801,15 +1973,15 @@ The fee does not cover:</p>
             <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="">
-      〈 <span class="u-margin-right-tiny"></span> 
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/NEGI-Abisko-2019/training/CMIP6_example.html">
+      〈 <span class="u-margin-right-tiny"></span> Plotting CMIP6 data
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/NEGI-Abisko-2019/topics/topics.html">
-      Themes and group topics <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
