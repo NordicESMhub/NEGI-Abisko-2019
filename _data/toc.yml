@@ -33,7 +33,7 @@
 - title: Themes and group topics
   url: /topics/topics
   not_numbered: false
-  expand_sections: true
+  expand_sections: false
   sections:
   - title: Group-1
     url: /topics/group-1/intro
