@@ -175,6 +175,10 @@
       not_numbered: true   
     - title: pyaerocom EBAS example
       url: /training/pyaerocom/example_ebas_read
+    - title: How to find EBAS files
+      url: /training/pyaerocom/HOWTO_find_EBAS_files
+    - title: How to read EBAS files
+      url: /training/pyaerocom/HOWTO_read_EBAS_files.ipynb
     - title: Install pyaerocom dev
       url: /training/pyaerocom/local_pyaerocom
   - title: CMIP6 data
