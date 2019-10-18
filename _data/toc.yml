@@ -74,13 +74,13 @@
     url: /topics/group-4/intro
     subsections:
     - title: Dinastabell DMP
-      url: /topics/group-3/dinastabell_DMP
+      url: /topics/group-4/dinastabell_DMP
     - title: Olga firus test
-      url: /topics/group-3/olga_firus_test
+      url: /topics/group-4/olga_firus_test
     - title: Dominichr1 Test
-      url: /topics/group-3/dominichr1_test
+      url: /topics/group-4/dominichr1_test
     - title: Sigridjb topic presentation
-      url: /topics/group-3/sigridjb_topic_presentation
+      url: /topics/group-4/sigridjb_topic_presentation
 
 # A chapter w/ a collection of sections beneath it
 - title: Tools
