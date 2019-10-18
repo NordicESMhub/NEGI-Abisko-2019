@@ -187,6 +187,8 @@
     subsections:
     - title: Plotting CMIP6 data
       url: /training/CMIP6_example
+    - title: CMIP6 data with dask cluster
+      url: /training/CMIP6_dask
 
 # Divider for meta-pages and content page
 - divider: true
