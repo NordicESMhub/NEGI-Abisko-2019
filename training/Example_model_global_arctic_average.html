@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/Example_model_global_arctic_average.html",
   "headline": "Example Weighted/masked average",
-  "datePublished": "2019-10-18T18:29:56+00:00",
-  "dateModified": "2019-10-18T18:29:56+00:00",
+  "datePublished": "2019-10-18T18:34:23+00:00",
+  "dateModified": "2019-10-18T18:34:23+00:00",
   "description": "        Example: Masked and weighted average: This example focuses on area weights (weighting by the area of the grid cell), but is generalizable.    import ...",
   "author": {
     "@type": "Person",
@@ -1846,7 +1846,7 @@ initFunction(initPrint)
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="c1"># or</span>
 <span class="c1"># from imports import (plt, np, xr)</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/home/ab9880f9-2d7bc8-2d48c2-2d9223-2d693c1d3cf3c1/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/tas_Amon_NorESM2-LM_historical_r1i1p1f1_gn_200001-200912.nc&#39;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/tas_Amon_NorESM2-LM_historical_r1i1p1f1_gn_200001-200912.nc&#39;</span>
 <span class="n">tas_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </pre></div>
 
@@ -1876,7 +1876,7 @@ initFunction(initPrint)
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">path_area_weight</span> <span class="o">=</span><span class="s1">&#39;~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/areacella_fx_NorESM2-LM_historical_r1i1p1f1_gn.nc&#39;</span>
-<span class="n">areacella</span><span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">areacella</span><span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path_area_weight</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1955,102 +1955,6 @@ Here we do it for 2 m temperature:</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">areacella</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;xarray.Dataset&gt;
-Dimensions:    (bnds: 2, lat: 96, lon: 144, time: 120)
-Coordinates:
-  * time       (time) object 2000-01-16 12:00:00 ... 2009-12-16 12:00:00
-  * lat        (lat) float64 -90.0 -88.11 -86.21 -84.32 ... 86.21 88.11 90.0
-  * lon        (lon) float64 0.0 2.5 5.0 7.5 10.0 ... 350.0 352.5 355.0 357.5
-    height     float64 ...
-Dimensions without coordinates: bnds
-Data variables:
-    time_bnds  (time, bnds) object ...
-    lat_bnds   (lat, bnds) float64 ...
-    lon_bnds   (lon, bnds) float64 ...
-    tas        (time, lat, lon) float32 ...
-Attributes:
-    Conventions:               CF-1.7 CMIP-6.2
-    activity_id:               CMIP
-    branch_method:             Hybrid-restart from year 1600-01-01 of piControl
-    branch_time:               0.0
-    branch_time_in_child:      0.0
-    branch_time_in_parent:     430335.0
-    contact:                   Please send any requests or bug reports to nor...
-    creation_date:             2019-08-15T13:38:57Z
-    data_specs_version:        01.00.31
-    experiment:                all-forcing simulation of the recent past
-    experiment_id:             historical
-    external_variables:        areacella
-    forcing_index:             1
-    frequency:                 mon
-    further_info_url:          https://furtherinfo.es-doc.org/CMIP6.NCC.NorES...
-    grid:                      finite-volume grid with 1.9x2.5 degree lat/lon...
-    grid_label:                gn
-    history:                   2019-08-15T13:38:57Z ; CMOR rewrote data to be...
-    initialization_index:      1
-    institution:               NorESM Climate modeling Consortium consisting ...
-    institution_id:            NCC
-    mip_era:                   CMIP6
-    model_id:                  NorESM2-LM
-    nominal_resolution:        250 km
-    parent_activity_id:        CMIP
-    parent_experiment_id:      piControl
-    parent_mip_era:            CMIP6
-    parent_source_id:          NorESM2-LM
-    parent_sub_experiment_id:  none
-    parent_time_units:         days since 0421-01-01
-    parent_variant_label:      r1i1p1f1
-    physics_index:             1
-    product:                   model-output
-    realization_index:         1
-    realm:                     atmos
-    run_variant:               N/A
-    source:                    NorESM2-LM (2017): \naerosol: OsloAero\natmos:...
-    source_id:                 NorESM2-LM
-    source_type:               AOGCM
-    sub_experiment:            none
-    sub_experiment_id:         none
-    table_id:                  Amon
-    table_info:                Creation Date:(24 July 2019) MD5:08e314340b9dd...
-    title:                     NorESM2-LM output prepared for CMIP6
-    variable_id:               tas
-    variant_label:             r1i1p1f1
-    license:                   CMIP6 model data produced by NCC is licensed u...
-    cmor_version:              3.5.0
-    tracking_id:               hdl:21.14100/91a8c4e2-d33b-4b87-a978-0247d8112ef3</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">aw_xr</span> <span class="o">=</span> <span class="n">areacella</span><span class="p">[</span><span class="s1">&#39;areacella&#39;</span><span class="p">]</span>
 <span class="n">glob_mean</span> <span class="o">=</span> <span class="n">masked_average</span><span class="p">(</span><span class="n">tas_ds</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="n">aw_xr</span><span class="p">)</span>
 <span class="n">glob_mean</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -2066,48 +1970,24 @@ Attributes:
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/xarray/core/dataset.py</span> in <span class="ansi-cyan-fg">_construct_dataarray</span><span class="ansi-blue-fg">(self, name)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1145</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1146</span><span class="ansi-red-fg">             </span>variable <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_variables<span class="ansi-blue-fg">[</span>name<span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">   1147</span>         <span class="ansi-green-fg">except</span> KeyError<span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">KeyError</span>: &#39;areacella&#39;
 
-During handling of the above exception, another exception occurred:
-
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-12-2f8c3f2317ac&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>aw_xr <span class="ansi-blue-fg">=</span> areacella<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;areacella&#39;</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> glob_mean <span class="ansi-blue-fg">=</span> masked_average<span class="ansi-blue-fg">(</span>tas_ds<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;tas&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> dim<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;lat&#39;</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;lon&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> weights<span class="ansi-blue-fg">=</span>aw_xr<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> glob_mean<span class="ansi-blue-fg">.</span>plot<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/xarray/core/dataset.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1234</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1235</span>         <span class="ansi-green-fg">if</span> hashable<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1236</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_construct_dataarray<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1237</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   1238</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_copy_listed<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>asarray<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/xarray/core/dataset.py</span> in <span class="ansi-cyan-fg">_construct_dataarray</span><span class="ansi-blue-fg">(self, name)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1147</span>         <span class="ansi-green-fg">except</span> KeyError<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   1148</span>             _, name, variable = _get_virtual_variable(
-<span class="ansi-green-fg">-&gt; 1149</span><span class="ansi-red-fg">                 </span>self<span class="ansi-blue-fg">.</span>_variables<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_level_coords<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>dims
-<span class="ansi-green-intense-fg ansi-bold">   1150</span>             )
-<span class="ansi-green-intense-fg ansi-bold">   1151</span> 
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/xarray/core/dataset.py</span> in <span class="ansi-cyan-fg">_get_virtual_variable</span><span class="ansi-blue-fg">(variables, key, level_vars, dim_sizes)</span>
-<span class="ansi-green-intense-fg ansi-bold">    146</span>         ref_var <span class="ansi-blue-fg">=</span> dim_var<span class="ansi-blue-fg">.</span>to_index_variable<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>get_level_variable<span class="ansi-blue-fg">(</span>ref_name<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    147</span>     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 148</span><span class="ansi-red-fg">         </span>ref_var <span class="ansi-blue-fg">=</span> variables<span class="ansi-blue-fg">[</span>ref_name<span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">    149</span> 
-<span class="ansi-green-intense-fg ansi-bold">    150</span>     <span class="ansi-green-fg">if</span> var_name <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">KeyError</span>: &#39;areacella&#39;</pre>
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;matplotlib.lines.Line2D at 0x7fa5b815ee80&gt;]</pre>
 </div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/training/Example_model_global_arctic_average_8_1.png"
+>
+</div>
+
 </div>
 </div>
 </div>
@@ -2134,7 +2014,7 @@ During handling of the above exception, another exception occurred:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">aw_xr</span> <span class="o">=</span> <span class="n">area_weight</span><span class="p">[</span><span class="s1">&#39;areacella&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">aw_xr</span> <span class="o">=</span> <span class="n">areacella</span><span class="p">[</span><span class="s1">&#39;areacella&#39;</span><span class="p">]</span>
 <span class="c1"># mask values with lat &lt; 60 deg north</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="n">tas_ds</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">60.</span>
 <span class="n">glob_mean</span> <span class="o">=</span> <span class="n">masked_average</span><span class="p">(</span><span class="n">tas_ds</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="n">aw_xr</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
@@ -2154,7 +2034,7 @@ During handling of the above exception, another exception occurred:
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7f047e8c2c50&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7fa5b50a2400&gt;]</pre>
 </div>
 
 </div>
@@ -2165,7 +2045,7 @@ During handling of the above exception, another exception occurred:
 
 
 <div class="output_png output_subarea ">
-<img src="../images/training/Example_model_global_arctic_average_11_1.png"
+<img src="../images/training/Example_model_global_arctic_average_10_1.png"
 >
 </div>
 
