@@ -95,6 +95,9 @@
   not_numbered: true
   expand_sections: true
   sections:
+  - title: Presentations
+    url: /training/presentations
+    not_numbered: true
   - title: Programming
     url: https://nordicesmhub.github.io/tutorials/programming/index
     external: true
@@ -109,9 +112,21 @@
   - title: Visualize in Python
     url: /training/visualize/intro
     not_numbered: true
-    subsections:
+  - title: Python examples
+    url: /training/python_examples
+    not_numbered: true
+    subsections: 
     - title: Aerosol distribution plotting
       url: /training/visualize/zeppelin_size_dist
+      not_numbered: true
+    - title: Example NorthPolarStereo_projection
+      url: /training/example_NorthPolarStereo_projection
+      not_numbered: true
+    - title: Example Weighted/masked average 
+      url: /training/Example_model_global_arctic_average
+      not_numbered: true
+    - title: Gridded model data dask rolling mean
+      url: /training/gridded_model_data_dask_rolling_mean
       not_numbered: true
   - title: Pyaerocom
     url: /training/pyaerocom/intro
