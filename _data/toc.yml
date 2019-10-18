@@ -81,6 +81,14 @@
       url: /topics/group-4/dominichr1_test
     - title: Sigridjb topic presentation
       url: /topics/group-4/sigridjb_topic_presentation
+    - title: Alert Size distribution
+      url: /topics/group-4/SizeDistNotebooks/Alert_sizedist
+    - title: Tiksi Size distribution
+      url: /topics/group-4/SizeDistNotebooks/Tiksi_sizedist
+    - title: Nord Size distribution
+      url: /topics/group-4/SizeDistNotebooks/Nord_sizedist
+    - title: Zeppelin Size distribution
+      url: /topics/group-4/SizeDistNotebooks/Zeppelin_sizedist
 
 # A chapter w/ a collection of sections beneath it
 - title: Tools
