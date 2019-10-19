@@ -166,8 +166,11 @@
     external: true
     not_numbered: true
   - title: Getting started with Git/Github
-    url: /training/intro_github
+    url: /training/github/intro_github
     not_numbered: true
+    subsections: 
+    - title: Synchronize your fork github repository
+      url: /training/github/synchronise_github
   - title: Visualize in Python
     url: /training/visualize/intro
     not_numbered: true
