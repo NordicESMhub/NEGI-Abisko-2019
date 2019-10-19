@@ -6,21 +6,17 @@ Coupled Model Intercomparison project Phase 6
 - Defines common experiment protocols, forcings and output. 
 - 33 model groups participate
 
-GMD special issue with articles explaining all MIPs :
+GMD special issue with articles explaining all MIPs in CMIP6 :
 https://www.geosci-model-dev.net/special_issue590.html
 
-https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6
-Guidance documents: (https://pcmdi.llnl.gov/CMIP6/)
-ESGF CMIP6 data archive (https://esgf-node.llnl.gov/projects/cmip6/)
-Available model output (https://pcmdi.llnl.gov/CMIP6/ArchiveStatistics/esgf_data_holdings/)
-CMIP6 ESMValTool evaluation and analysis results (https://cmip-esmvaltool.dkrz.de/)
-Terms of Use (https://pcmdi.llnl.gov/CMIP6/TermsOfUse/TermsOfUse6-1.html)
-Emissions/Forcing datasets (https://esgf-node.llnl.gov/projects/input4mips/)
-Participating Modelling Groups (https://rawgit.com/WCRP-CMIP/CMIP6_CVs/master/src/CMIP6_institution_id.html)
-Model and experiment documentation (https://search.es-doc.org/)
+- General CMIP6 website https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6
+- Guidance documents: (https://pcmdi.llnl.gov/CMIP6/)
+- Emissions/Forcing datasets (https://esgf-node.llnl.gov/projects/input4mips/)
+- Participating Modelling Groups (https://rawgit.com/WCRP-CMIP/CMIP6_CVs/master/src/CMIP6_institution_id.html)
+- Model and experiment documentation (https://search.es-doc.org/)
+- CMIP6 ESMValTool evaluation and analysis results (https://cmip-esmvaltool.dkrz.de/)
 
-Emission visualising:
-https://eccad.aeris-data.fr
+- Emission visualising: https://eccad.aeris-data.fr
 
 
 ## Advantages:
