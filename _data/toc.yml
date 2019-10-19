@@ -78,6 +78,8 @@
     url: /topics/group-3/stinsage_temperature
   - title: AOD johan
     url: /topics/group-3/aod_johan
+  - title: Presentations
+    url: /topics/group-3/presentations/intro
 
 - title: Group-4
   not_numbered: false
@@ -105,6 +107,8 @@
     url: /topics/group-4/NILU_size_distr_from_ebas
   - title: References
     url: /topics/group-4/references
+  - title: Presentations
+    url: /topics/group-4/presentations/intro
 
 - header: Course program
 
