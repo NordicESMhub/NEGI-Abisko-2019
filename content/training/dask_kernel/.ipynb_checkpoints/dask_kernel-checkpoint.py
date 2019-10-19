@@ -26,7 +26,7 @@ Image(filename='dask.png',width=400)
 # %%
 from dask.distributed import Client
 
-client = Client("tcp://127.0.0.1:46013")
+client = Client("tcp://127.0.0.1:43878")
 client
 
 # %%
@@ -35,7 +35,7 @@ from pathlib import Path
 
 # %%
 df = cmip6.search_cmip6_hist(wildcard='mmrso4*',model='CESM*')
-
+    
 
 # %%
 _ds = df.sort_values(['FORCING','REALIZATION'],ascending=[False,True])
@@ -77,58 +77,17 @@ ds.dims
 # %%
 #this will load the dataset as a dask array and therefore it will not kill the kernel
 #some understanding of which operations you will perform on the dataset are needed
-#in this case we are slicing the dataset along time in chunks of 1.
+#in this case we are slicing the dataset along time
 ds = xr.open_dataset(large_file,chunks={'time':1})
 
 # %%
-var = 'mmrso4'
-
-# %%
-# this will run fast but its just bc it hasn't been evaluated yet. 
-# so, daks will store the operations that you want on the dataset and only compute them 
-# when its necessary (e.g. when you want to plot the results). You can force the computation by 
-# calling .load() (see the next cell)
-ds[var].mean()
+# this will run fast. but the mean has not being calculated just jet
+ds['mmrso4'].mean()
 
 # %%
 # in order to get the actual value you need to load
 
 # %%
-# ds[var][{'time':slice(0,None)}].mean().load()
-
-# %%
-#convert cftime to datetime64
-_c1 = ds['time'][0].item()
-ds['time'] = pd.to_datetime(ds['time'].dt.strftime(_c1.format))
-
-# %%
-da1 = ds[var].groupby('time').mean(xr.ALL_DIMS).load()
-da1 = da1.assign_attrs(ds[var].attrs)
-
-# %%
-da_rolling_mean = da1.rolling({'time':12*10},min_periods=1,center=True).mean()
-da_rolling_mean = da_rolling_mean.assign_attrs(ds[var].attrs)
-
-
-# %%
-def _plot():
-    ax = plt.axes()
-    l1 = 'monthly'
-    l2 = f'rolling mean [decade]'
-    da1.            plot(marker='.',linestyle='None', alpha=.2, label =l1, ax=ax )
-    da_rolling_mean.plot(marker='.',linestyle='-'   , alpha=1 , label =l2, ax=ax )
-
-    ax.legend();
-
-
-# %%
-_plot()
-
-# %%
-# increace res
-mpl.rcParams['figure.dpi'] = 200
-_plot()
-
-# %%
+ds['mmrso4'][{'time':slice(0,None)}].mean().load()
 
 # %%
