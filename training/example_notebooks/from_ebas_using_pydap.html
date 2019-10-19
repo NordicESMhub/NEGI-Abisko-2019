@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Themes and group topics</title>
-  <meta name="description" content="# Themes and group topicsThis year we have 4 main groups and each group has two or three sub-groups.">
+  <title>Get EBAS data with pydap</title>
+  <meta name="description" content="            # get from packagefrom pydap.client import open_dods, open_urlfrom netCDF4 import num2dateimport pandas as pd        # get directly from EBASds =...">
 
-  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/topics/topics.html">
+  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_notebooks/from_ebas_using_pydap.html">
   <link rel="alternate" type="application/rss+xml" title="eScience for linking Arctic measurements and modeling" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/feed.xml">
 
-  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/topics/topics.html" />
+  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_notebooks/from_ebas_using_pydap.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Themes and group topics" />
-<meta property="og:description" content="# Themes and group topicsThis year we have 4 main groups and each group has two or three sub-groups." />
+<meta property="og:title"       content="Get EBAS data with pydap" />
+<meta property="og:description" content="            # get from packagefrom pydap.client import open_dods, open_urlfrom netCDF4 import num2dateimport pandas as pd        # get directly from EBASds =..." />
 <meta property="og:image"       content="http://nordicesmhub.github.io/NEGI-Abisko-2019/images/logo/zeppelin.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/content/topics/topics.html",
-  "headline": "Themes and group topics",
+  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_notebooks/from_ebas_using_pydap.html",
+  "headline": "Get EBAS data with pydap",
   "datePublished": "2019-10-19T15:36:57+00:00",
   "dateModified": "2019-10-19T15:36:57+00:00",
-  "description": "# Themes and group topicsThis year we have 4 main groups and each group has two or three sub-groups.",
+  "description": "            # get from packagefrom pydap.client import open_dods, open_urlfrom netCDF4 import num2dateimport pandas as pd        # get directly from EBASds =...",
   "author": {
     "@type": "Person",
     "name": "Anne Fouilloux"
@@ -1913,7 +1913,7 @@ initFunction(initPrint)
                   
 
                   <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
+                    <a class="c-sidebar__entry c-sidebar__entry--active"
                       href="/NEGI-Abisko-2019/training/example_notebooks/from_ebas_using_pydap.html"
                     >
                       
@@ -2097,10 +2097,35 @@ initFunction(initPrint)
 <div class="download-buttons-dropdown">
     <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
     <div class="download-buttons">
+        <a href="/NEGI-Abisko-2019/content/training/example_notebooks/from_ebas_using_pydap.ipynb" download>
+        <button id="interact-button-download" class="interact-button">ORIG</button>
+        </a>
         
         <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
     </div>
 </div>
+
+  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+  
+  
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/NordicESMHub/NEGI-Abisko-2019/master?urlpath=lab/tree/content%2Ftraining%2Fexample_notebooks%2Ffrom_ebas_using_pydap.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/NEGI-Abisko-2019/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
+
+
+
+<a href="http://abisko.uiogeo-apps.sigma2.no/hub/user-redirect/git-pull?repo=https://github.com//NordicESMHub/NEGI-Abisko-2019&amp;branch=master&amp;subPath=content%2Ftraining%2Fexample_notebooks%2Ffrom_ebas_using_pydap.ipynb&amp;app=lab"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/NEGI-Abisko-2019/assets/images/logo_jupyterhub.svg" alt="Interact" />JupyterHub</button></a>
+
+
+
 
 </div>
 
@@ -2116,14 +2141,104 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h1 id="themes-and-group-topics">Themes and group topics</h1>
+                  <main class="jupyter-page">
+    <div class="jb_cell">
 
-<p>This year we have 4 main groups and each group has two or three sub-groups.</p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get from package</span>
+<span class="kn">from</span> <span class="nn">pydap.client</span> <span class="k">import</span> <span class="n">open_dods</span><span class="p">,</span> <span class="n">open_url</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="k">import</span> <span class="n">num2date</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get directly from EBAS</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">open_dods</span><span class="p">(</span>
+<span class="s1">&#39;http://dev-ebas-pydap.nilu.no/&#39;</span> 
+<span class="s1">&#39;NO0042G.dmps.IMG.aerosol.particle_number_size_distribution&#39;</span>
+<span class="s1">&#39;.1h.NO01L_NILU_DMPSmodel2_ZEP.NO01L_dmps_DMPS_ZEP01.2.dods&#39;</span><span class="p">)</span>
+
+<span class="c1"># syntax: ST_STATION_CODE.FT_TYPE.RE_REGIME_CODE.MA_MATRIX_NAME.CO_COMP_NAME.DS_RESCODE.FI_REF.ME_REF.DL_DATA_LEVEL.dods</span>
+<span class="c1"># or: #station.instrument_type.IMG.matrix.component.resolution.instrument_reference.datalevel.dods</span>
+<span class="c1"># if no level, then &#39;..dods&#39;</span>
+<span class="c1"># if doen&#39;t work, download one file to check what are the FI_REF and ME_REF.</span>
+<span class="c1"># other example: &#39;http://dev-ebas-pydap.nilu.no/NO0042G.Hg_mon.IMG.air.mercury.1h.NO01L_tekran_42_dup.NO01L_afs..dods&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#get the actual data</span>
+<span class="n">dmps_data</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;particle_number_size_distribution_amean&#39;</span><span class="p">]</span>
+
+<span class="c1"># get normalised size distribution in dNdlogDp</span>
+<span class="n">dNdlogDp</span><span class="o">=</span> <span class="n">dmps_data</span><span class="o">.</span><span class="n">particle_number_size_distribution_amean</span><span class="o">.</span><span class="n">data</span>
+
+<span class="c1"># get time in datatime format using function from netCDF4 package</span>
+<span class="n">tim_dmps</span> <span class="o">=</span> <span class="n">num2date</span><span class="p">(</span><span class="n">dmps_data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="s1">&#39;days since 1900-01-01 00:00:00&#39;</span><span class="p">,</span>
+<span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;gregorian&#39;</span><span class="p">)</span>
+
+<span class="c1"># get diameter vector</span>
+<span class="n">dp_NILU</span> <span class="o">=</span> <span class="n">dmps_data</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">data</span>
+
+<span class="c1"># make DataFrame to simplify the handling of data</span>
+<span class="n">df_NILU</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dNdlogDp</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">dp_NILU</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">tim_dmps</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    
             </div>
             <nav class="c-page__nav">
   
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/NEGI-Abisko-2019/training/dask_kernel/dask_kernel.html">
+      〈 <span class="u-margin-right-tiny"></span> Dask kernel example
+    </a>
+  
 
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/NEGI-Abisko-2019/training/pyaerocom/intro.html">
+      Pyaerocom <span class="u-margin-right-tiny"></span> 〉
+    </a>
   
 </nav>
 

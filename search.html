@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-19T15:16:38+00:00",
-  "dateModified": "2019-10-19T15:16:38+00:00",
+  "datePublished": "2019-10-19T15:36:57+00:00",
+  "dateModified": "2019-10-19T15:36:57+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -1909,6 +1909,17 @@ initFunction(initPrint)
                       Dask kernel example
                     </a>
                 
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/example_notebooks/from_ebas_using_pydap.html"
+                    >
+                      
+                      Get EBAS data with pydap
+                    </a>
+                
 
               </li>
               
@@ -2512,6 +2523,14 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_notebooks/example_notebooks.html",
+        "teaser":null},{
+        "title": "Get EBAS data with pydap",
+        
+        "excerpt":
+            "# get from package from pydap.client import open_dods, open_url from netCDF4 import num2date import pandas as pd # get directly from EBAS ds = open_dods( &#39;http://dev-ebas-pydap.nilu.no/&#39; &#39;NO0042G.dmps.IMG.aerosol.particle_number_size_distribution&#39; &#39;.1h.NO01L_NILU_DMPSmodel2_ZEP.NO01L_dmps_DMPS_ZEP01.2.dods&#39;) # syntax: ST_STATION_CODE.FT_TYPE.RE_REGIME_CODE.MA_MATRIX_NAME.CO_COMP_NAME.DS_RESCODE.FI_REF.ME_REF.DL_DATA_LEVEL.dods # or: #station.instrument_type.IMG.matrix.component.resolution.instrument_reference.datalevel.dods # if no level, then &#39;..dods&#39; # if doen&#39;t work, download one file to check what are the FI_REF and ME_REF. # other example: &#39;http://dev-ebas-pydap.nilu.no/NO0042G.Hg_mon.IMG.air.mercury.1h.NO01L_tekran_42_dup.NO01L_afs..dods&#39; #get the actual data dmps_data = ds[&#39;particle_number_size_distribution_amean&#39;] # get normalised size distribution in dNdlogDp dNdlogDp= dmps_data.particle_number_size_distribution_amean.data # get time in datatime format using function from netCDF4 package tim_dmps = num2date(dmps_data.time.data,units=&#39;days since 1900-01-01 00:00:00&#39;, calendar=&#39;gregorian&#39;) # get diameter vector dp_NILU = dmps_data.D.data...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_notebooks/from_ebas_using_pydap.html",
         "teaser":null},{
         "title": "Search CMIP6 historical data",
         
