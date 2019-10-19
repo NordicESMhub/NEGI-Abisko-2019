@@ -55,6 +55,9 @@
     url: /topics/group-2/lassekva
   - title: franzihe area averaged AOD Svalbard
     url: /topics/group-2/franzihe_area_averaged_AOD_Svalbard
+    subsections:
+    - title: Franzihe presentation
+      url: /topics/group-2/franzihe_intermediate_pres
   - title: Marekrataj read data
     url: /topics/group-2/marekrataj_read_data
   - title: Sofiemt DMP
