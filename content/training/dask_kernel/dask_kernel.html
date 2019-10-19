@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Maria&#39;s project</title>
-  <meta name="description" content="        My super project Maria B.         ">
+  <title>eScience for linking Arctic measurements and modeling</title>
+  <meta name="description" content="go to the dask array tab (shown below) and click on ''```pythonfrom IPython.display import ImageImage(filename='dask.png',width=400)```![png](/NEGI-Abisko-20...">
 
-  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-3/DeleteMaria.html">
+  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/dask_kernel/dask_kernel.html">
   <link rel="alternate" type="application/rss+xml" title="eScience for linking Arctic measurements and modeling" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/feed.xml">
 
-  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-3/DeleteMaria.html" />
+  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/dask_kernel/dask_kernel.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Maria&#39;s project" />
-<meta property="og:description" content="        My super project Maria B.         " />
+<meta property="og:title"       content="eScience for linking Arctic measurements and modeling" />
+<meta property="og:description" content="go to the dask array tab (shown below) and click on ''```pythonfrom IPython.display import ImageImage(filename='dask.png',width=400)```![png](/NEGI-Abisko-20..." />
 <meta property="og:image"       content="http://nordicesmhub.github.io/NEGI-Abisko-2019/images/logo/zeppelin.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-3/DeleteMaria.html",
-  "headline": "Maria&#39;s project",
+  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/dask_kernel/dask_kernel.html",
+  "headline": "eScience for linking Arctic measurements and modeling",
   "datePublished": "2019-10-19T09:47:18+00:00",
   "dateModified": "2019-10-19T09:47:18+00:00",
-  "description": "        My super project Maria B.         ",
+  "description": "go to the dask array tab (shown below) and click on ''```pythonfrom IPython.display import ImageImage(filename='dask.png',width=400)```![png](/NEGI-Abisko-20...",
   "author": {
     "@type": "Person",
     "name": "Anne Fouilloux"
@@ -1070,7 +1070,7 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections ">
+          <ul class="c-sidebar__sections u-hidden-visually">
             
               
               
@@ -1095,7 +1095,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/NEGI-Abisko-2019/topics/group-3/DeleteMaria.html"
                 >
                   
@@ -1924,35 +1924,10 @@ initFunction(initPrint)
 <div class="download-buttons-dropdown">
     <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
     <div class="download-buttons">
-        <a href="/NEGI-Abisko-2019/content/topics/group-3/DeleteMaria.ipynb" download>
-        <button id="interact-button-download" class="interact-button">ORIG</button>
-        </a>
         
         <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
     </div>
 </div>
-
-  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
-
-  
-  
-
-
-
-
-
-
-<a href="https://mybinder.org/v2/gh/NordicESMHub/NEGI-Abisko-2019/master?urlpath=lab/tree/content%2Ftopics%2Fgroup-3%2FDeleteMaria.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/NEGI-Abisko-2019/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
-  
-
-
-
-
-
-<a href="http://abisko.uiogeo-apps.sigma2.no/hub/user-redirect/git-pull?repo=https://github.com//NordicESMHub/NEGI-Abisko-2019&amp;branch=master&amp;subPath=content%2Ftopics%2Fgroup-3%2FDeleteMaria.ipynb&amp;app=lab"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/NEGI-Abisko-2019/assets/images/logo_jupyterhub.svg" alt="Interact" />JupyterHub</button></a>
-
-
-
 
 </div>
 
@@ -1968,37 +1943,274 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-                  <main class="jupyter-page">
-    <div class="jb_cell">
+              
+<p>go to the dask array tab (shown below) and click on ‘&lt;&gt;’</p>
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>My super project Maria B.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">'dask.png'</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</code></pre></div></div>
 
-</div>
-</div>
-</div>
-</div>
+<p><img src="/NEGI-Abisko-2019/content/training/dask_kernel/dask_kernel_files/dask_kernel_1_0.png" alt="png" /></p>
 
- 
+<p>something similar to the cell below should have being incerted</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="s">"tcp://127.0.0.1:46013"</span><span class="p">)</span>
+<span class="n">client</span>
+</code></pre></div></div>
+
+<table style="border: 2px solid white;">
+<tr>
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Client</h3>
+<ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
+  <li><b>Scheduler: </b>tcp://127.0.0.1:46013</li>
+  <li><b>Dashboard: </b><a href="http://127.0.0.1:8787/status" target="_blank">http://127.0.0.1:8787/status</a>
+&lt;/ul&gt;
+&lt;/td&gt;
+<td style="vertical-align: top; border: 0px solid white">
+<h3 style="text-align: left;">Cluster</h3>
+<ul style="text-align: left; list-style:none; margin: 0; padding: 0;">
+  <li><b>Workers: </b>4</li>
+  <li><b>Cores: </b>4</li>
+  <li><b>Memory: </b>2.15 GB</li>
+</ul>
+</td>
+&lt;/tr&gt;
+&lt;/table&gt;
 
 
-    </main>
-    
+
+
+```python
+from negi_stuff.modules.imps import *
+from pathlib import Path
+```
+
+
+
+    <div class="bk-root">
+        <a href="https://bokeh.pydata.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
+        <span id="1001">Loading BokehJS ...</span>
+    </div>
+
+
+
+
+
+```python
+df = cmip6.search_cmip6_hist(wildcard='mmrso4*',model='CESM*')
+```
+
+
+```python
+_ds = df.sort_values(['FORCING','REALIZATION'],ascending=[False,True])
+```
+
+
+```python
+_ds = df.sort_values(
+    by       = [cmip6.FF,cmip6.RR,cmip6.FF],
+    ascending= [False   ,True    ,True]
+              )
+```
+
+
+```python
+_dg = _ds.groupby(cmip6.MODEL).first()
+```
+
+
+```python
+SIZE = 'SIZE'
+df[SIZE] = df[cmip6.FILES].apply(lambda f: os.path.getsize(f))
+```
+
+
+```python
+_r = df.sort_values(SIZE, ascending=False).iloc[20]
+```
+
+
+```python
+_r['FILE_PATH']
+```
+
+
+
+
+    '/home/28f6ea40-2d3059-2d4f6b-2d8429-2deb8e956423db/shared-cmip6-for-ns1000k/historical/CESM2/r11i1p1f1/mmrso4_AERmon_CESM2_historical_r11i1p1f1_gn_185001-189912.nc'
+
+
+
+
+```python
+large_file = '/home/28f6ea40-2d3059-2d4f6b-2d8429-2deb8e956423db/shared-cmip6-for-ns1000k/historical/CESM2/r11i1p1f1/mmrso4_AERmon_CESM2_historical_r11i1p1f1_gn_185001-189912.nc'
+```
+
+lets explore the dataset. 
+however this is not opening the dataset as a 
+[dask array] (https://examples.dask.org/xarray.html)
+
+
+```python
+ds = xr.open_dataset(large_file)
+```
+
+    /opt/conda/lib/python3.7/site-packages/xarray/conventions.py:494: SerializationWarning: variable 'mmrso4' has multiple fill values {1e+20, 1e+20}, decoding all values to NaN.
+      use_cftime=use_cftime,
+
+
+
+```python
+#lets check the dimensions
+ds.dims
+```
+
+
+
+
+    Frozen(SortedKeysDict({'time': 600, 'lev': 32, 'lat': 192, 'lon': 288, 'nbnd': 2}))
+
+
+
+
+```python
+#this will load the dataset as a dask array and therefore it will not kill the kernel
+#some understanding of which operations you will perform on the dataset are needed
+#in this case we are slicing the dataset along time in chunks of 1.
+ds = xr.open_dataset(large_file,chunks={'time':1})
+```
+
+
+```python
+var = 'mmrso4'
+```
+
+
+```python
+# this will run fast but its just bc it hasn't been evaluated yet. 
+# so, daks will store the operations that you want on the dataset and only compute them 
+# when its necessary (e.g. when you want to plot the results). You can force the computation by 
+# calling .load() (see the next cell)
+ds[var].mean()
+```
+
+
+
+
+    &lt;xarray.DataArray 'mmrso4' ()&gt;
+    dask.array&lt;mean_agg-aggregate, shape=(), dtype=float32, chunksize=(), chunktype=numpy.ndarray&gt;
+
+
+
+
+```python
+# in order to get the actual value you need to load
+```
+
+
+```python
+# ds[var][{'time':slice(0,None)}].mean().load()
+```
+
+
+
+
+    &lt;xarray.DataArray 'mmrso4' ()&gt;
+    array(7.359101e-11, dtype=float32)
+
+
+
+
+```python
+#convert cftime to datetime64
+_c1 = ds['time'][0].item()
+ds['time'] = pd.to_datetime(ds['time'].dt.strftime(_c1.format))
+```
+
+
+```python
+da1 = ds[var].groupby('time').mean(xr.ALL_DIMS).load()
+da1 = da1.assign_attrs(ds[var].attrs)
+```
+
+
+```python
+da_rolling_mean = da1.rolling({'time':12*10},min_periods=1,center=True).mean()
+da_rolling_mean = da_rolling_mean.assign_attrs(ds[var].attrs)
+```
+
+
+```python
+def _plot():
+    ax = plt.axes()
+    l1 = 'monthly'
+    l2 = f'rolling mean [decade]'
+    da1.            plot(marker='.',linestyle='None', alpha=.2, label =l1, ax=ax )
+    da_rolling_mean.plot(marker='.',linestyle='-'   , alpha=1 , label =l2, ax=ax )
+
+    ax.legend();
+```
+
+
+```python
+_plot()
+```
+
+
+![png](/NEGI-Abisko-2019/content/training/dask_kernel/dask_kernel_files/dask_kernel_25_0.png)
+
+
+
+```python
+# increace res
+mpl.rcParams['figure.dpi'] = 200
+_plot()
+```
+
+
+![png](/NEGI-Abisko-2019/content/training/dask_kernel/dask_kernel_files/dask_kernel_26_0.png)
+
+
+
+```python
+!git add ./*
+```
+
+
+```python
+!git commit -m'dask example'
+```
+
+    [master 34dfbe9] dask example
+     3 files changed, 883 insertions(+)
+     create mode 100644 content/training/dask_kernel/dask_kernel.ipynb
+     create mode 100644 content/training/dask_kernel/dask_kernel.py
+     create mode 100644 content/training/dask_kernel/images/dask.png
+
+
+
+```python
+!git pull
+```
+
+    error: You have not concluded your merge (MERGE_HEAD exists).
+    hint: Please, commit your changes before merging.
+    fatal: Exiting because of unfinished merge.
+
+
+
+```python
+
+```
+</li></ul></td></tr></table>
+
             </div>
             <nav class="c-page__nav">
   
-    
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/NEGI-Abisko-2019/topics/group-3/data-to-use.html">
-      〈 <span class="u-margin-right-tiny"></span> Data to use
-    </a>
-  
 
-  
-    
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/NEGI-Abisko-2019/topics/group-3/stinsage_temperature.html">
-      Stinsage temperature <span class="u-margin-right-tiny"></span> 〉
-    </a>
   
 </nav>
 
