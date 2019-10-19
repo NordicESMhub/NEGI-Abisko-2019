@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>What is Version Control?</title>
-  <meta name="description" content="# What is Version Control?*from [CodeRefinery](https://coderefinery.github.io) training material.*The management of changes to documents, computer programs, ...">
+  <title>Getting started with Git/Github</title>
+  <meta name="description" content="        What is Version Control? from CodeRefinery training material.The management of changes to documents, computer programs, large web sites, and other co...">
 
-  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/intro_github.html">
+  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/training/github/intro_github.html">
   <link rel="alternate" type="application/rss+xml" title="eScience for linking Arctic measurements and modeling" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/feed.xml">
 
-  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/intro_github.html" />
+  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/training/github/intro_github.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="What is Version Control?" />
-<meta property="og:description" content="# What is Version Control?*from [CodeRefinery](https://coderefinery.github.io) training material.*The management of changes to documents, computer programs, ..." />
+<meta property="og:title"       content="Getting started with Git/Github" />
+<meta property="og:description" content="        What is Version Control? from CodeRefinery training material.The management of changes to documents, computer programs, large web sites, and other co..." />
 <meta property="og:image"       content="http://nordicesmhub.github.io/NEGI-Abisko-2019/images/logo/zeppelin.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/intro_github.html",
-  "headline": "What is Version Control?",
-  "datePublished": "2019-10-19T10:08:19+00:00",
-  "dateModified": "2019-10-19T10:08:19+00:00",
-  "description": "# What is Version Control?*from [CodeRefinery](https://coderefinery.github.io) training material.*The management of changes to documents, computer programs, ...",
+  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/github/intro_github.html",
+  "headline": "Getting started with Git/Github",
+  "datePublished": "2019-10-19T10:16:00+00:00",
+  "dateModified": "2019-10-19T10:16:00+00:00",
+  "description": "        What is Version Control? from CodeRefinery training material.The management of changes to documents, computer programs, large web sites, and other co...",
   "author": {
     "@type": "Person",
     "name": "Anne Fouilloux"
@@ -1587,7 +1587,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/NEGI-Abisko-2019/training/intro.html"
         >
           
@@ -1661,13 +1661,24 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry c-sidebar__entry--active"
-                  href="/NEGI-Abisko-2019/training/intro_github.html"
+                  href="/NEGI-Abisko-2019/training/github/intro_github.html"
                 >
                   
                   Getting started with Git/Github
                 </a>
 
                 
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/github/synchronise_github.html"
+                    >
+                      
+                      Synchronize your fork github repository
+                    </a>
                 
 
               </li>
@@ -1943,313 +1954,238 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h1 id="what-is-version-control">What is Version Control?</h1>
+                  <main class="jupyter-page">
+    <div class="jb_cell">
 
-<p><em>from <a href="https://coderefinery.github.io">CodeRefinery</a> training material.</em></p>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="What-is-Version-Control?">What is Version Control?<a class="anchor-link" href="#What-is-Version-Control?"> </a></h1><p><em>from <a href="https://coderefinery.github.io">CodeRefinery</a> training material.</em></p>
 <p>The management of changes to documents, computer programs, large web sites, and other collections of information.</p>
-
 <ul>
-  <li><strong>Records snapshots</strong> of a project</li>
-  <li>Implements <strong>branching</strong>:
-    <ul>
-      <li>you can work on several feature branches and switch between them</li>
-      <li>different people can work on the same code/project without interfering</li>
-      <li>you can experiment with an idea and discard it if it turns out to be a bad idea</li>
-    </ul>
-  </li>
+<li><strong>Records snapshots</strong> of a project</li>
+<li>Implements <strong>branching</strong>:<ul>
+<li>you can work on several feature branches and switch between them</li>
+<li>different people can work on the same code/project without interfering</li>
+<li>you can experiment with an idea and discard it if it turns out to be a bad idea</li>
 </ul>
-
-<p><img src="https://coderefinery.github.io/git-intro/img/gitink/git-merge-2.svg" alt="" /></p>
-<ul>
-  <li>Implements <strong>merging</strong>:
-    <ul>
-      <li>tool to merge development branches for you</li>
-    </ul>
-  </li>
+</li>
 </ul>
-
-<hr />
-
-<h1 id="why-is-version-control-essential">Why is Version Control Essential?</h1>
-
-<p><img src="https://smutch.github.io/VersionControlTutorial/_images/vc-xkcd.jpg" alt="" /></p>
-
-<p><img src="https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/img/version-control-1.jpg" alt="" /></p>
-
-<p><img src="https://itelligencegroup.com/wp-content/usermedia/SSL-VersionControl-and-Sync-Com-2-1200x392.png" alt="" /></p>
-
+<p><img src="https://coderefinery.github.io/git-intro/img/gitink/git-merge-2.svg" alt=""></p>
 <ul>
-  <li>Easy Modification of your codes</li>
-  <li>Reverting Errors</li>
-  <li>Collaboration</li>
-  <li>Backup</li>
-  <li>Reproducibility</li>
+<li>Implements <strong>merging</strong>:<ul>
+<li>tool to merge development branches for you</li>
 </ul>
-
-<h3 id="roll-back-functionality">Roll-back functionality</h3>
-
-<ul>
-  <li>Mistakes happen - without recorded snapshots you cannot easily undo mistakes and go back to a working version.</li>
+</li>
 </ul>
-
-<h3 id="branching">Branching</h3>
-
+<hr>
+<h1 id="Why-is-Version-Control-Essential?">Why is Version Control Essential?<a class="anchor-link" href="#Why-is-Version-Control-Essential?"> </a></h1><p><img src="https://smutch.github.io/VersionControlTutorial/_images/vc-xkcd.jpg" alt=""></p>
+<p><img src="https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/img/version-control-1.jpg" alt=""></p>
+<p><img src="https://itelligencegroup.com/wp-content/usermedia/SSL-VersionControl-and-Sync-Com-2-1200x392.png" alt=""></p>
 <ul>
-  <li>Often you need to work on several issues in one code - without branching this can be messy and confusing.</li>
-  <li>You can simulate branching by copying the entire code to multiple places but also this will be messy and confusing.</li>
+<li>Easy Modification of your codes</li>
+<li>Reverting Errors</li>
+<li>Collaboration</li>
+<li>Backup</li>
+<li>Reproducibility</li>
 </ul>
-
-<h3 id="collaboration">Collaboration</h3>
-
-<ul>
-  <li><em>I will just finish my work and then you can start with your changes.</em>.</li>
-  <li><em>Can you please send me the latest version?</em>.</li>
-  <li><em>Where is the latest version?</em>.</li>
-  <li><em>Which version are you using?</em>.</li>
-  <li><em>Which version have the authors used in the paper I am trying to reproduce?</em>.</li>
+<h3 id="Roll-back-functionality">Roll-back functionality<a class="anchor-link" href="#Roll-back-functionality"> </a></h3><ul>
+<li>Mistakes happen - without recorded snapshots you cannot easily undo mistakes and go back to a working version.</li>
 </ul>
-
-<h3 id="reproducibility">Reproducibility</h3>
-
-<ul>
-  <li>How do you indicate which version of your code you have used in your paper?</li>
-  <li>When you find a bug, how do you know when precisely this bug was introduced
+<h3 id="Branching">Branching<a class="anchor-link" href="#Branching"> </a></h3><ul>
+<li>Often you need to work on several issues in one code - without branching this can be messy and confusing.</li>
+<li>You can simulate branching by copying the entire code to multiple places but also this will be messy and confusing.</li>
+</ul>
+<h3 id="Collaboration">Collaboration<a class="anchor-link" href="#Collaboration"> </a></h3><ul>
+<li><em>I will just finish my work and then you can start with your changes.</em>.</li>
+<li><em>Can you please send me the latest version?</em>.</li>
+<li><em>Where is the latest version?</em>.</li>
+<li><em>Which version are you using?</em>.</li>
+<li><em>Which version have the authors used in the paper I am trying to reproduce?</em>.</li>
+</ul>
+<h3 id="Reproducibility">Reproducibility<a class="anchor-link" href="#Reproducibility"> </a></h3><ul>
+<li>How do you indicate which version of your code you have used in your paper?</li>
+<li>When you find a bug, how do you know when precisely this bug was introduced
 (are published results affected? do you need to inform collaborators or users of your code?).</li>
 </ul>
-
-<hr />
-
-<h1 id="why-git-and-github">Why Git and Github?</h1>
-
-<h2 id="git">Git</h2>
-
-<p><a href="https://git-scm.com">Git</a> Open source (free to use) Version control software.</p>
-
+<hr>
+<h1 id="Why-Git-and-Github?">Why Git and Github?<a class="anchor-link" href="#Why-Git-and-Github?"> </a></h1><h2 id="Git">Git<a class="anchor-link" href="#Git"> </a></h2><p><a href="https://git-scm.com">Git</a> Open source (free to use) Version control software.</p>
 <ul>
-  <li>Easy to set up - use even by yourself with no server needed.</li>
-  <li>Very popular: chances are high you will need to contribute to somebody else’s code which is tracked with Git.</li>
-  <li>Distributed: good backup, no single point of failure, you can track and clean-up changes offline, simplifies collaboration model for open-source projects.</li>
-  <li>Important platforms such as <a href="https://github.com">GitHub</a>, <a href="https://gitlab.com">GitLab</a>, and <a href="https://bitbucket.org">Bitbucket</a>
+<li>Easy to set up - use even by yourself with no server needed.</li>
+<li>Very popular: chances are high you will need to contribute to somebody else's code which is tracked with Git.</li>
+<li>Distributed: good backup, no single point of failure, you can track and clean-up changes offline, simplifies collaboration model for open-source projects.</li>
+<li>Important platforms such as <a href="https://github.com">GitHub</a>, <a href="https://gitlab.com">GitLab</a>, and <a href="https://bitbucket.org">Bitbucket</a>
 build on top of Git.</li>
-  <li>Sharing software and data is getting popular and required in research context
+<li>Sharing software and data is getting popular and required in research context
 and <a href="https://github.com">GitHub</a> is a popular platform for sharing software.</li>
 </ul>
-
-<h2 id="github">GitHub</h2>
-<p>A website (https://github.com/) that allows you to store your <em>Git repositories</em> online and makes it easy to collaborate with others.</p>
-
+<h2 id="GitHub">GitHub<a class="anchor-link" href="#GitHub"> </a></h2><p>A website (<a href="https://github.com/">https://github.com/</a>) that allows you to store your <em>Git repositories</em> online and makes it easy to collaborate with others.</p>
 <ul>
-  <li>Share your code</li>
-  <li>“<em>backup</em>”</li>
+<li>Share your code</li>
+<li>"<em>backup</em>"</li>
 </ul>
-
-<hr />
-
-<h1 id="a-quick-introduction-to-git">A quick introduction to Git</h1>
-
-<h3 id="before-you-start-you-need-to-configure-git">Before you start you need to configure Git</h3>
-
-<p>If you haven’t already configured Git, please follow the instructions in the 
+<hr>
+<h1 id="A-quick-introduction-to-Git">A quick introduction to Git<a class="anchor-link" href="#A-quick-introduction-to-Git"> </a></h1><h3 id="Before-you-start-you-need-to-configure-Git">Before you start you need to configure Git<a class="anchor-link" href="#Before-you-start-you-need-to-configure-Git"> </a></h3><p>If you haven't already configured Git, please follow the instructions in the 
 <a href="https://coderefinery.github.io/git-refresher/01-setup/#configuring-git">Git refresher lesson</a></p>
-
-<h3 id="recording-a-snapshot-with-git">Recording a snapshot with Git</h3>
-
-<ul>
-  <li>Git takes snapshots only if we request it.</li>
-  <li>We will record changes always in two steps (we will later explain why this is a recommended practice):</li>
+<h3 id="Recording-a-snapshot-with-Git">Recording a snapshot with Git<a class="anchor-link" href="#Recording-a-snapshot-with-Git"> </a></h3><ul>
+<li>Git takes snapshots only if we request it.</li>
+<li>We will record changes always in two steps (we will later explain why this is a recommended practice):</li>
 </ul>
+<div class="highlight"><pre><span></span>$ git add somefile.txt
+$ git commit
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add somefile.txt
-<span class="nv">$ </span>git commit
-
-<span class="nv">$ </span>git add file.txt anotherfile.txt
-<span class="nv">$ </span>git commit
-</code></pre></div></div>
-
+$ git add file.txt anotherfile.txt
+$ git commit
+</pre></div>
 <ul>
-  <li>We first focus (<code class="highlighter-rouge">git add</code>, we “stage” the change), then shoot (<code class="highlighter-rouge">git commit</code>):</li>
+<li>We first focus (<code>git add</code>, we "stage" the change), then shoot (<code>git commit</code>):</li>
 </ul>
-
-<p><img src="https://coderefinery.github.io/git-intro/img/git_stage_commit.svg" alt="Git staging" /></p>
-
-<h3 id="check-the-status-of-your-repository">Check the status of your repository</h3>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
-</code></pre></div></div>
-
-<h3 id="get-command-help">Get command help</h3>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git <span class="nb">help </span>commit
-</code></pre></div></div>
-
-<h3 id="git-history-and-log">Git history and log</h3>
-
-<p>Now try <code class="highlighter-rouge">git log</code>:</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log
+<p><img src="https://coderefinery.github.io/git-intro/img/git_stage_commit.svg" alt="Git staging"></p>
+<h3 id="Check-the-status-of-your-repository">Check the status of your repository<a class="anchor-link" href="#Check-the-status-of-your-repository"> </a></h3><div class="highlight"><pre><span></span>$ git status
+</pre></div>
+<h3 id="Get-command-help">Get command help<a class="anchor-link" href="#Get-command-help"> </a></h3><div class="highlight"><pre><span></span>$ git <span class="nb">help</span> commit
+</pre></div>
+<h3 id="Git-history-and-log">Git history and log<a class="anchor-link" href="#Git-history-and-log"> </a></h3><p>Now try <code>git log</code>:</p>
+<div class="highlight"><pre><span></span>$ git log
 
 commit d619bf848a3f83f05e8c08c7f4dcda3490cd99d9
 Author: Radovan Bast &lt;bast@users.noreply.github.com&gt;
-Date:   Thu May 4 15:02:56 2017 +0200
+Date:   Thu May <span class="m">4</span> <span class="m">15</span>:02:56 <span class="m">2017</span> +0200
 
     adding ingredients and instructions
-</code></pre></div></div>
-
+</pre></div>
 <ul>
-  <li>We can browse the development and access each state that we have committed.</li>
-  <li>The long hashes uniquely label a state of the code.</li>
-  <li>They are not just integers counting 1, 2, 3, 4, … (why?).</li>
-  <li>We will use them when comparing versions and when going back in time.</li>
-  <li><code class="highlighter-rouge">git log --oneline</code> only shows the first 7 characters of the commit hash and is good to get an overview.</li>
-  <li>If the first characters of the hash are unique it is not necessary to type the entire hash.</li>
-  <li><code class="highlighter-rouge">git log --stat</code> is nice to show which files have been modified.</li>
+<li>We can browse the development and access each state that we have committed.</li>
+<li>The long hashes uniquely label a state of the code.</li>
+<li>They are not just integers counting 1, 2, 3, 4, ... (why?).</li>
+<li>We will use them when comparing versions and when going back in time.</li>
+<li><code>git log --oneline</code> only shows the first 7 characters of the commit hash and is good to get an overview.</li>
+<li>If the first characters of the hash are unique it is not necessary to type the entire hash.</li>
+<li><code>git log --stat</code> is nice to show which files have been modified.</li>
 </ul>
-
-<h3 id="writing-useful-commit-messages">Writing useful commit messages</h3>
-
-<p>Using <code class="highlighter-rouge">git log --oneline</code> we understand that the first line of the commit message is very important.</p>
-
+<h3 id="Writing-useful-commit-messages">Writing useful commit messages<a class="anchor-link" href="#Writing-useful-commit-messages"> </a></h3><p>Using <code>git log --oneline</code> we understand that the first line of the commit message is very important.</p>
 <p>Good example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>increase threshold alpha to 2.0
+<pre><code>increase threshold alpha to 2.0
 
 the motivation for this change is
 to enable ...
-...
-</code></pre></div></div>
-
+...</code></pre>
 <p>Convention: <strong>one line summarizing the commit, then one empty line,
 then paragraph(s) with more details in free form, if necessary</strong>.</p>
-
 <ul>
-  <li>Bad commit messages: “fix”, “oops”, “save work”, “foobar”, “toto”, “qppjdfjd”, “”.</li>
-  <li><a href="http://whatthecommit.com">http://whatthecommit.com</a></li>
-  <li>Write commit messages in English that will be understood
+<li>Bad commit messages: "fix", "oops", "save work", "foobar", "toto", "qppjdfjd", "".</li>
+<li><a href="http://whatthecommit.com">http://whatthecommit.com</a></li>
+<li>Write commit messages in English that will be understood
 15 years from now by someone else than you.</li>
-  <li>Many projects start out as projects “just for me” and end up to be successful projects
+<li>Many projects start out as projects "just for me" and end up to be successful projects
 that are developed by 50 people over decades.</li>
-  <li><a href="https://help.github.com/articles/creating-a-commit-with-multiple-authors/">Commits with multiple authors</a></li>
+<li><a href="https://help.github.com/articles/creating-a-commit-with-multiple-authors/">Commits with multiple authors</a></li>
 </ul>
-
-<hr />
-
-<h2 id="ignoring-files-and-paths-with-gitignore">Ignoring files and paths with .gitignore</h2>
-
-<ul>
-  <li>Should we add and track all files in a project?</li>
-  <li>How about generated files?</li>
-  <li>Why is it considered a bad idea to commit compiled binaries to version control?</li>
-  <li>What types of generated files do you know?</li>
+<hr>
+<h2 id="Ignoring-files-and-paths-with-.gitignore">Ignoring files and paths with .gitignore<a class="anchor-link" href="#Ignoring-files-and-paths-with-.gitignore"> </a></h2><ul>
+<li>Should we add and track all files in a project?</li>
+<li>How about generated files?</li>
+<li>Why is it considered a bad idea to commit compiled binaries to version control?</li>
+<li>What types of generated files do you know?</li>
 </ul>
-
 <p>As a general rule compiled files are not
 committed to version control. There are many reasons for this:</p>
-
 <ul>
-  <li>Your code could be run on different platforms.</li>
-  <li>These files are automatically generated and thus do not contribute in any meaningful way.</li>
-  <li>The number of changes to track per source code change can increase quickly.</li>
-  <li>When tracking generated files you could see differences in the code although you haven’t touched the code.</li>
+<li>Your code could be run on different platforms.</li>
+<li>These files are automatically generated and thus do not contribute in any meaningful way.</li>
+<li>The number of changes to track per source code change can increase quickly.</li>
+<li>When tracking generated files you could see differences in the code although you haven't touched the code.</li>
 </ul>
+<p>For this we use <code>.gitignore</code> files. Example:</p>
 
-<p>For this we use <code class="highlighter-rouge">.gitignore</code> files. Example:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ignore compiled python 2 files
+<pre><code># ignore compiled python 2 files
 *.pyc
 # ignore compiled python 3 files
-__pycache__
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">.gitignore</code> uses something called a
-<a href="https://en.wikipedia.org/wiki/Glob_(programming)">shell glob syntax</a> for
+__pycache__</code></pre>
+<p><code>.gitignore</code> uses something called a
+<a href="https://en.wikipedia.org/wiki/Glob_(programming">shell glob syntax</a>) for
 determining file patterns to ignore. You can read more about the syntax in the
 <a href="https://git-scm.com/docs/gitignore">documentation</a>.</p>
-
 <p>An example taken from <a href="https://git-scm.com/docs/gitignore">documentation</a>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ignore objects and archives, anywhere in the tree.
+<pre><code># ignore objects and archives, anywhere in the tree.
 *.[oa]
 # ignore generated html files,
 *.html
 # except foo.html which is maintained by hand
 !foo.html
 # ignore everything under build directory
-build/
-</code></pre></div></div>
-
-<p>You can have <code class="highlighter-rouge">.gitignore</code> files in lower level directories and they affect the paths
+build/</code></pre>
+<p>You can have <code>.gitignore</code> files in lower level directories and they affect the paths
 relatively.</p>
-
-<p><code class="highlighter-rouge">.gitignore</code> should be part of the repository (why?).</p>
-
-<hr />
-
-<h3 id="clean-working-area">Clean working area</h3>
-
-<ul>
-  <li>Use <code class="highlighter-rouge">git status</code> a lot.</li>
-  <li>Use <code class="highlighter-rouge">.gitignore</code>.</li>
-  <li>Untracked files belong to .gitignore.</li>
-  <li><strong>All files should be either tracked or ignored</strong>.</li>
+<p><code>.gitignore</code> should be part of the repository (why?).</p>
+<hr>
+<h3 id="Clean-working-area">Clean working area<a class="anchor-link" href="#Clean-working-area"> </a></h3><ul>
+<li>Use <code>git status</code> a lot.</li>
+<li>Use <code>.gitignore</code>.</li>
+<li>Untracked files belong to .gitignore.</li>
+<li><strong>All files should be either tracked or ignored</strong>.</li>
 </ul>
-
-<hr />
-
-<h3 id="gui-tools">GUI tools</h3>
-
-<p>We have seen how to make commits directly via the GitHub website, and also via command line. 
+<hr>
+<h3 id="GUI-tools">GUI tools<a class="anchor-link" href="#GUI-tools"> </a></h3><p>We have seen how to make commits directly via the GitHub website, and also via command line. 
 But it is also possible to work from within a Git graphical user interface (GUI):</p>
-
 <ul>
-  <li><a href="https://desktop.github.com">GitHub Desktop</a></li>
-  <li><a href="https://www.sourcetreeapp.com">SourceTree</a></li>
-  <li><a href="https://git-scm.com/downloads/guis">List of third-party GUIs</a></li>
-  <li>
-    <h2 id="jupyterlab-git-and-github-extensions"><a href="https://github.com/jupyterlab/jupyterlab-git">Jupyterlab git</a> and <a href="https://github.com/jupyterlab/jupyterlab-github">github</a> extensions</h2>
-  </li>
+<li><a href="https://desktop.github.com">GitHub Desktop</a></li>
+<li><a href="https://www.sourcetreeapp.com">SourceTree</a></li>
+<li><a href="https://git-scm.com/downloads/guis">List of third-party GUIs</a></li>
+<li><a href="https://github.com/jupyterlab/jupyterlab-git">Jupyterlab git</a> and <a href="https://github.com/jupyterlab/jupyterlab-github">github</a> extensions</li>
 </ul>
-
-<h2 id="summary">Summary</h2>
-
-<p>Now we know how to save snapshots:</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add &lt;file<span class="o">(</span>s<span class="o">)&gt;</span>
-<span class="nv">$ </span>git commit
-</code></pre></div></div>
-
+<hr>
+<h2 id="Summary">Summary<a class="anchor-link" href="#Summary"> </a></h2><p>Now we know how to save snapshots:</p>
+<div class="highlight"><pre><span></span>$ git add &lt;file<span class="o">(</span>s<span class="o">)</span>&gt;
+$ git commit
+</pre></div>
 <p>And this is what we do as we program.</p>
-
-<p>Every state is then saved and later we will learn how to go back to these “checkpoints”
+<p>Every state is then saved and later we will learn how to go back to these "checkpoints"
 and how to undo things.</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git init    <span class="c"># initialize new repository</span>
-<span class="nv">$ </span>git add     <span class="c"># add files or stage file(s)</span>
-<span class="nv">$ </span>git commit  <span class="c"># commit staged file(s)</span>
-<span class="nv">$ </span>git status  <span class="c"># see what is going on</span>
-<span class="nv">$ </span>git log     <span class="c"># see history</span>
-<span class="nv">$ </span>git diff    <span class="c"># show unstaged/uncommitted modifications</span>
-<span class="nv">$ </span>git show    <span class="c"># show the change for a specific commit</span>
-<span class="nv">$ </span>git <span class="nb">mv</span>      <span class="c"># move tracked files</span>
-<span class="nv">$ </span>git <span class="nb">rm</span>      <span class="c"># remove tracked files</span>
-</code></pre></div></div>
-
+<div class="highlight"><pre><span></span>$ git init    <span class="c1"># initialize new repository</span>
+$ git add     <span class="c1"># add files or stage file(s)</span>
+$ git commit  <span class="c1"># commit staged file(s)</span>
+$ git status  <span class="c1"># see what is going on</span>
+$ git log     <span class="c1"># see history</span>
+$ git diff    <span class="c1"># show unstaged/uncommitted modifications</span>
+$ git show    <span class="c1"># show the change for a specific commit</span>
+$ git mv      <span class="c1"># move tracked files</span>
+$ git rm      <span class="c1"># remove tracked files</span>
+</pre></div>
 <p>Git is not ideal for large binary files
 (for this consider <a href="http://git-annex.branchable.com">http://git-annex.branchable.com</a>).</p>
-
-<h1 id="want-to-learn-more-about-gitgithub">Want to learn more about git/github?</h1>
-
-<ul>
-  <li><a href="https://coderefinery.github.io/git-intro/">Introduction to version control with Git</a></li>
-  <li><a href="https://coderefinery.github.io/git-archaeology/">Archeology with Git</a></li>
-  <li><a href="https://coderefinery.github.io/git-collaborative/">Collaborative distributed version control</a></li>
-  <li><a href="https://coderefinery.github.io/git-branch-design/">Git branch design</a></li>
+<h1 id="Want-to-learn-more-about-git/github?">Want to learn more about git/github?<a class="anchor-link" href="#Want-to-learn-more-about-git/github?"> </a></h1><ul>
+<li><a href="https://coderefinery.github.io/git-intro/">Introduction to version control with Git</a></li>
+<li><a href="https://coderefinery.github.io/git-archaeology/">Archeology with Git</a></li>
+<li><a href="https://coderefinery.github.io/git-collaborative/">Collaborative distributed version control</a></li>
+<li><a href="https://coderefinery.github.io/git-branch-design/">Git branch design</a></li>
 </ul>
 
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+    </main>
+    
             </div>
             <nav class="c-page__nav">
   
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/NEGI-Abisko-2019/training/presentations.html">
+      〈 <span class="u-margin-right-tiny"></span> Presentations
+    </a>
+  
 
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/NEGI-Abisko-2019/training/github/synchronise_github.html">
+      Synchronize your fork github repos... <span class="u-margin-right-tiny"></span> 〉
+    </a>
   
 </nav>
 
