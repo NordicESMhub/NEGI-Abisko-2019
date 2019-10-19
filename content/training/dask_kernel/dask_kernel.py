@@ -130,5 +130,3 @@ mpl.rcParams['figure.dpi'] = 200
 _plot()
 
 # %%
-
-# %%

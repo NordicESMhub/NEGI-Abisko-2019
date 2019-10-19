@@ -243,32 +243,5 @@ _plot()
 
 
 ```python
-!git add ./*
-```
-
-
-```python
-!git commit -m'dask example'
-```
-
-    [master 34dfbe9] dask example
-     3 files changed, 883 insertions(+)
-     create mode 100644 content/training/dask_kernel/dask_kernel.ipynb
-     create mode 100644 content/training/dask_kernel/dask_kernel.py
-     create mode 100644 content/training/dask_kernel/images/dask.png
-
-
-
-```python
-!git pull
-```
-
-    error: You have not concluded your merge (MERGE_HEAD exists).
-    hint: Please, commit your changes before merging.
-    fatal: Exiting because of unfinished merge.
-
-
-
-```python
 
 ```
