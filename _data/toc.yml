@@ -148,10 +148,10 @@
   - title: Notebook example
     url: /setup/Abisko_prep
   
-- header: Example notebook report
+- title: Example notebook report
+  url: /training/example_notebooks/example_notebooks
   not_numbered: true
   expand_sections: false
-  subsections:
   - title: Linn Karlsson, keywords: Sizedistributions in NorESM
     url: /training/example_notebooks/NeGIcourse_2018_LinnKarlsson
     not_numbered: true
