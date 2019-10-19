@@ -9,6 +9,20 @@ Coupled Model Intercomparison project Phase 6
 GMD special issue with articles explaining all MIPs :
 https://www.geosci-model-dev.net/special_issue590.html
 
+https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6
+Guidance documents: (https://pcmdi.llnl.gov/CMIP6/)
+ESGF CMIP6 data archive (https://esgf-node.llnl.gov/projects/cmip6/)
+Available model output (https://pcmdi.llnl.gov/CMIP6/ArchiveStatistics/esgf_data_holdings/)
+CMIP6 ESMValTool evaluation and analysis results (https://cmip-esmvaltool.dkrz.de/)
+Terms of Use (https://pcmdi.llnl.gov/CMIP6/TermsOfUse/TermsOfUse6-1.html)
+Emissions/Forcing datasets (https://esgf-node.llnl.gov/projects/input4mips/)
+Participating Modelling Groups (https://rawgit.com/WCRP-CMIP/CMIP6_CVs/master/src/CMIP6_institution_id.html)
+Model and experiment documentation (https://search.es-doc.org/)
+
+Emission visualising:
+https://eccad.aeris-data.fr
+
+
 ## Advantages:
 - Homogenized and standardized outputs
 - Same variable name
