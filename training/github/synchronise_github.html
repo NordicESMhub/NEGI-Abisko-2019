@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/github/synchronise_github.html",
   "headline": "Synchronize your fork github repository",
-  "datePublished": "2019-10-19T10:16:00+00:00",
-  "dateModified": "2019-10-19T10:16:00+00:00",
+  "datePublished": "2019-10-19T10:36:59+00:00",
+  "dateModified": "2019-10-19T10:36:59+00:00",
   "description": "        How to synchronize your fork github repository? It is possible to synchronize your fork from the github interface but we recommend to follow the step...",
   "author": {
     "@type": "Person",
@@ -1967,6 +1967,9 @@ initFunction(initPrint)
 
 <pre><code>git clone https://github.com/USERNAME/NEGI-Abisko-2019.git NEGI-Abisko-2019-fork</code></pre>
 <p>The command above makes a copy of your online fork NEGI-Abisko-2019 repository and store it in a folder locally. We named this folder NEGI-Abisko-2019-fork so we remember it is our fork and not the main NordicESMHub repository.</p>
+<p>Then change directory to your fork:</p>
+
+<pre><code>cd NEGI-Abisko-2019-fork</code></pre>
 <h2 id="Step-2:-Link-your-fork-to-NordicESMHub-repository">Step-2: Link your fork to NordicESMHub repository<a class="anchor-link" href="#Step-2:-Link-your-fork-to-NordicESMHub-repository"> </a></h2><p>Your local <code>NEGI-Abisko-2019-fork</code> is <em>linked</em> to your github repository but <strong>NOT</strong> to NordicESMHub.</p>
 <p>How do we know that?</p>
 
@@ -1991,6 +1994,7 @@ upstream        https://github.com/NordicESMHub/NEGI-Abisko-2019.git (push)</cod
 <h2 id="Step-3:-update-your-local-repository">Step-3: update your local repository<a class="anchor-link" href="#Step-3:-update-your-local-repository"> </a></h2>
 <pre><code>git pull upstream master</code></pre>
 <p>The command above updated your local fork (on jupyterhub).</p>
+<p>In case a merge happens, a window will pop pup and ask you to merge. By default, we have emacs editor in git so use <strong>F10 --&gt; Save</strong> and <strong>F10 --&gt; exit</strong>.</p>
 <h2 id="Step-4:-push-your-local-changes-to-github">Step-4: push your local changes to github<a class="anchor-link" href="#Step-4:-push-your-local-changes-to-github"> </a></h2><p>Our fork is now up to date locally on Jupyterhub but still not yet updated online on github. So now we need to push our changes on github:</p>
 
 <pre><code>git push origin master</code></pre>

@@ -13,6 +13,12 @@ git clone https://github.com/USERNAME/NEGI-Abisko-2019.git NEGI-Abisko-2019-fork
 
 The command above makes a copy of your online fork NEGI-Abisko-2019 repository and store it in a folder locally. We named this folder NEGI-Abisko-2019-fork so we remember it is our fork and not the main NordicESMHub repository.
 
+Then change directory to your fork:
+
+```
+cd NEGI-Abisko-2019-fork
+```
+
 ## Step-2: Link your fork to NordicESMHub repository
 
 Your local `NEGI-Abisko-2019-fork` is *linked* to your github repository but **NOT** to NordicESMHub.
@@ -62,6 +68,8 @@ git pull upstream master
 ```
 
 The command above updated your local fork (on jupyterhub).
+
+In case a merge happens, a window will pop pup and ask you to merge. By default, we have emacs editor in git so use **F10 --> Save** and **F10 --> exit**. 
 
 ## Step-4: push your local changes to github
 
