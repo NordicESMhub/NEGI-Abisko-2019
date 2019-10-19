@@ -213,6 +213,8 @@
     - title: Dask kernel example
       url: /training/dask_kernel/dask_kernel
       not_numbered: true
+    - title: Get EBAS data with pydap
+      url: /training/example_notebooks/from_ebas_using_pydap
   - title: Pyaerocom
     url: /training/pyaerocom/intro
     not_numbered: true
