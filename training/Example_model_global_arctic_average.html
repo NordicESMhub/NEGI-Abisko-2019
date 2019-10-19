@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/Example_model_global_arctic_average.html",
   "headline": "Example Weighted/masked average",
-  "datePublished": "2019-10-19T08:16:28+00:00",
-  "dateModified": "2019-10-19T08:16:28+00:00",
+  "datePublished": "2019-10-19T08:34:49+00:00",
+  "dateModified": "2019-10-19T08:34:49+00:00",
   "description": "        Example: Masked and weighted average: This example focuses on area weights (weighting by the area of the grid cell), but is generalizable.    import ...",
   "author": {
     "@type": "Person",
@@ -2059,48 +2059,74 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">masked_average</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">masked_average</span><span class="p">(</span><span class="n">xa</span><span class="p">:</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span>
+                   <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">weights</span><span class="p">:</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">mask</span><span class="p">:</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This function will average </span>
+<span class="sd">    This function will average</span>
 <span class="sd">    :param xa: dataArray</span>
 <span class="sd">    :param dim: dimension or list of dimensions. e.g. &#39;lat&#39; or [&#39;lat&#39;,&#39;lon&#39;,&#39;time&#39;]</span>
 <span class="sd">    :param weights: weights (as xarray)</span>
 <span class="sd">    :param mask: mask (as xarray), True where values to be masked.</span>
 <span class="sd">    :return: masked average xarray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">xa_</span> <span class="o">=</span> <span class="n">xa</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="c1">#lest make a copy of the xa</span>
+    <span class="n">xa_copy</span><span class="p">:</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">=</span> <span class="n">xa</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
     <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">dum</span><span class="p">,</span> <span class="n">mask_alld</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span> <span class="c1"># broadcast to all dims</span>
-        <span class="n">xa_</span> <span class="o">=</span> <span class="n">xa_</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">dum</span><span class="p">,</span> <span class="n">weights_alld</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span> <span class="c1"># broadcast to all dims</span>
-            <span class="n">weights_alld</span> <span class="o">=</span> <span class="n">weights_alld</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">mask_alld</span><span class="p">))</span>
-            <span class="k">return</span> <span class="p">(</span><span class="n">xa_</span><span class="o">*</span><span class="n">weights_alld</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span><span class="o">/</span><span class="n">weights_alld</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xa_</span><span class="o">.</span><span class="n">notnull</span><span class="p">())</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">xa_</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">xa_weighted_average</span> <span class="o">=</span> <span class="n">__weighted_average_with_mask</span><span class="p">(</span>
+            <span class="n">dim</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">xa_copy</span>
+        <span class="p">)</span>
     <span class="k">elif</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">dum</span><span class="p">,</span> <span class="n">weights_alld</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span> <span class="c1"># broadcast to all dims</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">xa_</span><span class="o">*</span><span class="n">weights_alld</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span><span class="o">/</span><span class="n">weights_alld</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xa_</span><span class="o">.</span><span class="n">notnull</span><span class="p">())</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">xa_weighted_average</span> <span class="o">=</span> <span class="n">__weighted_average</span><span class="p">(</span>
+            <span class="n">dim</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">xa_copy</span>
+        <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">xa</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">xa_weighted_average</span> <span class="o">=</span>  <span class="n">xa</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">xa_weighted_average</span>
+
+
+
+    <span class="c1"># %% [markdown]</span>
+
+
+<span class="k">def</span> <span class="nf">__weighted_average</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">xa_copy</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;helper function for masked_average&#39;&#39;&#39;</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">weights_all_dims</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>  <span class="c1"># broadcast to all dims</span>
+    <span class="n">x_times_w</span> <span class="o">=</span> <span class="n">xa_copy</span> <span class="o">*</span> <span class="n">weights_all_dims</span>
+    <span class="n">xw_sum</span> <span class="o">=</span> <span class="n">x_times_w</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+    <span class="n">x_tot</span> <span class="o">=</span> <span class="n">weights_all_dims</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xa_copy</span><span class="o">.</span><span class="n">notnull</span><span class="p">())</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+    <span class="n">xa_weighted_average</span> <span class="o">=</span> <span class="n">xw_sum</span> <span class="o">/</span> <span class="n">x_tot</span>
+    <span class="k">return</span> <span class="n">xa_weighted_average</span>
+
+
+<span class="k">def</span> <span class="nf">__weighted_average_with_mask</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">xa_copy</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;helper function for masked_average&#39;&#39;&#39;</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">mask_all_dims</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>  <span class="c1"># broadcast to all dims</span>
+    <span class="n">xa_copy</span> <span class="o">=</span> <span class="n">xa_copy</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">weights_all_dims</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>  <span class="c1"># broadcast to all dims</span>
+        <span class="n">weights_all_dims</span> <span class="o">=</span> <span class="n">weights_all_dims</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">mask_all_dims</span><span class="p">)</span>
+        <span class="n">x_times_w</span> <span class="o">=</span> <span class="n">xa_copy</span> <span class="o">*</span> <span class="n">weights_all_dims</span>
+        <span class="n">xw_sum</span> <span class="o">=</span> <span class="n">x_times_w</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">x_tot</span> <span class="o">=</span> <span class="n">weights_all_dims</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xa_copy</span><span class="o">.</span><span class="n">notnull</span><span class="p">())</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">xa_weighted_average</span> <span class="o">=</span> <span class="n">xw_sum</span> <span class="o">/</span> <span class="n">x_tot</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">xa_weighted_average</span> <span class="o">=</span> <span class="n">xa_copy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xa_weighted_average</span>
+
+
+<span class="c1"># ## Application 1: Weigted global average:</span>
+<span class="c1"># Grid cells have different area, so when we do the global average, they have to be weigted by the area of each grid cell.</span>
+<span class="c1"># Here we do it for 2 m temperature:</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Application-1:-Weigted-global-average:">Application 1: Weigted global average:<a class="anchor-link" href="#Application-1:-Weigted-global-average:"> </a></h2><p>Grid cells have different area, so when we do the global average, they have to be weigted by the area of each grid cell. 
-Here we do it for 2 m temperature:</p>
-
-</div>
-</div>
 </div>
 </div>
 
@@ -2129,7 +2155,7 @@ Here we do it for 2 m temperature:</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7fa5b815ee80&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7f6e0df10d30&gt;]</pre>
 </div>
 
 </div>
@@ -2140,7 +2166,7 @@ Here we do it for 2 m temperature:</p>
 
 
 <div class="output_png output_subarea ">
-<img src="../images/training/Example_model_global_arctic_average_8_1.png"
+<img src="../images/training/Example_model_global_arctic_average_7_1.png"
 >
 </div>
 
@@ -2190,7 +2216,7 @@ Here we do it for 2 m temperature:</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7fa5b50a2400&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7f6e09c53470&gt;]</pre>
 </div>
 
 </div>
@@ -2201,7 +2227,7 @@ Here we do it for 2 m temperature:</p>
 
 
 <div class="output_png output_subarea ">
-<img src="../images/training/Example_model_global_arctic_average_10_1.png"
+<img src="../images/training/Example_model_global_arctic_average_9_1.png"
 >
 </div>
 

@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-19T08:16:28+00:00",
-  "dateModified": "2019-10-19T08:16:28+00:00",
+  "datePublished": "2019-10-19T08:34:49+00:00",
+  "dateModified": "2019-10-19T08:34:49+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -2274,7 +2274,7 @@ initFunction(initPrint)
         "title": "Example Weighted/masked average",
         
         "excerpt":
-            "Example: Masked and weighted average: This example focuses on area weights (weighting by the area of the grid cell), but is generalizable. import xarray as xr import numpy as np import matplotlib.pyplot as plt # or # from imports import (plt, np, xr) path = &#39;~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/tas_Amon_NorESM2-LM_historical_r1i1p1f1_gn_200001-200912.nc&#39; tas_ds = xr.open_dataset(path) Get the area weigts: For the CMIP data, each model has a file for the area of each grid cell. The variable name of this is 'areacella'. We load the NorESM one. path_area_weight =&#39;~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/areacella_fx_NorESM2-LM_historical_r1i1p1f1_gn.nc&#39; areacella= xr.open_dataset(path_area_weight) A useful functions to do a weighted and masked average def masked_average(xa, dim=None, weights=None, mask=None):...",
+            "Example: Masked and weighted average: This example focuses on area weights (weighting by the area of the grid cell), but is generalizable. import xarray as xr import numpy as np import matplotlib.pyplot as plt # or # from imports import (plt, np, xr) path = &#39;~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/tas_Amon_NorESM2-LM_historical_r1i1p1f1_gn_200001-200912.nc&#39; tas_ds = xr.open_dataset(path) Get the area weigts: For the CMIP data, each model has a file for the area of each grid cell. The variable name of this is 'areacella'. We load the NorESM one. path_area_weight =&#39;~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/areacella_fx_NorESM2-LM_historical_r1i1p1f1_gn.nc&#39; areacella= xr.open_dataset(path_area_weight) A useful functions to do a weighted and masked average def masked_average(xa:xr.DataArray, dim=None, weights:xr.DataArray=None, mask:xr.DataArray=None):...",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/Example_model_global_arctic_average.html",

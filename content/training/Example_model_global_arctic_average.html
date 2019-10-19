@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Visualize and analyze in python</title>
-  <meta name="description" content="# Visualize and analyze in pythonExamples for analyzing and visualizing data in python are available [here](https://github.com/daliagachc/negi-stuff).To get ...">
+  <title>Example: Masked and weighted average:</title>
+  <meta name="description" content="# Example: Masked and weighted average:This example focuses on area weights (weighting by the area of the grid cell), but is generalizable.```pythonimport xa...">
 
-  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/visualize/intro.html">
+  <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/Example_model_global_arctic_average.html">
   <link rel="alternate" type="application/rss+xml" title="eScience for linking Arctic measurements and modeling" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/feed.xml">
 
-  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/visualize/intro.html" />
+  <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/Example_model_global_arctic_average.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Visualize and analyze in python" />
-<meta property="og:description" content="# Visualize and analyze in pythonExamples for analyzing and visualizing data in python are available [here](https://github.com/daliagachc/negi-stuff).To get ..." />
+<meta property="og:title"       content="Example: Masked and weighted average:" />
+<meta property="og:description" content="# Example: Masked and weighted average:This example focuses on area weights (weighting by the area of the grid cell), but is generalizable.```pythonimport xa..." />
 <meta property="og:image"       content="http://nordicesmhub.github.io/NEGI-Abisko-2019/images/logo/zeppelin.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,11 +26,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/visualize/intro.html",
-  "headline": "Visualize and analyze in python",
+  "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/Example_model_global_arctic_average.html",
+  "headline": "Example: Masked and weighted average:",
   "datePublished": "2019-10-19T08:34:49+00:00",
   "dateModified": "2019-10-19T08:34:49+00:00",
-  "description": "# Visualize and analyze in pythonExamples for analyzing and visualizing data in python are available [here](https://github.com/daliagachc/negi-stuff).To get ...",
+  "description": "# Example: Masked and weighted average:This example focuses on area weights (weighting by the area of the grid cell), but is generalizable.```pythonimport xa...",
   "author": {
     "@type": "Person",
     "name": "Anne Fouilloux"
@@ -786,7 +786,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/NEGI-Abisko-2019/intro.html"
         >
           
@@ -1677,7 +1677,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
+                <a class="c-sidebar__entry "
                   href="/NEGI-Abisko-2019/training/visualize/intro.html"
                 >
                   
@@ -1729,7 +1729,7 @@ initFunction(initPrint)
                   
 
                   <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
+                    <a class="c-sidebar__entry c-sidebar__entry--active"
                       href="/NEGI-Abisko-2019/training/Example_model_global_arctic_average.html"
                     >
                       
@@ -1943,17 +1943,109 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h1 id="visualize-and-analyze-in-python">Visualize and analyze in python</h1>
+              <h1 id="example-masked-and-weighted-average">Example: Masked and weighted average:</h1>
 
-<p>Examples for analyzing and visualizing data in python are available <a href="https://github.com/daliagachc/negi-stuff">here</a>.</p>
+<p>This example focuses on area weights (weighting by the area of the grid cell), but is generalizable.</p>
 
-<p>To get it on the <a href="https://abisko.uiogeo-apps.sigma2.no">Jupyterhub</a>, open a <a href="https://jupyterlab.readthedocs.io/en/stable/user/terminal.html">terminal</a> and clone the repository:</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/daliagachc/negi-stuff.git
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="n">xr</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="c1"># or
+# from imports import (plt, np, xr)
+</span><span class="n">path</span> <span class="o">=</span> <span class="s">'~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/tas_Amon_NorESM2-LM_historical_r1i1p1f1_gn_200001-200912.nc'</span>
+<span class="n">tas_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Then browse into the folders. The notebooks presented during the NEGI-Abisko lecture are in <code class="highlighter-rouge">negi-stuff/negi_stuff/presentations/intro_jlab/</code>.</p>
+<h2 id="get-the-area-weigts">Get the area weigts:</h2>
+<p>For the CMIP data, each model has a file for the area of each grid cell. The variable name of this is ‘areacella’. We load the NorESM one.</p>
 
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">path_area_weight</span> <span class="o">=</span><span class="s">'~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/areacella_fx_NorESM2-LM_historical_r1i1p1f1_gn.nc'</span>
+<span class="n">areacella</span><span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path_area_weight</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="a-useful-functions-to-do-a-weighted-and-masked-average">A useful functions to do a weighted and masked average</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">masked_average</span><span class="p">(</span><span class="n">xa</span><span class="p">:</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span>
+                   <span class="n">dim</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                   <span class="n">weights</span><span class="p">:</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                   <span class="n">mask</span><span class="p">:</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="s">"""
+    This function will average
+    :param xa: dataArray
+    :param dim: dimension or list of dimensions. e.g. 'lat' or ['lat','lon','time']
+    :param weights: weights (as xarray)
+    :param mask: mask (as xarray), True where values to be masked.
+    :return: masked average xarray
+    """</span>
+    <span class="c1">#lest make a copy of the xa
+</span>    <span class="n">xa_copy</span><span class="p">:</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">=</span> <span class="n">xa</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">xa_weighted_average</span> <span class="o">=</span> <span class="n">__weighted_average_with_mask</span><span class="p">(</span>
+            <span class="n">dim</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">xa_copy</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">xa_weighted_average</span> <span class="o">=</span> <span class="n">__weighted_average</span><span class="p">(</span>
+            <span class="n">dim</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">xa_copy</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">xa_weighted_average</span> <span class="o">=</span>  <span class="n">xa</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">xa_weighted_average</span>
+
+
+
+    <span class="c1"># %% [markdown]
+</span>
+
+<span class="k">def</span> <span class="nf">__weighted_average</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">xa_copy</span><span class="p">):</span>
+    <span class="s">'''helper function for masked_average'''</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">weights_all_dims</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>  <span class="c1"># broadcast to all dims
+</span>    <span class="n">x_times_w</span> <span class="o">=</span> <span class="n">xa_copy</span> <span class="o">*</span> <span class="n">weights_all_dims</span>
+    <span class="n">xw_sum</span> <span class="o">=</span> <span class="n">x_times_w</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+    <span class="n">x_tot</span> <span class="o">=</span> <span class="n">weights_all_dims</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xa_copy</span><span class="o">.</span><span class="n">notnull</span><span class="p">())</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+    <span class="n">xa_weighted_average</span> <span class="o">=</span> <span class="n">xw_sum</span> <span class="o">/</span> <span class="n">x_tot</span>
+    <span class="k">return</span> <span class="n">xa_weighted_average</span>
+
+
+<span class="k">def</span> <span class="nf">__weighted_average_with_mask</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">xa</span><span class="p">,</span> <span class="n">xa_copy</span><span class="p">):</span>
+    <span class="s">'''helper function for masked_average'''</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">mask_all_dims</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>  <span class="c1"># broadcast to all dims
+</span>    <span class="n">xa_copy</span> <span class="o">=</span> <span class="n">xa_copy</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">weights_all_dims</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">xa</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>  <span class="c1"># broadcast to all dims
+</span>        <span class="n">weights_all_dims</span> <span class="o">=</span> <span class="n">weights_all_dims</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">mask_all_dims</span><span class="p">)</span>
+        <span class="n">x_times_w</span> <span class="o">=</span> <span class="n">xa_copy</span> <span class="o">*</span> <span class="n">weights_all_dims</span>
+        <span class="n">xw_sum</span> <span class="o">=</span> <span class="n">x_times_w</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">x_tot</span> <span class="o">=</span> <span class="n">weights_all_dims</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xa_copy</span><span class="o">.</span><span class="n">notnull</span><span class="p">())</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">xa_weighted_average</span> <span class="o">=</span> <span class="n">xw_sum</span> <span class="o">/</span> <span class="n">x_tot</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">xa_weighted_average</span> <span class="o">=</span> <span class="n">xa_copy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xa_weighted_average</span>
+
+
+<span class="c1"># ## Application 1: Weigted global average:
+# Grid cells have different area, so when we do the global average, they have to be weigted by the area of each grid cell.
+# Here we do it for 2 m temperature:
+</span></code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">aw_xr</span> <span class="o">=</span> <span class="n">areacella</span><span class="p">[</span><span class="s">'areacella'</span><span class="p">]</span>
+<span class="n">glob_mean</span> <span class="o">=</span> <span class="n">masked_average</span><span class="p">(</span><span class="n">tas_ds</span><span class="p">[</span><span class="s">'tas'</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s">'lat'</span><span class="p">,</span><span class="s">'lon'</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="n">aw_xr</span><span class="p">)</span>
+<span class="n">glob_mean</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="application-1-weigted-arctic-average">Application 1: Weigted arctic average:</h2>
+<p>Let’s try to also take only the data above 60$^\circ$N</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">aw_xr</span> <span class="o">=</span> <span class="n">areacella</span><span class="p">[</span><span class="s">'areacella'</span><span class="p">]</span>
+<span class="c1"># mask values with lat &lt; 60 deg north
+</span><span class="n">mask</span> <span class="o">=</span> <span class="n">tas_ds</span><span class="p">[</span><span class="s">'lat'</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">60.</span>
+<span class="n">glob_mean</span> <span class="o">=</span> <span class="n">masked_average</span><span class="p">(</span><span class="n">tas_ds</span><span class="p">[</span><span class="s">'tas'</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s">'lat'</span><span class="p">,</span><span class="s">'lon'</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="n">aw_xr</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+<span class="n">glob_mean</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
 
             </div>
             <nav class="c-page__nav">
