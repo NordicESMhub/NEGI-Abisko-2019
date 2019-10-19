@@ -152,6 +152,16 @@
     url: /contributing/CONTRIBUTING
   - title: Notebook example
     url: /setup/Abisko_prep
+  
+- title: Example notebook report
+  url: /training/example_notebooks/example_notebooks
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: Linn Karlsson, Sizedistributions in NorESM
+    url: /training/example_notebooks/NeGIcourse_2018_LinnKarlsson
+    not_numbered: true
+
 
 # Learning resources
 - title: Learning resources
