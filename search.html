@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-21T08:23:36+00:00",
-  "dateModified": "2019-10-21T08:23:36+00:00",
+  "datePublished": "2019-10-21T14:29:29+00:00",
+  "dateModified": "2019-10-21T14:29:29+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -1986,6 +1986,61 @@ initFunction(initPrint)
 
                   <li class="c-sidebar__subsection">
                     <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/pyaerocom/HOWTO_handle_large_files.html"
+                    >
+                      
+                      How to handle large files
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/pyaerocom/example_cmip6_colocation.html"
+                    >
+                      
+                      Example CMIP6 colocation
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/pyaerocom/example_aas_etal_read.html"
+                    >
+                      
+                      Example aas etal read
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/pyaerocom/EXAMPLE_EBAS_arctic_so4_concentrations.html"
+                    >
+                      
+                      Example EBAS artic SO4 concentrations
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/NEGI-Abisko-2019/training/pyaerocom/pyaerocom_gridded_gridded.html"
+                    >
+                      
+                      How to compare model with model (gridded-gridded)
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
                       href="/NEGI-Abisko-2019/training/pyaerocom/local_pyaerocom.html"
                     >
                       
@@ -2580,6 +2635,14 @@ initFunction(initPrint)
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/presentations.html",
         "teaser":null},{
+        "title": "Example EBAS artic SO4 concentrations",
+        
+        "excerpt":
+            "import pyaerocom as pya pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Initiating directories for pyaerocom test dataset obsdata = pya.io.ReadUngridded().read(&#39;EBASMC&#39;, &#39;concso4&#39;, lat_range=[66, 90]) Received additional reading constraints, ignoring caching Retrieving EBAS files for variables [&#39;concso4&#39;] Reading files 1-30 of 291 (ReadEbas) | 18:06:03 (delta = 0 s&#39;) Reading files 30-59 of 291 (ReadEbas) | 18:06:03 (delta = 0 s&#39;) Reading files 59-88 of 291 (ReadEbas) | 18:06:04 (delta = 0 s&#39;) Reading files 88-117 of 291 (ReadEbas) | 18:06:04 (delta = 0 s&#39;) Reading files 117-146 of 291 (ReadEbas) | 18:06:04 (delta = 0 s&#39;) Reading files 146-175 of 291 (ReadEbas) | 18:06:04 (delta...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/EXAMPLE_EBAS_arctic_so4_concentrations.html",
+        "teaser":null},{
         "title": "How to find EBAS files",
         
         "excerpt":
@@ -2588,6 +2651,14 @@ initFunction(initPrint)
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/HOWTO_find_EBAS_files.html",
         "teaser":null},{
+        "title": "How to handle large files",
+        
+        "excerpt":
+            "Example to reduce file size in case of memory errors (using pyaerocom) import pyaerocom as pya pya.__version__ &#39;0.8.1.dev4&#39; NOTE: YOU NEED PYAEROCOM v0.8.1.dev4 or larger for this pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Initiating directories for pyaerocom test dataset pya.browse_database(&#39;*SPRIN*&#39;) Pyaerocom ReadGridded --------------------- Data ID: MIROC-SPRINTARS_AP3-CTRL Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/MIROC-SPRINTARS_AP3-CTRL/renamed Available experiments: [&#39;AP3-CTRL&#39;] Available years: [1850, 2010] Available frequencies [&#39;daily&#39; &#39;monthly&#39; &#39;3hourly&#39;] Available variables: [&#39;abs440aer&#39;, &#39;abs550aer&#39;, &#39;abs870aer&#39;, &#39;ac550aer&#39;, &#39;acs550aer&#39;, &#39;airmass&#39;, &#39;airmass3d&#39;, &#39;albsrfc&#39;, &#39;bldep&#39;, &#39;bldepmax&#39;, &#39;bldepmin&#39;, &#39;bs550aer&#39;, &#39;cdnc&#39;, &#39;cheaqpso4&#39;, &#39;chegpso4&#39;, &#39;chepsoa&#39;, &#39;cldncl&#39;, &#39;cli&#39;, &#39;clivi&#39;, &#39;clt&#39;, &#39;clt3d&#39;, &#39;clw&#39;, &#39;convclt&#39;, &#39;dh&#39;, &#39;dms&#39;, &#39;dry550aer&#39;, &#39;drydust&#39;, &#39;dryoa&#39;, &#39;dryso2&#39;, &#39;dryso4&#39;, &#39;dryss&#39;, &#39;dtau&#39;, &#39;dtauc&#39;, &#39;dtaus&#39;, &#39;ec550aer&#39;, &#39;ec550dust&#39;, &#39;ecs550aer&#39;, &#39;eis&#39;, &#39;emibc&#39;, &#39;emidms&#39;,...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/HOWTO_handle_large_files.html",
+        "teaser":null},{
         "title": "How to read EBAS files",
         
         "excerpt":
@@ -2595,6 +2666,22 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/HOWTO_read_EBAS_files.html",
+        "teaser":null},{
+        "title": "Example aas etal read",
+        
+        "excerpt":
+            "import pyaerocom as pya pya.__version__ &#39;0.8.1.dev3&#39; NOTE: needs version 0.8.1.dev3 or later! pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Initiating directories for pyaerocom test dataset pya.const.OBS_IDS [&#39;AeronetSunV2Lev1.5.daily&#39;, &#39;AeronetSun_2.0_NRT&#39;, &#39;AeronetSunV2Lev2.daily&#39;, &#39;AeronetSunV2Lev2.AP&#39;, &#39;AeronetSDAV2Lev2.daily&#39;, &#39;AeronetSDAV2Lev2.AP&#39;, &#39;AeronetInvV2Lev1.5.daily&#39;, &#39;AeronetInvV2Lev1.5.AP&#39;, &#39;AeronetInvV2Lev2.daily&#39;, &#39;AeronetInvV2Lev2.AP&#39;, &#39;AeronetSunV3Lev1.5.daily&#39;, &#39;AeronetSunV3Lev1.5.AP&#39;, &#39;AeronetSunV3Lev2.daily&#39;, &#39;AeronetSunV3Lev2.AP&#39;, &#39;AeronetSDAV3Lev1.5.daily&#39;, &#39;AeronetSDAV3Lev1.5.AP&#39;, &#39;AeronetSDAV3Lev2.daily&#39;, &#39;AeronetSDAV3Lev2.AP&#39;, &#39;AeronetInvV3Lev1.5.daily&#39;, &#39;AeronetInvV3Lev2.daily&#39;, &#39;EBASMC&#39;, &#39;EEAAQeRep&#39;, &#39;EARLINET&#39;, &#39;GAWTADsubsetAasEtAl&#39;, &#39;DMS_AMS_CVO&#39;] NOTE: these are all observation data IDs that are theoretically available, but some of them are not provided in the pyaerocom-testdata database. You can check using pya.browse_database read_factory = pya.io.ReadUngridded(&#39;GAWTADsubsetAasEtAl&#39;) read_factory.get_reader().PROVIDES_VARIABLES [&#39;concso2&#39;, &#39;concso4&#39;, &#39;pr&#39;, &#39;wetso4&#39;, &#39;concso4pr&#39;] obsdata = read_factory.read(&#39;GAWTADsubsetAasEtAl&#39;, &#39;concso4&#39;) obsdata UngriddedData &lt;networks: [&#39;GAWTADsubsetAasEtAl&#39;]; vars: [&#39;concso4&#39;]; instruments: [&#39;3_stage_filterpack&#39;, &#39;IMPROVE_PM2.5&#39;, &#39;filter-1pack&#39;, &#39;filter_1pack&#39;, &#39;filter_3pack&#39;, &#39;filter_2pack&#39;,...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/example_aas_etal_read.html",
+        "teaser":null},{
+        "title": "Example CMIP6 colocation",
+        
+        "excerpt":
+            "How to read and process modeldata that is not in AeroCom convention Short answer: skip ReadGridded and find the file you want to read and put it in GriddedData directly. import pyaerocom as pya from warnings import filterwarnings filterwarnings(&#39;ignore&#39;) pya.__version__ &#39;0.8.1.dev3&#39; pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Initiating directories for pyaerocom test dataset CMIP6_TEST_DIR = &#39;/home/notebook/shared-cmip6-for-ns1000k/hist-aer/HadGEM3-GC31-LL/r1i1p1f3/&#39; CMIP6_TEST_FILE = &#39;od550aer_AERmon_HadGEM3-GC31-LL_hist-aer_r1i1p1f3_gn_195001-202012.nc&#39; path = CMIP6_TEST_DIR + CMIP6_TEST_FILE modeldata = pya.GriddedData(path, var_name=&#39;od550aer&#39;) modeldata.metadata[&#39;ts_type&#39;] = &#39;monthly&#39; # needed for colocation modeldata.ts_type &#39;monthly&#39; modeldata.start numpy.datetime64(&#39;1950-01-01T00:00:00.000000&#39;) modeldata.stop numpy.datetime64(&#39;2020-12-31T23:59:59.999999&#39;) obsdata = pya.io.ReadUngridded().read(&#39;AeronetSunV3Lev2.daily&#39;, &#39;od550aer&#39;) coldata = pya.colocation.colocate_gridded_ungridded(modeldata, obsdata, ts_type=&#39;monthly&#39;, start=2010) Setting od550aer outlier lower lim: -1.00 Setting od550aer outlier upper lim: 10.00...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/example_cmip6_colocation.html",
         "teaser":null},{
         "title": "pyaerocom EBAS example",
         
@@ -2627,6 +2714,14 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/local_pyaerocom.html",
+        "teaser":null},{
+        "title": "How to compare model with model (gridded-gridded)",
+        
+        "excerpt":
+            "Pyaerocom Colocation gridded-gridded import pyaerocom as pya import matplotlib.pyplot as plt from warnings import filterwarnings filterwarnings(&#39;ignore&#39;) pya.change_verbosity(&#39;critical&#39;, log=pya.const.print_log) # don&#39;t output warnings pya.__version__ &#39;0.8.1.dev4&#39; pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Read model CMIP6 CMIP6_TEST_DIR = &#39;shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/&#39; CMIP6_TEST_FILE = &#39;emiisop_AERmon_NorESM2-LM_historical_r1i1p1f1_gn_185001-185912.nc&#39; path = CMIP6_TEST_DIR + CMIP6_TEST_FILE modeldata_cmip6 = pya.GriddedData(path, var_name=&#39;emiisop&#39;) modeldata_cmip6.metadata[&#39;ts_type&#39;] = &#39;monthly&#39; # needed for colocation modeldata_cmip6.ts_type &#39;monthly&#39; Read UKESM1-0-LL UKESM1_TEST_DIR = &#39;shared-cmip6-for-ns1000k/historical/UKESM1-0-LL/r1i1p1f2/&#39; UKESM1_TEST_FILE = &#39;emiisop_AERmon_UKESM1-0-LL_historical_r1i1p1f2_gn_185001-194912.nc&#39; path = UKESM1_TEST_DIR + UKESM1_TEST_FILE modeldata_ukesm1 = pya.GriddedData(path, var_name=&#39;emiisop&#39;) modeldata_ukesm1.metadata[&#39;ts_type&#39;] = &#39;monthly&#39; # needed for colocation modeldata_ukesm1.ts_type &#39;monthly&#39; modeldata_cmip6.start,modeldata_cmip6.stop (numpy.datetime64(&#39;1850-01-01T00:00:00.000000&#39;), numpy.datetime64(&#39;1859-12-31T23:59:59.999999&#39;)) modeldata_ukesm1.start,modeldata_ukesm1.stop (numpy.datetime64(&#39;1850-01-01T00:00:00.000000&#39;), numpy.datetime64(&#39;1949-12-31T23:59:59.999999&#39;)) try: coldata = pya.colocation.colocate_gridded_gridded(modeldata_cmip6, modeldata_ukesm1, start=1850, ts_type=&#39;monthly&#39;) stats = coldata.calc_statistics() except Exception as e:...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/pyaerocom_gridded_gridded.html",
         "teaser":null},{
         "title": "Python examples",
         
