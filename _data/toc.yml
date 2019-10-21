@@ -228,6 +228,16 @@
       url: /training/pyaerocom/HOWTO_find_EBAS_files
     - title: How to read EBAS files
       url: /training/pyaerocom/HOWTO_read_EBAS_files
+    - title: How to handle large files
+      url: /training/pyaerocom/HOWTO_handle_large_files
+    - title: Example CMIP6 colocation
+      url: /training/pyaerocom/example_cmip6_colocation
+    - title: Example aas etal read
+      url: /training/pyaerocom/example_aas_etal_read
+    - title: Example EBAS artic SO4 concentrations
+      url: /training/pyaerocom/EXAMPLE_EBAS_arctic_so4_concentrations
+    - title: How to compare model with model (gridded-gridded)
+      url: /training/pyaerocom/pyaerocom_gridded_gridded
     - title: Install pyaerocom dev
       url: /training/pyaerocom/local_pyaerocom
   - title: CMIP6 data
