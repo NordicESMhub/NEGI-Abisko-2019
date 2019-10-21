@@ -1,9 +1,20 @@
 
+# Hacktoberfest 2019
+
+[![](https://hacktoberfest.digitalocean.com/assets/logo-hf19-header-8245176fe235ab5d942c7580778a914110fa06a23c3d55bf40e2d061809d8785.svg)](https://hacktoberfest.digitalocean.com/)
+
+**Make 4 pull requests to earn a limited edition T-shirt!**
+
+Register at [https://hacktoberfest.digitalocean.com/](https://hacktoberfest.digitalocean.com/)
+
 [![CircleCI](https://circleci.com/gh/NordicESMhub/NEGI-Abisko-2019.svg?style=svg&circle-token=708328c3d6428a29f49027f0a5e316fc32850dac)](https://circleci.com/gh/NordicESMhub/NEGI-Abisko-2019)
 
 ### Climate science at high latitudes: eScience for linking Arctic measurements and modeling
 
 The 3rd course “Climate science at high latitudes: eScience for linking Arctic measurements and modeling” will be held at Abisko Scientific Research Station from 15th until 24th of October 2019.
+
+**[Detailed programme](https://github.com/NordicESMhub/NEGI-Abisko-2019-private/raw/master/program/Abisko%20course%20schedule%20short%2020191019.pdf)**
+
 
 **Coordination**: Paul Zieger (SU), Michael Schulz (UiO/MetNo), and Katja Lauri (UHEL)
 
