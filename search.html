@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-21T07:12:50+00:00",
-  "dateModified": "2019-10-21T07:12:50+00:00",
+  "datePublished": "2019-10-21T08:23:36+00:00",
+  "dateModified": "2019-10-21T08:23:36+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -2495,7 +2495,7 @@ initFunction(initPrint)
         "title": "Dask kernel example",
         
         "excerpt":
-            "go to the dask array tab (shown below) and click on '&lt;&gt;' from IPython.display import Image Image(filename=&#39;dask.png&#39;,width=400) something similar to the cell below should have being incerted from dask.distributed import Client client = Client(&quot;tcp://127.0.0.1:46013&quot;) client Client Scheduler: tcp://127.0.0.1:46013 Dashboard: http://127.0.0.1:8787/status Cluster Workers: 4 Cores: 4 Memory: 2.15 GB from negi_stuff.modules.imps import * from pathlib import Path Loading BokehJS ... df = cmip6.search_cmip6_hist(wildcard=&#39;mmrso4*&#39;,model=&#39;CESM*&#39;) _ds = df.sort_values([&#39;FORCING&#39;,&#39;REALIZATION&#39;],ascending=[False,True]) _ds = df.sort_values( by = [cmip6.FF,cmip6.RR,cmip6.FF], ascending= [False ,True ,True] ) _dg = _ds.groupby(cmip6.MODEL).first() SIZE = &#39;SIZE&#39; df[SIZE] = df[cmip6.FILES].apply(lambda f: os.path.getsize(f)) _r = df.sort_values(SIZE, ascending=False).iloc[20] _r[&#39;FILE_PATH&#39;] &#39;/home/28f6ea40-2d3059-2d4f6b-2d8429-2deb8e956423db/shared-cmip6-for-ns1000k/historical/CESM2/r11i1p1f1/mmrso4_AERmon_CESM2_historical_r11i1p1f1_gn_185001-189912.nc&#39; large_file = &#39;/home/28f6ea40-2d3059-2d4f6b-2d8429-2deb8e956423db/shared-cmip6-for-ns1000k/historical/CESM2/r11i1p1f1/mmrso4_AERmon_CESM2_historical_r11i1p1f1_gn_185001-189912.nc&#39; lets explore the dataset....",
+            "from dask.distributed import Client client = Client(&quot;tcp://127.0.0.1:38150&quot;) client Client Scheduler: tcp://127.0.0.1:38150 Dashboard: http://127.0.0.1:8787/status Cluster Workers: 4 Cores: 4 Memory: 2.15 GB go to the dask array tab (shown below) and click on '&lt;&gt;' from IPython.display import Image Image(filename=&#39;./images/dask.png&#39;,width=400) something similar to the cell below should have being incerted imports from negi_stuff.modules.imps import ( pd, np, xr, za, mpl, plt, sns, pjoin, os, glob, dt, sys, ucp, log, crt, cmip6 ) from pathlib import Path select a large dataset df = cmip6.search_cmip6_hist(wildcard=&#39;mmrso4*&#39;,model=&#39;CESM*&#39;) _ds = df.sort_values([&#39;FORCING&#39;,&#39;REALIZATION&#39;],ascending=[False,True]) _ds = df.sort_values( by = [cmip6.FF,cmip6.RR,cmip6.FF], ascending= [False ,True ,True] ) _dg = _ds.groupby(cmip6.MODEL).first() SIZE =...",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/dask_kernel/dask_kernel.html",
