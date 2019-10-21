@@ -27,22 +27,91 @@
   not_numbered: true
 
 # Add a header and sample content section
-- header: Course program
+- header: Themes and group topics
 
 # A chapter w/ a collection of sections beneath it
-- title: Themes and group topics
-  url: /topics/topics
-  not_numbered: true
-  expand_sections: true
+- title: Group-1
+  url: /topics/group-1/intro
+  not_numbered: false
+  expand_sections: false
   sections:
-  - title: Group-1
-    url: /topics/group-1/intro
-  - title: Group-2
-    url: /topics/group-2/intro
-  - title: Group-3
-    url: /topics/group-3/intro
-  - title: Group-4
-    url: /topics/group-4/intro
+  - title: libe05 project
+    url: /topics/group-1/libe05_test
+  - title: Luis-s21 project
+    url: /topics/group-1/Luis-s21_Project
+  - title: Slijeci project
+    url: /topics/group-1/slijeci_project
+  - title: Tuulivarenka project
+    url: /topics/group-1/tuulivarenka_zeppelin2010_2015_particleplot
+  - title: Presentations
+    url: /topics/group-1/presentations/saturday/presentations
+- title: Group-2
+  url: /topics/group-2/intro
+  not_numbered: false
+  expand_sections: false
+  sections:
+  - title: AOD div
+    url: /topics/group-2/aod_div
+  - title: lassekva Project
+    url: /topics/group-2/lassekva
+  - title: franzihe area averaged AOD Svalbard
+    url: /topics/group-2/franzihe_area_averaged_AOD_Svalbard
+    subsections:
+    - title: Franzihe presentation
+      url: /topics/group-2/franzihe_intermediate_pres
+  - title: Marekrataj read data
+    url: /topics/group-2/marekrataj_read_data
+  - title: Sofiemt DMP
+    url: /topics/group-2/sofiemt_dmp
+  - title: Presentations
+    url: /topics/group-2/presentations/intro
+
+- title: Group-3
+  url: /topics/group-3/intro
+  not_numbered: false
+  expand_sections: false
+  sections:
+  - title: Data to use
+    url: /topics/group-3/data-to-use
+  - title: Maria's project
+    url: /topics/group-3/DeleteMaria
+  - title: Stinsage temperature
+    url: /topics/group-3/stinsage_temperature
+  - title: AOD johan
+    url: /topics/group-3/aod_johan
+  - title: Presentations
+    url: /topics/group-3/presentations/intro
+
+- title: Group-4
+  not_numbered: false
+  expand_sections: false
+  url: /topics/group-4/intro
+  sections:
+  - title: Dinastabell DMP
+    url: /topics/group-4/dinastabell_DMP
+  - title: Olga firus test
+    url: /topics/group-4/olga_firus_test
+  - title: Dominichr1 Test
+    url: /topics/group-4/dominichr1_test
+  - title: Sigridjb topic presentation
+    url: /topics/group-4/sigridjb_topic_presentation
+    subsections:
+    - title: Alert Size distribution
+      url: /topics/group-4/SizeDistNotebooks/Alert_sizedist
+    - title: Tiksi Size distribution
+      url: /topics/group-4/SizeDistNotebooks/Tiksi_sizedist
+    - title: Nord Size distribution
+      url: /topics/group-4/SizeDistNotebooks/Nord_sizedist
+    - title: Zeppelin Size distribution
+      url: /topics/group-4/SizeDistNotebooks/Zeppelin_sizedist
+  - title: NILU size distribution from EBAS
+    url: /topics/group-4/NILU_size_distr_from_ebas
+  - title: References
+    url: /topics/group-4/references
+  - title: Presentations
+    url: /topics/group-4/presentations/intro
+
+- header: Course program
 
 # A chapter w/ a collection of sections beneath it
 - title: Tools
@@ -88,6 +157,16 @@
     url: /contributing/CONTRIBUTING
   - title: Notebook example
     url: /setup/Abisko_prep
+  
+- title: Example notebook report
+  url: /training/example_notebooks/example_notebooks
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: Linn Karlsson, Sizedistributions in NorESM
+    url: /training/example_notebooks/NeGIcourse_2018_LinnKarlsson
+    not_numbered: true
+
 
 # Learning resources
 - title: Learning resources
@@ -107,8 +186,11 @@
     external: true
     not_numbered: true
   - title: Getting started with Git/Github
-    url: /training/intro_github
+    url: /training/github/intro_github
     not_numbered: true
+    subsections: 
+    - title: Synchronize your fork github repository
+      url: /training/github/synchronise_github
   - title: Visualize in Python
     url: /training/visualize/intro
     not_numbered: true
@@ -128,6 +210,11 @@
     - title: Gridded model data dask rolling mean
       url: /training/gridded_model_data_dask_rolling_mean
       not_numbered: true
+    - title: Dask kernel example
+      url: /training/dask_kernel/dask_kernel
+      not_numbered: true
+    - title: Get EBAS data with pydap
+      url: /training/example_notebooks/from_ebas_using_pydap
   - title: Pyaerocom
     url: /training/pyaerocom/intro
     not_numbered: true
@@ -137,6 +224,10 @@
       not_numbered: true   
     - title: pyaerocom EBAS example
       url: /training/pyaerocom/example_ebas_read
+    - title: How to find EBAS files
+      url: /training/pyaerocom/HOWTO_find_EBAS_files
+    - title: How to read EBAS files
+      url: /training/pyaerocom/HOWTO_read_EBAS_files
     - title: Install pyaerocom dev
       url: /training/pyaerocom/local_pyaerocom
   - title: CMIP6 data
@@ -145,6 +236,10 @@
     subsections:
     - title: Plotting CMIP6 data
       url: /training/CMIP6_example
+    - title: CMIP6 data with dask cluster
+      url: /training/CMIP6_dask
+    - title: Search CMIP6 historical data 
+      url: /training/example_search_cmip6_historical
 
 # Divider for meta-pages and content page
 - divider: true

@@ -1,8 +1,8 @@
 # Group-1: Paul Z, Sara, Lance, Lisa
 
 Topics:
-- Climatology low-level clouds
-- BC & clouds (wet and dry removal in the Arctic)
+- Climatology low clouds
+- BC and cloud (wet and dry deposition of BC in the Arctic)
 - OC evaluation
 - Marine organics
 - Artic amp
