@@ -13,6 +13,9 @@ Register at [https://hacktoberfest.digitalocean.com/](https://hacktoberfest.digi
 
 The 3rd course “Climate science at high latitudes: eScience for linking Arctic measurements and modeling” will be held at Abisko Scientific Research Station from 15th until 24th of October 2019.
 
+**[Detailed programme](https://github.com/NordicESMhub/NEGI-Abisko-2019-private/raw/master/program/Abisko%20course%20schedule%20short%2020191019.pdf)**
+
+
 **Coordination**: Paul Zieger (SU), Michael Schulz (UiO/MetNo), and Katja Lauri (UHEL)
 
 The registration has ended August 15th, 2019 (if you are still interested to join, please contact Paul to check for available places). Notification of acceptance will be given at the beginning of September. For more details please contact Paul Zieger.
