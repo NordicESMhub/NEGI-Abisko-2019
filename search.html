@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-22T08:29:34+00:00",
-  "dateModified": "2019-10-22T08:29:34+00:00",
+  "datePublished": "2019-10-22T09:27:18+00:00",
+  "dateModified": "2019-10-22T09:27:18+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -2685,7 +2685,7 @@ initFunction(initPrint)
         "title": "How to handle large files",
         
         "excerpt":
-            "Example to reduce file size in case of memory errors (using pyaerocom) import pyaerocom as pya pya.__version__ &#39;0.8.1.dev4&#39; NOTE: YOU NEED PYAEROCOM v0.8.1.dev4 or larger for this pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Initiating directories for pyaerocom test dataset pya.browse_database(&#39;*SPRIN*&#39;) Pyaerocom ReadGridded --------------------- Data ID: MIROC-SPRINTARS_AP3-CTRL Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/MIROC-SPRINTARS_AP3-CTRL/renamed Available experiments: [&#39;AP3-CTRL&#39;] Available years: [1850, 2010] Available frequencies [&#39;daily&#39; &#39;monthly&#39; &#39;3hourly&#39;] Available variables: [&#39;abs440aer&#39;, &#39;abs550aer&#39;, &#39;abs870aer&#39;, &#39;ac550aer&#39;, &#39;acs550aer&#39;, &#39;airmass&#39;, &#39;airmass3d&#39;, &#39;albsrfc&#39;, &#39;bldep&#39;, &#39;bldepmax&#39;, &#39;bldepmin&#39;, &#39;bs550aer&#39;, &#39;cdnc&#39;, &#39;cheaqpso4&#39;, &#39;chegpso4&#39;, &#39;chepsoa&#39;, &#39;cldncl&#39;, &#39;cli&#39;, &#39;clivi&#39;, &#39;clt&#39;, &#39;clt3d&#39;, &#39;clw&#39;, &#39;convclt&#39;, &#39;dh&#39;, &#39;dms&#39;, &#39;dry550aer&#39;, &#39;drydust&#39;, &#39;dryoa&#39;, &#39;dryso2&#39;, &#39;dryso4&#39;, &#39;dryss&#39;, &#39;dtau&#39;, &#39;dtauc&#39;, &#39;dtaus&#39;, &#39;ec550aer&#39;, &#39;ec550dust&#39;, &#39;ecs550aer&#39;, &#39;eis&#39;, &#39;emibc&#39;, &#39;emidms&#39;,...",
+            "Example to reduce file size in case of memory errors (using pyaerocom) import pyaerocom as pya from warnings import filterwarnings filterwarnings(&#39;ignore&#39;) pya.change_verbosity(&#39;critical&#39;, log=pya.const.print_log) pya.__version__ &#39;0.8.1.dev4&#39; NOTE: YOU NEED PYAEROCOM v0.8.1.dev4 or larger for this DATA_DIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/MIROC-SPRINTARS_AP3-CTRL/renamed/&#39; LARGE_FILE = &#39;aerocom3_MIROC-SPRINTARS_AP3-CTRL_ec550aer_ModelLevel_2010_6hourly.nc&#39; This file has 64 GB filesize data = pya.GriddedData(DATA_DIR + LARGE_FILE, var_name=&#39;ec550aer&#39;) data pyaerocom.GriddedData Grid data: &lt;iris &#39;Cube&#39; of volume_extinction_coefficient_in_air_due_to_ambient_aerosol_particles / (1/Mm) (time: 1460; atmosphere_sigma_coordinate: 56; latitude: 320; longitude: 640)&gt; Extract surface level and crop summer months and arctic region data_surf = data.extract_surface_level() data_surf_cropped = data_surf.crop(time_range=(4, 8), lat_range=(66, 90)) data_surf_cropped pyaerocom.GriddedData Grid data: &lt;iris &#39;Cube&#39; of volume_extinction_coefficient_in_air_due_to_ambient_aerosol_particles / (1/Mm) (time:...",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/HOWTO_handle_large_files.html",

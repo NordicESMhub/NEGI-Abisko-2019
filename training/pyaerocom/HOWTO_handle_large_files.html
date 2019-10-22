@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>How to handle large files</title>
-  <meta name="description" content="        Example to reduce file size in case of memory errors (using pyaerocom)     import pyaerocom as pyapya.__version__    &#39;0.8.1.dev4&#39;NOTE: YOU NE...">
+  <meta name="description" content="        Example to reduce file size in case of memory errors (using pyaerocom)     import pyaerocom as pyafrom warnings import filterwarningsfilterwarnings(&...">
 
   <link rel="canonical" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/HOWTO_handle_large_files.html">
   <link rel="alternate" type="application/rss+xml" title="eScience for linking Arctic measurements and modeling" href="http://nordicesmhub.github.io/NEGI-Abisko-2019/feed.xml">
@@ -16,7 +16,7 @@
   <meta property="og:url"         content="http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/HOWTO_handle_large_files.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="How to handle large files" />
-<meta property="og:description" content="        Example to reduce file size in case of memory errors (using pyaerocom)     import pyaerocom as pyapya.__version__    &#39;0.8.1.dev4&#39;NOTE: YOU NE..." />
+<meta property="og:description" content="        Example to reduce file size in case of memory errors (using pyaerocom)     import pyaerocom as pyafrom warnings import filterwarningsfilterwarnings(&..." />
 <meta property="og:image"       content="http://nordicesmhub.github.io/NEGI-Abisko-2019/images/logo/zeppelin.png" />
 
 <meta name="twitter:card" content="summary">
@@ -28,9 +28,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/HOWTO_handle_large_files.html",
   "headline": "How to handle large files",
-  "datePublished": "2019-10-22T08:29:34+00:00",
-  "dateModified": "2019-10-22T08:29:34+00:00",
-  "description": "        Example to reduce file size in case of memory errors (using pyaerocom)     import pyaerocom as pyapya.__version__    &#39;0.8.1.dev4&#39;NOTE: YOU NE...",
+  "datePublished": "2019-10-22T09:27:18+00:00",
+  "dateModified": "2019-10-22T09:27:18+00:00",
+  "description": "        Example to reduce file size in case of memory errors (using pyaerocom)     import pyaerocom as pyafrom warnings import filterwarningsfilterwarnings(&...",
   "author": {
     "@type": "Person",
     "name": "Anne Fouilloux"
@@ -2238,6 +2238,9 @@ initFunction(initPrint)
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyaerocom</span> <span class="k">as</span> <span class="nn">pya</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">filterwarnings</span>
+<span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">pya</span><span class="o">.</span><span class="n">change_verbosity</span><span class="p">(</span><span class="s1">&#39;critical&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="n">pya</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">print_log</span><span class="p">)</span>
 <span class="n">pya</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 
@@ -2283,7 +2286,37 @@ initFunction(initPrint)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pya</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">BASEDIR</span> <span class="o">=</span> <span class="s1">&#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s1">&#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/MIROC-SPRINTARS_AP3-CTRL/renamed/&#39;</span>
+<span class="n">LARGE_FILE</span> <span class="o">=</span> <span class="s1">&#39;aerocom3_MIROC-SPRINTARS_AP3-CTRL_ec550aer_ModelLevel_2010_6hourly.nc&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>This file has 64 GB filesize</strong></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">GriddedData</span><span class="p">(</span><span class="n">DATA_DIR</span> <span class="o">+</span>  <span class="n">LARGE_FILE</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;ec550aer&#39;</span><span class="p">)</span>
+<span class="n">data</span>
 </pre></div>
 
     </div>
@@ -2296,69 +2329,15 @@ initFunction(initPrint)
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Initiating directories for pyaerocom test dataset
-</pre>
-</div>
-</div>
-</div>
-</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pyaerocom.GriddedData
+Grid data: &lt;iris &#39;Cube&#39; of volume_extinction_coefficient_in_air_due_to_ambient_aerosol_particles / (1/Mm) (time: 1460; atmosphere_sigma_coordinate: 56; latitude: 320; longitude: 640)&gt;</pre>
 </div>
 
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pya</span><span class="o">.</span><span class="n">browse_database</span><span class="p">(</span><span class="s1">&#39;*SPRIN*&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Pyaerocom ReadGridded
----------------------
-Data ID: MIROC-SPRINTARS_AP3-CTRL
-Data directory: /home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/MIROC-SPRINTARS_AP3-CTRL/renamed
-Available experiments: [&#39;AP3-CTRL&#39;]
-Available years: [1850, 2010]
-Available frequencies [&#39;daily&#39; &#39;monthly&#39; &#39;3hourly&#39;]
-Available variables: [&#39;abs440aer&#39;, &#39;abs550aer&#39;, &#39;abs870aer&#39;, &#39;ac550aer&#39;, &#39;acs550aer&#39;, &#39;airmass&#39;, &#39;airmass3d&#39;, &#39;albsrfc&#39;, &#39;bldep&#39;, &#39;bldepmax&#39;, &#39;bldepmin&#39;, &#39;bs550aer&#39;, &#39;cdnc&#39;, &#39;cheaqpso4&#39;, &#39;chegpso4&#39;, &#39;chepsoa&#39;, &#39;cldncl&#39;, &#39;cli&#39;, &#39;clivi&#39;, &#39;clt&#39;, &#39;clt3d&#39;, &#39;clw&#39;, &#39;convclt&#39;, &#39;dh&#39;, &#39;dms&#39;, &#39;dry550aer&#39;, &#39;drydust&#39;, &#39;dryoa&#39;, &#39;dryso2&#39;, &#39;dryso4&#39;, &#39;dryss&#39;, &#39;dtau&#39;, &#39;dtauc&#39;, &#39;dtaus&#39;, &#39;ec550aer&#39;, &#39;ec550dust&#39;, &#39;ecs550aer&#39;, &#39;eis&#39;, &#39;emibc&#39;, &#39;emidms&#39;, &#39;emidust&#39;, &#39;emioa&#39;, &#39;emiso2&#39;, &#39;emiss&#39;, &#39;evspsbl&#39;, &#39;hfls&#39;, &#39;hfss&#39;, &#39;hus&#39;, &#39;isop&#39;, &#39;lai&#39;, &#39;loadbc&#39;, &#39;loaddms&#39;, &#39;loaddust&#39;, &#39;loadoa&#39;, &#39;loadso2&#39;, &#39;loadso4&#39;, &#39;loadss&#39;, &#39;lts&#39;, &#39;lwp&#39;, &#39;mmraerh2o&#39;, &#39;mmrbc&#39;, &#39;mmrdust&#39;, &#39;mmroa&#39;, &#39;mmrpm10&#39;, &#39;mmrpm2p5&#39;, &#39;mmrso4&#39;, &#39;mmrss&#39;, &#39;mtp&#39;, &#39;od440aer&#39;, &#39;od550aer&#39;, &#39;od550aerh2o&#39;, &#39;od550bc&#39;, &#39;od550csaer&#39;, &#39;od550cslt1aer&#39;, &#39;od550dust&#39;, &#39;od550lt1aer&#39;, &#39;od550lt1dust&#39;, &#39;od550lt1ss&#39;, &#39;od550oa&#39;, &#39;od550so4&#39;, &#39;od550ss&#39;, &#39;od870aer&#39;, &#39;pfull&#39;, &#39;phalf&#39;, &#39;pr&#39;, &#39;prc&#39;, &#39;prl&#39;, &#39;prsn&#39;, &#39;prw&#39;, &#39;ps&#39;, &#39;pt&#39;, &#39;ptp&#39;, &#39;reffclwtop&#39;, &#39;rh&#39;, &#39;rho&#39;, &#39;rhs&#39;, &#39;rld&#39;, &#39;rldcs&#39;, &#39;rlds&#39;, &#39;rldscs&#39;, &#39;rlu&#39;, &#39;rlucs&#39;, &#39;rlus&#39;, &#39;rluscs&#39;, &#39;rlut&#39;, &#39;rlutca&#39;, &#39;rlutcs&#39;, &#39;rlutcsca&#39;, &#39;rsd&#39;, &#39;rsdcs&#39;, &#39;rsds&#39;, &#39;rsdscs&#39;, &#39;rsdt&#39;, &#39;rsu&#39;, &#39;rsucs&#39;, &#39;rsus&#39;, &#39;rsut&#39;, &#39;rsutca&#39;, &#39;rsutcs&#39;, &#39;rsutcsca&#39;, &#39;sic&#39;, &#39;snc&#39;, &#39;so2&#39;, &#39;ta&#39;, &#39;tas&#39;, &#39;tasmax&#39;, &#39;tasmin&#39;, &#39;tatp&#39;, &#39;tntrl&#39;, &#39;tntrs&#39;, &#39;tos&#39;, &#39;ts&#39;, &#39;ua&#39;, &#39;ua10&#39;, &#39;uas&#39;, &#39;va&#39;, &#39;vas&#39;, &#39;wa&#39;, &#39;wetbc&#39;, &#39;wetdust&#39;, &#39;wetoa&#39;, &#39;wetso2&#39;, &#39;wetso4&#39;, &#39;wetss&#39;, &#39;zg&#39;, &#39;zg1000&#39;, &#39;zg500&#39;, &#39;ztp&#39;]
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">ReadGridded</span><span class="p">(</span><span class="s1">&#39;MIROC-SPRINTARS_AP3-CTRL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read_var</span><span class="p">(</span><span class="s1">&#39;mmrso4&#39;</span><span class="p">,</span> <span class="n">ts_type</span><span class="o">=</span><span class="s1">&#39;3hourly&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
 
@@ -2417,7 +2396,7 @@ Available variables: [&#39;abs440aer&#39;, &#39;abs550aer&#39;, &#39;abs870aer&#
 
 <div class="output_text output_subarea output_execute_result">
 <pre>pyaerocom.GriddedData
-Grid data: &lt;iris &#39;Cube&#39; of mass_fraction_of_sulfate_dry_aerosol_particles_in_air / (kg kg-1) (time: 4; latitude: 43; longitude: 640)&gt;</pre>
+Grid data: &lt;iris &#39;Cube&#39; of volume_extinction_coefficient_in_air_due_to_ambient_aerosol_particles / (1/Mm) (time: 4; latitude: 43; longitude: 640)&gt;</pre>
 </div>
 
 </div>
@@ -2507,7 +2486,7 @@ Grid data: &lt;iris &#39;Cube&#39; of mass_fraction_of_sulfate_dry_aerosol_parti
 
 <div class="output_text output_subarea output_execute_result">
 <pre>pyaerocom.GriddedData
-Grid data: &lt;iris &#39;Cube&#39; of mass_fraction_of_sulfate_dry_aerosol_particles_in_air / (kg kg-1) (time: 4; latitude: 43; longitude: 640)&gt;</pre>
+Grid data: &lt;iris &#39;Cube&#39; of volume_extinction_coefficient_in_air_due_to_ambient_aerosol_particles / (1/Mm) (time: 4; latitude: 43; longitude: 640)&gt;</pre>
 </div>
 
 </div>
@@ -2525,7 +2504,7 @@ Grid data: &lt;iris &#39;Cube&#39; of mass_fraction_of_sulfate_dry_aerosol_parti
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reloaded_subset</span><span class="o">.</span><span class="n">quickplot_map</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reloaded_subset</span><span class="o">.</span><span class="n">quickplot_map</span><span class="p">();</span>
 </pre></div>
 
     </div>
@@ -2538,34 +2517,10 @@ Grid data: &lt;iris &#39;Cube&#39; of mass_fraction_of_sulfate_dry_aerosol_parti
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/lib/python3.7/site-packages/iris/analysis/cartography.py:394: UserWarning: Using DEFAULT_SPHERICAL_EARTH_RADIUS.
-  warnings.warn(&#34;Using DEFAULT_SPHERICAL_EARTH_RADIUS.&#34;)
-/opt/conda/lib/python3.7/site-packages/iris/coords.py:1353: UserWarning: Collapsing a multi-dimensional coordinate. Metadata may not be fully descriptive for &#39;surface_air_pressure&#39;.
-  warnings.warn(msg.format(self.name()))
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea output_execute_result">
-<img src="../../images/training/pyaerocom/HOWTO_handle_large_files_13_1.png"
->
-</div>
-
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
 
 
 <div class="output_png output_subarea ">
-<img src="../../images/training/pyaerocom/HOWTO_handle_large_files_13_2.png"
+<img src="../../images/training/pyaerocom/HOWTO_handle_large_files_13_0.png"
 >
 </div>
 
