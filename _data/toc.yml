@@ -29,6 +29,14 @@
 # Add a header and sample content section
 - header: Themes and group topics
 
+- title: Report guidelines
+  url: /topics/report/intro
+  not_numbered: false
+  expand_sections: false
+  section:
+  - title: Peer review matching timeline notebook
+    url: /topics/report/Peer-review-matching_timeline_and_guidelines
+
 # A chapter w/ a collection of sections beneath it
 - title: Group-1
   url: /topics/group-1/intro
