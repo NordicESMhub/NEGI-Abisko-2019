@@ -1,6 +1,6 @@
 # What is Version Control?
 
-*from [CodeRefinery](https://coderefinery.github.io) training material.*
+*from [CodeRefinery](https://coderefinery.org) training material.*
 
 The management of changes to documents, computer programs, large web sites, and other collections of information.
 

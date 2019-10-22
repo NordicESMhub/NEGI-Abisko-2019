@@ -4,3 +4,5 @@ content/training/pyaerocom/TM5_AP3-CTRL2019/
 content/training/pyaerocom/logfiles/CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED/AeronetSunV3Lev2.daily_20191018.log
 content/training/pyaerocom/logfiles/TM5_AP3-CTRL2019/
 content/training/pyaerocom/od550aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2019_20100101_20101231_monthly_WORLD-wMOUNTAINS.nc
+content/training/pyaerocom/SPRINTARS_extract.nc
+.ipynb_checkpoints
