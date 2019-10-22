@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-22T10:25:19+00:00",
-  "dateModified": "2019-10-22T10:25:19+00:00",
+  "datePublished": "2019-10-22T11:54:40+00:00",
+  "dateModified": "2019-10-22T11:54:40+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -2341,7 +2341,7 @@ initFunction(initPrint)
         "title": "franzihe area averaged AOD Svalbard",
         
         "excerpt":
-            "CMIP6 AOPD/AOT comparison against ground-based and satellite remote sensing compare CMIP6 with MERRA2 Visualiztion of AOD for Svalbard area 5E, 72N - 27E, 83N import xarray as xr import numpy as np import matplotlib.pyplot as plt import cartopy.crs as ccrs import seaborn as sns import pandas as pd from glob import glob # set plotting style plt.style.use(&#39;ggplot&#39;) sns.set_context(&#39;paper&#39;) sns.set(font = &#39;Serif&#39;, font_scale = 1.5, ) sns.set_style(&#39;darkgrid&#39;, {&#39;font.family&#39;:&#39;serif&#39;, #&#39;font.serif&#39;:&#39;Helvetica&#39; &#39;grid.linestyle&#39;: &#39;--&#39; }, ) Choose a year you want to plot #choseny = &#39;2006&#39; # arctic haze year #choseny = &#39;1992&#39; # year after Pinatubo erruption #### Russian Vulcano eruptions: #choseny =...",
+            "CMIP6 AOPD/AOT comparison against ground-based and satellite remote sensing compare CMIP6 with MERRA2 Visualiztion of AOD for Svalbard area 5E, 72N - 27E, 83N from dask.distributed import Client client = Client(n_workers=2, threads_per_worker=2, memory_limit=&#39;2GB&#39;) client chunks={ &#39;time&#39; : 10, } client Client Scheduler: tcp://127.0.0.1:35655 Dashboard: http://127.0.0.1:8787/status Cluster Workers: 2 Cores: 4 Memory: 4.00 GB import xarray as xr import numpy as np import matplotlib.pyplot as plt import cartopy.crs as ccrs import seaborn as sns import pandas as pd import pyaerocom as pya from glob import glob from functions import masked_average pya.change_verbosity(&#39;critical&#39;, log=pya.const.print_log) # don&#39;t output warnings pya.__version__ /opt/conda/lib/python3.7/site-packages/geonum/__init__.py:39: UserWarning: Plotting of...",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-2/franzihe_area_averaged_AOD_Svalbard.html",
