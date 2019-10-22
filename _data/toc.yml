@@ -33,9 +33,11 @@
   url: /topics/report/intro
   not_numbered: false
   expand_sections: false
-  section:
+  sections:
   - title: Peer review matching timeline notebook
     url: /topics/report/Peer-review-matching_timeline_and_guidelines
+  - title: Notebook for presentation
+    url: /topics/report/presentation
 
 # A chapter w/ a collection of sections beneath it
 - title: Group-1
