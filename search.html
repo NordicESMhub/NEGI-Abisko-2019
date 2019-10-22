@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-10-22T11:54:40+00:00",
-  "dateModified": "2019-10-22T11:54:40+00:00",
+  "datePublished": "2019-10-22T13:39:12+00:00",
+  "dateModified": "2019-10-22T13:39:12+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -820,6 +820,56 @@ initFunction(initPrint)
           Report guidelines
         </a>
 
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/NEGI-Abisko-2019/topics/report/Peer-review-matching_timeline_and_guidelines.html"
+                >
+                  
+                    1.1
+                  
+                  Peer review matching timeline notebook
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/NEGI-Abisko-2019/topics/report/presentation.html"
+                >
+                  
+                    1.2
+                  
+                  Notebook for presentation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
         
       </li>
 
@@ -2538,6 +2588,14 @@ initFunction(initPrint)
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/sigridjb_topic_presentation.html",
         "teaser":null},{
+        "title": "Peer review matching timeline notebook",
+        
+        "excerpt":
+            "NeGI 2019 course in Abisko, Sweden. 21.10.2019, Paul Zieger Load Packages import random import matplotlib.pyplot as plt %matplotlib inline import numpy as np import time from palettable.colorbrewer.sequential import Blues_8 ax.imshow(data, cmap=Blues_8.mpl_colormap) --------------------------------------------------------------------------- ModuleNotFoundError Traceback (most recent call last) &lt;ipython-input-6-56499198de8f&gt; in &lt;module&gt; ----&gt; 1 from palettable.colorbrewer.sequential import Blues_8 2 ax.imshow(data, cmap=Blues_8.mpl_colormap) ModuleNotFoundError: No module named &#39;palettable&#39; List with participating students negi_group=[&#39;Sigrid&#39;,&#39;Ingeborg&#39;,&#39;Goutam&#39;,&#39;Gabriel&#39;,&#39;Eemeli&#39;,&#39;Johanne&#39;, &#39;Herman&#39;,&#39;Johannes&#39;,&#39;Jakob&#39;,&#39;Marit&#39;,&#39;Aiden&#39;,&#39;Bjørn&#39;, &#39;Lasse&#39;,&#39;Stine&#39;,&#39;Sofie&#39;,&#39;Dina&#39;,&#39;Silje&#39;,&#39;Dominic&#39;,&#39;Tuuli&#39;, &#39;Marek&#39;,&#39;Luis&#39;,&#39;Jonah&#39;,&#39;Johan&#39;,&#39;Franziska&#39;,&#39;Jolanta&#39;,&#39;Lance&#39;] Results Random picking from a list to match peer-review partners. Show results in a figure. ## Figure with plt.xkcd(): negi_group_dum=negi_group.copy() plt.figure(figsize=(9, 7)) for i in range(0,len(negi_group)): name_dum=negi_group[i] while name_dum == negi_group[i]: name_dum=random.choice(negi_group_dum) negi_group_dum.remove(name_dum) plt.plot([1,3],[i,negi_group.index(name_dum)],&#39;-o&#39;) plt.text(0.9,i,negi_group[i],horizontalalignment=&#39;right&#39;, verticalalignment=&#39;center&#39;,color=&#39;black&#39;) plt.text(3.1,i,negi_group[i],horizontalalignment=&#39;left&#39;,...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/report/Peer-review-matching_timeline_and_guidelines.html",
+        "teaser":null},{
         "title": "Report guidelines",
         
         "excerpt":
@@ -2545,6 +2603,14 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/report/intro.html",
+        "teaser":null},{
+        "title": "Notebook for presentation",
+        
+        "excerpt":
+            "How to generate slides from a Jupyter notebook JupyterLab Cell tag editor In order to export your notebooks as Reveal.js slides, follow these steps: Open a notebook by double clicking it in the file browser. Select Cell tools in the left sidebar. Select the slide type (Slide, Subslide, Fragment, Skip, Notes). Cell tag Type of slides Slide: New slide Sub-Slides: New section within a topic. Cells with this marker will be placed on a new slide underneath the previous slide. Fragments: Additional information that adds to an existing slide or sub-slide. -: additional information that appears at the same time...",
+        "categories": [],
+        "tags": [],
+        "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/report/presentation.html",
         "teaser":null},{
         "title": "CMIP6 data with dask cluster",
         
