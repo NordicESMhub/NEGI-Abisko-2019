@@ -1,0 +1,808 @@
+
+------------------ NEW ----------------
+Timestamp: 17-10-2019 09:17
+
+Analysis configuration
+save_coldata: True
+obs_vars: ['ang4487aer']
+obs_vars_rename: {}
+obs_vert_type: None
+model_vert_type_alt: None
+read_opts_ungridded: None
+obs_ts_type_read: None
+model_use_vars: None
+model_add_vars: None
+model_keep_outliers: True
+model_id: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+model_name: None
+obs_id: AeronetSunV3Lev2.daily
+obs_name: None
+obs_keep_outliers: False
+start: 2010
+stop: None
+ts_type: monthly
+filter_name: WORLD-noMOUNTAINS
+remove_outliers: True
+apply_time_resampling_constraints: True
+min_num_obs: {'yearly': {'monthly': 3}, 'monthly': {'daily': 7}, 'daily': {'hourly': 6}, 'hourly': {'minutely': 15}}
+var_outlier_ranges: None
+var_ref_outlier_ranges: None
+harmonise_units: False
+vert_scheme: None
+regrid_res_deg: None
+ignore_station_names: None
+basedir_coldata: .
+model_ts_type_read: None
+model_read_aux: None
+model_use_climatology: False
+colocate_time: False
+flex_ts_type_gridded: True
+reanalyse_existing: True
+raise_exceptions: False
+_log: <_io.TextIOWrapper name='./logfiles/CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED/AeronetSunV3Lev2.daily_20191017.log' mode='a+' encoding='UTF-8'>
+logging: True
+data: {'TM5_AP3-CTRL2919': {'ang4487aer': <xarray.DataArray 'ang4487aer' (data_source: 2, time: 12, station_name: 264)>
+array([[[     nan, 1.128966, ...,      nan, 0.259995],
+        [     nan, 0.890816, ...,      nan, 0.305093],
+        ...,
+        [1.346214, 0.934353, ...,      nan, 0.494529],
+        [     nan,      nan, ...,      nan, 0.489275]],
+
+       [[0.867116, 0.737737, ..., 1.355472, 0.622317],
+        [0.9829  , 0.305702, ..., 1.235905, 0.443166],
+        ...,
+        [1.284731, 0.657773, ..., 1.386418, 0.62829 ],
+        [1.142794, 0.750162, ..., 1.374116, 0.413073]]])
+Coordinates:
+  * data_source   (data_source) <U22 'AeronetSunV3Lev2.daily' 'TM5_AP3-CTRL2919'
+    var_name      (data_source) <U10 'ang4487aer' 'ang4487aer'
+    var_units     (data_source) <U1 '1' '1'
+    ts_type_src   (data_source) <U7 'daily' 'monthly'
+  * time          (time) datetime64[ns] 2010-01-01 2010-02-01 ... 2010-12-01
+  * station_name  (station_name) <U19 'ARM_Darwin' ... 'Zinder_Airport'
+    latitude      (station_name) float64 -12.43 37.97 15.35 ... 62.45 13.78
+    longitude     (station_name) float64 130.9 23.72 -1.479 ... -114.4 8.99
+    altitude      (station_name) float64 29.9 130.0 305.0 ... 300.0 220.8 456.0
+Attributes:
+    data_source:        ['AeronetSunV3Lev2.daily', 'TM5_AP3-CTRL2919']
+    var_name:           ['ang4487aer', 'ang4487aer']
+    ts_type:            monthly
+    filter_name:        WORLD-noMOUNTAINS
+    ts_type_src:        ['daily', 'monthly']
+    start_str:          20100101
+    stop_str:           20101231
+    var_units:          ['1', '1']
+    vert_scheme:        None
+    data_level:         3
+    revision_ref:       20190920
+    from_files:         ['aerocom3_TM5_AP3-CTRL2019_od440aer_Column_2010_mont...
+    from_files_ref:     None
+    stations_ignored:   None
+    colocate_time:      0
+    apply_constraints:  1
+    outliers_removed:   1
+    region:             WORLD
+    lon_range:          [-180, 180]
+    lat_range:          [-90, 90]
+    alt_range:          [-1000000.0, 1000.0]
+    _min_num_obs:       yearly,monthly,3;monthly,daily,7;daily,hourly,6;hourl...}}
+file_status: {'ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc': 'saved'}
+
+
+Model: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
+
+------------------ NEW ----------------
+Timestamp: 17-10-2019 09:20
+
+Analysis configuration
+save_coldata: True
+obs_vars: ['ang4487aer']
+obs_vars_rename: {}
+obs_vert_type: None
+model_vert_type_alt: None
+read_opts_ungridded: None
+obs_ts_type_read: None
+model_use_vars: None
+model_add_vars: None
+model_keep_outliers: True
+model_id: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+model_name: None
+obs_id: AeronetSunV3Lev2.daily
+obs_name: None
+obs_keep_outliers: False
+start: 2010
+stop: None
+ts_type: monthly
+filter_name: WORLD-noMOUNTAINS
+remove_outliers: True
+apply_time_resampling_constraints: True
+min_num_obs: {'yearly': {'monthly': 3}, 'monthly': {'daily': 7}, 'daily': {'hourly': 6}, 'hourly': {'minutely': 15}}
+var_outlier_ranges: None
+var_ref_outlier_ranges: None
+harmonise_units: False
+vert_scheme: None
+regrid_res_deg: None
+ignore_station_names: None
+basedir_coldata: .
+model_ts_type_read: None
+model_read_aux: None
+model_use_climatology: False
+colocate_time: False
+flex_ts_type_gridded: True
+reanalyse_existing: True
+raise_exceptions: False
+_log: <_io.TextIOWrapper name='./logfiles/CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED/AeronetSunV3Lev2.daily_20191017.log' mode='a+' encoding='UTF-8'>
+logging: True
+data: {'TM5_AP3-CTRL2919': {'ang4487aer': <xarray.DataArray 'ang4487aer' (data_source: 2, time: 12, station_name: 264)>
+array([[[     nan, 1.128966, ...,      nan, 0.259995],
+        [     nan, 0.890816, ...,      nan, 0.305093],
+        ...,
+        [1.346214, 0.934353, ...,      nan, 0.494529],
+        [     nan,      nan, ...,      nan, 0.489275]],
+
+       [[0.867116, 0.737737, ..., 1.355472, 0.622317],
+        [0.9829  , 0.305702, ..., 1.235905, 0.443166],
+        ...,
+        [1.284731, 0.657773, ..., 1.386418, 0.62829 ],
+        [1.142794, 0.750162, ..., 1.374116, 0.413073]]])
+Coordinates:
+  * data_source   (data_source) <U22 'AeronetSunV3Lev2.daily' 'TM5_AP3-CTRL2919'
+    var_name      (data_source) <U10 'ang4487aer' 'ang4487aer'
+    var_units     (data_source) <U1 '1' '1'
+    ts_type_src   (data_source) <U7 'daily' 'monthly'
+  * time          (time) datetime64[ns] 2010-01-01 2010-02-01 ... 2010-12-01
+  * station_name  (station_name) <U19 'ARM_Darwin' ... 'Zinder_Airport'
+    latitude      (station_name) float64 -12.43 37.97 15.35 ... 62.45 13.78
+    longitude     (station_name) float64 130.9 23.72 -1.479 ... -114.4 8.99
+    altitude      (station_name) float64 29.9 130.0 305.0 ... 300.0 220.8 456.0
+Attributes:
+    data_source:        ['AeronetSunV3Lev2.daily', 'TM5_AP3-CTRL2919']
+    var_name:           ['ang4487aer', 'ang4487aer']
+    ts_type:            monthly
+    filter_name:        WORLD-noMOUNTAINS
+    ts_type_src:        ['daily', 'monthly']
+    start_str:          20100101
+    stop_str:           20101231
+    var_units:          ['1', '1']
+    vert_scheme:        None
+    data_level:         3
+    revision_ref:       20190920
+    from_files:         ['aerocom3_TM5_AP3-CTRL2019_od440aer_Column_2010_mont...
+    from_files_ref:     None
+    stations_ignored:   None
+    colocate_time:      0
+    apply_constraints:  1
+    outliers_removed:   1
+    region:             WORLD
+    lon_range:          [-180, 180]
+    lat_range:          [-90, 90]
+    alt_range:          [-1000000.0, 1000.0]
+    _min_num_obs:       yearly,monthly,3;monthly,daily,7;daily,hourly,6;hourl...}}
+file_status: {'ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc': 'saved'}
+
+
+Model: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
+
+------------------ NEW ----------------
+Timestamp: 17-10-2019 10:04
+
+Analysis configuration
+save_coldata: True
+obs_vars: ['ang4487aer']
+obs_vars_rename: {}
+obs_vert_type: None
+model_vert_type_alt: None
+read_opts_ungridded: None
+obs_ts_type_read: None
+model_use_vars: None
+model_add_vars: None
+model_keep_outliers: True
+model_id: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+model_name: None
+obs_id: AeronetSunV3Lev2.daily
+obs_name: None
+obs_keep_outliers: False
+start: 2010
+stop: None
+ts_type: monthly
+filter_name: WORLD-noMOUNTAINS
+remove_outliers: True
+apply_time_resampling_constraints: True
+min_num_obs: {'yearly': {'monthly': 3}, 'monthly': {'daily': 7}, 'daily': {'hourly': 6}, 'hourly': {'minutely': 15}}
+var_outlier_ranges: None
+var_ref_outlier_ranges: None
+harmonise_units: False
+vert_scheme: None
+regrid_res_deg: None
+ignore_station_names: None
+basedir_coldata: .
+model_ts_type_read: None
+model_read_aux: None
+model_use_climatology: False
+colocate_time: False
+flex_ts_type_gridded: True
+reanalyse_existing: True
+raise_exceptions: False
+_log: <_io.TextIOWrapper name='./logfiles/CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED/AeronetSunV3Lev2.daily_20191017.log' mode='a+' encoding='UTF-8'>
+logging: True
+data: {'TM5_AP3-CTRL2919': {'ang4487aer': <xarray.DataArray 'ang4487aer' (data_source: 2, time: 12, station_name: 264)>
+array([[[     nan, 1.128966, ...,      nan, 0.259995],
+        [     nan, 0.890816, ...,      nan, 0.305093],
+        ...,
+        [1.346214, 0.934353, ...,      nan, 0.494529],
+        [     nan,      nan, ...,      nan, 0.489275]],
+
+       [[0.867116, 0.737737, ..., 1.355472, 0.622317],
+        [0.9829  , 0.305702, ..., 1.235905, 0.443166],
+        ...,
+        [1.284731, 0.657773, ..., 1.386418, 0.62829 ],
+        [1.142794, 0.750162, ..., 1.374116, 0.413073]]])
+Coordinates:
+  * data_source   (data_source) <U22 'AeronetSunV3Lev2.daily' 'TM5_AP3-CTRL2919'
+    var_name      (data_source) <U10 'ang4487aer' 'ang4487aer'
+    var_units     (data_source) <U1 '1' '1'
+    ts_type_src   (data_source) <U7 'daily' 'monthly'
+  * time          (time) datetime64[ns] 2010-01-01 2010-02-01 ... 2010-12-01
+  * station_name  (station_name) <U19 'ARM_Darwin' ... 'Zinder_Airport'
+    latitude      (station_name) float64 -12.43 37.97 15.35 ... 62.45 13.78
+    longitude     (station_name) float64 130.9 23.72 -1.479 ... -114.4 8.99
+    altitude      (station_name) float64 29.9 130.0 305.0 ... 300.0 220.8 456.0
+Attributes:
+    data_source:        ['AeronetSunV3Lev2.daily', 'TM5_AP3-CTRL2919']
+    var_name:           ['ang4487aer', 'ang4487aer']
+    ts_type:            monthly
+    filter_name:        WORLD-noMOUNTAINS
+    ts_type_src:        ['daily', 'monthly']
+    start_str:          20100101
+    stop_str:           20101231
+    var_units:          ['1', '1']
+    vert_scheme:        None
+    data_level:         3
+    revision_ref:       20190920
+    from_files:         ['aerocom3_TM5_AP3-CTRL2019_od440aer_Column_2010_mont...
+    from_files_ref:     None
+    stations_ignored:   None
+    colocate_time:      0
+    apply_constraints:  1
+    outliers_removed:   1
+    region:             WORLD
+    lon_range:          [-180, 180]
+    lat_range:          [-90, 90]
+    alt_range:          [-1000000.0, 1000.0]
+    _min_num_obs:       yearly,monthly,3;monthly,daily,7;daily,hourly,6;hourl...}}
+file_status: {'ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc': 'saved'}
+
+
+Model: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
+
+------------------ NEW ----------------
+Timestamp: 17-10-2019 10:24
+
+Analysis configuration
+save_coldata: True
+obs_vars: ['ang4487aer']
+obs_vars_rename: {}
+obs_vert_type: None
+model_vert_type_alt: None
+read_opts_ungridded: None
+obs_ts_type_read: None
+model_use_vars: None
+model_add_vars: None
+model_keep_outliers: True
+model_id: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+model_name: None
+obs_id: AeronetSunV3Lev2.daily
+obs_name: None
+obs_keep_outliers: False
+start: 2010
+stop: None
+ts_type: monthly
+filter_name: WORLD-noMOUNTAINS
+remove_outliers: True
+apply_time_resampling_constraints: True
+min_num_obs: {'yearly': {'monthly': 3}, 'monthly': {'daily': 7}, 'daily': {'hourly': 6}, 'hourly': {'minutely': 15}}
+var_outlier_ranges: None
+var_ref_outlier_ranges: None
+harmonise_units: False
+vert_scheme: None
+regrid_res_deg: None
+ignore_station_names: None
+basedir_coldata: .
+model_ts_type_read: None
+model_read_aux: None
+model_use_climatology: False
+colocate_time: False
+flex_ts_type_gridded: True
+reanalyse_existing: True
+raise_exceptions: False
+_log: <_io.TextIOWrapper name='./logfiles/CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED/AeronetSunV3Lev2.daily_20191017.log' mode='a+' encoding='UTF-8'>
+logging: True
+data: {'TM5_AP3-CTRL2919': {'ang4487aer': <xarray.DataArray 'ang4487aer' (data_source: 2, time: 12, station_name: 264)>
+array([[[     nan, 1.128966, ...,      nan, 0.259995],
+        [     nan, 0.890816, ...,      nan, 0.305093],
+        ...,
+        [1.346214, 0.934353, ...,      nan, 0.494529],
+        [     nan,      nan, ...,      nan, 0.489275]],
+
+       [[0.867116, 0.737737, ..., 1.355472, 0.622317],
+        [0.9829  , 0.305702, ..., 1.235905, 0.443166],
+        ...,
+        [1.284731, 0.657773, ..., 1.386418, 0.62829 ],
+        [1.142794, 0.750162, ..., 1.374116, 0.413073]]])
+Coordinates:
+  * data_source   (data_source) <U22 'AeronetSunV3Lev2.daily' 'TM5_AP3-CTRL2919'
+    var_name      (data_source) <U10 'ang4487aer' 'ang4487aer'
+    var_units     (data_source) <U1 '1' '1'
+    ts_type_src   (data_source) <U7 'daily' 'monthly'
+  * time          (time) datetime64[ns] 2010-01-01 2010-02-01 ... 2010-12-01
+  * station_name  (station_name) <U19 'ARM_Darwin' ... 'Zinder_Airport'
+    latitude      (station_name) float64 -12.43 37.97 15.35 ... 62.45 13.78
+    longitude     (station_name) float64 130.9 23.72 -1.479 ... -114.4 8.99
+    altitude      (station_name) float64 29.9 130.0 305.0 ... 300.0 220.8 456.0
+Attributes:
+    data_source:        ['AeronetSunV3Lev2.daily', 'TM5_AP3-CTRL2919']
+    var_name:           ['ang4487aer', 'ang4487aer']
+    ts_type:            monthly
+    filter_name:        WORLD-noMOUNTAINS
+    ts_type_src:        ['daily', 'monthly']
+    start_str:          20100101
+    stop_str:           20101231
+    var_units:          ['1', '1']
+    vert_scheme:        None
+    data_level:         3
+    revision_ref:       20190920
+    from_files:         ['aerocom3_TM5_AP3-CTRL2019_od440aer_Column_2010_mont...
+    from_files_ref:     None
+    stations_ignored:   None
+    colocate_time:      0
+    apply_constraints:  1
+    outliers_removed:   1
+    region:             WORLD
+    lon_range:          [-180, 180]
+    lat_range:          [-90, 90]
+    alt_range:          [-1000000.0, 1000.0]
+    _min_num_obs:       yearly,monthly,3;monthly,daily,7;daily,hourly,6;hourl...}}
+file_status: {'ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2919_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc': 'saved'}
+
+
+Model: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
+
+------------------ NEW ----------------
+Timestamp: 17-10-2019 14:17
+
+Analysis configuration
+save_coldata: True
+obs_vars: ['ang4487aer']
+obs_vars_rename: {}
+obs_vert_type: None
+model_vert_type_alt: None
+read_opts_ungridded: None
+obs_ts_type_read: None
+model_use_vars: None
+model_add_vars: None
+model_keep_outliers: True
+model_id: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+model_name: None
+obs_id: AeronetSunV3Lev2.daily
+obs_name: None
+obs_keep_outliers: False
+start: 2010
+stop: None
+ts_type: monthly
+filter_name: WORLD-noMOUNTAINS
+remove_outliers: True
+apply_time_resampling_constraints: True
+min_num_obs: {'yearly': {'monthly': 3}, 'monthly': {'daily': 7}, 'daily': {'hourly': 6}, 'hourly': {'minutely': 15}}
+var_outlier_ranges: None
+var_ref_outlier_ranges: None
+harmonise_units: False
+vert_scheme: None
+regrid_res_deg: None
+ignore_station_names: None
+basedir_coldata: .
+model_ts_type_read: None
+model_read_aux: None
+model_use_climatology: False
+colocate_time: False
+flex_ts_type_gridded: True
+reanalyse_existing: True
+raise_exceptions: False
+_log: <_io.TextIOWrapper name='./logfiles/CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED/AeronetSunV3Lev2.daily_20191017.log' mode='a+' encoding='UTF-8'>
+logging: True
+data: {'TM5_AP3-CTRL2019': {'ang4487aer': <xarray.DataArray 'ang4487aer' (data_source: 2, time: 12, station_name: 264)>
+array([[[       nan, 1.128966  ,        nan, ...,        nan,
+                nan, 0.25999457],
+        [       nan, 0.89081575,        nan, ..., 1.12947156,
+                nan, 0.30509289],
+        [       nan, 1.12122509,        nan, ..., 1.14267986,
+                nan, 0.13727079],
+        ...,
+        [0.97128121, 1.2908889 ,        nan, ..., 1.56412958,
+         1.0926709 , 0.39523561],
+        [1.34621412, 0.934353  ,        nan, ...,        nan,
+                nan, 0.49452866],
+        [       nan,        nan,        nan, ...,        nan,
+                nan, 0.4892751 ]],
+
+       [[0.86711586, 0.73773724, 0.52013141, ..., 1.39102662,
+         1.35547209, 0.62231678],
+        [0.98289979, 0.30570188, 0.58608049, ..., 1.23340809,
+         1.23590493, 0.44316554],
+        [0.57381302, 0.59244061, 0.15318914, ..., 1.31365597,
+         1.16984105, 0.19862083],
+        ...,
+        [0.8841635 , 0.85821074, 1.01289105, ..., 1.36450207,
+         1.38448656, 0.95568919],
+        [1.28473127, 0.65777272, 0.54912972, ..., 1.26303518,
+         1.3864181 , 0.62829041],
+        [1.14279449, 0.75016189, 0.47216135, ..., 1.05199301,
+         1.37411582, 0.41307265]]])
+Coordinates:
+  * data_source   (data_source) <U22 'AeronetSunV3Lev2.daily' 'TM5_AP3-CTRL2019'
+    var_name      (data_source) <U10 'ang4487aer' 'ang4487aer'
+    var_units     (data_source) <U1 '1' '1'
+    ts_type_src   (data_source) <U7 'daily' 'monthly'
+  * time          (time) datetime64[ns] 2010-01-01 2010-02-01 ... 2010-12-01
+  * station_name  (station_name) <U19 'ARM_Darwin' ... 'Zinder_Airport'
+    latitude      (station_name) float64 -12.43 37.97 15.35 ... 62.45 13.78
+    longitude     (station_name) float64 130.9 23.72 -1.479 ... -114.4 8.99
+    altitude      (station_name) float64 29.9 130.0 305.0 ... 300.0 220.8 456.0
+Attributes:
+    data_source:        ['AeronetSunV3Lev2.daily', 'TM5_AP3-CTRL2019']
+    var_name:           ['ang4487aer', 'ang4487aer']
+    ts_type:            monthly
+    filter_name:        WORLD-noMOUNTAINS
+    ts_type_src:        ['daily', 'monthly']
+    start_str:          20100101
+    stop_str:           20101231
+    var_units:          ['1', '1']
+    vert_scheme:        None
+    data_level:         3
+    revision_ref:       20190920
+    from_files:         ['aerocom3_TM5_AP3-CTRL2019_od440aer_Column_2010_mont...
+    from_files_ref:     None
+    stations_ignored:   None
+    colocate_time:      0
+    apply_constraints:  1
+    outliers_removed:   1
+    region:             WORLD
+    lon_range:          [-180, 180]
+    lat_range:          [-90, 90]
+    alt_range:          [-1000000.0, 1000.0]
+    _min_num_obs:       yearly,monthly,3;monthly,daily,7;daily,hourly,6;hourl...}}
+file_status: {'ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2019_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc': 'saved'}
+
+
+Model: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
+
+------------------ NEW ----------------
+Timestamp: 17-10-2019 14:18
+
+Analysis configuration
+save_coldata: True
+obs_vars: ['ang4487aer']
+obs_vars_rename: {}
+obs_vert_type: None
+model_vert_type_alt: None
+read_opts_ungridded: None
+obs_ts_type_read: None
+model_use_vars: None
+model_add_vars: None
+model_keep_outliers: True
+model_id: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+model_name: None
+obs_id: AeronetSunV3Lev2.daily
+obs_name: None
+obs_keep_outliers: False
+start: 2010
+stop: None
+ts_type: monthly
+filter_name: WORLD-noMOUNTAINS
+remove_outliers: True
+apply_time_resampling_constraints: True
+min_num_obs: {'yearly': {'monthly': 3}, 'monthly': {'daily': 7}, 'daily': {'hourly': 6}, 'hourly': {'minutely': 15}}
+var_outlier_ranges: None
+var_ref_outlier_ranges: None
+harmonise_units: False
+vert_scheme: None
+regrid_res_deg: None
+ignore_station_names: None
+basedir_coldata: .
+model_ts_type_read: None
+model_read_aux: None
+model_use_climatology: False
+colocate_time: False
+flex_ts_type_gridded: True
+reanalyse_existing: True
+raise_exceptions: False
+_log: <_io.TextIOWrapper name='./logfiles/CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED/AeronetSunV3Lev2.daily_20191017.log' mode='a+' encoding='UTF-8'>
+logging: True
+data: {'TM5_AP3-CTRL2019': {'ang4487aer': <xarray.DataArray 'ang4487aer' (data_source: 2, time: 12, station_name: 264)>
+array([[[       nan, 1.128966  ,        nan, ...,        nan,
+                nan, 0.25999457],
+        [       nan, 0.89081575,        nan, ..., 1.12947156,
+                nan, 0.30509289],
+        [       nan, 1.12122509,        nan, ..., 1.14267986,
+                nan, 0.13727079],
+        ...,
+        [0.97128121, 1.2908889 ,        nan, ..., 1.56412958,
+         1.0926709 , 0.39523561],
+        [1.34621412, 0.934353  ,        nan, ...,        nan,
+                nan, 0.49452866],
+        [       nan,        nan,        nan, ...,        nan,
+                nan, 0.4892751 ]],
+
+       [[0.86711586, 0.73773724, 0.52013141, ..., 1.39102662,
+         1.35547209, 0.62231678],
+        [0.98289979, 0.30570188, 0.58608049, ..., 1.23340809,
+         1.23590493, 0.44316554],
+        [0.57381302, 0.59244061, 0.15318914, ..., 1.31365597,
+         1.16984105, 0.19862083],
+        ...,
+        [0.8841635 , 0.85821074, 1.01289105, ..., 1.36450207,
+         1.38448656, 0.95568919],
+        [1.28473127, 0.65777272, 0.54912972, ..., 1.26303518,
+         1.3864181 , 0.62829041],
+        [1.14279449, 0.75016189, 0.47216135, ..., 1.05199301,
+         1.37411582, 0.41307265]]])
+Coordinates:
+  * data_source   (data_source) <U22 'AeronetSunV3Lev2.daily' 'TM5_AP3-CTRL2019'
+    var_name      (data_source) <U10 'ang4487aer' 'ang4487aer'
+    var_units     (data_source) <U1 '1' '1'
+    ts_type_src   (data_source) <U7 'daily' 'monthly'
+  * time          (time) datetime64[ns] 2010-01-01 2010-02-01 ... 2010-12-01
+  * station_name  (station_name) <U19 'ARM_Darwin' ... 'Zinder_Airport'
+    latitude      (station_name) float64 -12.43 37.97 15.35 ... 62.45 13.78
+    longitude     (station_name) float64 130.9 23.72 -1.479 ... -114.4 8.99
+    altitude      (station_name) float64 29.9 130.0 305.0 ... 300.0 220.8 456.0
+Attributes:
+    data_source:        ['AeronetSunV3Lev2.daily', 'TM5_AP3-CTRL2019']
+    var_name:           ['ang4487aer', 'ang4487aer']
+    ts_type:            monthly
+    filter_name:        WORLD-noMOUNTAINS
+    ts_type_src:        ['daily', 'monthly']
+    start_str:          20100101
+    stop_str:           20101231
+    var_units:          ['1', '1']
+    vert_scheme:        None
+    data_level:         3
+    revision_ref:       20190920
+    from_files:         ['aerocom3_TM5_AP3-CTRL2019_od440aer_Column_2010_mont...
+    from_files_ref:     None
+    stations_ignored:   None
+    colocate_time:      0
+    apply_constraints:  1
+    outliers_removed:   1
+    region:             WORLD
+    lon_range:          [-180, 180]
+    lat_range:          [-90, 90]
+    alt_range:          [-1000000.0, 1000.0]
+    _min_num_obs:       yearly,monthly,3;monthly,daily,7;daily,hourly,6;hourl...}}
+file_status: {'ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2019_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc': 'saved'}
+
+
+Model: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
+
+------------------ NEW ----------------
+Timestamp: 17-10-2019 14:32
+
+Analysis configuration
+save_coldata: True
+obs_vars: ['ang4487aer']
+obs_vars_rename: {}
+obs_vert_type: None
+model_vert_type_alt: None
+read_opts_ungridded: None
+obs_ts_type_read: None
+model_use_vars: None
+model_add_vars: None
+model_keep_outliers: True
+model_id: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+model_name: None
+obs_id: AeronetSunV3Lev2.daily
+obs_name: None
+obs_keep_outliers: False
+start: 2010
+stop: None
+ts_type: monthly
+filter_name: WORLD-noMOUNTAINS
+remove_outliers: True
+apply_time_resampling_constraints: True
+min_num_obs: {'yearly': {'monthly': 3}, 'monthly': {'daily': 7}, 'daily': {'hourly': 6}, 'hourly': {'minutely': 15}}
+var_outlier_ranges: None
+var_ref_outlier_ranges: None
+harmonise_units: False
+vert_scheme: None
+regrid_res_deg: None
+ignore_station_names: None
+basedir_coldata: .
+model_ts_type_read: None
+model_read_aux: None
+model_use_climatology: False
+colocate_time: False
+flex_ts_type_gridded: True
+reanalyse_existing: True
+raise_exceptions: False
+_log: <_io.TextIOWrapper name='./logfiles/CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED/AeronetSunV3Lev2.daily_20191017.log' mode='a+' encoding='UTF-8'>
+logging: True
+data: {'TM5_AP3-CTRL2019': {'ang4487aer': <xarray.DataArray 'ang4487aer' (data_source: 2, time: 12, station_name: 264)>
+array([[[       nan, 1.128966  ,        nan, ...,        nan,
+                nan, 0.25999457],
+        [       nan, 0.89081575,        nan, ..., 1.12947156,
+                nan, 0.30509289],
+        [       nan, 1.12122509,        nan, ..., 1.14267986,
+                nan, 0.13727079],
+        ...,
+        [0.97128121, 1.2908889 ,        nan, ..., 1.56412958,
+         1.0926709 , 0.39523561],
+        [1.34621412, 0.934353  ,        nan, ...,        nan,
+                nan, 0.49452866],
+        [       nan,        nan,        nan, ...,        nan,
+                nan, 0.4892751 ]],
+
+       [[0.86711586, 0.73773724, 0.52013141, ..., 1.39102662,
+         1.35547209, 0.62231678],
+        [0.98289979, 0.30570188, 0.58608049, ..., 1.23340809,
+         1.23590493, 0.44316554],
+        [0.57381302, 0.59244061, 0.15318914, ..., 1.31365597,
+         1.16984105, 0.19862083],
+        ...,
+        [0.8841635 , 0.85821074, 1.01289105, ..., 1.36450207,
+         1.38448656, 0.95568919],
+        [1.28473127, 0.65777272, 0.54912972, ..., 1.26303518,
+         1.3864181 , 0.62829041],
+        [1.14279449, 0.75016189, 0.47216135, ..., 1.05199301,
+         1.37411582, 0.41307265]]])
+Coordinates:
+  * data_source   (data_source) <U22 'AeronetSunV3Lev2.daily' 'TM5_AP3-CTRL2019'
+    var_name      (data_source) <U10 'ang4487aer' 'ang4487aer'
+    var_units     (data_source) <U1 '1' '1'
+    ts_type_src   (data_source) <U7 'daily' 'monthly'
+  * time          (time) datetime64[ns] 2010-01-01 2010-02-01 ... 2010-12-01
+  * station_name  (station_name) <U19 'ARM_Darwin' ... 'Zinder_Airport'
+    latitude      (station_name) float64 -12.43 37.97 15.35 ... 62.45 13.78
+    longitude     (station_name) float64 130.9 23.72 -1.479 ... -114.4 8.99
+    altitude      (station_name) float64 29.9 130.0 305.0 ... 300.0 220.8 456.0
+Attributes:
+    data_source:        ['AeronetSunV3Lev2.daily', 'TM5_AP3-CTRL2019']
+    var_name:           ['ang4487aer', 'ang4487aer']
+    ts_type:            monthly
+    filter_name:        WORLD-noMOUNTAINS
+    ts_type_src:        ['daily', 'monthly']
+    start_str:          20100101
+    stop_str:           20101231
+    var_units:          ['1', '1']
+    vert_scheme:        None
+    data_level:         3
+    revision_ref:       20190920
+    from_files:         ['aerocom3_TM5_AP3-CTRL2019_od440aer_Column_2010_mont...
+    from_files_ref:     None
+    stations_ignored:   None
+    colocate_time:      0
+    apply_constraints:  1
+    outliers_removed:   1
+    region:             WORLD
+    lon_range:          [-180, 180]
+    lat_range:          [-90, 90]
+    alt_range:          [-1000000.0, 1000.0]
+    _min_num_obs:       yearly,monthly,3;monthly,daily,7;daily,hourly,6;hourl...}}
+file_status: {'ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2019_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc': 'saved'}
+
+
+Model: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
+
+------------------ NEW ----------------
+Timestamp: 17-10-2019 17:02
+
+Analysis configuration
+save_coldata: True
+obs_vars: ['ang4487aer']
+obs_vars_rename: {}
+obs_vert_type: None
+model_vert_type_alt: None
+read_opts_ungridded: None
+obs_ts_type_read: None
+model_use_vars: None
+model_add_vars: None
+model_keep_outliers: True
+model_id: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+model_name: None
+obs_id: AeronetSunV3Lev2.daily
+obs_name: None
+obs_keep_outliers: False
+start: 2010
+stop: None
+ts_type: monthly
+filter_name: WORLD-noMOUNTAINS
+remove_outliers: True
+apply_time_resampling_constraints: True
+min_num_obs: {'yearly': {'monthly': 3}, 'monthly': {'daily': 7}, 'daily': {'hourly': 6}, 'hourly': {'minutely': 15}}
+var_outlier_ranges: None
+var_ref_outlier_ranges: None
+harmonise_units: False
+vert_scheme: None
+regrid_res_deg: None
+ignore_station_names: None
+basedir_coldata: .
+model_ts_type_read: None
+model_read_aux: None
+model_use_climatology: False
+colocate_time: False
+flex_ts_type_gridded: True
+reanalyse_existing: True
+raise_exceptions: False
+_log: <_io.TextIOWrapper name='./logfiles/CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED/AeronetSunV3Lev2.daily_20191017.log' mode='a+' encoding='UTF-8'>
+logging: True
+data: {'TM5_AP3-CTRL2019': {'ang4487aer': <xarray.DataArray 'ang4487aer' (data_source: 2, time: 12, station_name: 264)>
+array([[[       nan, 1.128966  ,        nan, ...,        nan,
+                nan, 0.25999457],
+        [       nan, 0.89081575,        nan, ..., 1.12947156,
+                nan, 0.30509289],
+        [       nan, 1.12122509,        nan, ..., 1.14267986,
+                nan, 0.13727079],
+        ...,
+        [0.97128121, 1.2908889 ,        nan, ..., 1.56412958,
+         1.0926709 , 0.39523561],
+        [1.34621412, 0.934353  ,        nan, ...,        nan,
+                nan, 0.49452866],
+        [       nan,        nan,        nan, ...,        nan,
+                nan, 0.4892751 ]],
+
+       [[0.86711586, 0.73773724, 0.52013141, ..., 1.39102662,
+         1.35547209, 0.62231678],
+        [0.98289979, 0.30570188, 0.58608049, ..., 1.23340809,
+         1.23590493, 0.44316554],
+        [0.57381302, 0.59244061, 0.15318914, ..., 1.31365597,
+         1.16984105, 0.19862083],
+        ...,
+        [0.8841635 , 0.85821074, 1.01289105, ..., 1.36450207,
+         1.38448656, 0.95568919],
+        [1.28473127, 0.65777272, 0.54912972, ..., 1.26303518,
+         1.3864181 , 0.62829041],
+        [1.14279449, 0.75016189, 0.47216135, ..., 1.05199301,
+         1.37411582, 0.41307265]]])
+Coordinates:
+  * data_source   (data_source) <U22 'AeronetSunV3Lev2.daily' 'TM5_AP3-CTRL2019'
+    var_name      (data_source) <U10 'ang4487aer' 'ang4487aer'
+    var_units     (data_source) <U1 '1' '1'
+    ts_type_src   (data_source) <U7 'daily' 'monthly'
+  * time          (time) datetime64[ns] 2010-01-01 2010-02-01 ... 2010-12-01
+  * station_name  (station_name) <U19 'ARM_Darwin' ... 'Zinder_Airport'
+    latitude      (station_name) float64 -12.43 37.97 15.35 ... 62.45 13.78
+    longitude     (station_name) float64 130.9 23.72 -1.479 ... -114.4 8.99
+    altitude      (station_name) float64 29.9 130.0 305.0 ... 300.0 220.8 456.0
+Attributes:
+    data_source:        ['AeronetSunV3Lev2.daily', 'TM5_AP3-CTRL2019']
+    var_name:           ['ang4487aer', 'ang4487aer']
+    ts_type:            monthly
+    filter_name:        WORLD-noMOUNTAINS
+    ts_type_src:        ['daily', 'monthly']
+    start_str:          20100101
+    stop_str:           20101231
+    var_units:          ['1', '1']
+    vert_scheme:        None
+    data_level:         3
+    revision_ref:       20190920
+    from_files:         ['aerocom3_TM5_AP3-CTRL2019_od440aer_Column_2010_mont...
+    from_files_ref:     None
+    stations_ignored:   None
+    colocate_time:      0
+    apply_constraints:  1
+    outliers_removed:   1
+    region:             WORLD
+    lon_range:          [-180, 180]
+    lat_range:          [-90, 90]
+    alt_range:          [-1000000.0, 1000.0]
+    _min_num_obs:       yearly,monthly,3;monthly,daily,7;daily,hourly,6;hourl...}}
+file_status: {'ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-TM5_AP3-CTRL2019_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc': 'saved'}
+
+
+Model: CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED
+WRITE: ang4487aer_REF-AeronetSunV3Lev2.daily_MOD-CAM53-Oslo_7310_MG15CLM45_5feb2017IHK_53OSLO_PD_UNTUNED_20100101_20101231_monthly_WORLD-noMOUNTAINS.nc
