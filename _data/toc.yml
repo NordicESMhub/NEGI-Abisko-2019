@@ -29,6 +29,16 @@
 # Add a header and sample content section
 - header: Themes and group topics
 
+- title: Report guidelines
+  url: /topics/report/intro
+  not_numbered: false
+  expand_sections: false
+  sections:
+  - title: Peer review matching timeline notebook
+    url: /topics/report/Peer-review-matching_timeline_and_guidelines
+  - title: Notebook for presentation
+    url: /topics/report/presentation
+
 # A chapter w/ a collection of sections beneath it
 - title: Group-1
   url: /topics/group-1/intro
@@ -44,7 +54,7 @@
   - title: Tuulivarenka project
     url: /topics/group-1/tuulivarenka_zeppelin2010_2015_particleplot
   - title: Presentations
-    url: /topics/group-1/presentations/saturday/presentations
+    url: /topics/group-1/presentations/intro
 - title: Group-2
   url: /topics/group-2/intro
   not_numbered: false
@@ -210,6 +220,11 @@
     - title: Gridded model data dask rolling mean
       url: /training/gridded_model_data_dask_rolling_mean
       not_numbered: true
+    - title: Dask kernel example
+      url: /training/dask_kernel/dask_kernel
+      not_numbered: true
+    - title: Get EBAS data with pydap
+      url: /training/example_notebooks/from_ebas_using_pydap
   - title: Pyaerocom
     url: /training/pyaerocom/intro
     not_numbered: true
@@ -223,6 +238,16 @@
       url: /training/pyaerocom/HOWTO_find_EBAS_files
     - title: How to read EBAS files
       url: /training/pyaerocom/HOWTO_read_EBAS_files
+    - title: How to handle large files
+      url: /training/pyaerocom/HOWTO_handle_large_files
+    - title: Example CMIP6 colocation
+      url: /training/pyaerocom/example_cmip6_colocation
+    - title: Example aas etal read
+      url: /training/pyaerocom/example_aas_etal_read
+    - title: Example EBAS artic SO4 concentrations
+      url: /training/pyaerocom/EXAMPLE_EBAS_arctic_so4_concentrations
+    - title: How to compare model with model (gridded-gridded)
+      url: /training/pyaerocom/pyaerocom_gridded_gridded
     - title: Install pyaerocom dev
       url: /training/pyaerocom/local_pyaerocom
   - title: CMIP6 data
