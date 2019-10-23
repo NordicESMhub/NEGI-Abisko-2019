@@ -17,5 +17,6 @@
 - [Jonah](https://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/wednesday/shawj_marineorganicaerosol.pdf)
 - [Jolanta](https://nordicesmhub.github.io/NEGI-Abisko-2019/content/topics/group-1/presentations/wednesday/jrieksta_231019.slides.html#/)
 - [Luis](https://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/wednesday/Luis_FinalPres.pdf)
+- [Jakob](https://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/wednesday/JBP_Presentation.pdf)
 
 
