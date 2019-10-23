@@ -13,4 +13,6 @@
 - [Johannes](https://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/wednesday/Johannes_Langvatn.pdf)
 - [Tuuli](https://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/wednesday/Sea_ice_decline_and_Aitkensize_particle_relation.pdf)
 - [XuCheng](https://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/wednesday/XuCheng_He_SeaIce.pdf)
--
+- [Silje](https://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/wednesday/silje_presentasjon_torsdag.pdf)
+
+
