@@ -15,7 +15,7 @@
 - [XuCheng](https://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/wednesday/XuCheng_He_SeaIce.pdf)
 - [Silje](https://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/wednesday/silje_presentasjon_torsdag.pdf)
 - [Jonah](https://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/wednesday/shawj_marineorganicaerosol.pdf)
-- [Jolanta](https://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/wednesday/jrieksta_231019.slides.html#/)
+- [Jolanta](https://nordicesmhub.github.io/NEGI-Abisko-2019/content/topics/group-1/presentations/wednesday/jrieksta_231019.slides.html#/)
 - [Luis](https://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/wednesday/Luis_FinalPres.pdf)
 
 
