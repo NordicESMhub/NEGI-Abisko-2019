@@ -28,8 +28,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/content/training/github/intro_github.html",
   "headline": "What is Version Control?",
-  "datePublished": "2019-10-31T11:04:45+00:00",
-  "dateModified": "2019-10-31T11:04:45+00:00",
+  "datePublished": "2019-11-02T20:47:50+00:00",
+  "dateModified": "2019-11-02T20:47:50+00:00",
   "description": "# What is Version Control?*from [CodeRefinery](https://coderefinery.org) training material.*The management of changes to documents, computer programs, large ...",
   "author": {
     "@type": "Person",
@@ -2369,7 +2369,7 @@ and <a href="https://github.com">GitHub</a> is a popular platform for sharing so
 </code></pre></div></div>
 
 <ul>
-  <li>We first focus (<code class="language-plaintext highlighter-rouge">git add</code>, we “stage” the change), then shoot (<code class="language-plaintext highlighter-rouge">git commit</code>):</li>
+  <li>We first focus (<code class="highlighter-rouge">git add</code>, we “stage” the change), then shoot (<code class="highlighter-rouge">git commit</code>):</li>
 </ul>
 
 <p><img src="https://coderefinery.github.io/git-intro/img/git_stage_commit.svg" alt="Git staging" /></p>
@@ -2386,7 +2386,7 @@ and <a href="https://github.com">GitHub</a> is a popular platform for sharing so
 
 <h3 id="git-history-and-log">Git history and log</h3>
 
-<p>Now try <code class="language-plaintext highlighter-rouge">git log</code>:</p>
+<p>Now try <code class="highlighter-rouge">git log</code>:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log
 
@@ -2402,18 +2402,18 @@ Date:   Thu May 4 15:02:56 2017 +0200
   <li>The long hashes uniquely label a state of the code.</li>
   <li>They are not just integers counting 1, 2, 3, 4, … (why?).</li>
   <li>We will use them when comparing versions and when going back in time.</li>
-  <li><code class="language-plaintext highlighter-rouge">git log --oneline</code> only shows the first 7 characters of the commit hash and is good to get an overview.</li>
+  <li><code class="highlighter-rouge">git log --oneline</code> only shows the first 7 characters of the commit hash and is good to get an overview.</li>
   <li>If the first characters of the hash are unique it is not necessary to type the entire hash.</li>
-  <li><code class="language-plaintext highlighter-rouge">git log --stat</code> is nice to show which files have been modified.</li>
+  <li><code class="highlighter-rouge">git log --stat</code> is nice to show which files have been modified.</li>
 </ul>
 
 <h3 id="writing-useful-commit-messages">Writing useful commit messages</h3>
 
-<p>Using <code class="language-plaintext highlighter-rouge">git log --oneline</code> we understand that the first line of the commit message is very important.</p>
+<p>Using <code class="highlighter-rouge">git log --oneline</code> we understand that the first line of the commit message is very important.</p>
 
 <p>Good example:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>increase threshold alpha to 2.0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>increase threshold alpha to 2.0
 
 the motivation for this change is
 to enable ...
@@ -2454,22 +2454,22 @@ committed to version control. There are many reasons for this:</p>
   <li>When tracking generated files you could see differences in the code although you haven’t touched the code.</li>
 </ul>
 
-<p>For this we use <code class="language-plaintext highlighter-rouge">.gitignore</code> files. Example:</p>
+<p>For this we use <code class="highlighter-rouge">.gitignore</code> files. Example:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ignore compiled python 2 files
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ignore compiled python 2 files
 *.pyc
 # ignore compiled python 3 files
 __pycache__
 </code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">.gitignore</code> uses something called a
+<p><code class="highlighter-rouge">.gitignore</code> uses something called a
 <a href="https://en.wikipedia.org/wiki/Glob_(programming)">shell glob syntax</a> for
 determining file patterns to ignore. You can read more about the syntax in the
 <a href="https://git-scm.com/docs/gitignore">documentation</a>.</p>
 
 <p>An example taken from <a href="https://git-scm.com/docs/gitignore">documentation</a>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ignore objects and archives, anywhere in the tree.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ignore objects and archives, anywhere in the tree.
 *.[oa]
 # ignore generated html files,
 *.html
@@ -2479,18 +2479,18 @@ determining file patterns to ignore. You can read more about the syntax in the
 build/
 </code></pre></div></div>
 
-<p>You can have <code class="language-plaintext highlighter-rouge">.gitignore</code> files in lower level directories and they affect the paths
+<p>You can have <code class="highlighter-rouge">.gitignore</code> files in lower level directories and they affect the paths
 relatively.</p>
 
-<p><code class="language-plaintext highlighter-rouge">.gitignore</code> should be part of the repository (why?).</p>
+<p><code class="highlighter-rouge">.gitignore</code> should be part of the repository (why?).</p>
 
 <hr />
 
 <h3 id="clean-working-area">Clean working area</h3>
 
 <ul>
-  <li>Use <code class="language-plaintext highlighter-rouge">git status</code> a lot.</li>
-  <li>Use <code class="language-plaintext highlighter-rouge">.gitignore</code>.</li>
+  <li>Use <code class="highlighter-rouge">git status</code> a lot.</li>
+  <li>Use <code class="highlighter-rouge">.gitignore</code>.</li>
   <li>Untracked files belong to .gitignore.</li>
   <li><strong>All files should be either tracked or ignored</strong>.</li>
 </ul>
