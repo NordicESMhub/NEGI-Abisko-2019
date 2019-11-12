@@ -7,4 +7,4 @@
 
 # Wednesday
 
-- [Franziska's presentation](https://nordicesmhub.github.io/NEGI-Abisko-2019/content/topics/group-2/presentations/wednesday/franzihe_wednesday_pres.slides.html#/)
+- [Franziska's presentation](https://nordicesmhub.github.io/NEGI-Abisko-2019/content/topics/group-2/presentations/wednesday/franzihe_intermediate_pres.slides.html#/)
