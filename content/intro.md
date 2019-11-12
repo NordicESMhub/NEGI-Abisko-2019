@@ -1,20 +1,9 @@
 
-# Hacktoberfest 2019
-
-[![](https://hacktoberfest.digitalocean.com/assets/logo-hf19-header-8245176fe235ab5d942c7580778a914110fa06a23c3d55bf40e2d061809d8785.svg)](https://hacktoberfest.digitalocean.com/)
-
-**Make 4 pull requests to earn a limited edition T-shirt!**
-
-Register at [https://hacktoberfest.digitalocean.com/](https://hacktoberfest.digitalocean.com/)
-
 [![CircleCI](https://circleci.com/gh/NordicESMhub/NEGI-Abisko-2019.svg?style=svg&circle-token=708328c3d6428a29f49027f0a5e316fc32850dac)](https://circleci.com/gh/NordicESMhub/NEGI-Abisko-2019)
 
 ### Climate science at high latitudes: eScience for linking Arctic measurements and modeling
 
 The 3rd course “Climate science at high latitudes: eScience for linking Arctic measurements and modeling” will be held at Abisko Scientific Research Station from 15th until 24th of October 2019.
-
-**[Detailed programme](https://github.com/NordicESMhub/NEGI-Abisko-2019/blob/master/content/training/Abisko%20course%20schedule%20short%202019122.pdf)**
-
 
 **Coordination**: Paul Zieger (SU), Michael Schulz (UiO/MetNo), and Katja Lauri (UHEL)
 
@@ -67,7 +56,7 @@ The participants are expected to be able to write scripts using a structural pro
 
 ### Course Fees
 
-The course fee is 1000 EUR.
+The course fee is 1000 EUR. 
 For doctoral students enrolled in any university in Nordic countries (Denmark, Finland, Iceland, Norway, Sweden), the fee is covered by the NeGI project Applied methodologies for improved exchange between atmospheric eScience Infrastructures at high latitudes. UiO students participating in the course on the Earth System GEO4990 will be covered by the University of Oslo.
 
 This fee covers:
