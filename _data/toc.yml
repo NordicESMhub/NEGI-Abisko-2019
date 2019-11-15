@@ -201,6 +201,8 @@
     subsections: 
     - title: Synchronize your fork github repository
       url: /training/github/synchronise_github
+    - title: Git pull request explained
+      url: /training/github/git_pull_requests
   - title: Visualize in Python
     url: /training/visualize/intro
     not_numbered: true
