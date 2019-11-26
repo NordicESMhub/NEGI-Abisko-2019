@@ -1,11 +1,7 @@
 
-# Hacktoberfest 2019
+# Jupyterhub NIRD-Toolkit
 
-[![](https://hacktoberfest.digitalocean.com/assets/logo-hf19-header-8245176fe235ab5d942c7580778a914110fa06a23c3d55bf40e2d061809d8785.svg)](https://hacktoberfest.digitalocean.com/)
-
-**Make 4 pull requests to earn a limited edition T-shirt!**
-
-Register at [https://hacktoberfest.digitalocean.com/](https://hacktoberfest.digitalocean.com/)
+The resources for the Jupyterhub were provided by UNINETT Sigma2 - the Norwegian National Infrastructure for High Performance Computing and Data Storage in Norway as part of NS1000K project.
 
 [![CircleCI](https://circleci.com/gh/NordicESMhub/NEGI-Abisko-2019.svg?style=svg&circle-token=708328c3d6428a29f49027f0a5e316fc32850dac)](https://circleci.com/gh/NordicESMhub/NEGI-Abisko-2019)
 
