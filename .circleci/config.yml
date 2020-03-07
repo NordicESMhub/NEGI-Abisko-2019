@@ -6,7 +6,6 @@ jobs:
     steps:
       - checkout
       - run: pip install --user -r requirements.txt
-      - run: gem install bundler
       - run:
           name: Build site intermediate files
           command: jupyter-book build .
