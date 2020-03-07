@@ -122,5 +122,5 @@ commands:
           name: Install book Ruby dependencies
           command: |
             bundle update --bundler
-	    gem install bundler:2.0.2
-	    bundle install
+            gem install bundler:2.0.2
+            bundle install
