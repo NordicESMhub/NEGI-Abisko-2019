@@ -1,8 +1,3 @@
-# NOTE: This is an example CircleCI configuration that
-# will build your book and preview its HTML content.
-# You will probably have to modify it in order to get it working
-# just the way you want. See https://jupyterbook.org/advanced/circleci.html
-# for more information
 version: 2.1
 jobs:
   build_page_html:
@@ -10,9 +5,8 @@ jobs:
       - image: circleci/python:3.7-stretch
     steps:
       - checkout
-      - run: sudo apt-get update
-      - run: sudo apt-get install libffi-dev
       - run: pip install --user -r requirements.txt
+      - run: gem install bundler
       - run:
           name: Build site intermediate files
           command: jupyter-book build .
@@ -37,7 +31,7 @@ jobs:
           path: _site/
           destination: html
 
-  # Deploy the built site to jupyter-book.github.io
+  # Deploy the built site to nordicesmhub.github.io
   deploy:
     docker:
       - image: circleci/python:3.7-stretch
