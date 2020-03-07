@@ -1,3 +1,8 @@
+# NOTE: This is an example CircleCI configuration that
+# will build your book and preview its HTML content.
+# You will probably have to modify it in order to get it working
+# just the way you want. See https://jupyterbook.org/advanced/circleci.html
+# for more information
 version: 2.1
 jobs:
   build_page_html:
@@ -30,7 +35,7 @@ jobs:
           path: _site/
           destination: html
 
-  # Deploy the built site to nordicesmhub.github.io
+  # Deploy the built site to jupyter-book.github.io
   deploy:
     docker:
       - image: circleci/python:3.7-stretch
@@ -115,7 +120,7 @@ commands:
       # Install Ruby/Jekyll dependencies
       - run:
           name: Installing Ruby/Jekyll from conda-forge
-          command: conda install -c conda-forge libffi gxx_linux-64 rb-github-pages
+          command: conda install -c conda-forge rb-github-pages
 
       # Build the book's HTML w/ the base_url for CircleCI artifacts
       - run:
