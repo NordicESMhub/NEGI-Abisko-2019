@@ -1,124 +1,138 @@
+# NOTE: This is an example CircleCI configuration that
+# will build your book and preview its HTML content.
+# You will probably have to modify it in order to get it working
+# just the way you want. See https://jupyterbook.org/advanced/circleci.html
+# for more information
 version: 2.1
-jobs:
-  build_page_html:
-    docker:
-      - image: circleci/python:3.7-stretch
+
+# Commands are snippets of configuration we can re-use
+commands:
+  copy_built_files:
+    description: "Copy the build site files so we can build the HTML"
     steps:
-      - checkout
-      - run: pip install --user -r requirements.txt
+      # Grab the the built markdown from the last step
       - run:
-          name: Build site intermediate files
+          name: Copy over built site files
+          command: |
+            rm -rf _build
+            cp -r /tmp/workspace/_build .
+
+# Jobs define the actual code that CircleCI runs
+jobs:
+  build_page_files:
+    docker:
+      - image: circleci/python:3.6-stretch
+    steps:
+      # Get our data and merge with upstream
+      - checkout
+
+      # Install the packages needed to build our documentation
+      # This will depend on your particular package!
+      - run: pip install --user -r requirements.txt
+
+      # Build the page intermediate HTML files
+      - run:
+          name: Build page intermediate HTML files
           command: jupyter-book build .
 
-      # Persist the built files for the deploy step
+      # Persist the specified paths (see https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs)
       - persist_to_workspace:
           root: .
           paths:
-            - _build/
+            - ./_build/
 
-  doc:
+  # Build the site to store artifacts
+  html_demo:
     docker:
-      - image: circleci/python:3.7-stretch
+      - image: circleci/ruby:2.6
     steps:
-      - prepare_jekyll_installation
-      - run:
-          name: Build the website
-          command: bundle exec jekyll build --baseurl /0/html/
+      - checkout
 
-      # Tell Circle to store the documentation output in a folder that we can access later
+      # Attach the workspace that contains the files from our Python step
+      - attach_workspace:
+          at: /tmp/workspace
+
+      # Copy over the built page files
+      - copy_built_files
+
+      # Build the site's HTML w/ the base_url for CircleCI artifacts
+      - run:
+          name: Install Bundler and Jekyll, then build the book
+          command: |
+            gem install bundler
+            bundle install
+            bundle exec jekyll build --baseurl /0/html/
+
+      # Tell Circle to store the documentation output in a folder we can access later
       - store_artifacts:
           path: _site/
           destination: html
 
-  # Deploy the built site to nordicesmhub.github.io
-  deploy:
+  # Finally, push the HTML to the gh-pages branch
+  html_live:
     docker:
-      - image: circleci/python:3.7-stretch
+      - image: circleci/ruby:2.6
     steps:
-      # Add deployment key fingerprint for CircleCI to use for a push
+      - checkout
+
+      # Attach the workspace that contains the files from our Python step
+      - attach_workspace:
+          at: /tmp/workspace
+
+      # Copy over the built page files
+      - copy_built_files
+
+      # Install the ghp-import tool which we'll use to push the files
+      - run:
+          name: "Install ghp-import"
+          command: |
+            export PATH=$PATH:/home/circleci/.local/bin
+            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+            python get-pip.py --user
+            pip install -U ghp-import --user
+
+      # Tell CircleCI to use the SSH key we've set up with permissions to push to our repo
       - add_ssh_keys:
           fingerprints:
+            # The SSH key fingerprint
             - "81:53:e3:9f:f9:8d:82:26:a3:b8:ae:2b:92:42:8f:49"
 
-      - prepare_jekyll_installation
+      # Build the site's HTML using the base_url defined in the *book's* configuration
       - run:
-          name: Build the website for deploy
-          command: bundle exec jekyll build
-
-      # Deploy the built site with ghp-import
-      - run:
-          name: Deploying site using ghp-import
+          name: Install Bundler and Jekyll, then build the book
           command: |
-            pip install ghp-import
-            ghp-import -p -f -n ./_site/
+            gem install bundler
+            bundle install
+            bundle exec jekyll build
+
+      # Push the `_site` folder to our gh-pages branch for it to go live
+      - run:
+          name: Push site to gh-pages
+          command: |
+            export PATH=$PATH:/home/circleci/.local/bin
+            ghp-import -p -n -f _site
 
 
-# Tell CircleCI to use this workflow when it builds the site
+# These workflows define how the jobs above will run. In our case, we
+# want the Ruby jobs to run *after* the Python job has finished so that
+# they can use the outputs from the Python page build step.
 workflows:
   version: 2
   default:
     jobs:
-      - build_page_html:
+      # First we build the pages
+      - build_page_files
+
+      # Then we build the book HTML to preview
+      - html_demo:
+          requires:
+            - build_page_files
+
+      # If we're on master branch, also push the HTML live
+      - html_live:
+          requires:
+            - build_page_files
           filters:
             branches:
-              ignore:
-                - gh-pages
-      - doc:
-          requires:
-            - build_page_html
-          filters:
-            branches:
-              ignore:
-                - gh-pages
-      - deploy:
-          requires:
-            - build_page_html
-          filters:
-              branches:
-                only:
-                  - master
-                ignore:
-                  - gh-pages
-
-commands:
-  prepare_jekyll_installation:
-    steps:
-      - checkout
-      - attach_workspace:
-          # Must be absolute path or relative path from working_directory
-          at: /tmp/workspace
-
-      # Grab the the built intermediate files from the last step
-      - run:
-          name: Copy over built site files
-          command: |
-            rm -rf ./_build
-            cp -r /tmp/workspace/_build .
-
-      # Install miniconda to test install
-      - run:
-          name: install miniconda
-          command: |
-            export MINICONDA=$HOME/miniconda
-            echo "export PATH=$MINICONDA/bin:$PATH" >> $BASH_ENV
-            source $BASH_ENV
-            hash -r
-            wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-            bash miniconda.sh -b -f -p $MINICONDA
-            conda config --set always_yes yes
-            conda update conda
-            conda info -a
-            conda create -n testenv python=3.7.0
-            source activate testenv
-            rm miniconda.sh
-
-      # Install Ruby/Jekyll dependencies
-      - run:
-          name: Installing Ruby/Jekyll from conda-forge
-          command: conda install -c conda-forge rb-github-pages
-
-      # Build the book's HTML w/ the base_url for CircleCI artifacts
-      - run:
-          name: Install book Ruby dependencies
-          command: |
-            bundle install
+              only:
+                - master
