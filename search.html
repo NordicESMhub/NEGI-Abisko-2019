@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-
   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "http://nordicesmhub.github.io/NEGI-Abisko-2019/search",
   "headline": "Search the site",
-  "datePublished": "2019-11-26T13:34:27+00:00",
-  "dateModified": "2019-11-26T13:34:27+00:00",
+  "datePublished": "2020-03-08T01:58:06+00:00",
+  "dateModified": "2020-03-08T01:58:06+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -55,7 +53,6 @@
 
   </script>
   <link rel="stylesheet" href="/NEGI-Abisko-2019/assets/css/styles.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
 
   <!-- <link rel="manifest" href="/manifest.json"> -->
   <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
@@ -84,31 +81,18 @@ MathJax.Hub.Config({
     "HTML-CSS": {
         styles: {'.MathJax_Display': {"margin": 0}},
         linebreaks: { automatic: true },
-    }
+    },
+    
 });
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
 
-  <!-- DOM updating function -->
-  <script>
-const runWhenDOMLoaded = cb => {
-  if (document.readyState != 'loading') {
-    cb()
-  } else if (document.addEventListener) {
-    document.addEventListener('DOMContentLoaded', cb)
-  } else {
-    document.attachEvent('onreadystatechange', function() {
-      if (document.readyState == 'complete') cb()
-    })
-  }
-}
 
-// Helper function to init things quickly
-initFunction = function(myfunc) {
-  runWhenDOMLoaded(myfunc);
-  document.addEventListener('turbolinks:load', myfunc);
-};
-</script>
+  <!-- DOM updating function -->
+  <script src="/NEGI-Abisko-2019/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/NEGI-Abisko-2019/assets/js/page/documentSelectors.js"></script>
 
   <!-- Define some javascript variables that will be useful in other javascript -->
   <script>
@@ -117,62 +101,12 @@ initFunction = function(myfunc) {
 
   <!-- Add AnchorJS to let headers be linked -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
-  <script>
-const initAnchors = () => {
-  if (window.anchors === undefined) {
-    setTimeout(initAnchors, 250)
-    return
-  }
-  anchors.add("main h1, main h2, main h3, main h4")
-}
-
-initFunction(initAnchors);
-</script>
-
+  <script src="/NEGI-Abisko-2019/assets/js/page/anchors.js" async></script>
 
   <!-- Include Turbolinks to make page loads fast -->
   <!-- https://github.com/turbolinks/turbolinks -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
   <meta name="turbolinks-cache-control" content="no-cache">
-
-  <!-- Selectors for elements on the page -->
-  <script>
-/**
- * Select various elements on the page for later use
- */
-
-// IDs we'll attach to cells
-const codeCellId = index => `codecell${index}`
-const inputCellId = index => `inputcell${index}`
-
-pageElements = {}
-
-// All code cells
-findCodeCells = function() {
-    var codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre, div.text_cell_render div.highlight pre')
-    pageElements['codeCells'] = codeCells;
-
-    codeCells.forEach((codeCell, index) => {
-      const id = codeCellId(index)
-      codeCell.setAttribute('id', id)
-    })
-};
-
-initFunction(findCodeCells);
-
-// All cells in general
-findInputCells = function() {
-    var inputCells = document.querySelectorAll('div.jb_cell')
-    pageElements['inputCells'] = inputCells;
-
-    inputCells.forEach((inputCell, index) => {
-        const id = inputCellId(index)
-        inputCell.setAttribute('id', id)
-    })
-};
-
-initFunction(findInputCells);
-</script>
 
   <!-- Load nbinteract for widgets -->
   
@@ -189,7 +123,7 @@ initFunction(findInputCells);
 
 const thebelabCellButton = id =>
   `<a id="thebelab-cell-button-${id}" class="btn thebebtn o-tooltip--left" data-tooltip="Interactive Mode">
-    <img src="/NEGI-Abisko-2019/assets/images/edit-button.svg" alt="Start interactive mode">
+    <img src="/NEGI-Abisko-2019/assets/images/edit-button.svg" alt="Start thebelab interactive mode">
   </a>`
 
 
@@ -209,23 +143,7 @@ initFunction(addThebelabButtonToCodeCells);
 </script>
 
 
-
-<script type="text/x-thebe-config">
-    {
-      requestKernel: true,
-      binderOptions: {
-        repo: 'NordicESMHub/NEGI-Abisko-2019',
-        ref: 'master',
-      },
-      codeMirrorConfig: {
-        theme: "abcdef"
-      },
-      kernelOptions: {
-        name: 'python3',
-      }
-    }
-</script>
-<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js" async></script>
+<script src="https://unpkg.com/thebelab@latest/lib/index.js" async></script>
 <script>
     /**
      * Add attributes to Thebelab blocks
@@ -250,20 +168,12 @@ initFunction(addThebelabButtonToCodeCells);
             const codeCells = document.querySelectorAll('.input_area pre')
             codeCells.forEach((codeCell, index) => {
                 const id = codeCellId(index)
-                codeCell.setAttribute('data-executable', 'true')
 
-                // Figure out the language it uses and add this too
-                var parentDiv = codeCell.parentElement.parentElement;
-                var arrayLength = parentDiv.classList.length;
-                for (var ii = 0; ii < arrayLength; ii++) {
-                    var parts = parentDiv.classList[ii].split('language-');
-                    if (parts.length === 2) {
-                        // If found, assign dataLanguage and break the loop
-                        var dataLanguage = parts[1];
-                        break;
-                    }
-                }
+                // Clean up the language to make it work w/ CodeMirror and add it to the cell
+                dataLanguage = ""
+                dataLanguage = detectLanguage(dataLanguage);
                 codeCell.setAttribute('data-language', dataLanguage)
+                codeCell.setAttribute('data-executable', 'true')
 
                 // If the code cell is hidden, show it
                 var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
@@ -291,6 +201,13 @@ initFunction(addThebelabButtonToCodeCells);
             outputs.forEach((output, index) => {
                 output.remove();
             });
+
+            // Find any cells with an initialization tag and ask ThebeLab to run them when ready
+            var thebeInitCells = document.querySelectorAll('div.tag_thebelab-init');
+            thebeInitCells.forEach((cell) => {
+                console.log("Initializing ThebeLab with cell: " + cell.id);
+                cell.querySelector('.thebelab-run-button').click();
+            });
         }
 
         // Add event listener for the function to modify code cells
@@ -306,45 +223,25 @@ initFunction(addThebelabButtonToCodeCells);
 
     // Initialize Thebelab
     initFunction(initThebelab);
-</script>
 
-
-
-  <!-- Load the auto-generating TOC -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
-<script>
-const initToc = () => {
-  if (window.tocbot === undefined) {
-    setTimeout(initToc, 250)
-    return
-  }
-
-  // Check whether we have any sidebar content. If not, then show the sidebar earlier.
-  var SIDEBAR_CONTENT_TAGS = ['.tag_full_width', '.tag_popout'];
-  var sidebar_content_query = SIDEBAR_CONTENT_TAGS.join(', ')
-  if (document.querySelectorAll(sidebar_content_query).length === 0) {
-    document.querySelector('nav.onthispage').classList.add('no_sidebar_content')
-  }
-
-  // Initialize the TOC bot
-  tocbot.init({
-    tocSelector: 'nav.onthispage',
-    contentSelector: '.c-textbook__content',
-    headingSelector: 'h2, h3',
-    orderedList: false,
-    collapseDepth: 6,
-    listClass: 'toc__menu',
-    activeListItemClass: "",  // Not using
-    activeLinkClass: "", // Not using
-  });
-
+// Helper function to munge the language name
+var detectLanguage = (language) => {
+    if (language.indexOf('python') > -1) {
+        language = "python";
+    }
+    return language;
 }
-initFunction(initToc);
 </script>
 
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
+  <script src="/NEGI-Abisko-2019/assets/js/page/tocbot.js"></script>
 
   <!-- Google analytics -->
-  <script src="/NEGI-Abisko-2019/assets/js/ga.js" async></script>
+  
+
 
   <!-- Clipboard copy button -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
@@ -589,147 +486,10 @@ initFunction(initQuery);
 </script>
 
   <!-- Load JS that depends on site variables -->
-  <script>
-/**
- * Set up copy/paste for code blocks
- */
-const clipboardButton = id =>
-  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
-    <img src="/NEGI-Abisko-2019/assets/images/copy-button.svg" alt="Copy to clipboard">
-  </a>`
-
-// Clears selected text since ClipboardJS will select the text when copying
-const clearSelection = () => {
-  if (window.getSelection) {
-    window.getSelection().removeAllRanges()
-  } else if (document.selection) {
-    document.selection.empty()
-  }
-}
-
-// Changes tooltip text for two seconds, then changes it back
-const temporarilyChangeTooltip = (el, newText) => {
-  const oldText = el.getAttribute('data-tooltip')
-  el.setAttribute('data-tooltip', newText)
-  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
-}
-
-const addCopyButtonToCodeCells = () => {
-  // If ClipboardJS hasn't loaded, wait a bit and try again. This
-  // happens because we load ClipboardJS asynchronously.
-  if (window.ClipboardJS === undefined) {
-    setTimeout(addCopyButtonToCodeCells, 250)
-    return
-  }
-
-  pageElements['codeCells'].forEach((codeCell) => {
-    const id = codeCell.getAttribute('id')
-    if (document.getElementById("copy-button" + id) == null) {
-      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
-    }
-  })
-
-  const clipboard = new ClipboardJS('.copybtn')
-  clipboard.on('success', event => {
-    clearSelection()
-    temporarilyChangeTooltip(event.trigger, 'Copied!')
-  })
-
-  clipboard.on('error', event => {
-    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
-  })
-
-  // Get rid of clipboard before the next page visit to avoid memory leak
-  document.addEventListener('turbolinks:before-visit', () =>
-    clipboard.destroy()
-  )
-}
-
-initFunction(addCopyButtonToCodeCells);
-</script>
-
+  <script src="/NEGI-Abisko-2019/assets/js/page/copy-button.js" async></script>
 
   <!-- Hide cell code -->
-  <script>
-    /**
-    Add buttons to hide code cells
-    */
-
-
-    var setCodeCellVisibility = function (inputField, kind) {
-        // Update the image and class for hidden
-        var id = inputField.getAttribute('data-id');
-        var codeCell = document.querySelector(`#${id} div.highlight`);
-
-        if (kind === "visible") {
-            codeCell.classList.remove('hidden');
-            inputField.checked = true;
-        } else {
-            codeCell.classList.add('hidden');
-            inputField.checked = false;
-        }
-    }
-
-    var toggleCodeCellVisibility = function (event) {
-        // The label is clicked, and now we decide what to do based on the input field's clicked status
-        if (event.target.tagName === "LABEL") {
-            var inputField = event.target.previousElementSibling;
-        } else {
-            // It is the span inside the target
-            var inputField = event.target.parentElement.previousElementSibling;
-        }
-
-        if (inputField.checked === true) {
-            setCodeCellVisibility(inputField, "visible");
-        } else {
-            setCodeCellVisibility(inputField, "hidden");
-        }
-    }
-
-
-    // Button constructor
-    const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
-
-    var addHideButton = function () {
-        // If a hide button is already added, don't add another
-        if (document.querySelector('div.tag_hide_input input') !== null) {
-            return;
-        }
-
-        // Find the input cells and add a hide button
-        pageElements['inputCells'].forEach(function (inputCell) {
-            if (!inputCell.classList.contains("tag_hide_input")) {
-                // Skip the cell if it doesn't have a hidecode class
-                return;
-            }
-
-            const id = inputCell.getAttribute('id')
-
-            // Insert the button just inside the end of the next div
-            inputCell.querySelector('div.input').insertAdjacentHTML('beforeend', hideCodeButton(id))
-
-            // Set up the visibility toggle
-            hideLink = document.querySelector(`#${id} div.inner_cell + input + label`);
-            hideLink.addEventListener('click', toggleCodeCellVisibility)
-        });
-    }
-
-
-    // Initialize the hide buttos
-    var initHiddenCells = function () {
-        // Add hide buttons to the cells
-        addHideButton();
-
-        // Toggle the code cells that should be hidden
-        document.querySelectorAll('div.tag_hide_input input').forEach(function (item) {
-            setCodeCellVisibility(item, 'hidden');
-            item.checked = true;
-        })
-    }
-
-    initFunction(initHiddenCells);
-
-</script>
+  <script src="/NEGI-Abisko-2019/assets/js/page/hide-cell.js" async></script>
 
   <!-- Printing the screen -->
   <!-- Include nbinteract for interactive widgets -->
@@ -750,9 +510,11 @@ printContent = () => {
         printable: 'textbook_content',
         type: 'html',
         css: "/NEGI-Abisko-2019/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
         scanStyles: false,
         targetStyles: ["*"],
-        ignoreElements: ignoreAssistList
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Made with Jupyter Book"
     })
 };
 
@@ -766,6 +528,24 @@ initFunction(initPrint)
 </head>
 
   <body>
+    <!-- Include the ThebeLab config so it gets reloaded on each page -->
+    <script type="text/x-thebe-config">{
+    requestKernel: true,
+    binderOptions: {
+    repo: "NordicESMHub/NEGI-Abisko-2019",
+    ref: "master",
+    },
+    codeMirrorConfig: {
+    theme: "abcdef",
+    mode: "python"
+    },
+    kernelOptions: {
+    kernelName: "python3",
+    path: ""
+    }
+}
+</script>
+
     <!-- .js-show-sidebar shows sidebar by default -->
     <div id="js-textbook" class="c-textbook js-show-sidebar">
       
@@ -773,7 +553,7 @@ initFunction(initPrint)
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://www.aces.su.se/research/projects/course-series-on-climate-science-at-high-latitudes/"><img src="/NEGI-Abisko-2019/images/logo/zeppelin.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <a href="https://www.aces.su.se/research/projects/course-series-on-climate-science-at-high-latitudes/"><img src="/NEGI-Abisko-2019/images/logo/zeppelin.png" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
   <h2 class="c-sidebar__title">eScience for linking Arctic measurements and modeling</h2>
   <ul class="c-sidebar__chapters">
     
@@ -782,19 +562,29 @@ initFunction(initPrint)
 
       
       
+      
+      
 
       
       
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+      <li class="c-sidebar__chapter" data-url="/intro">
+        <a class="c-sidebar__entry"
           href="/NEGI-Abisko-2019/intro.html"
         >
           
           Home
         </a>
-
-        
       </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
 
       
     
@@ -807,11 +597,13 @@ initFunction(initPrint)
 
       
       
+      
+      
 
       
       
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+      <li class="c-sidebar__chapter" data-url="/topics/report/intro">
+        <a class="c-sidebar__entry"
           href="/NEGI-Abisko-2019/topics/report/intro.html"
         >
           
@@ -819,59 +611,67 @@ initFunction(initPrint)
           
           Report guidelines
         </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/report/Peer-review-matching_timeline_and_guidelines.html"
-                >
-                  
-                    1.1
-                  
-                  Peer review matching timeline notebook
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/report/presentation.html"
-                >
-                  
-                    1.2
-                  
-                  Notebook for presentation
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
       </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/report/Peer-review-matching_timeline_and_guidelines">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/report/Peer-review-matching_timeline_and_guidelines.html"
+              >
+                
+                  1.1
+                
+                Peer review matching timeline notebook
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/report/presentation">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/report/presentation.html"
+              >
+                
+                  1.2
+                
+                Notebook for presentation
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
 
       
     
@@ -880,11 +680,13 @@ initFunction(initPrint)
 
       
       
+      
+      
 
       
       
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+      <li class="c-sidebar__chapter" data-url="/topics/group-1/intro">
+        <a class="c-sidebar__entry"
           href="/NEGI-Abisko-2019/topics/group-1/intro.html"
         >
           
@@ -892,116 +694,130 @@ initFunction(initPrint)
           
           Group-1
         </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-1/libe05_test.html"
-                >
-                  
-                    2.1
-                  
-                  libe05 project
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-1/Luis-s21_Project.html"
-                >
-                  
-                    2.2
-                  
-                  Luis-s21 project
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-1/slijeci_project.html"
-                >
-                  
-                    2.3
-                  
-                  Slijeci project
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-1/tuulivarenka_zeppelin2010_2015_particleplot.html"
-                >
-                  
-                    2.4
-                  
-                  Tuulivarenka project
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-1/presentations/intro.html"
-                >
-                  
-                    2.5
-                  
-                  Presentations
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
       </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-1/libe05_test">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-1/libe05_test.html"
+              >
+                
+                  2.1
+                
+                libe05 project
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-1/Luis-s21_Project">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-1/Luis-s21_Project.html"
+              >
+                
+                  2.2
+                
+                Luis-s21 project
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-1/slijeci_project">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-1/slijeci_project.html"
+              >
+                
+                  2.3
+                
+                Slijeci project
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-1/tuulivarenka_zeppelin2010_2015_particleplot">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-1/tuulivarenka_zeppelin2010_2015_particleplot.html"
+              >
+                
+                  2.4
+                
+                Tuulivarenka project
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-1/presentations/intro">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-1/presentations/intro.html"
+              >
+                
+                  2.5
+                
+                Presentations
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
 
       
     
@@ -1010,11 +826,13 @@ initFunction(initPrint)
 
       
       
+      
+      
 
       
       
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+      <li class="c-sidebar__chapter" data-url="/topics/group-2/intro">
+        <a class="c-sidebar__entry"
           href="/NEGI-Abisko-2019/topics/group-2/intro.html"
         >
           
@@ -1022,149 +840,172 @@ initFunction(initPrint)
           
           Group-2
         </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-2/aod_div.html"
-                >
-                  
-                    3.1
-                  
-                  AOD div
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-2/lassekva.html"
-                >
-                  
-                    3.2
-                  
-                  lassekva Project
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-2/franzihe_area_averaged_AOD_Svalbard.html"
-                >
-                  
-                    3.3
-                  
-                  franzihe area averaged AOD Svalbard
-                </a>
-
-                
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/topics/group-2/franzihe_intermediate_pres.html"
-                    >
-                      
-                        3.3.1
-                        
-                      
-                      Franzihe presentation
-                    </a>
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-2/marekrataj_read_data.html"
-                >
-                  
-                    3.4
-                  
-                  Marekrataj read data
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-2/sofiemt_dmp.html"
-                >
-                  
-                    3.5
-                  
-                  Sofiemt DMP
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-2/presentations/intro.html"
-                >
-                  
-                    3.6
-                  
-                  Presentations
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
       </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-2/aod_div">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-2/aod_div.html"
+              >
+                
+                  3.1
+                
+                AOD div
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-2/lassekva">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-2/lassekva.html"
+              >
+                
+                  3.2
+                
+                lassekva Project
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-2/franzihe_area_averaged_AOD_Svalbard">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-2/franzihe_area_averaged_AOD_Svalbard.html"
+              >
+                
+                  3.3
+                
+                franzihe area averaged AOD Svalbard
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections u-hidden-visually'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/topics/group-2/franzihe_intermediate_pres">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/topics/group-2/franzihe_intermediate_pres.html"
+                  >
+                    
+                      3.3.1
+                      
+                    
+                    Franzihe presentation
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-2/marekrataj_read_data">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-2/marekrataj_read_data.html"
+              >
+                
+                  3.4
+                
+                Marekrataj read data
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-2/sofiemt_dmp">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-2/sofiemt_dmp.html"
+              >
+                
+                  3.5
+                
+                Sofiemt DMP
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-2/presentations/intro">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-2/presentations/intro.html"
+              >
+                
+                  3.6
+                
+                Presentations
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
 
       
     
@@ -1173,11 +1014,13 @@ initFunction(initPrint)
 
       
       
+      
+      
 
       
       
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+      <li class="c-sidebar__chapter" data-url="/topics/group-3/intro">
+        <a class="c-sidebar__entry"
           href="/NEGI-Abisko-2019/topics/group-3/intro.html"
         >
           
@@ -1185,116 +1028,130 @@ initFunction(initPrint)
           
           Group-3
         </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-3/data-to-use.html"
-                >
-                  
-                    4.1
-                  
-                  Data to use
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-3/DeleteMaria.html"
-                >
-                  
-                    4.2
-                  
-                  Maria's project
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-3/stinsage_temperature.html"
-                >
-                  
-                    4.3
-                  
-                  Stinsage temperature
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-3/aod_johan.html"
-                >
-                  
-                    4.4
-                  
-                  AOD johan
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-3/presentations/intro.html"
-                >
-                  
-                    4.5
-                  
-                  Presentations
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
       </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-3/data-to-use">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-3/data-to-use.html"
+              >
+                
+                  4.1
+                
+                Data to use
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-3/DeleteMaria">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-3/DeleteMaria.html"
+              >
+                
+                  4.2
+                
+                Maria's project
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-3/stinsage_temperature">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-3/stinsage_temperature.html"
+              >
+                
+                  4.3
+                
+                Stinsage temperature
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-3/aod_johan">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-3/aod_johan.html"
+              >
+                
+                  4.4
+                
+                AOD johan
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-3/presentations/intro">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-3/presentations/intro.html"
+              >
+                
+                  4.5
+                
+                Presentations
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
 
       
     
@@ -1303,11 +1160,13 @@ initFunction(initPrint)
 
       
       
+      
+      
 
       
       
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+      <li class="c-sidebar__chapter" data-url="/topics/group-4/intro">
+        <a class="c-sidebar__entry"
           href="/NEGI-Abisko-2019/topics/group-4/intro.html"
         >
           
@@ -1315,210 +1174,241 @@ initFunction(initPrint)
           
           Group-4
         </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-4/dinastabell_DMP.html"
-                >
-                  
-                    5.1
-                  
-                  Dinastabell DMP
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-4/olga_firus_test.html"
-                >
-                  
-                    5.2
-                  
-                  Olga firus test
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-4/dominichr1_test.html"
-                >
-                  
-                    5.3
-                  
-                  Dominichr1 Test
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-4/sigridjb_topic_presentation.html"
-                >
-                  
-                    5.4
-                  
-                  Sigridjb topic presentation
-                </a>
-
-                
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Alert_sizedist.html"
-                    >
-                      
-                        5.4.1
-                        
-                      
-                      Alert Size distribution
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Tiksi_sizedist.html"
-                    >
-                      
-                        5.4.2
-                        
-                      
-                      Tiksi Size distribution
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Nord_sizedist.html"
-                    >
-                      
-                        5.4.3
-                        
-                      
-                      Nord Size distribution
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Zeppelin_sizedist.html"
-                    >
-                      
-                        5.4.4
-                        
-                      
-                      Zeppelin Size distribution
-                    </a>
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-4/NILU_size_distr_from_ebas.html"
-                >
-                  
-                    5.5
-                  
-                  NILU size distribution from EBAS
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-4/references.html"
-                >
-                  
-                    5.6
-                  
-                  References
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/topics/group-4/presentations/intro.html"
-                >
-                  
-                    5.7
-                  
-                  Presentations
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
       </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-4/dinastabell_DMP">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-4/dinastabell_DMP.html"
+              >
+                
+                  5.1
+                
+                Dinastabell DMP
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-4/olga_firus_test">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-4/olga_firus_test.html"
+              >
+                
+                  5.2
+                
+                Olga firus test
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-4/dominichr1_test">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-4/dominichr1_test.html"
+              >
+                
+                  5.3
+                
+                Dominichr1 Test
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-4/sigridjb_topic_presentation">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-4/sigridjb_topic_presentation.html"
+              >
+                
+                  5.4
+                
+                Sigridjb topic presentation
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections u-hidden-visually'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/topics/group-4/SizeDistNotebooks/Alert_sizedist">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Alert_sizedist.html"
+                  >
+                    
+                      5.4.1
+                      
+                    
+                    Alert Size distribution
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/topics/group-4/SizeDistNotebooks/Tiksi_sizedist">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Tiksi_sizedist.html"
+                  >
+                    
+                      5.4.2
+                      
+                    
+                    Tiksi Size distribution
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/topics/group-4/SizeDistNotebooks/Nord_sizedist">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Nord_sizedist.html"
+                  >
+                    
+                      5.4.3
+                      
+                    
+                    Nord Size distribution
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/topics/group-4/SizeDistNotebooks/Zeppelin_sizedist">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Zeppelin_sizedist.html"
+                  >
+                    
+                      5.4.4
+                      
+                    
+                    Zeppelin Size distribution
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-4/NILU_size_distr_from_ebas">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-4/NILU_size_distr_from_ebas.html"
+              >
+                
+                  5.5
+                
+                NILU size distribution from EBAS
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-4/references">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-4/references.html"
+              >
+                
+                  5.6
+                
+                References
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/topics/group-4/presentations/intro">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/topics/group-4/presentations/intro.html"
+              >
+                
+                  5.7
+                
+                Presentations
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
 
       
     
@@ -1531,19 +1421,29 @@ initFunction(initPrint)
 
       
       
+      
+      
 
       
       
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+      <li class="c-sidebar__chapter" data-url="/tools/tools">
+        <a class="c-sidebar__entry"
           href="/NEGI-Abisko-2019/tools/tools.html"
         >
           
           Tools
         </a>
-
-        
       </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
 
       
     
@@ -1556,104 +1456,125 @@ initFunction(initPrint)
 
       
       
+      
+      
 
       
       
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+      <li class="c-sidebar__chapter" data-url="/setup/preparation">
+        <a class="c-sidebar__entry"
           href="/NEGI-Abisko-2019/setup/preparation.html"
         >
           
           Course preparation
         </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections ">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/setup/setup.html"
-                >
-                  
-                  Setup
-                </a>
-
-                
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/setup/laptop_setup.html"
-                    >
-                      
-                      Laptop setup
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/setup/jupyterhub_setup.html"
-                    >
-                      
-                      Jupyterhub setup
-                    </a>
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="https://jupyter.org/try.html"
-                >
-                  
-                  Get ready with Jupyter
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="https://swcarpentry.github.io/python-novice-gapminder/index.html"
-                >
-                  
-                  Get ready with Python
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
       </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/setup/setup">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/setup/setup.html"
+              >
+                
+                Setup
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections u-hidden-visually'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/setup/laptop_setup">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/setup/laptop_setup.html"
+                  >
+                    
+                    Laptop setup
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/setup/jupyterhub_setup">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/setup/jupyterhub_setup.html"
+                  >
+                    
+                    Jupyterhub setup
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="https://jupyter.org/try">
+              <a class="c-sidebar__entry"
+                href="https://jupyter.org/try.html"
+              >
+                
+                Get ready with Jupyter
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="https://swcarpentry.github.io/python-novice-gapminder/index">
+              <a class="c-sidebar__entry"
+                href="https://swcarpentry.github.io/python-novice-gapminder/index.html"
+              >
+                
+                Get ready with Python
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
 
       
     
@@ -1662,82 +1583,94 @@ initFunction(initPrint)
 
       
       
+      
+      
 
       
       
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+      <li class="c-sidebar__chapter" data-url="/contributing/os_contribution">
+        <a class="c-sidebar__entry"
           href="/NEGI-Abisko-2019/contributing/os_contribution.html"
         >
           
           Course Contribution
         </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/contributing/newcomers.html"
-                >
-                  
-                  New contributors
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/contributing/CONTRIBUTING.html"
-                >
-                  
-                  Contribute to Open Science projects
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/setup/Abisko_prep.html"
-                >
-                  
-                  Notebook example
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
       </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/contributing/newcomers">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/contributing/newcomers.html"
+              >
+                
+                New contributors
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/contributing/CONTRIBUTING">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/contributing/CONTRIBUTING.html"
+              >
+                
+                Contribute to Open Science projects
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/setup/Abisko_prep">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/setup/Abisko_prep.html"
+              >
+                
+                Notebook example
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
 
       
     
@@ -1746,48 +1679,56 @@ initFunction(initPrint)
 
       
       
+      
+      
 
       
       
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+      <li class="c-sidebar__chapter" data-url="/training/example_notebooks/example_notebooks">
+        <a class="c-sidebar__entry"
           href="/NEGI-Abisko-2019/training/example_notebooks/example_notebooks.html"
         >
           
           Example notebook report
         </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/training/example_notebooks/NeGIcourse_2018_LinnKarlsson.html"
-                >
-                  
-                  Linn Karlsson, Sizedistributions in NorESM
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
       </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/training/example_notebooks/NeGIcourse_2018_LinnKarlsson">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/training/example_notebooks/NeGIcourse_2018_LinnKarlsson.html"
+              >
+                
+                Linn Karlsson, Sizedistributions in NorESM
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
 
       
     
@@ -1796,398 +1737,482 @@ initFunction(initPrint)
 
       
       
+      
+      
 
       
       
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+      <li class="c-sidebar__chapter" data-url="/training/intro">
+        <a class="c-sidebar__entry"
           href="/NEGI-Abisko-2019/training/intro.html"
         >
           
           Learning resources
         </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections ">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/training/presentations.html"
-                >
-                  
-                  Presentations
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="https://nordicesmhub.github.io/tutorials/programming/index.html"
-                >
-                  
-                  Programming
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="https://nordicesmhub.github.io/tutorials/science/index.html"
-                >
-                  
-                  E-Science
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/training/github/intro_github.html"
-                >
-                  
-                  Getting started with Git/Github
-                </a>
-
-                
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/github/synchronise_github.html"
-                    >
-                      
-                      Synchronize your fork github repository
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/github/git_pull_requests.html"
-                    >
-                      
-                      Git pull request explained
-                    </a>
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/training/visualize/intro.html"
-                >
-                  
-                  Visualize in Python
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/training/python_examples.html"
-                >
-                  
-                  Python examples
-                </a>
-
-                
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/visualize/zeppelin_size_dist.html"
-                    >
-                      
-                      Aerosol distribution plotting
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/example_NorthPolarStereo_projection.html"
-                    >
-                      
-                      Example NorthPolarStereo_projection
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/Example_model_global_arctic_average.html"
-                    >
-                      
-                      Example Weighted/masked average
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/gridded_model_data_dask_rolling_mean.html"
-                    >
-                      
-                      Gridded model data dask rolling mean
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/dask_kernel/dask_kernel.html"
-                    >
-                      
-                      Dask kernel example
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/example_notebooks/from_ebas_using_pydap.html"
-                    >
-                      
-                      Get EBAS data with pydap
-                    </a>
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/training/pyaerocom/intro.html"
-                >
-                  
-                  Pyaerocom
-                </a>
-
-                
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom.html"
-                    >
-                      
-                      pyaerocom jupyter notebook
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/pyaerocom/example_ebas_read.html"
-                    >
-                      
-                      pyaerocom EBAS example
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/pyaerocom/HOWTO_find_EBAS_files.html"
-                    >
-                      
-                      How to find EBAS files
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/pyaerocom/HOWTO_read_EBAS_files.html"
-                    >
-                      
-                      How to read EBAS files
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/pyaerocom/HOWTO_handle_large_files.html"
-                    >
-                      
-                      How to handle large files
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/pyaerocom/example_cmip6_colocation.html"
-                    >
-                      
-                      Example CMIP6 colocation
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/pyaerocom/example_aas_etal_read.html"
-                    >
-                      
-                      Example aas etal read
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/pyaerocom/EXAMPLE_EBAS_arctic_so4_concentrations.html"
-                    >
-                      
-                      Example EBAS artic SO4 concentrations
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/pyaerocom/pyaerocom_gridded_gridded.html"
-                    >
-                      
-                      How to compare model with model (gridded-gridded)
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/pyaerocom/local_pyaerocom.html"
-                    >
-                      
-                      Install pyaerocom dev
-                    </a>
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/NEGI-Abisko-2019/training/CMIP6_data.html"
-                >
-                  
-                  CMIP6 data
-                </a>
-
-                
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/CMIP6_example.html"
-                    >
-                      
-                      Plotting CMIP6 data
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/CMIP6_dask.html"
-                    >
-                      
-                      CMIP6 data with dask cluster
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/NEGI-Abisko-2019/training/example_search_cmip6_historical.html"
-                    >
-                      
-                      Search CMIP6 historical data
-                    </a>
-                
-
-              </li>
-              
-            
-          </ul>
-        
       </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/training/presentations">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/training/presentations.html"
+              >
+                
+                Presentations
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="https://nordicesmhub.github.io/tutorials/programming/index">
+              <a class="c-sidebar__entry"
+                href="https://nordicesmhub.github.io/tutorials/programming/index.html"
+              >
+                
+                Programming
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="https://nordicesmhub.github.io/tutorials/science/index">
+              <a class="c-sidebar__entry"
+                href="https://nordicesmhub.github.io/tutorials/science/index.html"
+              >
+                
+                E-Science
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/training/github/intro_github">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/training/github/intro_github.html"
+              >
+                
+                Getting started with Git/Github
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections u-hidden-visually'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/github/synchronise_github">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/github/synchronise_github.html"
+                  >
+                    
+                    Synchronize your fork github repository
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/github/git_pull_requests">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/github/git_pull_requests.html"
+                  >
+                    
+                    Git pull request explained
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/training/visualize/intro">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/training/visualize/intro.html"
+              >
+                
+                Visualize in Python
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/training/python_examples">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/training/python_examples.html"
+              >
+                
+                Python examples
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections u-hidden-visually'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/visualize/zeppelin_size_dist">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/visualize/zeppelin_size_dist.html"
+                  >
+                    
+                    Aerosol distribution plotting
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/example_NorthPolarStereo_projection">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/example_NorthPolarStereo_projection.html"
+                  >
+                    
+                    Example NorthPolarStereo_projection
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/Example_model_global_arctic_average">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/Example_model_global_arctic_average.html"
+                  >
+                    
+                    Example Weighted/masked average
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/gridded_model_data_dask_rolling_mean">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/gridded_model_data_dask_rolling_mean.html"
+                  >
+                    
+                    Gridded model data dask rolling mean
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/dask_kernel/dask_kernel">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/dask_kernel/dask_kernel.html"
+                  >
+                    
+                    Dask kernel example
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/example_notebooks/from_ebas_using_pydap">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/example_notebooks/from_ebas_using_pydap.html"
+                  >
+                    
+                    Get EBAS data with pydap
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/training/pyaerocom/intro">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/training/pyaerocom/intro.html"
+              >
+                
+                Pyaerocom
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections u-hidden-visually'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom.html"
+                  >
+                    
+                    pyaerocom jupyter notebook
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/pyaerocom/example_ebas_read">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/pyaerocom/example_ebas_read.html"
+                  >
+                    
+                    pyaerocom EBAS example
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/pyaerocom/HOWTO_find_EBAS_files">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/pyaerocom/HOWTO_find_EBAS_files.html"
+                  >
+                    
+                    How to find EBAS files
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/pyaerocom/HOWTO_read_EBAS_files">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/pyaerocom/HOWTO_read_EBAS_files.html"
+                  >
+                    
+                    How to read EBAS files
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/pyaerocom/HOWTO_handle_large_files">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/pyaerocom/HOWTO_handle_large_files.html"
+                  >
+                    
+                    How to handle large files
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/pyaerocom/example_cmip6_colocation">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/pyaerocom/example_cmip6_colocation.html"
+                  >
+                    
+                    Example CMIP6 colocation
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/pyaerocom/example_aas_etal_read">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/pyaerocom/example_aas_etal_read.html"
+                  >
+                    
+                    Example aas etal read
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/pyaerocom/EXAMPLE_EBAS_arctic_so4_concentrations">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/pyaerocom/EXAMPLE_EBAS_arctic_so4_concentrations.html"
+                  >
+                    
+                    Example EBAS artic SO4 concentrations
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/pyaerocom/pyaerocom_gridded_gridded">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/pyaerocom/pyaerocom_gridded_gridded.html"
+                  >
+                    
+                    How to compare model with model (gridded-gridded)
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/pyaerocom/local_pyaerocom">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/pyaerocom/local_pyaerocom.html"
+                  >
+                    
+                    Install pyaerocom dev
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/training/CMIP6_data">
+              <a class="c-sidebar__entry"
+                href="/NEGI-Abisko-2019/training/CMIP6_data.html"
+              >
+                
+                CMIP6 data
+              </a>
+            </li>
+            
+              
+              <ul class='c-sidebar__subsections u-hidden-visually'>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/CMIP6_example">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/CMIP6_example.html"
+                  >
+                    
+                    Plotting CMIP6 data
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/CMIP6_dask">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/CMIP6_dask.html"
+                  >
+                    
+                    CMIP6 data with dask cluster
+                  </a>
+                </li>
+              
+                
+                
+                
+                
+                <li class="c-sidebar__subsection" data-url="/training/example_search_cmip6_historical">
+                  <a class="c-sidebar__entry"
+                    href="/NEGI-Abisko-2019/training/example_search_cmip6_historical.html"
+                  >
+                    
+                    Search CMIP6 historical data
+                  </a>
+                </li>
+              
+              </ul>
+            
+            
+          
+        </ul>
+      
 
       
     
@@ -2200,19 +2225,29 @@ initFunction(initPrint)
 
       
       
+      
+      
 
       
       
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
+      <li class="c-sidebar__chapter" data-url="https://github.com/NordicESMHub/NEGI-Abisko-2019">
+        <a class="c-sidebar__entry"
           href="https://github.com/NordicESMHub/NEGI-Abisko-2019"
         >
           
           GitHub repository
         </a>
-
-        
       </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
 
       
     
@@ -2234,23 +2269,26 @@ initFunction(initPrint)
     </button>
     <div class="buttons">
 <div class="download-buttons-dropdown">
-    <button id="dropdown-button-trigger" class="interact-button"><i class="fa fa-download"></i></button>
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/NEGI-Abisko-2019/assets/images/download-solid.svg" alt="Download" /></button>
     <div class="download-buttons">
         
-        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">PDF</button></a>
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
     </div>
 </div>
+
 
 </div>
 
   </div>
   <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
   <aside class="sidebar__right">
-    <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+    <header><h4 class="nav__title"><img src="/NEGI-Abisko-2019/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
     <nav class="onthispage">
     </nav>
   </aside>
-  <a href="/NEGI-Abisko-2019/search.html" class="topbar-right-button" id="search-button"><i class="fa fa-search"></i></a>
+  <a href="/NEGI-Abisko-2019/search.html" class="topbar-right-button" id="search-button">
+    <img src="/NEGI-Abisko-2019/assets/images/search-solid.svg" alt="Search" />
+  </a>
 </div>
 
       <main class="c-textbook__page" tabindex="-1">
@@ -2265,615 +2303,544 @@ initFunction(initPrint)
     var store = [{
         "title": "Contribute to Open Science projects",
         
-        "excerpt":
-            "Contributing to NEGI-Abisko-2019 Welcome to the NEGI-Abisko-2019 repository! We're excited you're here and want to contribute. These guidelines are designed to make it as easy as possible to get involved. If you have any questions that aren't discussed below, please let us know by opening an issue! Contributor Agreement By contributing, you agree that we may redistribute your work under our license. In exchange, we will address your issues and/or assess your change proposal as promptly as we can, acknowledge your contributions and help you become a member of our community. Everyone involved in [Nordic Earth System Modeling hub][nordicesmhub-site] agrees...",
+        "excerpt": "github com abisko issues negi pull nordicesmhub please issue help project request labels work requests code io contributors jupyter new changes articles contributing markdown documentation repository contributions img shields badge svg team youre here linkissues our master change member following understanding book bug enhancement question fork html contribute involved any opening everyone conduct need linkgithub already joining conversation through milestones boards making recognizing open git working think formatting page projects linkhelpwanted sure thats similar repo keep development review doc www welcome excited guidelines possible questions arent discussed below license modeling before youll account linksignupinstructions guide th place carpentries linkcoc linkgit",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/contributing/CONTRIBUTING.html",
         "teaser":null},{
         "title": "New contributors",
         
-        "excerpt":
-            "Make your very first contributions Welcome to the NEGI-Abisko-2019 repository! We're excited you're here and want to contribute. Before you start you'll need to set up a free [GitHub][link_github] account and sign in. Here are some [instructions][link_signupinstructions]. Give us feedback One overy valuable contribution you can make is to give us feedback so we can improve NEGI-Abisko-2019! Let us know what you think about NEGI-Abisko-2019 here! Upload a jupyter notebook Let's say you have written a Jupyter notebook and would like to share it. There are several ways to do it and in this section we will show you how...",
+        "excerpt": "abisko negi github jupyter notebook pull request images png fork com click upload here us nordicesmhub share download browser below username new create repository before need give feedback contribution linkissues section add step wish shown figure folder web image bootcamp select files commit changes button done very contributions welcome excited youre want contribute start youll set free linkgithub account sign instructions linksignupinstructions overy valuable improve let think issues lets say written several ways show manually later teach streamline work notebooks git local computer file jupyerthub uiogeo apps sigma right uploadmanual downloaded located downloads s amazonaws help address should something where",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/contributing/newcomers.html",
         "teaser":null},{
         "title": "Course Contribution",
         
-        "excerpt":
-            "             Contributing to NEGI-Abisko-2019  This section aims at helping you contributing to NEGI-Abisko-2019 repository!                     ",
+        "excerpt": "contributing negi abisko section aims helping repository",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/contributing/os_contribution.html",
         "teaser":null},{
         "title": "Home",
         
-        "excerpt":
-            "Jupyterhub NIRD-Toolkit The resources for the Jupyterhub were provided by UNINETT Sigma2 - the Norwegian National Infrastructure for High Performance Computing and Data Storage in Norway as part of NS1000K project. Climate science at high latitudes: eScience for linking Arctic measurements and modeling The 3rd course “Climate science at high latitudes: eScience for linking Arctic measurements and modeling” will be held at Abisko Scientific Research Station from 15th until 24th of October 2019. Detailed programme Coordination: Paul Zieger (SU), Michael Schulz (UiO/MetNo), and Katja Lauri (UHEL) The registration has ended August 15th, 2019 (if you are still interested to join,...",
+        "excerpt": "course climate data model abisko science high analysis e students latitudes research su negi atmospheric during provided project arctic se aerocom evaluation work tools tool report between escience station th content www aces earth practical infrastructures g jupyter main nordic python skills fee university improved norwegian norway circleci com nordicesmhub measurements modeling paul lars lehnert system databases visualization notebooks forcing expected learning projects online participants applied methodologies exchange here nordforsk funding bolin jupyterhub storage part gh linking detailed zieger uio metno uhel august please contact given beginning september photo sprs existing such cmip apply statistical esmvaltool subjects introductions aerosols clouds",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/intro.html",
         "teaser":null},{
         "title": "Notebook example",
         
-        "excerpt":
-            "import important packages import numpy as np import matplotlib.pyplot as plt from netCDF4 import Dataset import xarray as xr import pandas as pd import cartopy.crs as ccrs import datetime Get sample dataset from Zenodo !wget https://zenodo.org/record/3475894/files/Abisko-prep.tar.gz --2019-10-08 14:56:52-- https://zenodo.org/record/3475894/files/Abisko-prep.tar.gz Resolving zenodo.org (zenodo.org)... 188.184.65.20 Connecting to zenodo.org (zenodo.org)|188.184.65.20|:443... connected. HTTP request sent, awaiting response... 200 OK Length: 833281373 (795M) [application/octet-stream] Saving to: ‘Abisko-prep.tar.gz’ Abisko-prep.tar.gz 100%[===================&gt;] 794.68M 13.3MB/s in 58s 2019-10-08 14:57:51 (13.7 MB/s) - ‘Abisko-prep.tar.gz’ saved [833281373/833281373] !tar zxvf Abisko-prep.tar.gz Abisko-prep/ Abisko-prep/T_recon_NTREND_NH1_EURO.csv Abisko-prep/ensmean_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/Theta_OPT-0015.nc Abisko-prep/piControl_BOT_1850-2849_temp2_fldmean.nc Abisko-prep/ue536a02_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ue536a04_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ensmean_1536_1550_geopoth_seas_a.nc Abisko-prep/ensmean_PE_seas.nc Abisko-prep/ue536a01_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ue536a06_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ue536a05_temp2_pre_seas_trees_fldmean_a_yrmean.nc Abisko-prep/ue536a03_temp2_pre.nc Abisko-prep/ue536a03_temp2_pre_seas_trees_fldmean_a_yrmean.nc Load a csv file (comma separated values)...",
+        "excerpt": "file plot data dataset csv used analyze column year netcdf import important packages get sample zenodo load comma separated values pandas python package indexcol parameter allows tell input should indexing nh select several columns network common form self describing metadata contained machine independent en wikipedia org wiki",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/Abisko_prep.html",
         "teaser":null},{
         "title": "Jupyterhub setup",
         
-        "excerpt":
-            "Getting access to Jupyterhub Instructions for accessing Jupyter notebooks at Sigma2 server: you should have received an email message titled \"JupyterHub links for NeGi-Abisko-2019\" if not please request it to the course organizers follow \"invitation link\" in the email message If you don't already have a Feide guest user account (otherwise skip this step), click \"Feide guest users\". register a new account for the sake of simplicity try to use the same email that you are using for the course also try to use the same (or similar) user ID that you have for github finish the registration process click...",
+        "excerpt": "abisko jupyterhub email feide guest user sigma should message link click notebooks negi course invitation account users try same github login browser display uiogeo apps getting access instructions accessing jupyter server received titled links not please request organizers follow dont already otherwise skip step register new sake simplicity using also similar id finish registration process again accept different policies agree become member escience loading group details sign dataporten finally web page jupyterlab upper left later usage just hub redirect git pull repo com nordicesmhub branch gh pagessubpath contentfintro mdapp lab",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/jupyterhub_setup.html",
         "teaser":null},{
         "title": "Laptop setup",
         
-        "excerpt":
-            "Getting your laptop ready Installing an editor, git and python To be able to follow Plotting and Programming in Python online lesson, you would need to install an editor, git and python. Follow the setup instructions and contact any instructors/assistants if you encounter any problems. We maintain a list of common issues that occur during installation as a reference for instructors that may be useful on the Configuration Problems and Solutions wiki page. Create a new Anaconda environment During the abisko course we will be using additional packages that are not part of the main (base) python anaconda environment. To...",
+        "excerpt": "python jupyterlab terminal notebook github new io list running command environment open conda jupyter server actions anaconda packages file click type img src fig png width need analysis start activate left sidebar nordicesmhub geo editor follow swcarpentry any problems page create esm mac press launch after windows prompt default browser activities code tabs settings git novice gapminder install setup instructions instructors common during installation useful configuration solutions wiki additional not main below yml starting os x access double search result enter launched our lab landing should p menu bar top menus related documents such kernel kernels help icon tab launcher",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/laptop_setup.html",
         "teaser":null},{
         "title": "Course preparation",
         
-        "excerpt":
-            "             Before the course  Teachers, assistants and students should do the following:   Sign up on Github Please fill this form so we can get your github username  To participate to Abisko course, you will need an up-to-date web browser. In addition you will need to install packages on your laptop (see sections below).    A sample dataset has been prepared by Evelien Jacoba Cornelia Van Dijk and is available on Zenodo.  To cite this dataset:                       ",
+        "excerpt": "zenodo doi github org course com need dataset before teachers assistants students should following sign join source header home please fill form get username docs google forms d e faipqlsdivhrzfsdfhcygueasjfkseqxzichtxnzwq viewform participate abisko date web browser addition install packages laptop sections below sample prepared evelien jacoba cornelia van dijk www mn uio geo english aca metos evelievd available cite badge svg",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/preparation.html",
         "teaser":null},{
         "title": "Setup",
         
-        "excerpt":
-            "Getting ready for Abisko! We will be using a wide range of computing and storage facilities ranging from your local laptop to Norwegian National Storage and cloud computing. Use your laptop for prototyping your code on sample dataset: this will allow you to work anywhere even without any available WIFI connection. Use Abisko Jupyterhub for processing large amount of data and running your code in production mode. We may also use additional cloud computing, not directly connected to the Norwegian Infrastructure for Research Data (NIRD) if needed. The setup for these resources is very much the same than for the...",
+        "excerpt": "abisko computing storage available laptop norwegian cloud code jupyterhub data additional nird same getting ready using wide range facilities ranging local national prototyping sample dataset allow work anywhere even without any wifi connection uiogeo apps sigma processing large amount running production mode also not directly connected infrastructure research needed setup resources very much packages accessed via sshfs fr wikipedia org wiki secureshellfilesystem virtual machines demand ask assistant information",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/setup/setup.html",
         "teaser":null},{
         "title": "Tools",
         
-        "excerpt":
-            "Tools to explore netCDF files Here is a non exhaustive list of tools/software you can use to post-process and visualize netCDF files: CDO (Climate Data Operators) CDO is a collection of command-line operators to manipulate and analyze climate and numerical weather prediction data and can manipulate model outputs (netCDF). CDO provides more than 350 operators! CDO (Climate Data operators) Documentation CDO Reference Card CDO Tutorial NCO (netCDF Operators) NCO is a suite of programs designed to perform certain \"operations\" on netCDF files, i.e., things like averaging, concatenating, subsetting, or metadata manipulation. NCO (netCDF Operator website) NCO CMIP5 examples Ncview: a...",
+        "excerpt": "netcdf span cdo nco files software style color operators ncview data tools edu climate code de projects html python shell command manipulate zmaw tutorial sourceforge net cmip visual browser cirrus ucsd pierce programming language general purpose library distribution io explore here non exhaustive list post process visualize www unidata ucar redcdo collection line analyze numerical weather prediction model outputs provides documentation reference card embedded cdorefcard pdf mpimet mpg wiki rednco suite programs designed perform certain operations e things averaging concatenating subsetting metadata manipulation operator website examples example redncview simplest format want learn screenshot ncviewscreenshot gif action quick introduction quickintro everything",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/tools/tools.html",
         "teaser":null},{
         "title": "Luis-s21 project",
         
-        "excerpt":
-            "             Project:  Work in progress                     ",
+        "excerpt": "project work progress",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/Luis-s21_Project.html",
         "teaser":null},{
         "title": "Group-1",
         
-        "excerpt":
-            "             Group-1: Paul Z, Sara, Lance, Lisa  Topics:   Climatology low clouds BC and cloud (wet and dry deposition of BC in the Arctic) OC evaluation Marine organics Artic amp Particles to CDNC Mixing and CCN                     ",
+        "excerpt": "bc group paul z sara lance lisa topics climatology low clouds cloud wet dry deposition arctic oc evaluation marine organics artic amp particles cdnc mixing ccn",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/intro.html",
         "teaser":null},{
         "title": "libe05 project",
         
-        "excerpt":
-            "             Title project                     ",
+        "excerpt": "title project",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/libe05_test.html",
         "teaser":null},{
         "title": "Presentations",
         
-        "excerpt":
-            "             Links to presentations for Saturday:   Johannes Langvatn Gabriel Tuuli Jonah Silje Jolanta  Links to presentations for Wednesday   Johannes Tuuli XuCheng Silje Jonah Jolanta Luis Jakob Marit                     ",
+        "excerpt": "presentations github nordicesmhub negi abisko topics group pdf io wednesday saturday content com raw master links johannes johanneslangvatn tuuli jonah silje jolanta slides html langvatn gabriel gabrielpfreitaspresentation grouptuuliluis shawjfridayupdate siljepres jriekstagrouppresentation seaicedeclineandaitkensizeparticlerelation xucheng xuchengheseaice siljepresentasjontorsdag shawjmarineorganicaerosol jrieksta luis luisfinalpres jakob jbppresentation marit arctichazemk",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/presentations/intro.html",
         "teaser":null},{
         "title": "Slijeci project",
         
-        "excerpt":
-            "             This is my project            And here there will be more stuff                     ",
+        "excerpt": "project here stuff",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/slijeci_project.html",
         "teaser":null},{
         "title": "Tuulivarenka project",
         
-        "excerpt":
-            "import numpy as np import xarray as xr import matplotlib.pyplot as plt import pandas as pd import seaborn as sns Opening Zeppelin hourly data from 2010 filenam1 = &#39;/home/2daa7756-2d5725-2d4dfb-2db0ff-2d5e0a6858a009/shared-ns1000k/inputs//Aerosol_sizedist_obs/Zeppelin_2010_hourly.csv&#39; filenam2 = &#39;/home/2daa7756-2d5725-2d4dfb-2db0ff-2d5e0a6858a009/shared-ns1000k/inputs//Aerosol_sizedist_obs/Zeppelin_2011_hourly.csv&#39; flist=[filenam1, filenam2] ldf = [] for f in flist: ldf.append(pd.read_csv(f, parse_dates=[[&#39;0&#39;,&#39;0.1&#39;,&#39;0.2&#39;,&#39;0.3&#39;,&#39;0.4&#39;]],date_parser = mydateparser)) data = pd.concat(ldf, axis=0) mydateparser = lambda x: pd.datetime.strptime(x, &quot;%Y %m %d %H %M&quot;) data = pd.read_csv(filenam, parse_dates=[[&#39;0&#39;,&#39;0.1&#39;,&#39;0.2&#39;,&#39;0.3&#39;,&#39;0.4&#39;]],date_parser = mydateparser) #data.head() #data.info() data.rename(columns={&#39;0_0.1_0.2_0.3_0.4&#39;:&#39;date&#39;}, inplace = True) data = data.set_index(&#39;date&#39;) #remove last column data.drop(labels=&#39;0.6&#39;, axis=1, inplace=True) --------------------------------------------------------------------------- KeyError Traceback (most recent call last) &lt;ipython-input-124-dd6d76ed93db&gt; in &lt;module&gt; 1 #remove last column ----&gt; 2 data.drop(labels=&#39;0.6&#39;, axis=1, inplace=True) 3...",
+        "excerpt": "opening zeppelin hourly data",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-1/tuulivarenka_zeppelin2010_2015_particleplot.html",
         "teaser":null},{
         "title": "AOD div",
         
-        "excerpt":
-            "             AOD div project                     ",
+        "excerpt": "aod div project",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-2/aod_div.html",
         "teaser":null},{
         "title": "franzihe area averaged AOD Svalbard",
         
-        "excerpt":
-            "HOW TO CITE Hellmuth, Franziska (2019), NEGI-2019 course Report: Evaluation of CMIP6 against ground-based observations and MERRA2, University of Oslo, franziska.hellmuth@geo.uio.no Intercomparison between CMIP6 models, MERRA2 satellite-retrieved reanalysis data and AERONET of aerosol optical depth Franziska Hellmuth NEGI course 2019 - eScience for linking Arctic measurements and modeling Group assistants: Paul Glantz, Ksenia Tabakova, Jonas Gliss Abstract We compare aerosol optical depth (AOD) from 12 Coupled Model Intercomparison Project 6 (CMIP6) models with Modern-Era Retrospective analysis for Research and Applications 2 (MERRA2) and ground-based observational data from the AErosol RObotic NETwork (AERONET) in the Arctic and zonally. We find that...",
+        "excerpt": "aod cmip merra arctic b m j s models reanalysis model during r data p circ doi org bfig aeronet too seasonal stations font esgf c region x d href values aerosol compared et al climate l ground high satellite variability northern hemisphere noresm aerosols summer nm monthly g based h size measurements spring shows lm zonal w k between sunphotometer e v evaluation zonally canesm gfdl esm averaged sea circn three station salt higher decades historical km hpa averages t depth variation not cm within earth low average winter f y optical decrease global used svalbard study show simulations",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-2/franzihe_area_averaged_AOD_Svalbard.html",
         "teaser":null},{
         "title": "Franzihe presentation",
         
-        "excerpt":
-            "CMIP6 evaluation of AOD against MERRA2 and ground-based observations - How does CMIP6 represent the seasonal variation of AOD? - Will CMIP6 simulate higher AOD for years after volcano eruptions and Arctic haze? - 1991 Mt. Pinatubo (Philippine) - 2004, 2006 Arctic haze year, forest fires in Canada, Russia - 2010 Sarychev Peak (Russia) - What will we see at Hornsund, Svalbard? 2004 AOD case for Arctic haze and forest fire fig = plt.figure(figsize=(20,5)) ax1 = fig.add_subplot(121,#figsize = [30,13], projection= ccrs.AzimuthalEquidistant(central_longitude=0, central_latitude=90,)) cmip[&#39;CESM2&#39;][&#39;r1i1p1f1&#39;][&#39;od550aer&#39;].sel(time=choseny + &#39;-03&#39;, lat=slice(lllat,urlat,1), lon=slice(lllon,urlon)).plot(ax=ax1, transform=ccrs.PlateCarree(), robust=True) # Limit the map degrees latitude ax1.set_extent([-25, 20, 85, 71], ccrs.PlateCarree())...",
+        "excerpt": "aod cmip arctic haze forest russia evaluation against merra ground based observations does represent seasonal variation simulate higher years after volcano eruptions mt pinatubo philippine year fires canada sarychev peak hornsund svalbard case fire",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-2/franzihe_intermediate_pres.html",
         "teaser":null},{
         "title": "Group-2",
         
-        "excerpt":
-            "             Group-2: Jonas, Paul G and Ksenia  Topics:   Aerosol layer height AOD bias AOD diversity CMIP6 against Remote sensing Trends in aerosol Winter transport Sea salt and winds                     ",
+        "excerpt": "aerosol aod group jonas paul g ksenia topics layer height bias diversity cmip against remote sensing trends winter transport sea salt winds",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-2/intro.html",
         "teaser":null},{
         "title": "lassekva Project",
         
-        "excerpt":
-            "             Winter transport             Investigate aerosol properties, back trajectory and specific humidity at the Svalbard region over the latest decades             lassekva                     ",
+        "excerpt": "winter transport investigate aerosol properties back trajectory specific humidity svalbard region latest decades lassekva",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-2/lassekva.html",
         "teaser":null},{
         "title": "Marekrataj read data",
         
-        "excerpt":
-            "import pyaerocom as pya def read_modeldata_pyaerocom(MODEL_ID, VAR, REG): pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; reader = pya.io.ReadGridded(MODEL_ID) VAR = reader.read_var(VAR, start=2010, ts_type=&#39;monthly&#39;) if REG==&#39;ARCTIC&#39;: VAR = VAR.crop(lat_range=(70,90)) df = VAR.crop(lat_range=(70,90)).to_xarray().to_dataframe() return df MODEL_ID = &#39;ECHAM6.3-HAM2.3-met2010_AP3-CTRL&#39; VAR = [[&#39;od550bc&#39;,&#39;od550so4&#39;,&#39;od550du&#39;,&#39;od550ss&#39;],[&#39;loadbc&#39;,&#39;loadso4&#39;,&#39;loaddu&#39;,&#39;loadss&#39;]] REG = &#39;ARCTIC&#39; VAR_MEAN = [[],[]] for i in range(len(VAR)): for j in range(len(VAR[i])): df = read_modeldata_pyaerocom(MODEL_ID, VAR[i][j], REG) vm = df[VAR[i][j]].mean() VAR_MEAN[i].append(vm) Initiating directories for pyaerocom test dataset Initiating directories for pyaerocom test dataset Initiating directories for pyaerocom test dataset Initiating directories for pyaerocom test dataset Initiating directories for pyaerocom test dataset Initiating directories for pyaerocom test dataset Initiating directories for pyaerocom test dataset...",
+        "excerpt": null,
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-2/marekrataj_read_data.html",
         "teaser":null},{
         "title": "Presentations",
         
-        "excerpt":
-            "             Saturday Presentations   Franziska's presentation group_2_presentation_saturday Artic AOD diversity in aerosol species Goutam presentation  Wednesday   Franziska's presentation                     ",
+        "excerpt": "presentations nordicesmhub github negi abisko topics group content presentation com raw master pdf franziskas io slides html grouppresentationsaturday wednesday saturday franziheintermediatepres artic aod diversity aerosol species articaoddiversityinaerosolspecies goutam goutampresentationabiskp franzihewednesdaypres",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-2/presentations/intro.html",
         "teaser":null},{
         "title": "Sofiemt DMP",
         
-        "excerpt":
-            "             Relationships between sea salt and surface wind speed in the Svalbard region            1) Investigate relationships between aerosol properties and surface wind speed.  2) Investigate vertical distributions of sea-salt particles by comparing in-situ measurements at the Zeppelin station with satellite derived AOT and sea-salt AOT from GCM simulations.  Data: Na and Cl aerosols from EBAS, AOT from MERRA2 (Giovanni) sea-salt component of AOT from NorESM CAM6-Oslo                     ",
+        "excerpt": "sea salt aot relationships between surface wind speed investigate svalbard region aerosol properties vertical distributions particles comparing situ measurements zeppelin station satellite derived gcm simulations data na cl aerosols ebas merra giovanni component noresm cam oslo",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-2/sofiemt_dmp.html",
         "teaser":null},{
         "title": "Maria's project",
         
-        "excerpt":
-            "             My super project Maria B.                     ",
+        "excerpt": "super project maria b",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-3/DeleteMaria.html",
         "teaser":null},{
         "title": "AOD johan",
         
-        "excerpt":
-            "import pyaerocom as pya import matplotlib.pyplot as plt import pandas as pd from warnings import filterwarnings filterwarnings(&#39;ignore&#39;) pya.change_verbosity(&#39;critical&#39;, log=pya.const.print_log) # don&#39;t output warnings import seaborn as sns # Use seaborn style defaults and set the default figure size #sns.set(rc={&#39;figure.figsize&#39;:(11, 4)}) pya.__version__ &#39;0.8.1.dev1&#39; pya.const.BASEDIR = &#39;./shared-ns1000k/inputs/pyaerocom-testdata&#39; Initiating directories for pyaerocom test dataset pya.const.BASEDIR &#39;./shared-ns1000k/inputs/pyaerocom-testdata&#39; obs_reader = pya.io.ReadUngridded(&#39;AeronetSDAV3Lev2.daily&#39;) print(obs_reader) Dataset name: AeronetSDAV3Lev2.daily Data directory: ./shared-ns1000k/inputs/pyaerocom-testdata/obsdata/Aeronet.SDA.V3L2.0.daily/renamed Supported variables: [&#39;od500gt1aer&#39;, &#39;od500lt1aer&#39;, &#39;od500aer&#39;, &#39;ang4487aer&#39;, &#39;od550aer&#39;, &#39;od550gt1aer&#39;, &#39;od550lt1aer&#39;] Last revision: 20190920 obs_data = obs_reader.read(vars_to_retrieve=&#39;od550aer&#39;) obs_data #displays data type UngriddedData &lt;networks: [&#39;AeronetSDAV3Lev2.daily&#39;]; vars: [&#39;od550aer&#39;]; instruments: [&#39;sun_photometer&#39;];No. of stations: 1227 DATA_ID = &#39;TM5_AP3-CTRL2019&#39; _model_data = pya.io.ReadGridded(DATA_ID) model_data =...",
+        "excerpt": null,
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-3/aod_johan.html",
         "teaser":null},{
         "title": "Data to use",
         
-        "excerpt":
-            "             Aeronet AOD - can be read by pyaerocom (Jonas...) shared-ns1000k/inputs/pyaerocom-testdata/obsdata/Aeronet.SDA.V3L2.0.daily https://aeronet.gsfc.nasa.gov  S surface and precip data in Aas et al  2019 https://actris.nilu.no/Content/?pageid=586a6ba658174907a0bcd552977d706e inputs/pyaerocom-testdata/obsdata/GAWTADSulphurSubset readable with pyaerocom --- works now in pyaerocom - see example: https://github.com/NordicESMhub/NEGI-Abisko-2019/blob/master/content/training/pyaerocom/example_aas_etal_read.ipynb / Hermann  Reanalysis ECMWF IFS , sulfate and organic AOD, total AOD,  shared-ns1000k/inputs/pyaerocom-testdata/modeldata/ECMWF_CAMS_REAN/renamed / Johanne  CRU temperature on input NS1000LK directory  /shared-ns1000k/inputs/CRU https://crudata.uea.ac.uk/cru/data/temperature/  /  Stine  Satellite AOD trends AATSR, MODIS  http://www.esa-aerosol-cci.org ATSR2+AATSR combined into one dataset Univ of Swansey version under /shared-ns1000k/inputs/ATSR_SU_v4.3.LT/ and/shared-ns1000k/inputs/MODIS6.aqua  / Aiden                     ",
+        "excerpt": "pyaerocom inputs shared nsk aod aeronet testdata cru obsdata data content temperature modis read jonas sda vl daily gsfc nasa gov s surface precip aas et al actris nilu pageid abaabcdde gawtadsulphursubset readable works example github com nordicesmhub negi abisko blob master training exampleaasetalread ipynb hermann reanalysis ecmwf ifs sulfate organic total modeldata ecmwfcamsrean renamed johanne input nslk directory crudata uea ac uk stine satellite trends aatsr www esa aerosol cci org atsraatsr combined into dataset univ swansey version under atsrsuv lt aqua aiden",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-3/data-to-use.html",
         "teaser":null},{
         "title": "Group-3",
         
-        "excerpt":
-            "             Group-3: Michael and Diago   Temp f(Aerosols) Forcing eval Sulfur Remote sensing &amp; Forcing Life time of aerosols                     ",
+        "excerpt": "aerosols forcing group michael diago temp f eval sulfur remote sensing life",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-3/intro.html",
         "teaser":null},{
         "title": "Presentations",
         
-        "excerpt":
-            "             Presentations   Saturday presentation  Wednesday presentations  Aiden's presentation                     ",
+        "excerpt": "presentations presentation com saturday github nordicesmhub negi abisko raw master content topics group grouppresentation pdf wednesday aidens docs google d klqoksgxggzifumwybppmyfunuimbrgutge edit usp sharing",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-3/presentations/intro.html",
         "teaser":null},{
         "title": "Stinsage temperature",
         
-        "excerpt":
-            "import xarray as xr import matplotlib.pyplot as plt import numpy as np #import pyaerocom as pya import cartopy as ccrs Loading the data # Observational record (CRU) path_crutem = &#39;shared-ns1000k/inputs/CRU/CRUTEM.4.6.0.0.anomalies.nc&#39; path_hadcrut = &#39;shared-ns1000k/inputs/CRU/HadCRUT.4.6.0.0.median.nc&#39; crutem_data = xr.open_dataset(path_crutem) hadcrut_data = xr.open_dataset(path_hadcrut) # Historical model data # CESM2 path_cesm2 = &#39;shared-cmip6-for-ns1000k/historical/CESM2/r1i1p1f1/tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412.nc&#39; tas_cesm2_data = xr.open_dataset(path_cesm2) # NorEsm2-LM /opt/conda/lib/python3.7/site-packages/xarray/conventions.py:494: SerializationWarning: variable &#39;tas&#39; has multiple fill values {1e+20, 1e+20}, decoding all values to NaN. use_cftime=use_cftime, Weigthed averages # Get the area weight path_area_weight_cesm2 = &#39;shared-cmip6-for-ns1000k/historical/CESM2/r1i1p1f1/areacella_fx_CESM2_historical_r1i1p1f1_gn.nc&#39; areacella_cesm2 = xr.open_dataset(path_area_weight_cesm2) /opt/conda/lib/python3.7/site-packages/xarray/conventions.py:494: SerializationWarning: variable &#39;areacella&#39; has multiple fill values {1e+20, 1e+20}, decoding all values to NaN. use_cftime=use_cftime, # Function...",
+        "excerpt": "loading data weigthed averages",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-3/stinsage_temperature.html",
         "teaser":null},{
         "title": "NILU size distribution from EBAS",
         
-        "excerpt":
-            "# As always, we import the modules we need from netCDF4 import num2date from pydap.client import open_dods, open_url import numpy as np import matplotlib.pyplot as plt import matplotlib as mpl %matplotlib inline import pandas as pd import datetime import glob 1. Get data from EBAS # get data using API ds = open_dods( &#39;http://dev-ebas-pydap.nilu.no/&#39; &#39;NO0042G.dmps.IMG.pm10.particle_number_size_distribution&#39; &#39;.1h.NO01L_DMPS_ZEP1_NRT.NO01L_dmps_DMPS_ZEP01..dods&#39;) #get the actual data dmps_data = ds[&#39;particle_number_size_distribution&#39;] # get normalised size distribution in dNdlogDp dNdlogDp= dmps_data.particle_number_size_distribution.data # get time in datatime format using function from netCDF4 package tim_dmps = num2date(dmps_data.time.data,units=&#39;days since 1900-01-01 00:00:00&#39;, calendar=&#39;gregorian&#39;) # get diameter vector dp_NILU = dmps_data.D.data 2. Get metadata...",
+        "excerpt": "get data ebas metadata convert pandas calculate total concentration plot timeseries",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/NILU_size_distr_from_ebas.html",
         "teaser":null},{
         "title": "Alert Size distribution",
         
-        "excerpt":
-            "import pandas as pd import glob import numpy as np import matplotlib.pyplot as plt import xarray as xr import matplotlib as mpl my_dateparser = lambda x: pd.datetime.strptime(x, &quot;%Y %m %d %H %M&quot;) path = &#39;shared-ns1000k/inputs/Aerosol_sizedist_obs/&#39; all_files = glob.glob(path + &quot;/ALERT_201*_hourly.csv&quot;) myorder = [2, 1, 0] mylist = [all_files[i] for i in myorder] li = [] for filename in mylist: df = pd.read_csv(filename, parse_dates=[[&#39;0&#39;, &#39;0.1&#39;, &#39;0.2&#39;, &#39;0.3&#39;, &#39;0.4&#39;]], date_parser = my_dateparser) li.append(df) df = pd.concat(li, axis=0, ignore_index=True) df.rename(columns={&#39;0_0.1_0.2_0.3_0.4&#39;:&#39;Time&#39;},inplace = True) df.replace(-999, np.nan, inplace=True) df.drop(labels=[&#39;0.5&#39;,&#39;0.6&#39;], axis=1, inplace=True) df = df.set_index(&#39;Time&#39;) df 20 22.44 25.179 28.251 31.698 35.566 39.905 44.774 50.238 56.368 ......",
+        "excerpt": null,
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Alert_sizedist.html",
         "teaser":null},{
         "title": "Nord Size distribution",
         
-        "excerpt":
-            "import pandas as pd import glob import numpy as np import matplotlib.pyplot as plt import xarray as xr import matplotlib as mpl my_dateparser = lambda x: pd.datetime.strptime(x, &quot;%Y %m %d %H %M&quot;) path = &#39;shared-ns1000k/inputs/Aerosol_sizedist_obs/&#39; all_files = glob.glob(path + &quot;/Station_Nord_201*_hourly.csv&quot;) myorder = [3, 2, 0, 1] mylist = [all_files[i] for i in myorder] li = [] for filename in mylist: df = pd.read_csv(filename, parse_dates=[[&#39;0&#39;, &#39;0.1&#39;, &#39;0.2&#39;, &#39;0.3&#39;, &#39;0.4&#39;]], date_parser = my_dateparser) li.append(df) df = pd.concat(li, axis=0, ignore_index=True) df.rename(columns={&#39;0_0.1_0.2_0.3_0.4&#39;:&#39;Time&#39;},inplace = True) df.replace(-999, np.nan, inplace=True) df.drop(labels=[&#39;0.5&#39;,&#39;0.6&#39;], axis=1, inplace=True) df = df.set_index(&#39;Time&#39;) df 20 22.44 25.179 28.251 31.698 35.566 39.905 44.774 50.238 56.368...",
+        "excerpt": null,
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Nord_sizedist.html",
         "teaser":null},{
         "title": "Tiksi Size distribution",
         
-        "excerpt":
-            "from datetime import datetime, timedelta def daterange(start_date, end_date): delta = timedelta(hours=1) while start_date &lt; end_date: yield start_date start_date += delta start_date = datetime(2013, 1, 1, 00, 00) end_date = datetime(2016, 1, 1, 00, 00) time = [] for single_date in daterange(start_date, end_date): time.append(single_date.strftime(&quot;%Y-%m-%d %H:%M&quot;)) time = pd.to_datetime(time) len(time) 26280 import pandas as pd import glob import numpy as np import matplotlib.pyplot as plt import xarray as xr import matplotlib as mpl my_dateparser = lambda x: pd.datetime.strptime(x, &quot;%Y %m %d %H %M&quot;) path = &#39;shared-ns1000k/inputs/Aerosol_sizedist_obs/&#39; all_files = glob.glob(path + &quot;/Tiksi_201*_hourly.csv&quot;) myorder = [2, 0, 1] mylist = [all_files[i] for i in...",
+        "excerpt": null,
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Tiksi_sizedist.html",
         "teaser":null},{
         "title": "Zeppelin Size distribution",
         
-        "excerpt":
-            "import pandas as pd import glob import numpy as np import matplotlib.pyplot as plt import xarray as xr import matplotlib as mpl my_dateparser = lambda x: pd.datetime.strptime(x, &quot;%Y %m %d %H %M&quot;) path = &#39;shared-ns1000k/inputs/Aerosol_sizedist_obs/&#39; all_files = glob.glob(path + &quot;/Zeppelin_201*_hourly.csv&quot;) myorder = [4, 0, 3, 2, 1] mylist = [all_files[i] for i in myorder] li = [] for filename in mylist: df = pd.read_csv(filename, parse_dates=[[&#39;0&#39;, &#39;0.1&#39;, &#39;0.2&#39;, &#39;0.3&#39;, &#39;0.4&#39;]], date_parser = my_dateparser) li.append(df) df = pd.concat(li, axis=0, ignore_index=True) df.rename(columns={&#39;0_0.1_0.2_0.3_0.4&#39;:&#39;Time&#39;},inplace = True) df.replace(-999, np.nan, inplace=True) df.drop(labels=[&#39;0.5&#39;,&#39;0.6&#39;], axis=1, inplace=True) df = df.set_index(&#39;Time&#39;) diam = df.columns diam = ([float(ii) for ii in diam])...",
+        "excerpt": null,
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/SizeDistNotebooks/Zeppelin_sizedist.html",
         "teaser":null},{
         "title": "Dinastabell DMP",
         
-        "excerpt":
-            "             Aerosol chemical composition                     ",
+        "excerpt": "aerosol chemical composition",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/dinastabell_DMP.html",
         "teaser":null},{
         "title": "Dominichr1 Test",
         
-        "excerpt":
-            "             NEGI Abisko project                     ",
+        "excerpt": "negi abisko project",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/dominichr1_test.html",
         "teaser":null},{
         "title": "Group-4",
         
-        "excerpt":
-            "             Group-4: Olga and Maria   Hygroscopicity Aerosol optics RH models Artic Haze Haze in the Artic                     ",
+        "excerpt": "artic haze group olga maria hygroscopicity aerosol optics rh models",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/intro.html",
         "teaser":null},{
         "title": "Olga firus test",
         
-        "excerpt":
-            "             My super super title            Hello                     ",
+        "excerpt": "super title hello",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/olga_firus_test.html",
         "teaser":null},{
         "title": "Presentations",
         
-        "excerpt":
-            "             Presentations   Presentation on saturday                     ",
+        "excerpt": "presentations presentation saturday nordicesmhub github io negi abisko topics group grouppersentationfinal slides html",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/presentations/intro.html",
         "teaser":null},{
         "title": "References",
         
-        "excerpt":
-            "References Overview paper: New insights into aerosol and climate in the Arctic Aerosol optical properties in the Arctic: The role of aerosol chemistry and dust composition in a closure experiment between Lidar and tethered balloon vertical profiles Size distribution and ion composition of aerosol collected at Ny-Alesund in the spring–summer field campaign 2013 New insights in sources of the sub-micrometre aerosol at Mt. Zeppelin observatory (Spitsbergen) in the year 2015 Arctic haze: current trends and knowledge gaps Seasonality of aerosol optical properties in the Arctic An evaluation of three methods for measuring black carbon in Alert, Canada Arctic aerosol life...",
+        "excerpt": "references aerosol github com nordicesmhub negi abisko raw master content topics group pdf arctic new insights optical properties composition between size ny alesund zeppelin overview paper into climate abbatarcticaerosolandclimate role chemistry dust closure experiment lidar tethered balloon vertical profiles ferreroverticalaerosolopticalproperties distribution ion collected springsummer field campaign giardisizedistributionandcompositinozeppelin sources sub micrometre mt observatory spitsbergen year newinsightsinsourcesofthkarlaerosolcompositinonzeppelin haze current trends knowledge gaps quinnarctichazetrends seasonality schmeisserseasonalityofaerosolproperties evaluation three methods measuring black carbon alert canada sharmabcmeasurementmethods life cycle linking distributions observed air mass transport precipitation station svalbard tunvedarcticaerosollifecycle",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/references.html",
         "teaser":null},{
         "title": "Sigridjb topic presentation",
         
-        "excerpt":
-            "             RH in models                     ",
+        "excerpt": "rh models",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/group-4/sigridjb_topic_presentation.html",
         "teaser":null},{
         "title": "Peer review matching timeline notebook",
         
-        "excerpt":
-            "NeGI 2019 course in Abisko, Sweden. 21.10.2019, Paul Zieger Load Packages import random import matplotlib.pyplot as plt %matplotlib inline import numpy as np import time from palettable.colorbrewer.sequential import Blues_8 ax.imshow(data, cmap=Blues_8.mpl_colormap) --------------------------------------------------------------------------- ModuleNotFoundError Traceback (most recent call last) &lt;ipython-input-6-56499198de8f&gt; in &lt;module&gt; ----&gt; 1 from palettable.colorbrewer.sequential import Blues_8 2 ax.imshow(data, cmap=Blues_8.mpl_colormap) ModuleNotFoundError: No module named &#39;palettable&#39; List with participating students negi_group=[&#39;Sigrid&#39;,&#39;Ingeborg&#39;,&#39;Goutam&#39;,&#39;Gabriel&#39;,&#39;Eemeli&#39;,&#39;Johanne&#39;, &#39;Herman&#39;,&#39;Johannes&#39;,&#39;Jakob&#39;,&#39;Marit&#39;,&#39;Aiden&#39;,&#39;Bjørn&#39;, &#39;Lasse&#39;,&#39;Stine&#39;,&#39;Sofie&#39;,&#39;Dina&#39;,&#39;Silje&#39;,&#39;Dominic&#39;,&#39;Tuuli&#39;, &#39;Marek&#39;,&#39;Luis&#39;,&#39;Jonah&#39;,&#39;Johan&#39;,&#39;Franziska&#39;,&#39;Jolanta&#39;,&#39;Lance&#39;] Results Random picking from a list to match peer-review partners. Show results in a figure. ## Figure with plt.xkcd(): negi_group_dum=negi_group.copy() plt.figure(figsize=(9, 7)) for i in range(0,len(negi_group)): name_dum=negi_group[i] while name_dum == negi_group[i]: name_dum=random.choice(negi_group_dum) negi_group_dum.remove(name_dum) plt.plot([1,3],[i,negi_group.index(name_dum)],&#39;-o&#39;) plt.text(0.9,i,negi_group[i],horizontalalignment=&#39;right&#39;, verticalalignment=&#39;center&#39;,color=&#39;black&#39;) plt.text(3.1,i,negi_group[i],horizontalalignment=&#39;left&#39;,...",
+        "excerpt": "comments list results review course peer partners ibfigure hand line things ibnegi abisko sweden paul zieger load packages participating students random picking match show figure result randomly picked participants right send reports person left timeline report feedback guidelines paragraph general incl scientific differently else into specific mention unclear identify possible bugs give tips improved further any keep short precise page",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/report/Peer-review-matching_timeline_and_guidelines.html",
         "teaser":null},{
         "title": "Report guidelines",
         
-        "excerpt":
-            "             Writing a good report   Guidelines for a good report Peer review matching timeline and guidelines Generate a presentation from a jupyter notebook                     ",
+        "excerpt": "report github nordicesmhub negi abisko content topics good guidelines com raw master pdf peer review presentation writing guidelinesforagoodreport matching timeline matchingtimelineandguidelinesfinal generate jupyter notebook io slides html",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/report/intro.html",
         "teaser":null},{
         "title": "Notebook for presentation",
         
-        "excerpt":
-            "How to generate slides from a Jupyter notebook JupyterLab Cell tag editor In order to export your notebooks as Reveal.js slides, follow these steps: Open a notebook by double clicking it in the file browser. Select Cell tools in the left sidebar. Select the slide type (Slide, Subslide, Fragment, Skip, Notes). Cell tag Type of slides Slide: New slide Sub-Slides: New section within a topic. Cells with this marker will be placed on a new slide underneath the previous slide. Fragments: Additional information that adds to an existing slide or sub-slide. -: additional information that appears at the same time...",
+        "excerpt": "slides cell slide notebook github reveal file images jupyter js skip com abisko master new theme png cells presentation hide tree instance css default generate select left notes nordicesmhub negi raw content not html show click slideshow e center jupyterlab tag editor export notebooks open double browser tools type fragment sub section previous additional information same view customize code only tool advanced metadata its visualize mode standard change lab uiogeo apps sigma user dfbb dd cfbcabb image hakimel order follow steps clicking sidebar subslide exportingslidetype within topic marker placed underneath fragments adds existing appears speaker viewed separate window audience installation",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/topics/report/presentation.html",
         "teaser":null},{
         "title": "CMIP6 data with dask cluster",
         
-        "excerpt":
-            "                    from dask.distributed import Client import xarray as xr                         client = Client(n_workers=2, threads_per_worker=2, memory_limit=&#39;1GB&#39;) client                  /opt/conda/lib/python3.7/site-packages/distributed/dashboard/core.py:72: UserWarning:  Port 8787 is already in use.  Perhaps you already have a cluster running? Hosting the diagnostics dashboard on a random port instead.   warnings.warn(&#34;\\n&#34; + msg)             Client     Scheduler: tcp://127.0.0.1:33214   Dashboard: http://127.0.0.1:33662/status    Cluster     Workers: 2   Cores: 4   Memory: 2.00 GB                          path1 = &#39;~/shared-cmip6-for-ns1000k/historical/CESM2-WACCM/r1i1p1f1/&#39; +\\ &#39;so2_AERmon_CESM2-WACCM_historical_r1i1p1f1_gn_185001-201412.nc&#39;                         chunks={     &#39;time&#39; : 10,   }                         dataset = xr.open_dataset(path1, chunks=chunks, use_cftime = True)                         da = dataset[&#39;so2&#39;].isel(lev=69).mean([&#39;lat&#39;,&#39;lon&#39;])                         da.to_netcdf(&#39;./test.nc&#39;)                         %matplotlib inline da.plot()                    [&lt;matplotlib.lines.Line2D at 0x7f4212201240&gt;]                                   ",
+        "excerpt": null,
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/CMIP6_dask.html",
         "teaser":null},{
         "title": "CMIP6 data",
         
-        "excerpt":
-            "CMIP6 data Coupled Model Intercomparison project Phase 6 Project under World Climate Research Programme (WCRP) Since 1995 CMIP has coordinated climate model experiments Defines common experiment protocols, forcings and output. 33 model groups participate GMD special issue with articles explaining all MIPs in CMIP6 : https://www.geosci-model-dev.net/special_issue590.html General CMIP6 website https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6 Guidance documents: (https://pcmdi.llnl.gov/CMIP6/) Emissions/Forcing datasets (https://esgf-node.llnl.gov/projects/input4mips/) Participating Modelling Groups (https://rawgit.com/WCRP-CMIP/CMIP6_CVs/master/src/CMIP6_institution_id.html) Model and experiment documentation (https://search.es-doc.org/) CMIP6 ESMValTool evaluation and analysis results (https://cmip-esmvaltool.dkrz.de/) Emission visualising: https://eccad.aeris-data.fr Advantages: Homogenized and standardized outputs Same variable name Same experiments Experiments (DECK) Links: Overview: https://www.wcrp-climate.org/wgcm-cmip/wgcm-cmip6 ES-DOCs: https://search.es-doc.org/ Database for data request: http://clipc-services.ceda.ac.uk/dreq/index.html Search for variables:...",
+        "excerpt": "cmip data html model search experiments esgf esmvaltool under climate wcrp org wgcm variable ceda ac choose file project experiment www llnl gov node es name clipc services uk dreq index download e g want jupyter hub wget io intercomparison groups doc same tool id press click get bash sh synda readthedocs en latest coupled phase world research programme since coordinated defines common protocols forcings output participate gmd special issue articles explaining mips geosci dev net specialissue general website guidance documents pcmdi emissions forcing datasets projects inputmips participating modelling rawgit com cmipcvs master src cmipinstitutionid documentation evaluation analysis results dkrz",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/CMIP6_data.html",
         "teaser":null},{
         "title": "Plotting CMIP6 data",
         
-        "excerpt":
-            "Manipulation of netCDF data with Python for climate change research: CMIP6 model data !wget http://esgf-data.ucar.edu/thredds/fileServer/esg_dataroot/CMIP6/CMIP/NCAR/CESM2/historical/r1i1p1f1/Amon/tas/gn/v20190308/tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412.nc --2019-10-11 10:26:47-- http://esgf-data.ucar.edu/thredds/fileServer/esg_dataroot/CMIP6/CMIP/NCAR/CESM2/historical/r1i1p1f1/Amon/tas/gn/v20190308/tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412.nc Resolving esgf-data.ucar.edu (esgf-data.ucar.edu)... 128.117.181.74 Connecting to esgf-data.ucar.edu (esgf-data.ucar.edu)|128.117.181.74|:80... connected. HTTP request sent, awaiting response... 200 200 Length: 243034487 (232M) [application/x-netcdf] Saving to: ‘tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412.nc’ tas_Amon_CESM2_hist 100%[===================&gt;] 231.78M 21.6MB/s in 12s 2019-10-11 10:27:00 (19.3 MB/s) - ‘tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412.nc’ saved [243034487/243034487] filename = &#39;tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412.nc&#39; Import python packages import xarray as xr import cartopy.crs as ccrs import matplotlib.pyplot as plt import numpy as np import cftime Open dataset Use xarray python package to analyze netCDF dataset open_dataset allows to get all the metadata without loading data into...",
+        "excerpt": "data python select values netcdf change dataset xarray get metadata into memory plot minimum manipulation climate research cmip model import packages open package analyze opendataset allows without loading only load needed corresponding near surface air temperature tas specific nearest here st april customize set size figure add coastlines plotting projection choose extent fix maximum extend below max multiplots faceting combine plots different projections",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/CMIP6_example.html",
         "teaser":null},{
         "title": "Example Weighted/masked average",
         
-        "excerpt":
-            "Example: Masked and weighted average: This example focuses on area weights (weighting by the area of the grid cell), but is generalizable. import xarray as xr import numpy as np import matplotlib.pyplot as plt # or # from imports import (plt, np, xr) path = &#39;~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/tas_Amon_NorESM2-LM_historical_r1i1p1f1_gn_200001-200912.nc&#39; tas_ds = xr.open_dataset(path) Get the area weigts: For the CMIP data, each model has a file for the area of each grid cell. The variable name of this is 'areacella'. We load the NorESM one. path_area_weight =&#39;~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/areacella_fx_NorESM2-LM_historical_r1i1p1f1_gn.nc&#39; areacella= xr.open_dataset(path_area_weight) A useful functions to do a weighted and masked average def masked_average(xa:xr.DataArray, dim=None, weights:xr.DataArray=None, mask:xr.DataArray=None):...",
+        "excerpt": "area average example masked weighted grid cell data focuses weights weighting generalizable get weigts cmip model file variable name areacella load noresm useful functions application weigted arctic lets try also take only above circn",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/Example_model_global_arctic_average.html",
         "teaser":null},{
         "title": "Dask kernel example",
         
-        "excerpt":
-            "from dask.distributed import Client client = Client(&quot;tcp://127.0.0.1:38150&quot;) client Client Scheduler: tcp://127.0.0.1:38150 Dashboard: http://127.0.0.1:8787/status Cluster Workers: 4 Cores: 4 Memory: 2.15 GB go to the dask array tab (shown below) and click on '&lt;&gt;' from IPython.display import Image Image(filename=&#39;./images/dask.png&#39;,width=400) something similar to the cell below should have being incerted imports from negi_stuff.modules.imps import ( pd, np, xr, za, mpl, plt, sns, pjoin, os, glob, dt, sys, ucp, log, crt, cmip6 ) from pathlib import Path select a large dataset df = cmip6.search_cmip6_hist(wildcard=&#39;mmrso4*&#39;,model=&#39;CESM*&#39;) _ds = df.sort_values([&#39;FORCING&#39;,&#39;REALIZATION&#39;],ascending=[False,True]) _ds = df.sort_values( by = [cmip6.FF,cmip6.RR,cmip6.FF], ascending= [False ,True ,True] ) _dg = _ds.groupby(cmip6.MODEL).first() SIZE =...",
+        "excerpt": "dataset dask array below xarray results tab shown click something similar cell should being incerted imports select large open lets explore however not opening examples org html average along dimension load finally copy attrs aesthaetics rolling mean previous loading define function plotting",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/dask_kernel/dask_kernel.html",
         "teaser":null},{
         "title": "Example NorthPolarStereo_projection",
         
-        "excerpt":
-            "Example: Plot on NorthPolarStereo and set the latitude limit import xarray as xr import numpy as np import matplotlib.pyplot as plt # or # from imports import (plt, np, xr) path = &#39;~/shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/abs550aer_AERmon_NorESM2-LM_historical_r1i1p1f1_gn_185001-185912.nc&#39; ds = xr.open_dataset(path) import cartopy.crs as ccrs import cartopy as cy def sp_map(*nrs, projection = ccrs.PlateCarree(), **kwargs): return plt.subplots(*nrs, subplot_kw={&#39;projection&#39;:projection}, **kwargs) def add_map_features(ax): ax.coastlines() gl = ax.gridlines() ax.add_feature(cy.feature.BORDERS); gl = ax.gridlines()#draw_labels=True) gl.xlabels_top = False gl.ylabels_right = False import matplotlib.path as mpath def polarCentral_set_latlim(lat_lims, ax): ax.set_extent([-180, 180, lat_lims[0], lat_lims[1]], ccrs.PlateCarree()) # Compute a circle in axes coordinates, which we can use as a boundary # for the map....",
+        "excerpt": "example plot latitude northpolarstereo set limit seasonal means",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_NorthPolarStereo_projection.html",
         "teaser":null},{
         "title": "Linn Karlsson, Sizedistributions in NorESM",
         
-        "excerpt":
-            "             NEGI Andoya 2018 example  Linn Karlsson's notebook can be found in our private repository here.  If you use anything from Linn's notebook, make sure you cite her work as specified at the top of the report.                     ",
+        "excerpt": "negi notebook private andoya example linn karlssons found our repository here github com nordicesmhub abisko blob master examplenotebooks linnkarlsson negicourselinnkarlsson md anything linns sure cite work specified top report",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_notebooks/NeGIcourse_2018_LinnKarlsson.html",
         "teaser":null},{
         "title": "Example notebook report",
         
-        "excerpt":
-            "             Examples of notebooks  In this section, we will add examples of notebooks and associated reports.                     ",
+        "excerpt": "examples notebooks section add associated reports",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_notebooks/example_notebooks.html",
         "teaser":null},{
         "title": "Get EBAS data with pydap",
         
-        "excerpt":
-            "# get from package from pydap.client import open_dods, open_url from netCDF4 import num2date import pandas as pd # get directly from EBAS ds = open_dods( &#39;http://dev-ebas-pydap.nilu.no/&#39; &#39;NO0042G.dmps.IMG.aerosol.particle_number_size_distribution&#39; &#39;.1h.NO01L_NILU_DMPSmodel2_ZEP.NO01L_dmps_DMPS_ZEP01.2.dods&#39;) # syntax: ST_STATION_CODE.FT_TYPE.RE_REGIME_CODE.MA_MATRIX_NAME.CO_COMP_NAME.DS_RESCODE.FI_REF.ME_REF.DL_DATA_LEVEL.dods # or: #station.instrument_type.IMG.matrix.component.resolution.instrument_reference.datalevel.dods # if no level, then &#39;..dods&#39; # if doen&#39;t work, download one file to check what are the FI_REF and ME_REF. # other example: &#39;http://dev-ebas-pydap.nilu.no/NO0042G.Hg_mon.IMG.air.mercury.1h.NO01L_tekran_42_dup.NO01L_afs..dods&#39; #get the actual data dmps_data = ds[&#39;particle_number_size_distribution_amean&#39;] # get normalised size distribution in dNdlogDp dNdlogDp= dmps_data.particle_number_size_distribution_amean.data # get time in datatime format using function from netCDF4 package tim_dmps = num2date(dmps_data.time.data,units=&#39;days since 1900-01-01 00:00:00&#39;, calendar=&#39;gregorian&#39;) # get diameter vector dp_NILU = dmps_data.D.data...",
+        "excerpt": null,
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_notebooks/from_ebas_using_pydap.html",
         "teaser":null},{
         "title": "Search CMIP6 historical data",
         
-        "excerpt":
-            "import xarray as xr import os,glob import pandas as pd from pathlib import Path FILES = &#39;FILE_PATH&#39; MODEL = &#39;MODEL&#39; VAR = &#39;VAR_NAME&#39; NAME = &#39;filename&#39; FRQ = &#39;FREQUENCY&#39; RIPF = &#39;RIPF&#39; RR = &#39;REALIZATION&#39; II = &#39;INDEX&#39; PP = &#39;PHYSICS&#39; FF = &#39;FORCING&#39; LABEL = &#39;LABEL&#39; ID = &#39;ID&#39; TS = &#39;TIME START&#39; TE = &#39;TIME END&#39; from os.path import expanduser def search_cmip6_hist( wildcard:str = &#39;*&#39;, model:str = &#39;*&#39;, label:str = &#39;*&#39;, ) -&gt; pd.DataFrame: &#39;&#39;&#39; searchs the historical cmip6 folder at nird and returns a dataframe with the results Parameters ---------- wildcard pattern for the file name model...",
+        "excerpt": null,
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_search_cmip6_historical.html",
         "teaser":null},{
         "title": "Git pull request explained",
         
-        "excerpt":
-            "How to make pull requests (the easy way) Set-up git on Jupyter hub and link your fork: visit https://github.com/NordicESMhub/NEGI-Abisko-2019 fork the master branch to your github account https://github.com/USERNAME/NordicESMhub/NEGI-Abisko-2019 go to Jupyterhub open terminal set up your github account with your USERNAME $ git config --global user.name \"USERNAME\" clone fork from your Github account https://github.com/USERNAME/NEGI-Abisko-2019 $ git clone https://github.com/USERNAME/NEGI-Abisko-2019.git NEGI-Abisko-2019-fork change to your fork on Jupyter hub $ cd NEGI-Abisko-2019-fork Link your fork (=https://github.com/USERNAME/NEGI-Abisko-2019-fork) to NordicESMHub repository (=https://github.com/NordicESMHub/NEGI-Abisko-2019.git) $ git remote add upstream https://github.com/NordicESMHub/NEGI-Abisko-2019.git Steps to do everytime you want to push your file to https://github.com/NordicESMhub/NEGI-Abisko-2019 6. update your fork (=https://github.com/USERNAME/NEGI-Abisko-2019-fork)...",
+        "excerpt": "github com abisko negi fork nordicesmhub username hub jupyter master account img src width pull set git link visit branch help repository terminal png steps everytime want push file update note rightarrow f choose create requests easy assets images forkbutton jpg jupyterhub uiogeo apps sigma login open miro medium max xolgaaxdbckfqvfbzqg clone change might encounter merge conflict window pop its blue hop into save again exit request guides activities hello world pr back should still repeat contribute",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/github/git_pull_requests.html",
         "teaser":null},{
         "title": "Getting started with Git/Github",
         
-        "excerpt":
-            "What is Version Control? from CodeRefinery training material. The management of changes to documents, computer programs, large web sites, and other collections of information. Records snapshots of a project Implements branching: you can work on several feature branches and switch between them different people can work on the same code/project without interfering you can experiment with an idea and discard it if it turns out to be a bad idea Implements merging: tool to merge development branches for you Why is Version Control Essential? Easy Modification of your codes Reverting Errors Collaboration Backup Reproducibility Roll-back functionality Mistakes happen - without...",
+        "excerpt": "git github com files commit version code coderefinery io gitignore control shell add log work why ignore changes file not generated jupyterlab snapshots branching back need scm tracked projects change status show line s compiled html org project without idea bad intro img easy collaboration backup multiple also just start authors source software popular good track build txt repository help state hash messages example should large implements several branches different merge svg development jpg reproducibility mistakes undo working messy confusing entire please me latest using used paper bug users open free very contribute distributed clean important platforms gitlab bitbucket sharing",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/github/intro_github.html",
         "teaser":null},{
         "title": "Synchronize your fork github repository",
         
-        "excerpt":
-            "How to synchronize your fork github repository? It is possible to synchronize your fork from the github interface but we recommend to follow the steps from the command line. Step-1: Clone your fork Open a terminal in Jupyterhub Then clone your fork e.g. make sure you replace USERNAME by your github username git clone https://github.com/USERNAME/NEGI-Abisko-2019.git NEGI-Abisko-2019-fork The command above makes a copy of your online fork NEGI-Abisko-2019 repository and store it in a folder locally. We named this folder NEGI-Abisko-2019-fork so we remember it is our fork and not the main NordicESMHub repository. Then change directory to your fork: cd...",
+        "excerpt": "github fork git negi abisko username com repository nordicesmhub push upstream local origin step command clone jupyterhub our not remote fetch need new update synchronize above online folder locally v instead add name master updated merge f changes possible interface recommend follow steps line open terminal e g sure replace makes copy store named remember main change directory cd link linked should return something lets arbitrary changed any choice check lines pull case happens window pop pup ask default emacs editor save exit date still yet ready contributions whenever contribution best before",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/github/synchronise_github.html",
         "teaser":null},{
         "title": "Gridded model data dask rolling mean",
         
-        "excerpt":
-            "# Modules import xarray as xr import matplotlib.pyplot as plt import cartopy.crs as ccrs from cartopy.util import add_cyclic_point import numpy as np import psyplot import psyplot.project as psy import os import psutil import pandas as pd T_CHUNK = 200 chunks={ &#39;time&#39; : T_CHUNK, # &#39;lat&#39; : 10, # &#39;lon&#39; : 10, # &#39;lev&#39; : 10 } # data path1 = &#39;~/shared-cmip6-for-ns1000k/historical/CESM2-WACCM/r1i1p1f1/&#39; filename1 = path1 + &#39;so2_AERmon_CESM2-WACCM_historical_r1i1p1f1_gn_185001-201412.nc&#39; DS1 = xr.open_dataset(filename1,chunks=chunks) /opt/conda/lib/python3.7/site-packages/xarray/conventions.py:494: SerializationWarning: variable &#39;so2&#39; has multiple fill values {1e+20, 1e+20}, decoding all values to NaN. use_cftime=use_cftime, # _time = [t.strftime() for t in DS1[&#39;time&#39;].values] # _time = pd.to_datetime(_time) # DS1[&#39;time&#39;].values =...",
+        "excerpt": null,
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/gridded_model_data_dask_rolling_mean.html",
         "teaser":null},{
         "title": "Learning resources",
         
-        "excerpt":
-            "             We have compiled a list of training materials that can be useful for Abisko.  Don't hesitate to add additional links if you would like to share information.                     ",
+        "excerpt": "compiled list training materials useful abisko dont hesitate add additional links share information",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/intro.html",
         "teaser":null},{
         "title": "Presentations",
         
-        "excerpt":
-            "             Presentations  All the presentations are available in the NEGI-Abisko-2019-private repository.  All students, assistants and teachers should have read access. If you get an error, fill an issue here.                     ",
+        "excerpt": "negi abisko presentations private github com nordicesmhub available repository students assistants teachers should read access get error fill issue here issues new",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/presentations.html",
         "teaser":null},{
         "title": "Example EBAS artic SO4 concentrations",
         
-        "excerpt":
-            "import pyaerocom as pya pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Initiating directories for pyaerocom test dataset obsdata = pya.io.ReadUngridded().read(&#39;EBASMC&#39;, &#39;concso4&#39;, lat_range=[66, 90]) Received additional reading constraints, ignoring caching Retrieving EBAS files for variables [&#39;concso4&#39;] Reading files 1-30 of 291 (ReadEbas) | 18:06:03 (delta = 0 s&#39;) Reading files 30-59 of 291 (ReadEbas) | 18:06:03 (delta = 0 s&#39;) Reading files 59-88 of 291 (ReadEbas) | 18:06:04 (delta = 0 s&#39;) Reading files 88-117 of 291 (ReadEbas) | 18:06:04 (delta = 0 s&#39;) Reading files 117-146 of 291 (ReadEbas) | 18:06:04 (delta = 0 s&#39;) Reading files 146-175 of 291 (ReadEbas) | 18:06:04 (delta...",
+        "excerpt": null,
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/EXAMPLE_EBAS_arctic_so4_concentrations.html",
         "teaser":null},{
         "title": "How to find EBAS files",
         
-        "excerpt":
-            "How to find EBAS NASA Ames files for a certain request NOTE: the EBAS data provided under pyaerocom-testdata/obsdata/EBASMultiColumn is only a subset of the data that is available in the EBAS database. So you may not find some data files that are available online (e.g. matrix met is not available here). If you do not find the file in the provided data, you have to download the files yourself from the EBAS database and follow the instructions provided in HOWTO_read_EBAS_files. import pyaerocom as pya pya.__version__ &#39;0.8.1.dev3&#39; pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Initiating directories for pyaerocom test dataset With the EbasSQLRequest class you...",
+        "excerpt": "data ebas files howtoreadebasfiles provided available not database ipynb ebassqlrequest class specify want retrieve station nasa ames certain request note under pyaerocom testdata obsdata ebasmulticolumn only subset nilu online e g matrix met here file download yourself follow instructions names parameters used narrow search lets scattering zeppelin svalbard thats also",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/HOWTO_find_EBAS_files.html",
         "teaser":null},{
         "title": "How to handle large files",
         
-        "excerpt":
-            "Example to reduce file size in case of memory errors (using pyaerocom) import pyaerocom as pya from warnings import filterwarnings filterwarnings(&#39;ignore&#39;) pya.change_verbosity(&#39;critical&#39;, log=pya.const.print_log) pya.__version__ &#39;0.8.1.dev4&#39; NOTE: YOU NEED PYAEROCOM v0.8.1.dev4 or larger for this DATA_DIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/modeldata/MIROC-SPRINTARS_AP3-CTRL/renamed/&#39; LARGE_FILE = &#39;aerocom3_MIROC-SPRINTARS_AP3-CTRL_ec550aer_ModelLevel_2010_6hourly.nc&#39; This file has 64 GB filesize data = pya.GriddedData(DATA_DIR + LARGE_FILE, var_name=&#39;ec550aer&#39;) data pyaerocom.GriddedData Grid data: &lt;iris &#39;Cube&#39; of volume_extinction_coefficient_in_air_due_to_ambient_aerosol_particles / (1/Mm) (time: 1460; atmosphere_sigma_coordinate: 56; latitude: 320; longitude: 640)&gt; Extract surface level and crop summer months and arctic region data_surf = data.extract_surface_level() data_surf_cropped = data_surf.crop(time_range=(4, 8), lat_range=(66, 90)) data_surf_cropped pyaerocom.GriddedData Grid data: &lt;iris &#39;Cube&#39; of volume_extinction_coefficient_in_air_due_to_ambient_aerosol_particles / (1/Mm) (time:...",
+        "excerpt": "file pyaerocom example reduce size case memory errors using note need v dev larger gb filesize extract surface level crop summer months arctic region save netcdf reload subset just saved",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/HOWTO_handle_large_files.html",
         "teaser":null},{
         "title": "How to read EBAS files",
         
-        "excerpt":
-            "How to read EBAS NASA Ames file with pyaerocom Either, find files that are available in the provided database, as explained in HOWTO_find_EBAS_files, OR: Download (and unzip) the NASA Ames files (.nas) you need from EBAS database (shown below) import pyaerocom as pya ls EBAS_FILES/ NO0042G.20050101000000.20120101000000.aws.wind_speed.met.1y.1h.NO01L_NO42_aws_10m.NO01L_cup_anemometer..nas Pick the file and put parse it into the EbasNasaAmesFile object to read it fpath = &#39;EBAS_FILES/&#39; + &#39;NO0042G.20050101000000.20120101000000.aws.wind_speed.met.1y.1h.NO01L_NO42_aws_10m.NO01L_cup_anemometer..nas&#39; filedata = pya.io.EbasNasaAmesFile(fpath) print(filedata) Pyaerocom EbasNasaAmesFile -------------------------- num_head_lines: 52 num_head_fmt: 1001 data_originator: Aas, Wenche sponsor_organisation: NO01L, Norwegian Institute for Air Research, NILU, Atmosphere and Climate Department, Instituttveien 18, , 2007, Kjeller, Norway submitter: Hjellbrekke, Anne...",
+        "excerpt": "data column ebas nasa ames file files columns index read available database howtofindebasfiles need into timestamps via note information order attr e numpy windspeed pyaerocom either provided explained ipynb download unzip nas nilu shown below pick put parse ebasnasaamesfile object attributes accessed numerical metadata longitude etc not converted floating point kept string multiple here check vardefs list where corresponds g rd contains wind speed actual table stored d array under indices row col get stamps datetime objects ready analysis plot timeseries",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/HOWTO_read_EBAS_files.html",
         "teaser":null},{
         "title": "Example aas etal read",
         
-        "excerpt":
-            "import pyaerocom as pya pya.__version__ &#39;0.8.1.dev3&#39; NOTE: needs version 0.8.1.dev3 or later! pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Initiating directories for pyaerocom test dataset pya.const.OBS_IDS [&#39;AeronetSunV2Lev1.5.daily&#39;, &#39;AeronetSun_2.0_NRT&#39;, &#39;AeronetSunV2Lev2.daily&#39;, &#39;AeronetSunV2Lev2.AP&#39;, &#39;AeronetSDAV2Lev2.daily&#39;, &#39;AeronetSDAV2Lev2.AP&#39;, &#39;AeronetInvV2Lev1.5.daily&#39;, &#39;AeronetInvV2Lev1.5.AP&#39;, &#39;AeronetInvV2Lev2.daily&#39;, &#39;AeronetInvV2Lev2.AP&#39;, &#39;AeronetSunV3Lev1.5.daily&#39;, &#39;AeronetSunV3Lev1.5.AP&#39;, &#39;AeronetSunV3Lev2.daily&#39;, &#39;AeronetSunV3Lev2.AP&#39;, &#39;AeronetSDAV3Lev1.5.daily&#39;, &#39;AeronetSDAV3Lev1.5.AP&#39;, &#39;AeronetSDAV3Lev2.daily&#39;, &#39;AeronetSDAV3Lev2.AP&#39;, &#39;AeronetInvV3Lev1.5.daily&#39;, &#39;AeronetInvV3Lev2.daily&#39;, &#39;EBASMC&#39;, &#39;EEAAQeRep&#39;, &#39;EARLINET&#39;, &#39;GAWTADsubsetAasEtAl&#39;, &#39;DMS_AMS_CVO&#39;] NOTE: these are all observation data IDs that are theoretically available, but some of them are not provided in the pyaerocom-testdata database. You can check using pya.browse_database read_factory = pya.io.ReadUngridded(&#39;GAWTADsubsetAasEtAl&#39;) read_factory.get_reader().PROVIDES_VARIABLES [&#39;concso2&#39;, &#39;concso4&#39;, &#39;pr&#39;, &#39;wetso4&#39;, &#39;concso4pr&#39;] obsdata = read_factory.read(&#39;GAWTADsubsetAasEtAl&#39;, &#39;concso4&#39;) obsdata UngriddedData &lt;networks: [&#39;GAWTADsubsetAasEtAl&#39;]; vars: [&#39;concso4&#39;]; instruments: [&#39;3_stage_filterpack&#39;, &#39;IMPROVE_PM2.5&#39;, &#39;filter-1pack&#39;, &#39;filter_1pack&#39;, &#39;filter_3pack&#39;, &#39;filter_2pack&#39;,...",
+        "excerpt": "note needs version dev later observation data ids theoretically available not provided pyaerocom testdata database check using pya browsedatabase",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/example_aas_etal_read.html",
         "teaser":null},{
         "title": "Example CMIP6 colocation",
         
-        "excerpt":
-            "How to read and process modeldata that is not in AeroCom convention Short answer: skip ReadGridded and find the file you want to read and put it in GriddedData directly. import pyaerocom as pya from warnings import filterwarnings filterwarnings(&#39;ignore&#39;) pya.__version__ &#39;0.8.1.dev3&#39; pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Initiating directories for pyaerocom test dataset CMIP6_TEST_DIR = &#39;/home/notebook/shared-cmip6-for-ns1000k/hist-aer/HadGEM3-GC31-LL/r1i1p1f3/&#39; CMIP6_TEST_FILE = &#39;od550aer_AERmon_HadGEM3-GC31-LL_hist-aer_r1i1p1f3_gn_195001-202012.nc&#39; path = CMIP6_TEST_DIR + CMIP6_TEST_FILE modeldata = pya.GriddedData(path, var_name=&#39;od550aer&#39;) modeldata.metadata[&#39;ts_type&#39;] = &#39;monthly&#39; # needed for colocation modeldata.ts_type &#39;monthly&#39; modeldata.start numpy.datetime64(&#39;1950-01-01T00:00:00.000000&#39;) modeldata.stop numpy.datetime64(&#39;2020-12-31T23:59:59.999999&#39;) obsdata = pya.io.ReadUngridded().read(&#39;AeronetSunV3Lev2.daily&#39;, &#39;od550aer&#39;) coldata = pya.colocation.colocate_gridded_ungridded(modeldata, obsdata, ts_type=&#39;monthly&#39;, start=2010) Setting od550aer outlier lower lim: -1.00 Setting od550aer outlier upper lim: 10.00...",
+        "excerpt": "read not work process modeldata aerocom convention short answer skip readgridded file want put griddeddata directly trend bias note following code due memory requirements github com metno pyaerocom issues",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/example_cmip6_colocation.html",
         "teaser":null},{
         "title": "pyaerocom EBAS example",
         
-        "excerpt":
-            "import pyaerocom as pya pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Initiating directories for pyaerocom test dataset read_factory = pya.io.ReadUngridded(&#39;EBASMC&#39;) reader = read_factory.get_reader() reader &lt;pyaerocom.io.read_ebas.ReadEbas at 0x7fbb0312b860&gt; print(reader.PROVIDES_VARIABLES) [&#39;DEFAULT&#39;, &#39;scatc550aer&#39;, &#39;scatc440aer&#39;, &#39;scatc700aer&#39;, &#39;scatc550dryaer&#39;, &#39;scatc440dryaer&#39;, &#39;scatc700dryaer&#39;, &#39;ang4470dryaer&#39;, &#39;scatc550lt1aer&#39;, &#39;bscatc550aer&#39;, &#39;absc550aer&#39;, &#39;absc550dryaer&#39;, &#39;absc550lt1aer&#39;, &#39;bscatc550dryaer&#39;, &#39;scatcrh&#39;, &#39;abscrh&#39;, &#39;concso4&#39;, &#39;concso2&#39;, &#39;concpm10&#39;, &#39;concpm25&#39;, &#39;concso4t&#39;, &#39;concso4c&#39;, &#39;concbc&#39;, &#39;conceqbc&#39;, &#39;conctc&#39;, &#39;concoa&#39;, &#39;concoc&#39;, &#39;concss&#39;, &#39;concnh3&#39;, &#39;concno3&#39;, &#39;concnh4&#39;, &#39;conchno3&#39;, &#39;conctno3&#39;, &#39;concno2&#39;, &#39;conco3&#39;, &#39;concco&#39;, &#39;concprcpso4&#39;, &#39;concprcpso4t&#39;, &#39;concprcpso4c&#39;, &#39;concprcpno3&#39;, &#39;concprcpso4scavenging&#39;, &#39;concprcpnh4&#39;, &#39;wetso4&#39;, &#39;wetconcso4&#39;, &#39;wetso4t&#39;, &#39;wetso4c&#39;, &#39;wetoxn&#39;, &#39;wetrdn&#39;, &#39;wetnh4&#39;, &#39;precip&#39;, &#39;wetconcph&#39;, &#39;wetno3&#39;, &#39;scavratioso4&#39;, &#39;test&#39;] pya.get_variable(&#39;scatc550dryaer&#39;) scatc550dryaer standard_name: None; Unit: 1/Mm data = reader.read(vars_to_retrieve=&#39;scatc550dryaer&#39;, station_names=&#39;B*&#39;) Retrieving EBAS files for variables [&#39;scatc550dryaer&#39;] Reading files 1-13 of 129 (ReadEbas)...",
+        "excerpt": "trend note plotted line appears white since close cf notebook exampleaasetalread case strong positive",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/example_ebas_read.html",
         "teaser":null},{
         "title": "Pyaerocom",
         
-        "excerpt":
-            "             Pyaerocom  In this section, pyaerocom python is being introduced along aith a jupyter notebook example.  From the jupyter notebook a presentation has been automatically generated (File --&gt; export as Slides).                     ",
+        "excerpt": "pyaerocom jupyter notebook slides section python being introduced along aith example presentation nordicesmhub github io negi abisko training jglissintromodelevaluationpyaerocom html automatically generated file export",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/intro.html",
         "teaser":null},{
         "title": "pyaerocom jupyter notebook",
         
-        "excerpt":
-            "Model evaluation using pyaerocom After this introduction, you will know how to: Search for model and observation data in the provided database Read model and observation data Explore the data (GriddedData and UngriddedData) Colocate data and assess model performance (ColocatedData) Convert from pyaerocom to other common libraries such as pandas or xarray Store intermediate results as NetCDF that may be used for further analysis. Pyaerocom API Get started import pyaerocom as pya import matplotlib.pyplot as plt from warnings import filterwarnings filterwarnings(&#39;ignore&#39;) pya.change_verbosity(&#39;critical&#39;, log=pya.const.print_log) # don&#39;t output warnings pya.__version__ &#39;0.8.1.dev3&#39; Please make sure to use version 0.8.1.dev2 (or later). If you...",
+        "excerpt": "data model object pyaerocom read griddeddata observation variable modeldata e g colocate colocateddata netcdf timeseries using provided ungriddeddata pandas xarray version class cube accessed via different files aod metadata file evaluation introduction api png directory testdata available reading iris dataarray extract plot ungridded locations per level stations into essentially dictionary contains series simply colocation obsdata save colocated example steps network colocator same objects bias after search database explore assess performance convert common libraries such store intermediate results used further analysis pyaerocombasicflowchart get started please sure dev later earlier follow instructions github com nordicesmhub negi abisko blob master content training localpyaerocom",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/jgliss_intro_model_evaluation_pyaerocom.html",
         "teaser":null},{
         "title": "Install pyaerocom dev",
         
-        "excerpt":
-            "Managing pyaerocom version Pyaerocom python package is open source project and is licensed under GNU General Public License v3.0. Pyaerocom stable version The latest release of pyaerocom is available via conda-forge and PyPi and has been installed in Abisko JupyterHub. If you need to install pyaerocom on your local laptop, follow the documentation. Pyaerocom development version Pyaerocom is open source and it is fast evolving so during the NEGI Abisko course, you may need to install a development version. A development version is not a release yet but you can install it in your jupyterLab environment on Abisko JupyterHub. Pyaerocom...",
+        "excerpt": "pyaerocom version abisko install development python open jupyterhub uiogeo apps sigma branch vdev kernel source license github com metno master stable release available conda forge org pypi need not jupyterlab check terminal user clone shell git notebook restart managing package project licensed under gnu general public v blob latest via installed local laptop follow documentation met fast evolving during negi course yet environment versions located different branches readthedocs io en html b example above installing cd setup py opened running sure menu re run cells import our case returns dev",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/local_pyaerocom.html",
         "teaser":null},{
         "title": "How to compare model with model (gridded-gridded)",
         
-        "excerpt":
-            "Pyaerocom Colocation gridded-gridded import pyaerocom as pya import matplotlib.pyplot as plt from warnings import filterwarnings filterwarnings(&#39;ignore&#39;) pya.change_verbosity(&#39;critical&#39;, log=pya.const.print_log) # don&#39;t output warnings pya.__version__ &#39;0.8.1.dev4&#39; pya.const.BASEDIR = &#39;/home/notebook/shared-ns1000k/inputs/pyaerocom-testdata/&#39; Read model CMIP6 CMIP6_TEST_DIR = &#39;shared-cmip6-for-ns1000k/historical/NorESM2-LM/r1i1p1f1/&#39; CMIP6_TEST_FILE = &#39;emiisop_AERmon_NorESM2-LM_historical_r1i1p1f1_gn_185001-185912.nc&#39; path = CMIP6_TEST_DIR + CMIP6_TEST_FILE modeldata_cmip6 = pya.GriddedData(path, var_name=&#39;emiisop&#39;) modeldata_cmip6.metadata[&#39;ts_type&#39;] = &#39;monthly&#39; # needed for colocation modeldata_cmip6.ts_type &#39;monthly&#39; Read UKESM1-0-LL UKESM1_TEST_DIR = &#39;shared-cmip6-for-ns1000k/historical/UKESM1-0-LL/r1i1p1f2/&#39; UKESM1_TEST_FILE = &#39;emiisop_AERmon_UKESM1-0-LL_historical_r1i1p1f2_gn_185001-194912.nc&#39; path = UKESM1_TEST_DIR + UKESM1_TEST_FILE modeldata_ukesm1 = pya.GriddedData(path, var_name=&#39;emiisop&#39;) modeldata_ukesm1.metadata[&#39;ts_type&#39;] = &#39;monthly&#39; # needed for colocation modeldata_ukesm1.ts_type &#39;monthly&#39; modeldata_cmip6.start,modeldata_cmip6.stop (numpy.datetime64(&#39;1850-01-01T00:00:00.000000&#39;), numpy.datetime64(&#39;1859-12-31T23:59:59.999999&#39;)) modeldata_ukesm1.start,modeldata_ukesm1.stop (numpy.datetime64(&#39;1850-01-01T00:00:00.000000&#39;), numpy.datetime64(&#39;1949-12-31T23:59:59.999999&#39;)) try: coldata = pya.colocation.colocate_gridded_gridded(modeldata_cmip6, modeldata_ukesm1, start=1850, ts_type=&#39;monthly&#39;) stats = coldata.calc_statistics() except Exception as e:...",
+        "excerpt": "gridded read pyaerocom colocation model cmip ukesm ll",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/pyaerocom/pyaerocom_gridded_gridded.html",
         "teaser":null},{
         "title": "Python examples",
         
-        "excerpt":
-            "             Python examples                     ",
+        "excerpt": "python examples",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/python_examples.html",
         "teaser":null},{
         "title": "Visualize in Python",
         
-        "excerpt":
-            "             Visualize and analyze in python  Examples for analyzing and visualizing data in python are available here.  To get it on the Jupyterhub, open a terminal and clone the repository:  git clone https://github.com/daliagachc/negi-stuff.git  Then browse into the folders. The notebooks presented during the NEGI-Abisko lecture are in negi-stuff/negi_stuff/presentations/intro_jlab/.                     ",
+        "excerpt": "negi stuff python github com daliagachc abisko terminal clone git visualize analyze examples analyzing visualizing data available here get jupyterhub uiogeo apps sigma open jupyterlab readthedocs io en stable user html repository shell browse into folders notebooks presented during lecture negistuff presentations introjlab",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/visualize/intro.html",
         "teaser":null},{
         "title": "Aerosol distribution plotting",
         
-        "excerpt":
-            "Aerosol size distribution observations import pandas as pd import numpy as np import seaborn as sns import matplotlib.pyplot as plt from matplotlib.colors import LogNorm #import matplotlib.dates as mdates %matplotlib inline Zeppelin Station 2010 hourly data filename = &quot;shared-ns1000k/inputs/Aerosol_sizedist_obs/Zeppelin_2010_hourly.csv&quot; mydateparser = lambda x: pd.datetime.strptime(x, &quot;%Y %m %d %H %M&quot;) data = pd.read_csv(filename, parse_dates=[[&#39;0&#39;, &#39;0.1&#39;, &#39;0.2&#39;, &#39;0.3&#39;, &#39;0.4&#39;]], date_parser = mydateparser) data.rename(columns={&#39;0_0.1_0.2_0.3_0.4&#39;:&#39;date&#39;}, inplace = True) data.head() date 0.5 20 22.44 25.179 28.251 31.698 35.566 39.905 44.774 ... 200 224.4 251.79 282.51 316.98 355.66 399.05 447.74 502.38 0.6 0 2010-01-01 00:00:00 127.010 9.2141 13.324 18.261 23.245 30.351 39.469 47.835 47.834 ... 115.400 168.74...",
+        "excerpt": "aerosol size distribution observations zeppelin station hourly data",
         "categories": [],
         "tags": [],
         "url": "http://nordicesmhub.github.io/NEGI-Abisko-2019/training/visualize/zeppelin_size_dist.html",
         "teaser":null},]
 </script>
             </div>
-            <nav class="c-page__nav">
+            <div class="c-textbook__footer" id="textbook_footer">
+              
+<nav class="c-page__nav">
   
 
   
 </nav>
 
-            <footer>
+              <footer>
   <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
 </footer>
+
+            </div>
 
         </div>
       </main>
