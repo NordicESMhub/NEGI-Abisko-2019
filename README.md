@@ -1,5 +1,6 @@
 # NEGI-Abisko-2019
 
+[![DOI](https://zenodo.org/badge/209817246.svg)](https://zenodo.org/badge/latestdoi/209817246)
 
 *Climate science at high latitudes: eScience for linking Arctic measurements and modeling.*
 
